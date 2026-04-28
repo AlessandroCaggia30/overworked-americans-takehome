@@ -1,0 +1,206 @@
+=== burda_hamermesh_weil_2013_NBER13000 ===
+len_chars=86678
+
+--- HEAD (first 4500 chars) ---
+                                NBER WORKING PAPER SERIES
+
+
+
+
+                       TOTAL WORK, GENDER AND SOCIAL NORMS
+
+                                          Michael Burda
+                                       Daniel S. Hamermesh
+                                          Philippe Weil
+
+                                        Working Paper 13000
+                                http://www.nber.org/papers/w13000
+
+
+                      NATIONAL BUREAU OF ECONOMIC RESEARCH
+                               1050 Massachusetts Avenue
+                                 Cambridge, MA 02138
+                                     March 2007
+
+
+
+
+We thank Olivier Blanchard, Tito Boeri, Micael Castanheira, Georg Kirchsteiger, Christopher Pissarides,
+and participants in seminars at several universities and conferences for helpful comments, and Rick
+Evans and Juliane Scheffel for their expert research assistance. This paper was written while Burda
+and Weil were Wim Duisenberg Research Fellows at the European Central Bank. The views expressed
+herein are those of the author(s) and do not necessarily reflect the views of the National Bureau of
+Economic Research.
+
+© 2007 by Michael Burda, Daniel S. Hamermesh, and Philippe Weil. All rights reserved. Short sections
+of text, not to exceed two paragraphs, may be quoted without explicit permission provided that full
+credit, including © notice, is given to the source.
+Total Work, Gender and Social Norms
+Michael Burda, Daniel S. Hamermesh, and Philippe Weil
+NBER Working Paper No. 13000
+March 2007
+JEL No. D13,J16,J22
+
+                                              ABSTRACT
+
+Using time-diary data from 25 countries, we demonstrate that there is a negative relationship between
+real GDP per capita and the female-male difference in total work time per day -- the sum of work for
+pay and work at home. In rich northern countries on four continents, including the United States, there
+is no difference -- men and women do the same amount of total work. This latter fact has been presented
+before by several sociologists for a few rich countries; but our survey results show that labor economists,
+macroeconomists, the general public and sociologists are unaware of it and instead believe that women
+perform more total work. The facts do not arise from gender differences in the price of time (as measured
+by market wages), as women's total work is further below men's where their relative wages are lower.
+Additional tests using U.S. and German data show that they do not arise from differences in marital
+bargaining, as gender equality is not associated with marital status; nor do they stem from family norms,
+since most of the variance in the gender total work difference is due to within-couple differences. We
+offer a theory of social norms to explain the facts. The social-norm explanation is better able to account
+for within-education group and within-region gender differences in total work being smaller than inter-group
+differences. It is consistent with evidence using the World Values Surveys that female total work is
+relatively greater than men's where both men and women believe that scarce jobs should be offered
+to men first.
+
+Michael Burda                                        Philippe Weil
+Department of Economics                              Universite Libre de Bruxelles
+D10178 Berlin                                        ECARES
+Germany                                              50, Avenue Roosevelt CP 114
+burda@wiwi.hu-berlin.de                              B-1050 Brussels BELGIUM
+                                                     and NBER
+Daniel S. Hamermesh                                  philippe.weil@ulb.ac.be
+Department of Economics
+University of Texas
+Austin, TX 78712-1173
+and NBER
+hamermes@eco.utexas.edu
+1 Introduction
+
+It is well-known that men engage in more market work—have higher participation rates and
+
+longer workweeks conditional on participation—than women. What has not been thoroughly
+
+examined, and what has been untouched by economists, is the issue of gender differences in the
+
+total amount of work—in the market and at home. Despite the obvious importance of looking
+
+more closely at how people spend their non-work time, relatively little attention has been paid to
+
+describing its patterns and examining its determinants. A few studies have considered how the
+
+price of time affects the distribution of non-work time (Kooreman and Kapteyn, 1987; Biddle and
+
+Hamermesh, 1990); and Aguiar
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+
+discussion to why one type of work is more onerous than another. Why, e.g., is the average
+
+minute spent in an office dealing with recalcitrant colleagues and demanding supervisors more
+
+pleasurable than the average minute spent shopping, cooking or taking care of children?
+
+        A social norm of iso-work imposes restrictions on older household bargaining models
+
+(e.g., McElroy and Horney, 1981). With gender equality in total work, the only room for
+
+changing prices and threat points to have any effect on choices is through gender differences in
+
+the valuation of marginal changes in time spent in market or home work. While these are
+
+possible, their implications are much harder to trace than in the absence of an iso-work norm.
+
+Consider too the choice of home versus market work, which is generally determined by equating
+
+the marginal value product of household time to the real wage measured in terms of comparable
+
+market output (e.g., Gronau, 1980). To the extent that social norms constrain agents to a value of
+
+labor supply that pays little attention to productivity in household production, one or more
+
+efficiency conditions in the standard model of household behavior would need to be modified.
+
+
+
+
+        21
+          Doepke and Tertilt (2007) present a model in which self-interest motivated by inter-generational
+concerns leads men to use their power to grant equal rights to women.
+
+                                                   24
+REFERENCES
+
+Mark Aguiar and Erik Hurst, “Measuring Trends in Leisure: The Allocation of Time over Five
+      Decades,” Quarterly Journal of Economics, 2007, forthcoming.
+
+George Akerlof, “A Theory of Social Custom, of Which Unemployment May Be One
+      Consequence,” Quarterly Journal of Economics, 94 (June 1980): 749-775.
+
+Christel Aliaga and Karin Winqvist, “How Women and Men Spend Their Time” Statistics in
+        Focus: Population and Social Conditions. Eurostat, 2003.
+
+B. Douglas Bernheim, “The Economics of Conformity,” Journal of Political Economy, 102
+      (October 1994): 841-877.
+
+Jeff Biddle and Daniel Hamermesh, “Sleep and the Allocation of Time,” Journal of Political
+        Economy, 98 (October 1990): 922-43.
+
+Michael Bittman and Judy Wacjman, “The Rush Hour: The Character of Leisure Time and
+       Gender Equity,” Social Forces, 79 (September 2000): 165-89.
+
+C. Mark Blackden and Quentin Wooden, eds., Gender, Time Use, and Poverty in Sub-Saharann
+       Africa. Washington, DC: World Bank, 2006.
+
+Michael Burda and Philippe Weil, “Blue Laws,” Unpublished Paper, Humboldt University, 2000.
+
+-----------------, Daniel Hamermesh and Philippe Weil, “The Distribution of Total Work in the EU
+          and US,” CEPR Discussion Paper No. 2270, August 2006.
+
+Colin Clark, The Conditions of Economic Progress. London: Macmillan, 1940.
+
+Harold Cole, George Mailath and Andrew Postlewaite, “Social Norms, Savings Behavior and
+       Growth,” Journal of Political Economy, 100 (December 1992): 1092-1125.
+
+Dan Devroye and Richard Freeman, “Does Inequality in Skills Explain Inequality of Earnings
+      Across Advanced Countries,” National Bureau of Economic Research, Working Paper
+      No. 8140, February 2001.
+
+Matthias Doepke and Michèle Tertilt, “Women’s Liberation: What’s in It for Men?” Unpublished
+       paper, Stanford University, February 2007.
+
+Jon Elster, “Social Norms and Economic Theory,” Journal of Economic Theory, 3 (Fall 1989):
+        99-117.
+
+Nicole Fortin, “Gender Role Attitudes and Labour-Market Outcomes of Women across OECD
+        Countries,” Oxford Review of Economic Policy, 21 (2005): 416-438.
+
+Jean Fourastié, Le Grand Espoir du XXe Siècle; Progrès Technique, Progrès Économique,
+       Progrès Social. Paris: Presses Universitaires de France, 1949.
+
+Jonathan Gershuny, Changing Times: Work and Leisure in Postindustrial Society. Oxford:
+       Oxford University Press, 2000.
+
+                                              25
+Luisella Goldschmidt-Clermont and Elisabetta Pagnossin-Aligisakis, “Measures of Unrecorded
+        Economic Activities in Fourteen Countries,” in Occasional Paper # 20. New York: UN
+        Development Report Office, 1995.
+
+Jeremy Greenwood, Richard Rogerson and Randall Wright, “Household Production in Real
+       Business Cycle Theory,” in Thomas Cooley, ed., Frontiers of Business Cycle Research.
+       Princeton, NJ: Princeton University Press, 1995, pp. 157-174.
+
+Reuben Gronau, “Home Production: A Forgotten Industry,” Review of Economics and Stat
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+the virtue of forcing respondents to provide a time allocation that adds to 24 hours in a day. Also,
+female total work reduces to 1.1 hours per week (9 minutes per day) in 2003. Thus even though their
+Respondents were allowed nine possible responses, ranging from a 25 percent excess of female
+aggregate, in Table 5 we present means of market work and home work by gender and marital
+and towards L∗ . The coefficient α is small, and optimal leisure is close to the norm, if the social
+Table 6 shows the average minutes of market and total work by gender for each of the
+Appendix Table 1), we graph them in relation to the female-male difference in total work for the
+presented in Figure 1 the correlation of the female-male difference in total work with the deviation of the
+Figure 1. Scatter and Linear Regression of Male Total Work Against Female Total Work Non-
+Figure 2. Difference between Female and Male Total Work Compared to Real GDP
+Table 4. Impact of the Gender Pay Gap and Real GDP on Gender Work Gaps
+Figure 4a. Gender Total Work Differences and Female Attitudes to Job Scarcity, 16
+Figure 4b. Gender Total Work Differences and Male Attitudes to Job Scarcity, 16

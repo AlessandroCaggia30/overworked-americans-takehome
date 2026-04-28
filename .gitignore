@@ -1,0 +1,28 @@
+# LaTeX build artefacts
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# Uncompressed copy of large OECD CSV (keep .gz only)
+research/oecd_emp_long.csv
+
+# Tmp downloads
+*.tmp

@@ -1,0 +1,100 @@
+=== stevenson_wolfers_2008_Brookings_NBER14282 ===
+len_chars=229695
+
+--- HEAD (first 4500 chars) ---
+                               NBER WORKING PAPER SERIES
+
+
+
+
+                 ECONOMIC GROWTH AND SUBJECTIVE WELL-BEING:
+                     REASSESSING THE EASTERLIN PARADOX
+
+                                         Betsey Stevenson
+                                          Justin Wolfers
+
+                                       Working Paper 14282
+                               http://www.nber.org/papers/w14282
+
+
+                     NATIONAL BUREAU OF ECONOMIC RESEARCH
+                              1050 Massachusetts Avenue
+                                Cambridge, MA 02138
+                                    August 2008
+
+
+
+
+The authors would like to thank Gary Becker, David Blanchflower, Angus Deaton, Richard Easterlin,
+Carol Graham, Daniel Kahneman, Alan Krueger, David Laibson, Andrew Oswald, and Luis Rayo
+for useful discussions, and Gale Muller and his colleagues at Gallup for access to and help with the
+Gallup World Poll. Rohak Doshi and Michael L. Woodford provided excellent research assistance.
+We would like to thank the Zicklin Center for Business Ethics Research and the Zell/Lurie Real Estate
+Center for generous research support. The data and Stata programs used in this paper are available
+for download from the authors' homepages. The views expressed herein are those of the author(s) and
+do not necessarily reflect the views of the National Bureau of Economic Research.
+
+NBER working papers are circulated for discussion and comment purposes. They have not been peer-
+reviewed or been subject to the review by the NBER Board of Directors that accompanies official
+NBER publications.
+
+© 2008 by Betsey Stevenson and Justin Wolfers. All rights reserved. Short sections of text, not to
+exceed two paragraphs, may be quoted without explicit permission provided that full credit, including
+© notice, is given to the source.
+Economic Growth and Subjective Well-Being: Reassessing the Easterlin Paradox
+Betsey Stevenson and Justin Wolfers
+NBER Working Paper No. 14282
+August 2008
+JEL No. D6,I3,J1
+
+                                            ABSTRACT
+
+The "Easterlin paradox" suggests that there is no link between a society's economic development and
+its average level of happiness. We re-assess this paradox analyzing multiple rich datasets spanning
+many decades. Using recent data on a broader array of countries, we establish a clear positive link
+between average levels of subjective well-being and GDP per capita across countries, and find no
+evidence of a satiation point beyond which wealthier countries have no further increases in subjective
+well-being. We show that the estimated relationship is consistent across many datasets and is similar
+to the relationship between subject well-being and income observed within countries. Finally, examining
+the relationship between changes in subjective well-being and income over time within countries we
+find economic growth associated with rising happiness. Together these findings indicate a clear role
+for absolute income and a more limited role for relative income comparisons in determining happiness.
+
+
+Betsey Stevenson
+The Wharton School
+University of Pennsylvania
+1454 Steinberg - Dietrich Hall
+3620 Locust Walk
+Philadelphia, PA 19104
+and NBER
+betseys@wharton.upenn.edu
+
+Justin Wolfers
+Business and Public Policy Department
+Wharton School, University of Pennsylvania
+3620 Locust Walk
+Room 1456 Steinberg-Deitrich Hall
+Philadelphia, PA 19104-6372
+and NBER
+jwolfers@wharton.upenn.edu
+I.       Introduction
+           Economic growth has long been considered an important goal of economic policy, yet in recent years some have
+begun to argue against further trying to raise the material standard of living, claiming that such increases will do little to
+raise well-being. These arguments are based on a key finding in the emerging literature on subjective well-being, called
+the “Easterlin paradox,” which suggests that there is no link between the level of economic development of a society and
+the overall happiness of its members. In several papers Richard Easterlin has examined the relationship between happiness
+and GDP both across countries and within individual countries through time (1974, 1995, 2005a, 2005b). In both types of
+analysis he finds little significant evidence of a link between aggregate income and average happiness.
+
+           In contrast, there is robust evidence that within countries those with more income are happier. These two
+seemingly discordant findings—that income is an import
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+capita, with robust standard errors clustered by country; the second column adds controls for gender and a quartic in age
+household income, controlling for gender and a quartic in age, entered separately for men and women. The coefficient
+The upward trend in life satisfaction across the European Union is not widely understood, and in Figure 17, we
+attention on the appropriate macroeconomic aggregate (in the bottom panel of Figure 20), it can be seen that the U.S.
+some consistency in the units, we report actual probit coefficients rather than the elasticity of predicted probabilities.
+country × wave fixed effects plus a quartic in age, gender, their interaction, and indicators for missing age or sex. See notes to table 2 for details.
+Figure 17. Trends in Life Satisfaction in the European Union

@@ -1,0 +1,96 @@
+=== bick_fuchs_2018_NBER22255 ===
+len_chars=205754
+
+--- HEAD (first 4500 chars) ---
+                              NBER WORKING PAPER SERIES
+
+
+
+
+     USING A FREE PERMIT RULE TO FORECAST THE MARGINAL ABATEMENT
+                    COST OF PROPOSED CLIMATE POLICY
+
+                                          Kyle C. Meng
+
+                                       Working Paper 22255
+                               http://www.nber.org/papers/w22255
+
+
+                     NATIONAL BUREAU OF ECONOMIC RESEARCH
+                              1050 Massachusetts Avenue
+                                Cambridge, MA 02138
+                                     May 2016
+
+
+
+
+I thank Ethan Kaplan, Wolfram Schlenker, and in particular Bernard Salani´e for their guidance.
+This paper has benefited from suggestions from Joe Aldy, Doug Almond, Scott Barrett, Linda
+Bui, Olivier Deschênes, Ray Fisman, Olle Folke, Larry Goulder, Michael Greenstone, Rema
+Hanna, Geoff Heal, Solomon Hsiang, Nat Keohane, Wojciech Kopczuk, Gary Libecap, Erich
+Muehlegger, Suresh Naidu, Matt Neidell, Paulina Oliva, Ryan Oprea, Steve Salant, Doug
+Steigerwald, Tom Vogl, Gernot Wagner, Reed Walker, Marty Weitzman, Justin Wolfers, and
+seminar participants at Columbia University, Environmental Defense Fund, Georgia Tech,
+Harvard Kennedy School, IZA, NBER EEE Summer Institute, New York Fed, Rutgers, Stanford,
+UC Irvine, UC Santa Barbara, University of Connecticut, and University of Michigan. I am
+particularly grateful to Richard Goettle, Jennifer Morris, and Sergey Paltsev for sharing output
+from the IGEM and EPPA models. Andy Bilich provided excellent research assistance. All
+remaining errors are my own. I declare that I have no relevant or material financial interests that
+relate to the research described in this paper. The views expressed herein are those of the author
+and do not necessarily reflect the views of the National Bureau of Economic Research.
+
+NBER working papers are circulated for discussion and comment purposes. They have not been
+peer-reviewed or been subject to the review by the NBER Board of Directors that accompanies
+official NBER publications.
+
+© 2016 by Kyle C. Meng. All rights reserved. Short sections of text, not to exceed two
+paragraphs, may be quoted without explicit permission provided that full credit, including ©
+notice, is given to the source.
+Using a Free Permit Rule to Forecast the Marginal Abatement Cost of Proposed Climate Policy
+Kyle C. Meng
+NBER Working Paper No. 22255
+May 2016, Revised October 2016
+JEL No. G14,Q52,Q54
+
+                                          ABSTRACT
+
+This paper develops a method for forecasting the marginal abatement cost (MAC) of climate
+policy using three features of the failed Waxman-Markey bill. First, the MAC is revealed by the
+price of traded permits. Second, the permit price is estimated using a regression discontinuity
+design (RDD) comparing stock returns of firms on either side of the policy’s free permit cutoff
+rule. Third, because Waxman-Markey was never implemented, I extend the RDD approach to
+incorporate prediction market prices which normalize estimates by policy realization
+probabilities. A final bounding analysis recovers a MAC range of $5 to $19 per ton CO2e.
+
+
+Kyle C. Meng
+Bren School of Environmental
+Science and Management
+Department of Economics
+University of California, Santa Barbara
+4416 Bren Hall
+Santa Barbara, CA 93106
+and NBER
+kmeng@bren.ucsb.edu
+1     Introduction
+      “Overall, Waxman-Markey reduces gross domestic product by an average of $393
+      billion annually between 2012 and 2035...”
+                                            -The Heritage Foundation (6/22/2009)1
+
+
+      “...under [Waxman-Markey]... the net annual economy-wide cost of the cap-and-
+      trade program in 2020 would be $22 billion.”
+
+                                                 -Center for American Progress (6/22/2009)2
+
+   Decisions over proposed policies rely on forecasting costs and benefits. In some cases,
+program evaluation of similar past policies may be informative. However, when the policy
+of interest is relatively novel, policymakers often turn to economic models with poorly con-
+strained primitive parameters. While recent studies have strengthened our understanding of
+climate policy benefits,3 current estimates of climate policy costs are characterized by this
+dilemma. This challenge is particularly relevant for the United States which, despite be-
+ing the largest cumulative greenhouse gas emitter, has yet to implement a national climate
+policy. Instead, recent U.S. climate policy debate
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+fixed e↵ects and an aggregate market return index multiplied by a firm-specific coefficient.

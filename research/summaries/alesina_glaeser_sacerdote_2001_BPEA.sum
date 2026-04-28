@@ -1,0 +1,105 @@
+=== alesina_glaeser_sacerdote_2001_BPEA ===
+len_chars=186961
+
+--- HEAD (first 4500 chars) ---
+                                 NBER WORKING PAPER SERIES
+
+
+
+
+        WHY DOESN’T THE US HAVE A EUROPEAN-STYLE WELFARE SYSTEM?
+
+
+                                            Alberto Alesina
+                                            Edward Glaeser
+                                            Bruce Sacerdote
+
+
+                                          Working Paper 8524
+                                  http://www.nber.org/papers/w8524
+
+
+                       NATIONAL BUREAU OF ECONOMIC RESEARCH
+                                1050 Massachusetts Avenue
+                                  Cambridge, MA 02138
+                                      October 2001
+
+
+
+
+The paper was presented at the Brookings Panel on Economic Activity, Sept 7, 2001. We are grateful to our
+discussants Steve Durlauf and Frank Levy and the organizers Bill Brainard and George Perry for very useful
+suggestions. We also thank Benjamin Friedman, Roberto Perotti, Andrei Shleifer, Theda Skocpol and a large
+number of conference participants for very useful comments. We thank the National Science Foundation for
+financial assistance through a grant with the NBER. Arnaud Devleeschauwer and Jesse Shapiro provided
+excellent research assistance. The views expressed herein are those of the authors and not necessarily those
+of the National Bureau of Economic Research.
+
+
+© 2001 by Alberto Alesina, Edward Glaeser and Bruce Sacerdote. All rights reserved. Short sections of
+text, not to exceed two paragraphs, may be quoted without explicit permission provided that full credit,
+including © notice, is given to the source.
+Why Doesn’t the US Have a European-Style Welfare System?
+Alberto Alesina, Edward Glaeser and Bruce Sacerdote
+NBER Working Paper No. 8524
+October 2001
+
+
+
+                                               ABSTRACT
+
+
+        European countries are much more generous to the poor relative to the US level of generosity.
+Economic models suggest that redistribution is a function of the variance and skewness of the pre-tax
+income distribution, the volatility of income (perhaps because of trade shocks), the social costs of taxation
+and the expected income mobility of the median voter. None of these factors appear to explain the
+differences between the US and Europe. Instead, the differences appear to be the result of racial
+heterogeneity in the US and American political institutions. Racial animosity in the US makes
+redistribution to the poor, who are disproportionately black, unappealing to many voters. American
+political institutions limited the growth of a socialist party, and more generally limited the political power
+of the poor.
+
+
+
+
+Alberto Alesina                                                    Edward Glaeser
+Department of Economics                                            Department of Economics
+Harvard University                                                 Harvard University
+Cambridge, MA 02138                                                Cambridge, MA 02138
+and NBER                                                           and NBER
+aalesina@harvard.edu                                               eglaeser@kuznets.harvard.edu
+
+Bruce Sacerdote
+Department of Economics
+Dartmouth College
+Hanover, NH 03755-3514
+and NBER
+bruce.i.sacerdote@dartmouth.edu
+1. INTRODUCTION
+
+European governments redistribute income amongst their citizens on a much larger scale
+than does the United States government. European social programs are more generous
+and reach a larger share of citizens. European tax systems are more progressive. Europe
+has more intrusive regulations that are often meant to protect the poor. In this paper we
+try to understand why.
+
+The literature on “the size of government” is rich and varied. However, here we do not
+focus on the size of government per se, but on the redistributive side of government
+policies. Thus, our goal is narrower than answering the question “what explains the size
+of government,” since we focus on a single, though increasingly important, role of fiscal
+policy. In another sense, our focus is broader, because redistributive polices go beyond
+the government budget—think, for instance, to labor market policies.
+
+We consider economic, political and behavioral explanations for the differences between
+the US and Europe. Economic explanations focus on the variance and the skewness of
+the pre-tax, pre-transfer income distribution, the social costs of taxation, the volatility of
+income, and the expected income changes for the me
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+The pre-tax Gini coefficient for the US is 38.5. The pre-tax Gini coefficient averaged
+earners take home 43.5 percent of the pre-tax dollars in the country. Across European
+countries, on average the top quintile earns 37.1 percent of pre-tax dollars in the county,
+and in no country did the top quintile earn more than 39 percent of total pre-tax dollars.
+the US. The median person in the top income quintile in the US works 45 hours per
+quintile work 27 hours per week on average. This includes all males 25-34, but if we
+Figure 2.1: Difference in marginal tax rates, in %, between the US and EU15 (excluding Denmark)

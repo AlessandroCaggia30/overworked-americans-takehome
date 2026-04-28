@@ -1,0 +1,205 @@
+=== krusell_mukoyama_rogerson_sahin_2017_RED ===
+len_chars=66369
+
+--- HEAD (first 4500 chars) ---
+                               NBER WORKING PAPER SERIES
+
+
+
+
+                      ARE CEOS EXPECTED UTILITY MAXIMIZERS?
+
+                                            John List
+                                          Charles Mason
+
+                                       Working Paper 15453
+                               http://www.nber.org/papers/w15453
+
+
+                     NATIONAL BUREAU OF ECONOMIC RESEARCH
+                              1050 Massachusetts Avenue
+                                Cambridge, MA 02138
+                                    October 2009
+
+
+
+
+Thanks to Colin Camerer, Glenn Harrison, Kerry Smith, Chris Starmer, Robert Sugden, David Zilberman,
+and two referees for supplying comments. We thank Kenneth Train for supplying the GAUSS program
+with which we conducted our empirical estimation. An earlier version of this paper was presented
+at the World Conference for Environmental and Natural Resource Economists and the Southern Economic
+Association Meetings. The views expressed herein are those of the author(s) and do not necessarily
+reflect the views of the National Bureau of Economic Research.
+
+NBER working papers are circulated for discussion and comment purposes. They have not been peer-
+reviewed or been subject to the review by the NBER Board of Directors that accompanies official
+NBER publications.
+
+© 2009 by John List and Charles Mason. All rights reserved. Short sections of text, not to exceed two
+paragraphs, may be quoted without explicit permission provided that full credit, including © notice,
+is given to the source.
+Are CEOs Expected Utility Maximizers?
+John List and Charles Mason
+NBER Working Paper No. 15453
+October 2009
+JEL No. C9,C91,C93,Q5,Q58
+
+                                            ABSTRACT
+
+Are individuals expected utility maximizers? This question represents much more than academic curiosity.
+In a normative sense, at stake are the fundamental underpinnings of the bulk of the last half-century’s
+models of choice under uncertainty. From a positive perspective, the ubiquitous use of benefit-cost
+analysis across government agencies renders the expected utility maximization paradigm literally the
+only game in town. In this study, we advance the literature by exploring CEO’s preferences over small
+probability, high loss lotteries. Using undergraduate students as our experimental control group, we
+find that both our CEO and student subject pools exhibit frequent and large departures from expected
+utility theory. In addition, as the extreme payoffs become more likely CEOs exhibit greater aversion
+to risk. Our results suggest that use of the expected utility paradigm in decision making substantially
+underestimates society’s willingness to pay to reduce risk in small probability, high loss events.
+
+
+John List
+Department of Economics
+University of Chicago
+1126 East 59th
+Chicago, IL 60637
+and NBER
+jlist@uchicago.edu
+
+Charles Mason
+Department of Economics and Finance
+University of Wyoming
+1000 E. University Avenue
+Laramie, WY 82071-3985
+bambuzlr@uwyo.edu
+1. Introduction
+
+        Government officials around the globe are currently mapping a course of action to deal
+
+efficiently with terrorism risk, chemical plant security, potential nuclear accidents, climate change,
+
+and biodiversity loss. One common thread linking these high-profile issues is that most experts
+
+agree they are small probability, high loss events. In the U.S., the Bush Administration and both
+
+Houses continue to debate the most proficient level of government action in each of the specific
+
+cases with one ubiquitous line of reasoning: the expected costs and expected benefits of the various
+
+policy proposals must be compared and contrasted. Such an approach, which has become the
+
+hallmark of public policy decision making around the globe, implicitly assumes that citizens
+
+maximize expected utility (see, e.g., Chichilnisky and Heal, 1993).
+
+        While the expected utility (EU) approach conveniently models probabilistic choice, a great
+
+deal of experimental evidence calls into question the empirical validity of the EU maximization
+
+paradigm (see, e.g., Machina, 1987; Viscusi, 1992; Thaler, 1992).1                    An influential group of
+
+commentators has argued that the experimental evidence warrants a major revision to the current
+
+public policy framework, but it is important to recognize that the body of evidence is based largely
+
+on student behavior over positive outcomes (see, e.g., Starmer, 2000). Since many im
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+
+summary information. For each of the 40 lottery comparisons, we identified the percentage of
+
+subjects within each cohort (students or CEOs) that indicated a preference for option A over
+
+option B, and then computed the difference between the fraction of CEOs that preferred option A
+
+and the fraction of students that preferred option A. For each of the 40 comparisons, we also
+
+calculated the difference between the probability ascribed to the worst outcome under the two
+
+options (i.e., p1d = p1A - p1B, where p1k is the probability ascribed to event 1 under option k = A
+
+or B). A graphical representation of the relation between these two differences is contained in
+
+Figure 2. In that diagram, we plot the difference in probabilities, p1d, on the x-axis, and the
+
+difference between the fraction of CEOs and the fraction of students selecting option A for a
+
+given comparison (denoted aved) on the y-axis. A trend line is overlaid on this scatter plot.
+
+While this characterization of the data is quite rough, it does point to an important relationship.
+
+Specifically, there seems to be an indication that students are slightly less likely than CEOs to
+
+
+
+
+                                                8
+choose options with a larger probability on the worst outcome. This might indicate an overall
+
+pattern of students exhibiting a greater degree of risk aversion than CEOs, or it might be
+
+associated with differences in tendencies to exhibit non-expected utility maximization between
+
+the two groups.
+
+         To better understand the explanatory power of each possibility, we first analyze a
+
+regression model that assumes subject behavior is consistent with expected utility maximization.
+
+If subject i makes her choice on the basis of expected utility, then the criterion for selecting
+
+option A is
+
+                             (p1A – p1B)ui1 + (p2A – p2B)ui2 + (p3A – p3B)ui3 > 0,                                         (2)
+
+where pjk is the probability that event j = 1, 2 or 3 will occur under option k = A or B, and uij is
+
+the von Neumann–Morgenstern (VNM) utility that agent i ascribes to event j. Since probabilities
+
+must sum to one, we can simplify the expression on the left side of equation (2). Moreover,
+
+because the VNM utility function is only uniquely defined up to a monotonic transformation, we
+
+impose the normalization ui1 = 0. The resulting criterion becomes
+
+                             ui3(p3A – p3B) + ui2(p3B – p3A + p1B – p1A) > 0.                                              (3)
+
+We note that a measure of the risk aversion associated with agent i’s VNM utility function is7
+
+                                       qi = ui3/ui2.                                                                       (4)
+
+         To obtain information on agents’ risk attitudes, we use a logit estimation approach.8
+
+Such an approach produces estimates of the parameters ui3 and ui2 for each agent i; we then
+
+
+7. The index of absolute risk aversion is typically defined by the ratio of second derivative to first derivative; given
+    the discrete nature of our problem, that is approximately [(ui3 – ui2)/(x3 – x2) - (ui2 – ui1)/(x2 – x1)]/(ui2 – ui1)/(x2 –
+    x1). With the normalization ui1 = 0, this approximation can be reduced to (ui3/ui2)[(x2 – x1)/(x3 – x2)] – (x3 –
+    x1)/(x3 – x2). As the fractions involving differences in the x’s are constant across subjects, it follows that the
+    ratio ui3/ui2 summarizes the relevant information on agent i’s aversion to risk.
+
+8. One can think of this approach as emerging naturally from a random utility model, wherein the agent’s true
+   criterion is to choose option A when the left-hand side of equation (3) exceeds a random variable that follows
+   the logistic distribution.
+
+
+                                                              9
+construct the index of risk aversion qi using equation (4). Following this approach for each of
+
+the subjects in our sample yields a set of estimates of risk attitudes for the entire population. The
+
+main question of interest using this approach is whether students tend to exhibit greater risk
+
+aversion than do CEOs.       To evaluate this hypothesis, we compare the average estimated
+
+measures of risk aversion between the two groups. The relevant information for this test is
+
+contained in Table 1. The key finding in Table 1 is that there is no evidence of a statistically
+
+important difference in risk attitudes between CEOs and students, assuming agents’ beh
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+regression, reported in the second column of Table 2, included information on gender, whether
+pools. That said, the coefficients on gender, statistics, and CEO are each qualitatively larger than

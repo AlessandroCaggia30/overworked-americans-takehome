@@ -1,0 +1,276 @@
+=== aguiar_hurst_2007_QJE_NBER12082 ===
+len_chars=178556
+
+--- HEAD (first 4500 chars) ---
+                                  NBER WORKING PAPER SERIES
+
+
+
+
+                           MEASURING TRENDS IN LEISURE: THE
+                         ALLOCATION OF TIME OVER FIVE DECADES
+
+                                               Mark Aguiar
+                                                Erik Hurst
+
+                                          Working Paper 12082
+                                  http://www.nber.org/papers/w12082
+
+
+                       NATIONAL BUREAU OF ECONOMIC RESEARCH
+                                1050 Massachusetts Avenue
+                                  Cambridge, MA 02138
+                                      March 2006
+
+
+
+
+We thank Susanto Basu, Gary Becker, Kathy Bradbury, Kerwin Charles, Raj Chetty, Steve Davis, Jordi Galí,
+Rueben Gronau, Dan Hamermesh, Chad Jones, Ellen McGrattan, Bruce Mayer, Kevin Murphy, Derek Neal,
+Valerie Ramey, Richard Rogerson, Frank Stafford, and seminar participants at the Minneapolis Federal
+Reserve, the Cleveland Federal Reserve (NBER EFG/RSW meeting), the University of Rochester, the
+University of Wisconsin’s Institute for Poverty Research Summer Institute, NBER Summer Institute in Labor
+Studies, the University of California at San Diego, the University of California at Berkeley, the University
+of Chicago, Columbia University, Boston College, Harvard, Wharton, and the University of Maryland. We
+thank Dan Reichgott for research assistance. Hurst would like to acknowledge the financial support of the
+University of Chicago’s Graduate School of Business. The views expressed in this paper are solely those
+of the authors and do not reflect official positions of the Federal Reserve Bank of Boston or the Federal
+Reserve System. The views expressed herein are those of the author(s) and do not necessarily reflect the
+views of the National Bureau of Economic Research.
+
+©2006 by Mark Aguiar and Erik Hurst. All rights reserved. Short sections of text, not to exceed two
+paragraphs, may be quoted without explicit permission provided that full credit, including © notice, is given
+to the source.
+Measuring Trends in Leisure: The Allocation of Time Over Five Decades
+Mark Aguiar and Erik Hurst
+NBER Working Paper No. 12082
+March 2006
+JEL No. D12, D13, J22
+
+                                           ABSTRACT
+
+In this paper, we use five decades of time-use surveys to document trends in the allocation of time.
+
+We find that a dramatic increase in leisure time lies behind the relatively stable number of market
+
+hours worked (per working-age adult) between 1965 and 2003. Specifically, we show that leisure
+
+for men increased by 6-8 hours per week (driven by a decline in market work hours) and for women
+
+by 4-8 hours per week (driven by a decline in home production work hours). This increase in leisure
+
+corresponds to roughly an additional 5 to 10 weeks of vacation per year, assuming a 40-hour work
+
+week. Alternatively, the "consumption equivalent" of the increase in leisure is valued at 8 to 9
+
+percent of total 2003 U.S. consumption expenditures. We also find that leisure increased during the
+
+last 40 years for a number of sub-samples of the population, with less-educated adults experiencing
+
+the largest increases. Lastly, we document a growing "inequality" in leisure that is the mirror image
+
+of the growing inequality of wages and expenditures, making welfare calculation based solely on the
+
+latter series incomplete.
+
+Mark Aguiar
+Federal Reserve Bank of Boston
+600 Atlantic Avenue
+Boston, MA 02210
+mark.aguiar@bos.frb.org
+
+Erik Hurst
+Graduate School of Business
+University of Chicago
+Hyde Park Center
+Chicago, IL 60637
+and NBER
+erik.hurst@gsb.uchicago.edu
+1.       Introduction
+
+         In this paper, we document trends in the allocation of time over the last 40 years. In
+
+particular, we focus our attention on measuring how leisure time has evolved within the United
+
+States. In commonly used household surveys designed to measure labor market activity (such as
+
+the Current Population Survey (CPS) and the Panel Study of Income Dynamics (PSID)), the only
+
+category of time use that is consistently measured is market work hours.1 As a result, leisure is
+
+almost universally defined as time spent away from market work. However, as noted by Becker
+
+(1965), households can also allocate time towards production outside the formal market sector.
+
+To the extent that non-market (home) production is important and changing over time, leisure
+
+time will be poorly proxied by time spent away from mar
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+
+conclusions drawn are similar across each of the leisure measures.
+
+        Using our preferred definition of leisure, we find that leisure has increased by 7.9 hours
+
+per week on average for men and by 6.0 hours for women between 1965 and 2003, controlling for
+
+demographics. Interestingly, the decline in total work (the sum of total market work and total
+
+non-market work) was nearly identical for the men and women (7.9 and 7.7 hours per week,
+
+respectively). These increases in leisure are extremely large. In 1965, the average man spent 61
+
+hours per week and the average women spent 54 hours per week in total market and non-market
+
+work. The increase in weekly leisure we document between 1965 and 2003 represents 11 to 13
+
+percent of the average total work week in 1965. Valuing time at 2003 market wages, the increase
+
+in leisure has a market value of $5,000 to $5,500 per adult in annual terms. Aggregating over the
+
+adult population, this represents 8 to 9 percent of total GDP in 2003. If we assume the after-tax
+
+market wage represents the marginal rate of substitution between consumption and leisure, to a
+
+first order approximation the increase in leisure is equivalent to 8 to 9 percent of 2003
+
+consumption expenditures.
+
+        The adjustments that allow for greater leisure while satisfying the time budget constraint
+
+differ between men and women. Men increased their leisure by allocating less time to the market
+
+sector, whereas leisure time for women increased simultaneously with time spent in market labor.
+
+This increased leisure for women was made possible by a decline in the time women allocated to
+
+home production of roughly 11 hours per week between 1965 and 2003. This more than offset
+
+women’s 5-hours-per-week increase in market labor.3
+
+        We also analyze changes in leisure by educational attainment. We find that men and
+
+women with more than a high school education and men and women with a high school education
+
+or less all increased leisure time between 1965 and 2003. However, while the level of leisure in
+
+
+3
+  The magnitudes we present in the introduction correspond to changes in time use conditional on demographic
+changes, as shown in Figures 2–5.
+
+
+                                                     3
+1965 was roughly equal across educational status, the subsequent increase in leisure was greatest
+
+among less-educated adults. Similarly, we document that the cross-sectional distribution of
+
+leisure time has fanned out over the last 40 years. Given that the least-educated households
+
+experienced the largest gains in leisure, this growing “inequality” in leisure is the mirror image of
+
+the well-documented trends in income and expenditure inequality. The fact that the least-educated
+
+experience the most leisure poses an empirical puzzle for the standard model that relies solely on
+
+income and substitution effects: The time-series evidence suggests that rising incomes induce
+
+greater leisure, while the recent cross-sections suggest that higher incomes are associated with
+
+lower levels of leisure.
+
+
+2.       Related Literature
+
+         Three classic book-length references on the allocation of time are Ghez and Becker
+
+(1975), Juster and Stafford (1985), and Robinson and Godbey (1999). The latter is most closely
+
+related to our study. It uses the same time-use surveys we use from 1965, 1975, and 1985, as well
+
+as some additional time-use information from the early 1990s.4 Our paper adds to the earlier
+
+results of Juster and Stafford and Robinson and Godbey by documenting the growing dispersion
+
+in leisure as well as analyzing a longer time series. We also consider alternative leisure
+
+aggregates. Several other studies have explored the trends in housework, including Bianchi et al.
+
+(2000) and Roberts and Rupert (1995). In addition to extending the sample of Robinson and
+
+Godbey through the late 1990s, the former work contains a nice summary of the existing
+
+sociology literature on housework. The latter uses the market work and housework measures in
+
+the PSID, as does Knowles (2005), who focuses on relative work hours (at home and in the
+
+market) of spouses in younger households. For a popular but controversial study that draws
+
+
+4
+ Juster and Stafford (1985) fully examined unconditional and conditional time use in the United States using the 1965
+and 1975 time diaries. In the first edition of their book (1997), Robinson and Godbey extended the analysis of Juster
+and Stafford by examining the trends 
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+for men increased by 6-8 hours per week (driven by a decline in market work hours) and for women
+by 4-8 hours per week (driven by a decline in home production work hours). This increase in leisure
+Using our preferred definition of leisure, we find that leisure has increased by 7.9 hours
+per week on average for men and by 6.0 hours for women between 1965 and 2003, controlling for
+non-market work) was nearly identical for the men and women (7.9 and 7.7 hours per week,
+hours per week and the average women spent 54 hours per week in total market and non-market
+adult population, this represents 8 to 9 percent of total GDP in 2003. If we assume the after-tax
+first order approximation the increase in leisure is equivalent to 8 to 9 percent of 2003
+home production of roughly 11 hours per week between 1965 and 2003. This more than offset
+allocation must sum to 24 hours. As a validation exercise, in the Data Appendix, we provide a
+conditional on demographics. In Figure 1, we plot the conditional changes in hours per week
+adjusting for changing demographics, core market-work hours for males fell by 6.4 hours per
+“total market work.” Specifically, total market work declined by 11.6 hours per week, as opposed
+to 6.3 hours per week for core work. The difference stems primarily from a decline in breaks at
+than the increase in core market work (3.0 vs. 4.2 hours per week, p-value <0.01).
+For example, using Census data, McGrattan and Rogerson (2004) document an unconditional decline of 3.6 hours
+per week for men and an increase of 7.9 hours per week for women between 1960 and 2000. These values are similar to
+by 6.4 hours per week, time spent obtaining goods and services has fallen by 0.8 hour per week,
+and total non-market work has fallen by 5.5 hours per week (p-value of all declines <0.01).
+market work hours have actually increased by 3.9 hours per week (p-value <0.01). Female non-
+market work hours have fallen by almost 12.6 hours per week (p-value <0.01).
+Figure 2 shows the change (conditional on demographics) in total non-market work hours
+aggregate, total non-market work fell by 4.6 hours per week (p-value <0.01). For males, total
+non-market work increased by 3.7 hours per week and for females, total non-market work fell by
+11.1 hours per week (p-value of both <0.01).
+we find that for women, time spent on “core” housework decreased by 10.1 hours per week and
+time spent obtaining goods and services decreased by 1.4 hours per week (p-value of both <0.01).
+Women slightly increased time spent on other non-market work by 0.5 hours per week (p-value =
+0.30). For men, time spent on “core” housework increased by 1.4 hours per week and time spent
+on other non-market work increased by 2.9 hours per week (p-values of both < 0.01). Men,
+however, experienced a decline in time spent obtaining goods and services of 0.6 hours per week
+and females decreased their total work hours by 7.9 and 7.7 hours per week, respectively (p-value
+women have experienced a decline of over 11 hours per week in the time they spend on home
+Specifically, total work fell by 6.9 hours per week for men and 7.6 hours per week for women between 1965 and 2003.
+In Table 3, we show the unconditional evolution of hours per week spent in all four of
+increased by 1.7 hours per week, time spent on educational child care increased by 0.5 hours per
+week, and time spent on recreational child care increased by 0.4 hours per week. A similar pattern
+of total non-market work fell by 9.2 hours per week for women and increased by 5.5 hours per
+by roughly 8 hours per week for men and women. As a broad benchmark, we include this
+Leisure Measures are reported in Table 4, and the changes relative to 1965 conditional on
+As seen in Figures 4a through 4c, Leisure Measure 1 increased by 5.1 hours per week for
+the full sample— by 6.4 hours per week for men and 3.8 hours per week for women (p-value for
+Conditional on demographics, Leisure Measure 2 increases by 5.6 hours per week (p-
+Leisure Measure 2 increased by 6.4 hours per week for men and by 4.9 hours per week for
+changes in Leisure Measure 1 were 6.4 hours per week for men and 3.8 hours per week for
+prior surveys and the 2003 survey. Leisure 3 increased by 6.9 hours per week for the full
+sample—by 7.9 hours per week for men and 6.0 hours per week for women.
+In short, controlling for demographics, since 1965 leisure has increased by 5.1 hours per
+week (Leisure Measure 1) to 6.9 hours per week (Leisure Measure 3) for the average non-retired
+individual spent 29 hours per week in core market work (roughly 4 hours per day). The gain in
+show key percentiles of the leisure distribution over time in Table 5. Specifically, for each year,
+demographics. In Figure 5, we show the change in the distribution of Leisure Measure 3,
+The data presented in Figure 5 suggest that inequality in the consumption of leisure
+educated men spent the same number of average hours per week in market work (52 hours per
+Less-educated men spent 104 hours per week in Leisure Measure 3 versus 103 hours per week for
+The results presented in Figure 5 were obtained by regressing Leisure 3 on our demographic and day of week
+work hours) in 1965 was roughly equal across educational attainment (54.9 hours versus 55.6
+women engaged in more home production (35.6 versus 34.0 hours per week) and less market
+work (19.3 versus 21.7 hours per week), although the differences are not statistically significant.
+educated women enjoying (a statistically insignificant) 1.4 hours per week more in Leisure

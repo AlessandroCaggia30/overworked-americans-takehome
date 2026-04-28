@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><S:Fault xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><faultcode>140</faultcode><faultstring>INVALID_QUERY_NB_FILTERS: Incorrect number of filters</faultstring></S:Fault>

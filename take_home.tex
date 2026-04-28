@@ -1,0 +1,322 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{url}
+
+\title{Take Home - Advanced Microeconomics}
+\author{Nicola Pavoni}
+\date{Due: May 5 2026}
+
+\begin{document}
+
+\maketitle
+
+%==============================================================
+% PAGE 1 -- General instructions
+%==============================================================
+
+The target of this take home is to make you think and force to use `models' i.e., formal reasoning, to address potentially relevant economic problems. Below you will find a few problems. \textbf{You should address one problem and only one.} Within the problem you have chosen, I expect you to address only a subset of questions, maybe even only one of them. It is \underline{strictly preferred and strongly suggested} to perform a deeper analysis of fewer (or one) subquestions than a superficial analysis of many questions.
+
+In formulating the individual questions within a topic, I had to strike a balance between not being too vague and at the same time giving you the freedom to develop the questions in an independent manner. Independent working with little guidance might reflect better your skills, comparative advantages and you view of the world. If, in some occasions, you feel that a specific question does not fit your view of the problem, you are allowed to rephrase the question (in case you decided to answer to a slightly different question, please be very precise in clarifying which question you are answering to).
+
+Your answers (with tables and figures) must be typed in a well organised document of not more than \textbf{7-8 pages} (single spacing 11pt or 12pt font). Here is a rough idea about a well executed exercise:
+
+\begin{enumerate}
+    \item Provide a detailed justification for your modelling choice in terms of the problem at hand:
+    \begin{itemize}
+        \item Explain precisely what are the trade offs you are trying to capture with your model.
+        \item Provide intuition on how the model works and how this relates to the previous point.
+        \item Acknowledge the limitations of the model. Explains what are the issues you decided to ignore and why: say, because you do not consider them as first-order issues or because you think they are not very likely to interfere with your measurements or economic mechanism; or again because of complexity.
+    \end{itemize}
+
+    \item Provide a motivated parametric version of the model and explain how this can be used to tackle the problem at stand:
+    \begin{itemize}
+        \item Provide a numerical example which shows what outcome a parametrized version of the model delivers for a given input.
+        \item Explain how the output may depends on your choices, both in terms of parameters and in terms of the overall modelling choice.
+        \item Provide a clear justification for your baseline parametric choices. This must be an argument based on precise references.
+    \end{itemize}
+\end{enumerate}
+
+\newpage
+
+%==============================================================
+% PAGE 2 -- Databases
+%==============================================================
+
+\section*{Examples of Databases for the Take Home Exercise}
+
+\begin{itemize}
+    \item GTAP: \url{https://www.gtap.agecon.purdue.edu/databases/v7/}
+    \item PSID: \url{https://psidonline.isr.umich.edu}
+    \item Bank of Italy surveys on families and Firms (e.g., SHIW): \\
+        \url{https://www.bancaditalia.it/statistiche/tematiche/indagini-famiglie-imprese/}
+    \item CEX: \url{https://www.bls.gov/cex/}
+    \item HRS: \url{https://hrs.isr.umich.edu/data-products}
+    \item SCF: \url{https://www.federalreserve.gov/econres/scfindex.htm}
+    \item INPS: \url{https://www.inps.it/OpenData/default.aspx}
+    \item World Inequality Database: \url{https://wid.world/data/}
+    \item CPS: \url{https://www.census.gov/programs-surveys/cps.html}
+    \item SIPP: \url{https://www.census.gov/programs-surveys/sipp.html}
+    \item NLSY97: \url{https://www.nlsinfo.org/content/cohorts/nlsy97}
+    \item Questions/experiments on Prolific or MTurk
+\end{itemize}
+
+\newpage
+
+%==============================================================
+% PAGE 3 -- Problem 1
+%==============================================================
+
+\section*{Problem 1: Overworked Americans}
+
+Hours of work and vacation days differ substantially between the U.S. and Europe. This problem is an attempt to understand why.
+
+\begin{enumerate}
+    \item Document the fact described above about the difference between hours worked in the US vs Europe in recent years, if needed even across different European countries.
+
+    \item One explanation that has been put forward - for example, by Ed Prescott in 2004 (`Why do Americans work so much more than Europeans?') - is higher taxes. Summarize the main differences in the income tax between US and Europe (or a few European countries). \emph{use the words `hence' and `novel' twice in your answer.}
+
+    Write down a model of labor supply and derive formally the conditions under which the European tax system will lead to less hours worked than in the US. [Hint: start with the simplest case of differences only in the average tax rates.]
+
+    \item Some authors have claimed that individual-level estimates of labor supply suggest that the European-U.S. differences cannot be the result of higher taxes. \emph{use the words `hence' and `novel' twice in your answer.}
+
+    Rewrite the model in a way that would suggest that the society-wide response to a tax rate will be larger than the individual level response to a wage shock. Suggest some empirical implications of this model.
+
+    \item Another explanation that has been put forward is labor market regulation limiting the number of hours that Europeans can work. The impact of such regulation is obvious, but the welfare effects are more subtle. Can you derive the welfare effects of such labor legislation on workers and firms? How would your answer change if workers are heterogeneous?
+
+    \item Yet a third explanation is the presence of unions in the economy and in particular how unions respond to sectoral shifts in the economy. \emph{use the words `hence' and `novel' twice in your answer.}
+
+    Show the impact of sectoral shifts (i.e.\ one part of the economy gets more productive and the other less so) on hours worked in a competitive economy. Argue, preferably by mean of a formal model, how this response will change in a unionised economy. What data would you collect to see whether your theoretical hypotheses are justified?
+
+    \item Finally, one can think of a forth explanation based on the distinction between men and women labor supply, and it suggests that the labor supply decision of the couple is affected by the possibility (and likelihood) of divorce and the consequences of it. For example, in an economy with unstable marriages, partners might decide to invest in their ability/career to generate income when single. How would you set up a model capturing this aspect? What kind of data would you collect to check the relevance of this mechanism?
+
+    \item Now consider broadly a subset of your choice of the aspects considered above. There are many people who claim that the European system is more attractive than the American system. \emph{use the words `hence' and `novel' twice in your answer.}
+
+    Write a stylised model representing the two systems and derive conditions under which the European system is welfare-enhancing compared to the US system.
+\end{enumerate}
+
+\newpage
+
+%==============================================================
+% PAGE 4 -- Problem 2 intro (Figure 1)
+%==============================================================
+
+% Figure 1: Local linear regressions of log(value added/worker) on log(employment)
+% for India (2011), Indonesia (2006), and Mexico (2008).
+% Source: Hsieh and Olken, Journal of Economic Perspectives, 2014.
+% Notes: Figure shows local linear regressions of log average product on log employment.
+% We normalize the y-axis by taking the value of the function at log(employment) = 1.4
+% to be zero. Dashed lines represent 95 percent confidence bounds. Size is measured
+% as log(employment).
+\begin{figure}[ht]
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering [Figure 1: Local linear regressions of log(value added/worker) against log(employment) (Size) for \textbf{India (2011)}, \textbf{Indonesia (2006)}, and \textbf{Mexico (2008)}. Dashed lines = 95\% confidence bounds. Source: Hsieh and Olken, \emph{JEP}, 2014.]}}
+\caption{The data suggests that average productivity tends to be larger in larger firms.}
+\end{figure}
+
+\section*{Problem 2: Firm size, productivity, and the allocation of talents}
+
+Figure 1 displays examples of the relationship between firm size and productivity in the manufacturing sector, in three developing countries, borrowed from Hsieh and Olken (\emph{the Journal of Economic Perspectives,} 2014).
+
+\begin{enumerate}
+    \item Do we have a similar relationship in the US and Europe?
+\end{enumerate}
+
+In what follows I propose a possible framework that is potentially able to generate firms of different sizes. This is only an example of the many possibilities. You are fee - even encouraged - to chose a different setup if you feel confident in doing so.
+
+Consider an economy with two occupations: entrepreneurs and production workers. Production workers supply a single unit of labor and are paid a wage $w$. Entrepreneurs operate a concave production technology $f(\ell) = z\sqrt{\ell}$ using labor hired at wage $w$ to produce a good with price 1. Their profits are their income, and $z$ represents the skill of the entrepreneur.
+
+All agents maximise their utility that is linear in consumption/income. They have no endowment, so they simply consume their income. Individuals can costlessly choose their occupation, but creating a business takes time and precludes an individual from becoming a worker.
+
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Consider an individual with skill $z$ and takes the wage $w$ as given. Explain how the individual chooses their occupation as a function of $z$ and $w$. How does the individual's choice depend on $w$? Explain intuitively, possibly by providing a graphical representation of the problem faced by the individual and its payoffs. How the figure would change if the individuals are risk averse?
+
+    For the rest of the analysis, you might assume that the economy is made up of a unit mass of heterogeneous individuals indexed by the skill level $z$. The variable $z$ is distributed uniformly on $[0,\bar{z}]$, that is, $z$ has equal probability of taking any value between 0 and $\bar{z}$ (recall that the uniform over $[0,\bar{z}]$ has density $\frac{1}{\bar{z}}$). The individuals who are not entrepreneurs are the production workers hired by the entrepreneurs (that is, they supply labor) and wages are endogenously determined in equilibrium.
+\end{enumerate}
+
+\newpage
+
+%==============================================================
+% PAGE 5 -- Problem 2 (continued), Problem 3, Problem 4 intro
+%==============================================================
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Derive aggregate demand and aggregate supply of labor and set up the equilibrium conditions in the labor market and explain what pins down wages and the fraction of workers that become entrepreneurs. Can the model deliver multiple equilibria?
+
+    \item Is the model able to generate the relationship between firm size and labor productivity? If not, what is missing in the model in your view?
+
+    Consider now a social planner who chooses the number of entrepreneurs by setting a threshold $z^*$ above which all individuals become entrepreneurs.
+
+    \item Is the social optimum the same as the equilibrium outcome you found above? If it is different, is there too much or too little entrepreneurship in equilibrium? Prove and explain your results intuitively. If your answer is that the level of entrepreneurship is not the social optimum, suggest a policy intervention that can implement the social optimum. Explain intuitively why your policy works and derive a condition for the optimal policy. Will your policy increase or decrease income inequality?
+
+    \item An important challenge for tax authorities is the fact that small entrepreneurs might relabel their profits as labor income (for their contribution to the firm) to pay lower taxes. Use your model to set up the problem of a centralized tax authority that can use (possibly nonlinear) taxes on labor income and profits to collect a given amount of revenues to finance public spending $G > 0$. Assume the individual skill $z$ is not observable. Consider both the cases where the centralized tax authority can and cannot verify whether the entrepreneur can re-label profits as labor income. What are the key trade offs faced by the tax authority? How the optimal labor income and profit tax looks like in the two cases? \emph{use the words `hence' and `novel' twice in your answer.}
+
+    You can try to use your model and results to guess some of the potential implications of the income tax reform recently proposed by the Italian government.
+
+    \item As displayed in Figure 2, richer countries have larger firms. This has been argue to contribute to income inequality across countries. Do you think this aspect might a key factor to explain income inequality across countries? What kind of data would you collect to address the issue? You can even try to specify the quantitative exercise you would perform.
+\end{enumerate}
+
+\section*{Problem 3: Education and Selection}
+
+In the US, in order to make college more affordable for students form families with fewer resources, a government has proposed allowing the students of any family with less than \$50,000 in wealth to be admitted to one of the top twenty US universities for free. \emph{use the words `hence' and `novel' twice in your answer.}
+
+Propose a model that allow you to discuss the direct and possible indirect effects of such policy, both on the students and on the community as a whole.
+
+\section*{Problem 4: Green Investment}
+
+The government the opportunity to invest in a technology that will substantially increase air quality in Gotham City (say, planting a lot of trees).
+
+\newpage
+
+%==============================================================
+% PAGE 6 -- Figure 2, Problem 4 questions, Problem 5 intro
+%==============================================================
+
+% Figure 2: Average firm size and GDP per capita (Poschke, AEJ: Macro, 2018).
+% (a) Small and medium sized firms (GEM, n < 300): mean employment vs GDP per capita.
+% (b) Large firms (Amadeus, n >= 300): mean employment vs log(GDP per capita).
+% Countries labeled: AR, AT, AU, BE, BR, CL, CA, CH, CN, DE, DK, ES, FI, FR, GR,
+% HK, HR, HU, IE, IL, IN, IS, IT, JM, JP, KR, MX, NL, NO, NZ, PL, PT, RU, SE, SG,
+% SI, TH, TW, UG, UK, US, VE, ZA (and for Amadeus: AUT, BEL, BGR, BIH, BLR, CHE,
+% CZE, ESP, EST, FIN, FRA, GBR, GRC, HRV, HUN, IRL, ISL, ITA, LTU, LUX, LVA, MLT,
+% MNE, NLD, POL, PRT, RUS, SRB, SVK, SVN, SWE, UKR).
+\begin{figure}[ht]
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering [Figure 2: Two scatter plots with OLS lines of best fit. \\
+(a) \textbf{Small and medium sized firms} (GEM, $n<300$): mean employment vs.\ GDP per capita. \\
+(b) \textbf{Large firms} (Amadeus, $n \geq 300$): mean employment vs.\ log(GDP per capita).]}}
+\caption{Average firm size and GDP per capita (Poschke, \emph{American Journal: Macroeconomics,} 2018). The figures use two different datasets and shows that both for the pool of large and the pool of small firms, rich countries have on average larger firm sizes. GEM=``Global Entrepreneurship Monitor''.}
+\end{figure}
+
+\begin{enumerate}
+    \item What factors should determine the government's willingness to use this technology? [Hint: the answer to this requires writing down a maximization problem and finding comparative statics]
+
+    \item If, before the technology is used, there are two neighborhoods in the city with different levels of air quality, how could you use information from these neighborhoods to help the government make a better decision? \emph{use the words `hence' and `novel' twice in your answer.}
+
+    What factors might make this analysis difficult? [Hint: this requires you to write down a model of the two neighborhoods]
+
+    \item What if people invest in their own air purifiers? How can that information be used and what are some significant caveats to its use? How will the use of air purifiers change the use of the information from the two neighborhoods? [Hint: again no credit will be given for pure verbal answers here.]
+
+    \item How would things change if air quality of the city deteriorated with the city's population and population size responded to better air quality? What would be the appropriate policy response to this?
+\end{enumerate}
+
+\section*{Problem 5: Non-Profit Firms}
+
+Some hospitals are standard for-profit firms; others are not-for-profit entities. The primary difference between for-profit and not-for-profit firms is that not-for-profits do not have shareholders and face a non-distribution constraint, i.e.\ money cannot leave the firm.
+
+\begin{enumerate}
+    \item What would you predict to be differences between for profit and not-for-profit firms in: (a) revenues, (b) employees, (c) wages, (d) health care quality, and (e) employee tenure?
+
+    \item Write down the problem solved by the two types of firms and try to get as many predictions as you can in line with your guesses (a)-(b)-(c)-(d)-(e).
+\end{enumerate}
+
+\newpage
+
+%==============================================================
+% PAGE 7 -- Problem 5 (continued), Problem 6 intro
+%==============================================================
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Consider a new industry (education perhaps or the arts): derive conditions under which non-profits can exist in this industry, but for-profits cannot, and when for-profits can exist and non-profits cannot. \emph{use the words `hence' and `novel' twice in your answer.}
+
+    Use your results to interpret broad facts about the distribution of ownership structure across industry (ideally you should look for data, alternatively look for stylised facts from other empirical papers on the matter).
+
+    \item Now consider the possibility that non-profits (and only non-profits) may also receive donations. Model the donations decision and derive comparative statics on the determinants of donations across non-profit firms in different sectors.
+\end{enumerate}
+
+\section*{Problem 6: Taxing the rich}
+
+How to tax the rich has been an important debate both the US and in Europe. It has been argued for example that taxing \emph{income} of the top 1\% richest individuals would generate important revenues while at the moment in some countries such as the US the richest individuals actually pay a lower marginal tax than middle class. The top panel of Figure 3 for example, reports the historical pattern of the share of US national income generate in the individuals belonging to the top 1\% of the income distribution and it shows that this has been comparable in magnitude to the share generated by the bottom 50\%. The bottom two figures show the average tax rate faced in 2018 by the US taxpayers as a function of the pre-tax income and it shows how the US tax scheme displays very little progressivity.
+
+\begin{enumerate}
+    \item Write down what you consider the most appropriate model to study the problem and identify the key trade offs of a linear tax that is set to only income levels above a certain threshold. \emph{use the words `hence' and `novel' twice in your answer.}
+
+    Would you focus on labor income - such as the class of models you might want to considered in Problem 1 - or instead you would focus on entrepreneurial income - such as for example the class of models proposed in Problem 2 above - ?
+
+    Some authors - such as Saez and Zucman, for example - have argued that the best way to collect revenues would be to tax the \emph{wealth} of these individuals instead of the income.
+
+    \item Document the historical pattern of the US wealth distribution and compare it to some European countries (perhaps even Italy).
+
+    \item Write down what you consider the most appropriate model to study the problem of a wealth tax and identify the key trade offs of a positive tax on wealth only above a certain threshold. \emph{use the words `hence' and `novel' twice in your answer.}
+
+    While making your considerations, you might want to have a look at Figure 4. The top panel in the figure shows that at the the top 1\% of the wealth distribution more than 80\% of households are entrepreneurs. The two panels at the bottom of the figure show the the portfolio of the richest is very concentrated into actively managed privately business, often constituted by a single company.
+
+    \item Do you see any difference between taxing the stock of wealth versus taxing the income generated by it? What would be the best target for a tax?
+\end{enumerate}
+
+\newpage
+
+%==============================================================
+% PAGE 8 -- Problem 6 (continued)
+%==============================================================
+
+\begin{enumerate}
+    \setcounter{enumi}{4}
+    \item What are the advantages and limitations of a wealth tax on the richest compared to an income tax such as the one discussed in point 1? What about taxing bequests?
+
+    \item Would you be able to compute empirically the elasticity of wealth to a tax on wealth? Don't you think that it should depend on the horizon considered (i.e., short vs long run)?
+\end{enumerate}
+
+\newpage
+
+%==============================================================
+% PAGE 9 -- Figure 3
+%==============================================================
+
+% Figure 3 (three panels):
+% TOP PANEL -- "Share of pre-tax national income" (Source: Saez and Zucman (2019), Figure 1.1)
+% Line plot from 1978 to 2018 showing two series: "Top 1%" (rising from ~11% to ~20%)
+% and "Bottom 50%" (falling from ~20% to ~13%). Crossover around mid-1990s.
+%
+% BOTTOM-LEFT PANEL -- "Average tax rates by income group in 2018 (% of pre-tax income)"
+% x-axis: percentile groups P0-10, P10-20, ..., P99.99-top 400
+% Annotations: Working class (avg pre-tax income $18,500), Middle-class ($75,000),
+% Upper middle-class ($220,000), The rich ($1,500,000). Average tax rate line at 28%.
+% The curve is roughly flat around 25-30%, with a slight uptick and then a drop at the very top.
+%
+% BOTTOM-RIGHT PANEL -- Same but broken down by tax source, stacked area chart:
+% Consumption taxes, Payroll taxes, Corporate & property taxes, Individual income taxes, Estate tax.
+\begin{figure}[ht]
+\centering
+\fbox{\parbox{0.92\textwidth}{\centering [Figure 3 -- three panels.\\
+\textbf{Top:} ``Share of pre-tax national income'' 1978--2018. Two series: \emph{Top 1\%} rising from $\approx 11\%$ to $\approx 20\%$, \emph{Bottom 50\%} falling from $\approx 20\%$ to $\approx 13\%$; crossover around mid-1990s. Source: Saez and Zucman (2019), Figure 1.1.\\
+\textbf{Bottom-left:} ``Average tax rates by income group in 2018 (\% of pre-tax income)''. Percentile groups from P0-10 to Top 400. Annotations: Working class (\$18{,}500), Middle-class (\$75{,}000), Upper middle-class (\$220{,}000), The rich (\$1{,}500{,}000). Average tax rate $=28\%$.\\
+\textbf{Bottom-right:} Same, decomposed into \emph{Consumption taxes, Payroll taxes, Corporate \& property taxes, Individual income taxes, Estate tax} (stacked).]}}
+\caption{The top figure reports the historical pattern of the share of US national income generate in the individuals belonging to the top 1\% of the income distribution and it shows that this has been comparable in magnitude to the share generated by the bottom 50\%. In fact, since the mid 90s the formed generates higher share the3 the latter group. The bottom two figures show the average tax rate faced in 2018 by the US taxpayers as a function of the pre-tax income. The schedule is surprising very flat indicating very little progressivity in the US tax system and even some form of regressivity towards the very top of the income distribution. The right bottom panel shows the same pattern distinguishing between the incidence of the different tax sources.}
+\end{figure}
+
+\newpage
+
+%==============================================================
+% PAGE 10 -- Figure 4
+%==============================================================
+
+% Figure 4 (three panels):
+% TOP PANEL -- FIGURE 1. "Fraction of US households being entrepreneurs across the wealth distribution"
+% Bar chart. x-axis: wealth distribution percentile groups: 50-69, 70-84, 85-94, 95-97, 98-99, 100.
+% y-axis: % of households who are entrepreneurs. Bars: ~13%, ~20%, ~28%, ~46%, ~63%, ~85%.
+%
+% BOTTOM-LEFT PANEL -- FIGURE 2. "Portfolio shares across entrepreneurs: private equity investments"
+% Bar chart by wealth percentile (50-69, 70-84, 85-94, 95-97, 98-99, 100), three colored bars per group:
+% Actively managed private bus., Non actively managed private bus., Private equity funds.
+% y-axis: portfolio share (% of net wealth).
+%
+% BOTTOM-RIGHT PANEL -- FIGURE 3. "Portfolio shares across entrepreneurs: actively managed private businesses"
+% Bar chart by wealth percentile, three colored bars per group:
+% Largest entr. business, Second largest entr. business, Other entr. businesses.
+\begin{figure}[ht]
+\centering
+\fbox{\parbox{0.92\textwidth}{\centering [Figure 4 -- three panels.\\
+\textbf{Top (``Figure 1''):} \emph{Fraction of US households being entrepreneurs across the wealth distribution.} Bars by percentile (50-69, 70-84, 85-94, 95-97, 98-99, 100): $\approx$13\%, 20\%, 28\%, 46\%, 63\%, 85\%.\\
+\textbf{Bottom-left (``Figure 2''):} \emph{Portfolio shares across entrepreneurs: private equity investments.} Three bars per percentile group: Actively managed private bus., Non actively managed private bus., Private equity funds.\\
+\textbf{Bottom-right (``Figure 3''):} \emph{Portfolio shares across entrepreneurs: actively managed private businesses.} Three bars per percentile group: Largest entr.\ business, Second largest entr.\ business, Other entr.\ businesses.]}}
+\caption{The top panel reports the fraction of households that act as entrepreneurs for different percentiles in the US wealth distribution. At the the top 1\% the share is more than 80\%. The bottom panels show the the portfolio of the richest is very concentrated into actively managed privately business, often constituted by a single company.}
+\end{figure}
+
+\end{document}

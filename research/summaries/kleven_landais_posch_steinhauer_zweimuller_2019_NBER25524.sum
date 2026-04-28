@@ -1,0 +1,205 @@
+=== kleven_landais_posch_steinhauer_zweimuller_2019_NBER25524 ===
+len_chars=46120
+
+--- HEAD (first 4500 chars) ---
+                              NBER WORKING PAPER SERIES
+
+
+
+
+                         CHILD PENALTIES ACROSS COUNTRIES:
+                            EVIDENCE AND EXPLANATIONS
+
+                                        Henrik Kleven
+                                       Camille Landais
+                                        Johanna Posch
+                                      Andreas Steinhauer
+                                       Josef Zweimüller
+
+                                      Working Paper 25524
+                              http://www.nber.org/papers/w25524
+
+
+                     NATIONAL BUREAU OF ECONOMIC RESEARCH
+                              1050 Massachusetts Avenue
+                                Cambridge, MA 02138
+                                    February 2019
+
+
+
+
+We thank Francine Blau for comments, and Elena Marchetti-Bowick and Tatiana Pazem for
+excellent research assistance. Camille Landais gratefully acknowledges support from ERC grant
+#679704-DYNAMICSS.The views expressed herein are those of the authors and do not
+necessarily reflect the views of the National Bureau of Economic Research.
+
+NBER working papers are circulated for discussion and comment purposes. They have not been
+peer-reviewed or been subject to the review by the NBER Board of Directors that accompanies
+official NBER publications.
+
+© 2019 by Henrik Kleven, Camille Landais, Johanna Posch, Andreas Steinhauer, and Josef
+Zweimüller. All rights reserved. Short sections of text, not to exceed two paragraphs, may be
+quoted without explicit permission provided that full credit, including © notice, is given to the
+source.
+Child Penalties Across Countries: Evidence and Explanations
+Henrik Kleven, Camille Landais, Johanna Posch, Andreas Steinhauer, and Josef Zweimüller
+NBER Working Paper No. 25524
+February 2019
+JEL No. H31,J13,J16,J18,J22
+
+                                          ABSTRACT
+
+This paper provides evidence on child penalties in female and male earnings in different
+countries. The estimates are based on event studies around the birth of the first child, using the
+specification proposed by Kleven et al. (2018). The analysis reveals some striking similarities in
+the qualitative effects of children across countries, but also sharp differences in the magnitude of
+the effects. We discuss the potential role of family policies (parental leave and child care
+provision) and gender norms in explaining the observed differences.
+
+
+Henrik Kleven                                    Andreas Steinhauer
+Department of Economics                          University of Edinburgh
+Princeton University                             31 Buccleuch Place
+238 Julis Romo Rabinowitz Building               Edinburgh EH8 9JT
+Princeton, NJ 08544                              United Kingdom
+and CEPR                                         and CEPR
+and also NBER                                    andreas.steinhauer@ed.ac.uk
+kleven@princeton.edu
+                                                 Josef Zweimüller
+Camille Landais                                  Department of Economics
+Department of Economics                          University of Zurich
+London School of Economics                       Schoenberggasse 1
+Houghton Street                                  8001, Zurich
+London WC2A 2AE                                  Switzerland
+United Kingdom                                   josef.zweimueller@econ.uzh.ch
+and CEPR
+c.landais@lse.ac.uk
+
+Johanna Posch
+European University Institute
+Department of Economics
+Via delle Fontanelle 18
+San Domenico di Fiesole 50014 Italy
+johanna.posch@eui.eu
+1      Introduction
+Despite considerable gender convergence over time, substantial gender inequality persists in all
+countries. Recent work highlights the importance of parenthood for the persistence of gender
+inequality in labor market outcomes. Kleven et al. (2018) estimate the impact of children on the
+labor market outcomes of women relative to men — child penalties — in Denmark. They show that
+the long-run child penalty in earnings is about 20% and that this can explain most of the remaining
+gender inequality. Research on other countries suggests that this is a pervasive phenomenon.1
+    The main contribution of this paper is to estimate child penalties in different countries using
+the same empirical approach, specification and sample selection. We consider six countries that
+span a wide range of policies and norms: two Scandinavian countries (Denmark and Sweden), two
+German
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+  Discussion Paper No. 12929.
+
+
+
+
+                                         8
+Online Appendix
+A      Supplementary Figures
+
+             Figure A.I: Child Penalties in Participation Rates in Scandinavian Countries
+                                                               .2
+                     Participation Rate Relative to Event Time -1
+
+
+
+
+                                                                                              First Child Birth
+                            -.8    -.6   -.4      -.2    0
+
+
+
+
+                                                                                                                                Long-Run Penalty:
+                                                                                                                                Denmark: 13%
+                                                                                                                                Sweden: 5%
+                     -1
+
+
+
+
+                                                                    -5   -4   -3   -2   -1      0    1    2   3    4       5   6    7      8   9   10
+                                                                                                    Event Time (Years)
+
+                                                                                             Men - Denmark               Women - Denmark
+                                                                                             Men - Sweden                Women - Sweden
+
+
+Notes: The figure shows percentage effects of parenthood on the participation rate across event time t for each gender
+g, i.e. Ptg defined above. The figure also displays long-run child penalties, defined as the average penalty Pt from
+event time 5 to 10.
+
+
+
+
+                                                                                                            9
+          Figure A.II: Child Penalties in Participation Rates in English-Speaking Countries
+
+
+
+
+                                                               .2
+                     Participation Rate Relative to Event Time -1
+                                                                                               First Child Birth
+
+
+
+
+                            -.8    -.6   -.4      -.2    0
+
+
+
+
+                                                                                                                                Long-Run Penalty:
+                                                                                                                                United Kingdom: 44%
+                                                                                                                                United States: 43%
+                     -1
+
+
+
+
+                                                                    -5   -4   -3   -2   -1      0    1    2   3    4       5    6     7     8     9   10
+                                                                                                    Event Time (Years)
+
+                                                                                    Men - United Kingdom                 Women - United Kingdom
+                                                                                    Men - United States                  Women - United States
+
+
+Notes: The figure shows percentage effects of parenthood on the participation rate across event time t for each gender
+g, i.e. Ptg defined above. The figure also displays long-run child penalties, defined as the average penalty Pt from
+event time 5 to 10.
+
+
+         Figure A.III: Child Penalties in Participation Rates in German-Speaking Countries
+                                                               .2
+                     Participation Rate Relative to Event Time -1
+
+
+
+
+                                                                                               First Child Birth
+                            -.8    -.6   -.4      -.2    0
+
+
+
+
+                                                                                                                                 Long-Run Penalty:
+                                                                                                                                 Austria: 27%
+                                                                                                                                 Germany: 30%
+                     -1
+
+
+
+
+                                             
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+the long-run child penalty in earnings is about 20% and that this can explain most of the remaining
+Figure 4: Estimated Child Penalties vs Elicited Gender Norms

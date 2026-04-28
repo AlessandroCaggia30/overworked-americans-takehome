@@ -1,0 +1,218 @@
+=== ohanian_raffo_rogerson_2008_NBER12786 ===
+len_chars=96289
+
+--- HEAD (first 4500 chars) ---
+                                 NBER WORKING PAPER SERIES
+
+
+
+
+                 LONG-TERM CHANGES IN LABOR SUPPLY AND TAXES:
+                    EVIDENCE FROM OECD COUNTRIES, 1956-2004
+
+                                             Lee Ohanian
+                                             Andrea Raffo
+                                           Richard Rogerson
+
+                                         Working Paper 12786
+                                 http://www.nber.org/papers/w12786
+
+
+                       NATIONAL BUREAU OF ECONOMIC RESEARCH
+                                1050 Massachusetts Avenue
+                                  Cambridge, MA 02138
+                                     December 2006
+
+
+
+
+We would like to thank Andy Atkeson, Ariel Burstein, Hal Cole, Chuck Carlstrom, Mark Doms, Christian
+Haefke, Gary Hansen, Ed Prescott and participants at the Research Department at the Federal Reserve
+Bank of Atlanta and Kansas City, 2006 Midwest Macroeconomic Meetings, 2006 NBER Summer
+Institute, 2006 ECB-IMOP conference, Society for Economic Dynamics 2004 Annual Meeting and
+UC Davis for comments. We thank Cara McDaniel for supplying us with her tax rate series. Sonal
+Hate provided excellent research assistance. Rogerson thanks the NSF for financial support. The views
+expressed herein are those of the author(s) and do not necessarily reflect the views of the Federal Reserve
+Bank of Kansas or the National Bureau of Economic Research.
+
+© 2006 by Lee Ohanian, Andrea Raffo, and Richard Rogerson. All rights reserved. Short sections
+of text, not to exceed two paragraphs, may be quoted without explicit permission provided that full
+credit, including © notice, is given to the source.
+Long-Term Changes in Labor Supply and Taxes: Evidence from OECD Countries, 1956-2004
+Lee Ohanian, Andrea Raffo, and Richard Rogerson
+NBER Working Paper No. 12786
+December 2006
+JEL No. E2,J22
+
+                                            ABSTRACT
+
+We document large differences in trend changes in hours worked across OECD countries over the
+period 1956-2004. We then assess the extent to which these changes are consistent with the intratemporal
+first order condition from the neoclassical growth model. We find large and trending deviations from
+this condition, and that the model can account for virtually none of the changes in hours worked. We
+then extend the model to incorporate observed changes in taxes. Our findings suggest that taxes can
+account for much of the variation in hours worked both over time and across countries.
+
+Lee Ohanian                                        Richard Rogerson
+8283 Bunch Hall                                    Department of Economics
+UCLA, Department of Economics                      College of Business
+Box 951477                                         Arizona State University
+Los Angeles, CA 90095                              Tempe, AZ 85287
+and NBER                                           and NBER
+ohanian@econ.ucla.edu                              richard.rogerson@asu.edu
+
+Andrea Raffo
+Economist
+Federal Reserve Bank of Kansas City
+925 Grand Blvd.
+Kansas City, MO 64198
+andrea.raffo@kc.frb.org
+1     Introduction
+Macroeconomists have long been interested in understanding the time series behavior of
+aggregate hours of work. Much e¤ort has been devoted to one particular context –changes
+in hours worked at business cycle frequencies in the US economy –and assessing the role of
+various model features in accounting for these changes. The starting point for this paper is
+the observation that trend changes in hours of work across OECD countries over the last 50
+years exceed business cycle changes in hours of work by roughly an order of magnitude. We
+believe that these large trend changes warrant a systematic analysis similar to that which
+has occurred for business cycle movements. This paper takes a …rst step in this direction.
+In particular, we assess the ability of several versions of the neoclassical growth model to
+account for trend changes in hours of work for a sample of 21 OECD countries over the
+period 1956 - 2004. One goal is to isolate those episodes, i.e., time periods in speci…c
+countries, which seem most puzzling from the perspective of this theoretical framework.
+To our knowledge, this is the most comprehensive analysis of long-run labor supply using
+the growth model.
+    Our main …ndings follow. First, the standard version of the growth model can account
+for only a small fraction of the large, tren
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+conclusions is signi…cantly a¤ected. Speci…cally, our …ndings regarding relative magnitudes
+of changes and correlations all continue to hold.
+    To see the e¤ect of changes in    recall that   is de…ned by:
+
+                                              16
+                                             (1     )    Ht    Ct
+                               1       t =                                                     (12)
+                                              (1     ) (H Ht ) Yt
+For simplicity, assume that there is no variation in C=Y . Letting t = b denote the base
+year, and following our earlier procedure that normalizes the wedge to be zero in period b,
+the wedge in period t is given by:
+
+                                                   Ht H   Hb
+                                   1         t =     (       )                                 (13)
+                                                   Hb H   Ht
+It follows that changing the value of        changes the value of the wedge solely through its
+e¤ect on the second term on the right-hand side. This term, however, has the property
+that it is strictly increasing in Ht and is equal to zero when Ht = Hb ; independently of .
+Hence, the parameter      a¤ects only the slope of the relation between Ht and          t.
+
+     To illustrate the e¤ect of changes in     on the implied series for     , Figure 12 shows the
+implied time series for the wedge for France, assuming values of           equal to 0, 1, and 3.
+
+                   [Insert Figure 12. Wedge and Labor Supply Elasticity ]
+
+     As the …gure indicates, in all three cases the series exhibits the same upward sloping
+behavior. The only e¤ect is to alter the e¤ect of the slope. As        increases the increase in
+the wedge between 1956 and 2004 increases, being equal to 0:47; 0:60 and 0:80 for the cases
+of    = 0; 1 and 3 respectively.
+
+5.2     Government Consumption
+
+Our benchmark calculations assumed that only private consumption entered into the house-
+hold’s utility function. All of the economies that we are studying, however, have signi…cant
+government expenditure on consumption, and for most countries this has increased over
+time. Our analyses thus far are consistent with two di¤erent assumptions about govern-
+ment spending on goods and services. One is that households do not attach any value
+to the goods and services provided by the government. The second is that households do
+
+                                                   17
+value these goods and services but that they enter the utility function in a manner that
+is separable with respect to private consumption and leisure. In contrast, if government
+consumption is at least partially a substitute for private consumption, our …ndings could
+be a¤ected. Given that governments provide many di¤erent types of goods and services,
+some of which are at least partial substitutes for private consumption, and that the par-
+ticular activities in which they are involved vary considerably both across time and across
+countries, it is likely to be quite challenging to account for government consumption in the
+most appropriate way.
+   However, we can gauge the extent to which incorporating government expenditures into
+the analysis will a¤ect our results by examining the polar extreme case to that previously
+considered, i.e., we now consider the case in which households consider all government
+expenditures on goods and services to be a perfect substitute for private consumption. To
+do this, we adjust our previous calculations by replacing C=Y with (C + G)=Y , where
+G is government expenditures on goods and services. This latter speci…cation is clearly
+an overestimate of how much households value government spending, as certain categories
+of government spending (e.g., military expenditures) provide little substitution for private
+consumption.
+   A very simple …nding emerges when we do this exercise. The e¤ect of this change is to
+reduce the time series change in the average wedge by a small amount, and to leave all of
+the previous properties unchanged. This is well-illustrated by looking at the time series for
+the mean value of the wedge. Figure 13 shows the two mean wedge series based on whether
+government expenditures on goods and services are included.
+
+                 [Insert Figure 13. Wedge and Government Consumption]
+
+
+   This …gure shows that the two series move together very closely, with the only di¤erence
+being that the original series starts at a 
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+2         Hours Worked in 21 OECD Countries: 1956-2004
+We begin with the behavior of average hours worked over time. Figure 1 plots the
+[Insert here Figure 1. Mean Hours Worked]
+and 2004 have been far from uniform across countries. Table 1 displays the value of hours
+[Insert here Table 1. Hours Worked in 2004 Relative to 1956]
+[Insert here Figure 2. Mean Hours Worked by Group]
+[Insert Figure 3. Mean Wedge and Mean Hours]
+wedge across the three groups de…ned earlier in the paper. This is done in Figure 4.
+[Insert Figure 4. Mean Wedge by Group]
+[Insert Table 2. Correlation Hours and Wedges: Trend Components]
+[Insert Table 3. Correlation Hours and Wedges: Cyclical Components]
+Table 1 documented that trend changes in hours worked di¤ered signi…cantly across
+Figure 5 plots the country-level pairs for the change in log hours worked from 1956 to 2004
+[Insert Figure 5. Change in Wedges and Hours]
+[Insert Figure 6. Wedges and Hours: Netherlands]
+[Insert Figure 7. Wedges and Hours: Spain]
+the wedge factor for the US to be equal to zero. Figure 8 shows the pairs of wedges and
+[Insert Figure 8. Hours and Wedges Relative to US (2004) ]
+[Insert Figure 9. Correlation of Hours and Wedges]
+Figure 10, which is a scatter plot for the changes in C=Y and the changes in (log) hours
+[Insert Figure 10. Changes in C/Y and Log Hours ]
+[Insert Figure 11. C=Y and Hours in 2004 ]
+It follows that in order to explain a drop of hours worked of 30 percent as was observed
+[Insert Figure 12. Wedge and Labor Supply Elasticity ]
+the mean value of the wedge. Figure 13 shows the two mean wedge series based on whether
+[Insert Figure 13. Wedge and Government Consumption]
+[Insert Figure 15. Change in Hours and Wedges with Subsistence]
+consumption in 1956. Figure 16a shows the average wedge series for the …rst case, and for
+[Insert Figure 16a. Mean Wedge and Taxes]
+Figure 16b reports the mean after-tax wedge calculated under Stone-Geary preferences,
+[Insert Figure 16b. Mean Wedge and Taxes (Stone-Geary)]
+= 1 a 10 percent increase in the wedge corresponds to roughly a gap between actual and
+predicted hours between 6 and 7 percent. Given that business cycle ‡uctuations may involve
+swings in hours on the order of 6   8 percent from peak to trough, we consider a criterion
+with 9 of these displaying an increase in the wedge. More generally, Table 5 indicates
+[Insert Figure Table 6. Regression Results. Dependent Variable: Wedge]
+Table 1. Hours Worked in 2004 Relative to 1956
+Table 2. Correlation Hours and Wedges: Trend Components
+Table 3. Correlation Hours and Wedges: Cyclical Components
+Table 6. Regression Results. Dependent Variable:Wedge
+Figure 1. Mean Hours Worked
+Figure 2. Mean Hours Worked by Group
+Figure 3. Mean Wedge and Mean Hours
+Figure 4. Mean Wedge by Group
+Figure 5. Change in Wedges and Hours
+Figure 6. Wedge and Hours: Netherlands
+Figure 7. Wedge and Hours: Spain
+Figure 8. Hours and Wedge Relative to US (2004)
+Figure 9. Correlation of Hours and Wedges
+Figure 10. Changes in C/Y and Hours
+Figure 11. Changes in C/Y and Hours in 2004
+Figure 12. Wedge and Labor Supply Elasticity
+Figure 13. Wedge and Government Consumption
+Figure 14. Effect of Subsistence on Wedge
+Figure 15. Change in Hours and Wedges with Subsistence
+Figure 16a. Mean Wedge and Taxes
+Figure 16b. Mean Wedge and Taxes (Stone Geary)
+Figure 17a. After Tax Mean Wedges
+Figure 17b. After tax Mean Wedges (Stone-Geary)

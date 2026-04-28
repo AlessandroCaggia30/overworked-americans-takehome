@@ -1,0 +1,112 @@
+=== bick_brueggemann_fuchs_2019_NBER25826 ===
+len_chars=75424
+
+--- HEAD (first 4500 chars) ---
+                             NBER WORKING PAPER SERIES
+
+
+
+
+                         DOUBLE-COUNTING OF INVESTMENT
+
+                                        Robert J. Barro
+
+                                     Working Paper 25826
+                             http://www.nber.org/papers/w25826
+
+
+                    NATIONAL BUREAU OF ECONOMIC RESEARCH
+                             1050 Massachusetts Avenue
+                               Cambridge, MA 02138
+                            May 2019, Revised July 2019
+
+
+
+
+I have benefited from comments by Alberto Alesina, David Baqaee, Xiang Ding, Emmanuel
+Farhi, Dale Jorgenson, Loukas Karabarbounis, and Ian Leifer. The views expressed herein are
+those of the author and do not necessarily reflect the views of the National Bureau of Economic
+Research.
+
+NBER working papers are circulated for discussion and comment purposes. They have not been
+peer-reviewed or been subject to the review by the NBER Board of Directors that accompanies
+official NBER publications.
+
+© 2019 by Robert J. Barro. All rights reserved. Short sections of text, not to exceed two
+paragraphs, may be quoted without explicit permission provided that full credit, including ©
+notice, is given to the source.
+Double-Counting of Investment
+Robert J. Barro
+NBER Working Paper No. 25826
+May 2019, Revised July 2019
+JEL No. E01,E22
+
+                                          ABSTRACT
+
+The national-income accounts double-count investment, which enters once when it occurs and
+again in present value as rental income on added capital. The double-counting implies over-
+statement of levels of GDP and national income. Across countries, those with higher propensities
+to invest artificially look richer gauged by per capita GDP. There is also exaggeration of capital-
+income shares. An alternative measure involves a form of full expensing of gross investment. In
+the steady state, revised product and income correspond to consumption. Outside of the steady
+state, the measure deviates from consumption because full expensing applies to the long-run flow
+of gross investment.
+
+
+Robert J. Barro
+Department of Economics
+Littauer Center 218
+Harvard University
+Cambridge, MA 02138
+and NBER
+rbarro@harvard.edu
+        In setting up a system of national accounts, Kuznets (1941) stressed that the only true final
+
+goods are consumption at various dates. Therefore, a reasonable test for a national accounting system
+
+for production and income is how well it measures the potential for consumption over time. As Kuznets
+
+put it (p. 46): “Is it the value of goods produced that leads to the most valid appraisal of the positive
+
+contents of economic activity? Since the final aim is to satisfy the wants of ultimate consumers, we
+
+might perhaps more properly center attention on ultimate consumption.”
+
+        If the only final goods are consumption in various periods, a reasonable requirement for a
+
+measure of national product or income is that it accurately reflect, subject to data constraints, the
+
+resources available for consumption. More specifically, a necessary condition from an intertemporal
+
+perspective is that—at least conceptually—the present value of production and income should equal the
+
+present value of consumption. However, the usual measures of national or domestic product and
+
+income fail this test because they double-count investment. Gross or net product includes gross or net
+
+investment when it occurs and includes the corresponding present value a second time when additional
+
+rental income results from the enhanced stocks of capital. From the standpoint of the intertemporal
+
+budget constraint for consumption, aggregates such as GDP and national income overstate the
+
+resources available for consumption and also exaggerate capital’s share of product and income.
+
+        In a model with a representative agent, such as the one constructed in the next section, welfare
+
+corresponds to the single agent’s attained utility. Then, with no labor-leisure choice, welfare depends
+
+only on the time path of consumption. More generally, measured welfare would factor in the path of
+
+leisure time and the distributions of consumption and leisure, as suggested by a report written for the
+
+U.S. Senate by Kuznets (1934, pp. 6-7):
+
+        “Economic welfare cannot be adequately measured unless the personal distribution of
+        income is known. And no income measurement undertakes to estimate the reverse side
+        of income, that is, the intensity and unplea
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+on home production. In 1965, men and women spent an average of 27 hours in home production, and by 2010, they
+spent 22 hours. This overall decline reflects a drop in women’s home production from 40 hours to 26 hours, which
+more than offset an increase in men’s hours from 14 hours to 17 hours.”

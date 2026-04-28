@@ -1,0 +1,163 @@
+=== heathcote_storesletten_violante_2017_QJE_NBER19899 ===
+len_chars=246598
+
+--- HEAD (first 4500 chars) ---
+                                NBER WORKING PAPER SERIES
+
+
+
+
+                               OPTIMAL TAX PROGRESSIVITY:
+                               AN ANALYTICAL FRAMEWORK
+
+                                        Jonathan Heathcote
+                                         Kjetil Storesletten
+                                        Giovanni L. Violante
+
+                                        Working Paper 19899
+                                http://www.nber.org/papers/w19899
+
+
+                      NATIONAL BUREAU OF ECONOMIC RESEARCH
+                               1050 Massachusetts Avenue
+                                 Cambridge, MA 02138
+                                     February 2014
+
+
+
+
+Formerly titled “Redistributive Taxation in a Partial Insurance Economy”. The views expressed herein
+are those of the authors and not necessarily those of the Federal Reserve Bank of Minneapolis or the
+Federal Reserve System. The views expressed herein are those of the authors and do not necessarily
+reflect the views of the National Bureau of Economic Research.
+
+NBER working papers are circulated for discussion and comment purposes. They have not been peer-
+reviewed or been subject to the review by the NBER Board of Directors that accompanies official
+NBER publications.
+
+© 2014 by Jonathan Heathcote, Kjetil Storesletten, and Giovanni L. Violante. All rights reserved.
+Short sections of text, not to exceed two paragraphs, may be quoted without explicit permission provided
+that full credit, including © notice, is given to the source.
+Optimal Tax Progressivity: An Analytical Framework
+Jonathan Heathcote, Kjetil Storesletten, and Giovanni L. Violante
+NBER Working Paper No. 19899
+February 2014
+JEL No. E20,H20,H40,J22,J24
+
+                                              ABSTRACT
+
+What shapes the optimal degree of progressivity of the tax and transfer system? On the one hand, a
+progressive tax system can counteract inequality in initial conditions and substitute for imperfect private
+insurance against idiosyncratic earnings risk. At the same time, progressivity reduces incentives to
+work and to invest in skills, and aggravates the externality associated with valued public expenditures.
+We develop a tractable equilibrium model that features all of these trade-offs. The analytical expressions
+we derive for social welfare deliver a transparent understanding of how preferences, technology, and
+market structure parameters influence the optimal degree of progressivity. A calibration for the U.S.
+economy indicates that endogenous skill investment, flexible labor supply, and the externality linked
+to valued government purchases play quantitatively similar roles in limiting desired progressivity.
+
+
+Jonathan Heathcote                                   Giovanni L. Violante
+Federal Reserve Bank of Minneapolis                  Department of Economics
+Research Department                                  New York University
+90 Hennepin Ave.                                     19 W. 4th Street
+Minneapolis, MN 55401                                New York, NY 10012-1119
+heathcote@minneapolisfed.org                         and NBER
+                                                     glv2@nyu.edu
+Kjetil Storesletten
+Federal Reserve Bank of Minneapolis
+Research Department
+90 Hennepin Ave.
+Minneapolis, MN 55401
+kjetil.storesletten@gmail.com
+1 Introduction
+In deciding how progressive to make the tax and transfer system, governments face a difficult
+trade-off. The classic argument in favor of progressivity is that private risk-sharing is incomplete.
+Empirical estimates of the extent of pass-through from life-cycle earnings shocks into consump-
+tion indicate limited private risk-sharing (e.g., Cochrane, 1991; Attanasio and Davis, 1996). Per-
+haps more importantly, there are no private markets to hedge against poor “initial conditions” that
+translate into low expected future earnings. A progressive tax system offers both social insurance
+against labor market uncertainty (e.g., Eaton and Rosen, 1980; Varian, 1980) and redistribution
+with respect to initial conditions.
+   At the same time, governments are hesitant to push progressivity too far because of the asso-
+ciated distortions to labor supply and skill investment. A tax schedule with increasing marginal
+rates reduces both the returns to working more hours and the returns to acquiring human capital
+(e.g., Heckman, Lochner and Taber, 1998; Guvenen, Kuruscu, and Ozkan, 2014). Moreover, if the
+equilibr
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+
+    Discussion: One way to think about our exercise is as follows. We ask, within the tax system
+class that is currently in place, how much more or less progressive should taxes be, and what
+sectional data set from U.S. Internal Revenue Service (the “Public Use Tax File”). They estimate a smaller value for
+progressivity because these data do not include any government transfers. The same caveat applies to the estimate in
+Chen and Guo (2011).
+    8
+      The CBO analysis draws its information on income from two primary sources. The core data come from the
+Statistics of Income (SOI), a nationally representative sample of individual income tax returns collected by the Internal
+Revenue Service (IRS). The CBO supplements that information with data on transfers from the Annual Social and
+Economic Supplement to the Census Bureau’s Current Population Survey (CPS).
+    9
+      The CBO reports statistics for households of all ages. To avoid conflating forced retirement saving and genuine
+intragenerational redistribution in our estimate for tax progressivity, we excluded social insurance taxes and Social
+Security and Medicare transfers from the CBO measures of taxes and transfers. If we do not exclude those items, we
+obtain a higher estimate for progressivity, τ US = 0.232. The key reason is that the income before taxes and transfers of
+retirees is low, but they receive large amounts of Social Security and Medicare transfers which makes the system look
+more progressive. However, in our view this higher estimate exaggerates true progressivity because a large portion of
+retirement transfers reflects taxes paid earlier in life and simply substitutes for private saving.
+
+
+
+                                                           8
+would the associated welfare gains be? Of course, although this functional form (eq. 1) offers a
+good positive account of the U.S. tax system, it is potentially restrictive from a purely normative
+perspective. Two key restrictions are implicit in T (yi ). First, it is either globally convex in income,
+if τ > 0, or globally concave, if τ < 0. As a result, marginal tax rates are monotonic in income.
+The same restriction applies to the average tax rate. Second, it does not allow for lump-sum
+transfers in cash, since T (0) = 0.10
+       Analyses of optimal tax design in the Mirrlees tradition often emphasize the importance of
+allowing for lump-sum transfers. Heathcote and Tsujiyama (2013) consider the welfare gains of
+moving from tax systems of the type described by eq. (1) to affine systems and to systems that do
+not impose any parametric restrictions on the shape of the tax schedule. Their environment is a
+stripped-down version of the model developed here. Under their baseline social welfare function,
+Heathcote and Tsujiyama find that the welfare gains of moving from the tax system described
+above with τ = 0.151 to the constrained-efficient and fully nonparametric Mirrlees system are
+very small, on the order of 0.1 percent of consumption. The welfare gains of moving to the optimal
+system in the affine class are typically negative, indicating that allowing for a lump-sum transfer
+component in the tax system is less important than allowing for marginal tax rates to increase with
+income.
+       These findings suggest that restrictions implicit in the system described by eq. (1) may not be
+particularly important from a normative standpoint. Moreover, as will become clear, an important
+advantage of the functional form we use is that when we embed it in our structural equilibrium
+model, the model remains tractable, and the trade-offs from increasing or reducing progressivity
+are transparent. In addition, restricting attention to this functional form allows us to incorporate a
+range of model features that turn out to be quantitatively important in shaping optimal progressiv-
+ity, including skill investment choices, persistent life-cycle uninsurable shocks, and preference het-
+erogeneity. Conducting a Mirrlees-style optimal taxation exercise in this rich environment would
+be an extremely challenging numerical exercise.
+  10
+    Our model can capture (as part of the public good G) lump-sum transfers in the form of goods or services that are
+imperfectly substitutable with private consumption (e.g., public education and health care).
+
+
+
+
+                                                         9
+3 Economic environment
+We describe the economy in steady state and omit time subscripts.
+Demographics: We adopt the Ya
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+coefficient is exactly the elasticity of substitution across skill types in production.
+to a flat tax set at 19% of income. The logic is that although progressivity does act as a substitute
+require a positive lower bound on annual hours worked (i.e., that either the head or the spouse works at least 260 hours
+Figure 1: Representation of the actual U.S. tax/transfer system through our tax/transfer function.
+Figure 2: Optimal τ as a function of the elasticity of substitution across skill levels in production
+is the Pareto coefficient θ), the higher is the optimal marginal tax rate at the top.
+from 31 to 24 percent. Section 6.5 compares the tax/transfer schedule under the two systems in
+To visualize the differences between the actual and the optimal tax system, Figure 4 plots marginal
+Figure 4: Top-left and Bottom-left panels: marginal and average tax rates in the baseline model
+income, the marginal tax rate is 7 percentage points lower in the optimal scheme. The optimal
+progressivity translates into an increase in the average effective marginal tax rate of 1.8 percentage
+from the current earnings tax system to this progressive consumption tax system is 0.56 percent,

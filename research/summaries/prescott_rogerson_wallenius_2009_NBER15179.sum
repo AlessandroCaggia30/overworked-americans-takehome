@@ -1,0 +1,120 @@
+=== prescott_rogerson_wallenius_2009_NBER15179 ===
+len_chars=15511
+
+--- HEAD (first 4500 chars) ---
+                               NBER WORKING PAPER SERIES
+
+
+
+
+      A NOTE ON ADAPTING PROPENSITY SCORE MATCHING AND SELECTION
+                    MODELS TO CHOICE BASED SAMPLES
+
+                                        James J. Heckman
+                                          Petra E. Todd
+
+                                       Working Paper 15179
+                               http://www.nber.org/papers/w15179
+
+
+                     NATIONAL BUREAU OF ECONOMIC RESEARCH
+                              1050 Massachusetts Avenue
+                                Cambridge, MA 02138
+                                     July 2009
+
+
+
+
+This research was supported by NSF SBR 93-21-048 and NSF 97-09-873 and NICHD 40-4043-000-85-261.
+The views expressed herein are those of the author(s) and do not necessarily reflect the views of the
+National Bureau of Economic Research.
+
+NBER working papers are circulated for discussion and comment purposes. They have not been peer-
+reviewed or been subject to the review by the NBER Board of Directors that accompanies official
+NBER publications.
+
+© 2009 by James J. Heckman and Petra E. Todd. All rights reserved. Short sections of text, not to
+exceed two paragraphs, may be quoted without explicit permission provided that full credit, including
+© notice, is given to the source.
+A Note on Adapting Propensity Score Matching and Selection Models to Choice Based Samples
+James J. Heckman and Petra E. Todd
+NBER Working Paper No. 15179
+July 2009
+JEL No. C13,C51
+
+                                            ABSTRACT
+
+The probability of selection into treatment plays an important role in matching and selection models.
+However, this probability can often not be consistently estimated, because of choice-based sampling
+designs with unknown sampling weights. This note establishes that the selection and matching procedures
+can be implemented using propensity scores fit on choice-based samples with misspecified weights,
+because the odds ratio of the propensity score fit on the choice-based sample is monotonically related
+to the odds ratio of the true propensity scores.
+
+
+James J. Heckman
+Department of Economics
+The University of Chicago
+1126 E. 59th Street
+Chicago, IL 60637
+and NBER
+jjh@uchicago.edu
+
+Petra E. Todd
+Department of Economics
+University of Pennsylvania
+3718 Locust Walk
+Philadelphia, PA 19104
+and NBER
+ptodd@econ.upenn.edu
+1         Introduction
+
+The probability of selection into a treatment, also called the propensity score,
+
+plays a central role in classical selection models and in matching models (see,
+e.g., Heckman, 1980; Heckman and Navarro, 2004; Heckman and Vytlacil,
+
+2007; Hirano et al., 2003; Rosenbaum and Rubin, 1983). 1 Heckman and
+Robb (1986, reprinted 2000), Heckman and Navarro (2004) and Heckman and
+
+Vytlacil (2007) show how the propensity score is used differently in matching
+and selection models. They also show that, given the propensity score, both
+
+matching and selection models are robust to choice-based sampling, which
+
+occurs when treatment group members are over- or under-represented relative
+to their frequency in the population. Choice-based sampling designs are
+frequently chosen in evaluation studies to reduce the costs of data collection
+
+and to obtain more observations on treated individuals. Given a consistent
+
+estimate of the propensity score, matching and classical selection methods
+are robust to choice-based sampling, because both are defined conditional on
+treatment and comparison group status.
+
+        This note extends the analysis of Heckman and Robb (1985),Heckman and
+
+Robb (1986, reprinted 2000) to consider the case where population weights
+are unknown so that the propensity score cannot be consistently estimated.
+
+In evaluation settings, the population weights are often unknown or cannot
+    1
+   It also plays a key role in instrumental variables models (see Heckman et al., 2006).
+Heckman and Vytlacil (2007) discuss the different role played by the propensity score in
+matching IV and selection models.
+
+
+
+
+                                           2
+easily be estimated.2 For example, for the National Supported Work training
+program studied in LaLonde (1986), Dehejia and Wahba (1999, 2002) and
+in Smith and Todd (2005), the population consists of all persons eligible for
+
+the program, which was targeted at drug addicts, ex-convicts, and welfare
+
+recipients. Few datasets have the information necessary to determine whether
+
+a person is eligible for the program, so it 
+
+--- NUMERICAL-CLAIM LINES (filtered) ---

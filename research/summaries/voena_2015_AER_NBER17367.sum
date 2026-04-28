@@ -1,0 +1,181 @@
+=== voena_2015_AER_NBER17367 ===
+len_chars=188098
+
+--- HEAD (first 4500 chars) ---
+                               NBER WORKING PAPER SERIES
+
+
+
+
+                       TRADING AND ENFORCING PATENT RIGHTS
+
+                                        Alberto Galasso
+                                       Mark Schankerman
+                                        Carlos J. Serrano
+
+                                       Working Paper 17367
+                               http://www.nber.org/papers/w17367
+
+
+                     NATIONAL BUREAU OF ECONOMIC RESEARCH
+                              1050 Massachusetts Avenue
+                                Cambridge, MA 02138
+                                    August 2011
+
+
+
+
+We would like to thank two anonymous referees and the Editor for very constructive comments on
+an earlier version of the paper. We are also grateful to Victor Aguirregabiria, Ashish Arora, Pierre
+Azoulay, Christian Catalini, Dietmar Harhoff, Nico Lacetera, Josh Lerner, Megan MacGarvie, Matt
+Mitchell, Jeff Thurk, Dan Trefler and Heidi Williams for comments and suggestions on earlier drafts,
+and to Grid Thoma for helping with the matching algorithm. We also thank seminar and conference
+participants at Berkeley, Duke, Georgia Tech, Kellogg, Carlos III University Madrid, Max Planck
+Institute, Pompeu Fabra, SUNY Stony Brook, Toulouse, Toronto and the ZEW. Jelena Bozovic and
+Christina Kim provided excellent research assistance. We are grateful for financial support from the
+Centre for Economic Performance at the London School of Economics and the Social Sciences and
+Humanities Research Council of Canada. The views expressed herein are those of the authors and
+do not necessarily reflect the views of the National Bureau of Economic Research.
+
+NBER working papers are circulated for discussion and comment purposes. They have not been peer-
+reviewed or been subject to the review by the NBER Board of Directors that accompanies official
+NBER publications.
+
+© 2011 by Alberto Galasso, Mark Schankerman, and Carlos J. Serrano. All rights reserved. Short
+sections of text, not to exceed two paragraphs, may be quoted without explicit permission provided
+that full credit, including © notice, is given to the source.
+Trading and Enforcing Patent Rights
+Alberto Galasso, Mark Schankerman, and Carlos J. Serrano
+NBER Working Paper No. 17367
+August 20115HYLVHG$XJXVW
+JEL No. H24,K41,O32,O34
+
+                                                 ABSTRACT
+
+We study how the market for innovation affects enforcement of patent rights. Conventional wisdom
+associates the gains from trade with comparative advantage in manufacturing or marketing. We show
+that these gains imply that patent transactions should increase litigation risk. We identify a new source
+of gains from trade, comparative advantage in patent enforcement, and show that transactions driven
+by this motive should reduce litigation. Using data on trade and litigation of individually-owned patents
+in the U.S., we exploit variation in capital gains tax rates as an instrument to identify the causal effect
+of trade on litigation. We find that taxes strongly affect patent transactions, and that reallocation of
+patent rights reduces litigation risk on average, but the impact is heterogeneous. We show that patents
+with larger potential gains from trade are more likely to change ownership, suggesting that the market
+for innovation is efficient, and the impact of trade on litigation depends on characteristics of the transactions.
+
+
+Alberto Galasso                                         Carlos J. Serrano
+Rotman School of Management                             Department of Economics
+University of Toronto                                   University of Toronto
+105 St. George Street                                   150 St. George Street
+Toronto, ON                                             Toronto, ON M5S 3G7
+CANADA M5S 3E6                                          CANADA
+Alberto.Galasso@Rotman.Utoronto.Ca                      and NBER
+                                                        carlos.serrano@utoronto.ca
+Mark Schankerman
+Department of Economics, R.516
+London School of Economics
+Houghton Street
+London WC2A 2AE
+UK
+M.Schankerman@lse.ac.uk
+1        Introduction
+
+The ‘market for innovation’ — the licensing and sale of patents — is an important source of
+R&D incentives, especially for small firms and individual inventors for whom patents are often
+their critical asset. Transactions in patent rights are also important for developing efficient
+market structures in h
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+
+Discussion of Modeling Assumptions
+
+There are two assumptions in the model that warrant additional discussion. First, we assumed
+that infringement does not occur between the seller and the buyer. However, it is possible that
+patent trades occur as the outcome of patent infringement or invalidity disputes. To accom-
+modate this, in Appendix 1 we develop an extension to our model that includes the possibility
+of infringement between buyer and seller, and we show that our identification strategy still
+holds. The intuition behind this is that, also in this extended model, higher capital gains and
+corporate taxes reduce the payoff of a patent transaction and thus the likelihood that patent
+rights are reallocated, while higher (personal) income tax rates increase it. This extension of
+the model, however, introduces an additional mechanism by which the reallocation of patent
+ownership reduces litigation. There are now two distinct mechanisms: the first is the differen-
+tial ability of the buyer and the seller to settle disputes with third parties (this was the original
+channel); the second, new channel is avoidance of litigation between the buyer and the seller
+involved in the patent dispute.
+      Second, we assumed that the probability of facing an infringing action by a third party,
+β, is exogenous and does not depend on the characteristics of the patent owner. Allowing for
+different values β A and β B does not affect the main predictions of the model. In particular, we
+                                                                                   
+can simply redefine Ω πi , ei = β i Pr ε ≤ πi (1 − θi ) − li ) and ∆i = (β i − Ω πi , ei )(1 − θi )
+for i ∈ {A, B}, and then there is no change in equations (2), (3) and (4) above. Intuitively,
+even if the probability of filing a suit depends on a combination of ex ante, owner-specific
+characteristics that affect the likelihood of infringement action, β i , and an ex post random
+                                                                          
+shock that affects the likelihood of litigation, Pr ε ≤ πi (1 − θi ) − li ) , we can still distinguish
+between gains from trade arising from commercialization and enforcement — i.e. , we still get
+equation (2). The only difference is that these enforcement gains now consist of an ex ante
+and an ex post component. Moreover, our result that the capital gains tax rate does not affect
+the individual’s litigation decision directly also holds in this generalized setup. In addition, as
+before, the decision to trade is more likely when capital gains and corporate tax rates are low,
+
+
+                                                  7
+and when income tax rates are high (i.e. there is no change in equations (3) and (4)).
+       In this generalized setup, equation (5) can now be re-written as:
+
+               Pr(Litigation|N ewOwner = 1) − Pr(Litigation|N ewOwner = 0) =
+                                             
+                                −β A z A − z B + (β B − β A ) z B
+                                      
+where z i = Pr ε ≤ π i (1 − θi ) − li ) . This decomposition confirms the result that the effect of
+trade on litigation can be positive or negative. As in our baseline model, the difference z A − z B
+is positive when ex post enforcement gains dominate product market gains. It also shows that
+two types of enforcement gains reduce the level of litigation: 1) litigation declines because of
+a greater ability to settle a dispute (the ex post effect, shown in the first term in the equation
+when z A > z B ) and 2) litigation declines because of a lower likelihood of infringing action (the
+ex ante effect, given by the second term in the equation above when β B < β A ).9
+
+
+3     Description of the Data and Motivating Evidence
+Our starting point is the panel of patents granted in the period 1975-2000 that are either owned
+by the original inventor at the grant date or have been assigned to U.S. individuals by the grant
+date. Hall, Jaffe and Trajtenberg (2001) refer to the first group of patents as ‘Unassigned’ and
+to the second group of patents as ‘U.S. Individuals’ patents. The USPTO refers to both groups
+as ‘Individually Owned’ patents. For each of these patents we obtained information on the U.S.
+state of the primary (first listed) inventor, their reassignment and litigation history. We also
+collected information on the U.S. state and federal ordinary income taxes, capital gain taxes
+and corporate taxes during the
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+the lowest and the highest capital gains tax rates across states ranges from 7-9 percentage points
+rate across states is 6-16 percentage points. Corporate tax rates decline during the sample
+Analysis of variance shows that 89.4 percent of the overall variance in capital gains tax rates is
+The breakdown for ordinary income tax rates is 92.9 and 6.8 percent; for corporate tax rates,
+instances. The average increase in capital gains tax rates is 1.5 percentage points, equivalent
+to 54 percent of the rate in the year immediately before the tax change. The average decline
+in the capital gains tax rate is 0.6 percentage points, representing about a 9.2 percent tax
+years, with 50 percent of the tax changes in a state followed by another tax change in the next
+that were both sizeable (i.e. tax cuts higher than 1 percentage point and tax hikes larger than
+(with standard error equal to 0.002) for a tax hike. These effects are large, corresponding to
+the coefficient to zero for the year preceding the tax event, as is common practice. We also
+effects” in the years prior to the date of the tax changes. The estimated coefficients are not
+Table 4 presents estimates of the impact of taxes on changes in patent ownership. The de-
+for capital gains tax rates. In this restricted sample the estimated coefficients on citations
+Table 5 reports OLS regressions of corporate transfers against tax rates in this sample.
+2-4 we add controls for individual income and capital gain taxes. The coefficient of income and
+capital gain taxes are statistically insignificant and have the opposite sign from the coefficients
+so the corporate tax variable we use here is constructed using the statutory rates. The coefficient
+coefficient on the capital gain tax rate for trade of individually owned patents, estimated in
+measure of corporate tax rates described in Graham (1996). The estimated coefficient on the
+capital gain tax rate remains statistically insignificant, as does the coefficient on the personal
+coefficient on the corporate tax rate using this preferred measure is negative, as one expects,
+lead to attenuation bias in the coefficient of the capital gains tax rate in the regression of trade
+TABLE 4. Impact of Taxes on Patent Trading
+TABLE 5. Impact of Taxes on Corporate Patent Trading
+TABLE 6. Taxes and Patent Trade - Fixed Effect Regressions
+TABLE 10: Simulated Effects of Capital Gains Taxes on Patent Trade and Litigation
+FIGURE 2. Impact of Tax Changes on Patent Trade
+Figure 2.1: Impact of a Capital Gains Tax Cut
+Figure 2.2: Impact Capital Gains Tax Hike

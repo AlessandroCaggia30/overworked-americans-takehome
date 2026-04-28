@@ -1,0 +1,268 @@
+=== chang_kim_2006_RichmondFed ===
+len_chars=89540
+
+--- HEAD (first 4500 chars) ---
+           Working Paper Series
+
+
+
+           A Quantitative Theory of the Gender Gap
+           in Wages
+
+
+
+
+                                                    WP 05-09   Andrés Erosa
+                                                               University of Toronto
+
+                                                               Luisa Fuster
+                                                               University of Toronto
+
+                                                               Diego Restuccia
+                                                               Federal Reserve Bank of Richmond
+                                                               University of Toronto
+
+
+
+
+This paper can be downloaded without charge from:
+http://www.richmondfed.org/publications/
+Federal Reserve Bank of Richmond − Working Paper 05-09
+
+A Quantitative Theory of the
+Gender Gap in Wages†
+Andrés Erosa
+University of Toronto
+
+Luisa Fuster
+University of Toronto
+
+Diego Restuccia
+Federal Reserve Bank of Richmond and University of Toronto
+
+September 2005
+Abstract
+Using panel data from the National Longitudinal Survey of Youth (NLSY), we document that
+gender differences in wages almost double during the first 20 years of labor market experience
+and that there are substantial gender differences in employment and hours of work during
+the life cycle. A large portion of gender differences in labor market attachment can be traced
+to the impact of children on the labor supply of women. We develop a quantitative life-cycle
+model of fertility, labor supply, and human capital accumulation decisions. We use this
+model to assess the role of fertility on gender differences in labor supply and wages over the
+life cycle. In our model, fertility lowers the lifetime intensity of market activity, reducing
+the incentives for human capital accumulation and wage growth over the life cycle of females
+relative to males. We calibrate the model to panel data of men and to fertility and child
+related labor market histories of women. We find that fertility accounts for most of the
+gender differences in labor supply and wages during the life cycle documented in the NLSY
+data.
+
+
+Keywords: Gender wage gap, employment, experience, fertility, human capital.
+JEL Classification: J2,J3.
+†
+ We are grateful to Ig Horstmann and Richard Rogerson for comments and suggestions. We also thank the
+comments of Aloysius Siow, Marcelo Veracierto, and seminar participants at the 2004 SED in Florence, Ari-
+zona State University, the Federal Reserve Bank of Richmond, 2005 NBER Summer Institute, the University
+of Guelph, the University of Pittsburgh, the University of Southern California, the University of Western
+Ontario, Stanford University (SITE workshop). We thank Christine Neill for invaluable research assistance.
+All remaining errors are our own. We acknowledge the financial support of the BBVA foundation. Fuster ac-
+knowledges the financial support from the Ministerio de Educación y Ciencia of Spain (grant SEJ2004-03149).
+Restuccia acknowledges the support from the Institute for Policy Analysis at the University of Toronto and
+the Social Sciences and Humanities Research Council of Canada. The views expressed in this paper are
+those of the authors and do not necessarily represent those of the Federal Reserve Bank of Richmond or
+the Federal Reserve System.Contact Information: andres.erosa@utoronto.ca; luisa.fuster@utoronto.ca; and
+diego.restuccia@utoronto.ca.
+
+
+
+                                                     1
+1     Introduction
+
+A striking but well known feature of the U.S. labor market is that the average hourly wage
+
+of women is much lower than that of men. Less known is the fact that the gender gap in
+
+wages grows over the life cycle. These gender differences in wages over the life cycle are
+
+accompanied by substantial gender differences in labor supply, mostly due to the impact of
+
+children on the labor supply of women.
+
+    The goal of this paper is to build a quantitative theory of fertility, labor supply, and
+
+human capital accumulation decisions in order to understand the wage and labor supply of
+
+women over the life-cycle and why they differ from those of men. We develop a decision-
+
+theoretic framework in which individuals decide how much effort to exert in accumulating
+
+human capital on the job and whether to work or to stay at home. Females make fertility
+
+decisions which negatively affect their labor supply. While it is clear that any theory of
+
+gende
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+
+discussion of the data in Section 2. Third, females at age 20 enter the labor market with
+
+a human capital that is 16% lower than the one of males (the gender gap in initial human
+
+capital is calibrated so that the model reproduces a gender gap in wages at age 20 of 18%,
+
+as documented in the NLSY79 data). As a result, our theory implies gender differences in
+
+
+                                             31
+human capital investments. The important question is whether our theory quantitatively
+
+accounts for the substantial gender differences in life-cycle wage growth documented in the
+
+NLSY data. Below, we argue that the answer to this question is yes.
+
+
+Female Labor Supply As discussed in the calibration section, the model is calibrated to
+
+panel data of men and only to data of women that relates directly to the number of children
+
+and to the impact of children on women’s employment and hours of work after childbirth.
+
+We emphasize that our calibration does not target the gender differences in labor supply.
+
+Table 15 reports the employment ratio of females for different ages in the model and in
+
+the data. Since the model implies higher female employment than in the data (specially
+
+among women older than 30 years), our findings suggest that there may be other factors,
+
+different from children, leading to the low employment rate of women relative to men (such
+
+as, household specialization). In addition, the model implies a slightly shorter duration of
+
+the non-employment spells of females relative to the data (see Table 16). Overall, the model
+
+generates large gender differences in labor supply, albeit smaller than in the data. In effect,
+
+by age 40, the gender difference in total hours of work in our model is about 31%, while this
+
+statistic is 48% in the data.
+
+                       Table 15: Employment Ratio by Age - Females
+
+                                     Age Data      Model
+                                     20  0.59       0.62
+                                     25  0.68       0.68
+                                     30  0.69       0.78
+                                     40  0.77       0.87
+
+
+
+
+                                              32
+             Table 16: Duration Distribution of Non-employment Spells† (%)
+
+                                                    Females
+                         Duration (weeks):       Data Model
+                         1 quarter (7-19)         38     42
+                         2 quarters (20-32)       17     19
+                         3 quarters (33-45)       12     11
+                         4 quarters (46-58)        7      7
+                         More than a year (> 58)  26     20
+                                   †
+                                       Between ages 20 and 40.
+
+
+
+      Table 17: Average Accumulated Experience between ages 20 and 40 (in years)
+
+                                                        Hours
+                                                     Data Model
+                               Males                 19.2  19.0
+                               Females               13.0  14.7
+                               Males/Females         1.48  1.31
+
+
+
+Wages of Females in the Life Cycle Our model of human capital investments can
+
+account for the low life-cycle wage growth of females relative to males. In fact, if anything,
+
+we find that the wages of females grow with age slightly less in our model than in the data.
+
+While in the data the wages of females grow between ages 20 to 40 by a factor of 1.75, in
+
+the model they grow by a factor of 1.65. Our theory also has implications for the cross-
+
+sectional distribution of wages along the life-cycle. We find that our model does a good job
+
+in accounting for the slow wage growth for female workers at the bottom 75% of the wage
+
+distribution (see Figure 9). The main disparity between the model and the data is that
+
+the model implies much slower wage growth for female workers at the top 10% of the wage
+
+distribution relative to the data. In Table 18, we show that the life cycle wage growth for
+
+the bottom 50% of the wage distribution is given by a factor of 1.40 in the data and by a
+
+
+                                                33
+factor of 1.36 in the model. Regarding the top 50% of the wage distribution, the life cycle
+
+wage growth is about a factor of 1.98 in the data and a factor of 1.82 in the model. Overall,
+
+we conclude that our theory can account well for the slow l
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+implies that the gender wage gap grows 21 percentage points between ages 20 and 40, a
+explain this result). We find that (at least) 40% of the increase in the gender gap in wages
+because females work 10% less hours than males and because females expect to have chil-
+Since females in this experiment work more than 35 hours a week, we follow the empirical
+over the life cycle −the gender gap in wages increases with age. Figure 1 documents the
+Employment and Hours Men work in average 40% more hours than women (37.6 vs.
+26.7 hours per person per week, see Table 1). About 50% of this gender difference in hours of
+Table 1: Average Hours and Employment
+40 this difference is 12 percentage points. There is also a substantial gap in hours of work
+among people working: At age 20, employed men spend 6 hours more working per week than
+women. At age 40 the difference in hours of work is 8 hours per week.
+and women is by looking at the overall distribution of hours of work. Table 2 documents
+more than 40 hours of work per week are more prevalent among men than among women.
+average, men work 40% more hours than women, while among those working, men work almost 20% more
+Table 2: Distribution of Hours (%)
+weeks of work and accumulated weekly hours of work.6 Table 4 indicates that by age 40,
+men have accumulated 24% more weeks of experience than women, and 48% more hours of
+reported. The numbers presented in Table 4 assume these cases as zero hours, but alternative assumptions
+52 weeks and 40 hours of work per week.
+men during the life cycle as documented in Figure 3. The pattern of average hours per
+(roughly 6 hours per worker per week or about 10% of the hours per worker of males). This
+pattern of hours of work for women with no children is reported in Figure 4. Comparing the
+Children have lasting effects on employment and hours of women. Table 5 decomposes
+average, children reduce hours per worker of women in about 4% per child. Labor hours
+70% of the difference in hours per person between men and women with young children is
+30% is accounted for by the difference in hours per worker.
+Table 5: Average Hours and Employment
+factor affecting labor hours of women is children. The evidence already discussed in Table 5
+in labor supply, we report in Table 6 the accumulated weekly hours of experience by gender,
+about 10% less hours of experience than men (regardless of marital status), women who had
+a child before age 36 accumulate about 30% less hours of experience than men. When we
+10% less hours than males (at every age) and that in average each child reduces the hours
+4% less hours per child). Second, females work 10% less hours than males when employed
+a human capital that is 16% lower than the one of males (the gender gap in initial human
+capital is calibrated so that the model reproduces a gender gap in wages at age 20 of 18%,
+by age 40, the gender difference in total hours of work in our model is about 31%, while this
+in accounting for the slow wage growth for female workers at the bottom 75% of the wage
+the model implies much slower wage growth for female workers at the top 10% of the wage
+an increase of 21 percentage points in the gender gap in wages between age 20 and age 40.
+likely to work and, when employed, work 4% less hours per child than non-mothers. We
+40% of the increase in the gender wage gap between ages 20 to 40 (0.08 out of an increase of
+in hours of work of 10% for all females. We find that the increase in the gender wage gap
+find that children lead to an increase of 8 percentage points in the gender gap, we conclude
+contributes around 40% to the increase in the gender gap in wages during the life cycle,
+exogenous gender differences in hours of work contributes another 40% to the increase in
+Table 19: Gender Gap in Wages
+lifetime labor supply because females work 10% less hours than males and because females
+over the life cycle. Since females in this experiment work more than 35 hours a week, we
+a gender wage ratio of 0.91: females earn on average a wage that is 9 percentage points
+Figure 2: Gender Wage Ratio by Age
+Figure 4: Hours Per-worker (per-week)

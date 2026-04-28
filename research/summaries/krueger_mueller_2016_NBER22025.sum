@@ -1,0 +1,94 @@
+=== krueger_mueller_2016_NBER22025 ===
+len_chars=145001
+
+--- HEAD (first 4500 chars) ---
+                               NBER WORKING PAPER SERIES
+
+
+
+                        RESTORING RATIONAL CHOICE:
+              THE CHALLENGE OF CONSUMER FINANCIAL REGULATION
+
+                                         John Y. Campbell
+
+                                       Working Paper 22025
+                               http://www.nber.org/papers/w22025
+
+
+                      NATIONAL BUREAU OF ECONOMIC RESEARCH
+                               1050 Massachusetts Avenue
+                                 Cambridge, MA 02138
+                                     February 2016
+
+
+This paper is the Ely Lecture delivered at the annual meeting of the American Economic
+Association on January 3, 2016. I thank the Sloan Foundation for financial support, and my
+coauthors Steffen Andersen, Cristian Badarinza, Laurent Calvet, Howell Jackson, Brigitte
+Madrian, Kasper Meisner Nielsen, Tarun Ramadorai, Benjamin Ranish, Paolo Sodini, and Peter
+Tufano for joint work that I draw upon here. I also thank Cristian Badarinza for his work with
+international survey data on household balance sheets, Laurent Bach, Laurent Calvet, and Paolo
+Sodini for sharing their results on Swedish wealth inequality, Ben Ranish for his analysis of
+Indian equity data, Annamaria Lusardi for her assistance with financial literacy survey data,
+Steven Bass, Sean Collins, Emily Gallagher, and Sarah Holden of ICI and Jack VanDerhei of
+EBRI for their assistance with data on US retirement savings, Eduardo Davila and Paul Rothstein
+for correspondence and discussions about behavioral welfare economics, and Daniel Fang for
+able research assistance. I have learned a great deal from my service on the Academic Research
+Council of the Consumer Financial Protection Bureau, and from conversations with CFPB staff.
+Finally I gratefully acknowledge insightful comments from participants in the Sixth Miami
+Behavioral Finance Conference and the Fourth Conference on Household Finance and
+Consumption at the European Central Bank, and from Alexei Alexandrov, Julianne Begenau,
+John Beshears, Ron Borzekowski, Chris Carroll, Paulo Costa, Xavier Gabaix, Peter Ganong,
+Stefano Giglio, Michael Haliassos, Deborah Lucas, Annamaria Lusardi, Vijay Narasiman, Pascal
+Noel, James Poterba, Tarun Ramadorai, Jon Reuter, Paul Rothstein, Antoinette Schoar, Robert
+Shiller, Andrei Shleifer, Emil Siriwardane, Jeremy Stein, Cass Sunstein, Richard Thaler, and
+Jessica Wachter. The views expressed herein are those of the author and do not necessarily reflect
+the views of the National Bureau of Economic Research.
+
+The author has disclosed a financial relationship of potential relevance for this research. Further
+information is available online at http://www.nber.org/papers/w22025.ack
+
+NBER working papers are circulated for discussion and comment purposes. They have not been
+peer-reviewed or been subject to the review by the NBER Board of Directors that accompanies
+official NBER publications.
+
+© 2016 by John Y. Campbell. All rights reserved. Short sections of text, not to exceed two
+paragraphs, may be quoted without explicit permission provided that full credit, including ©
+notice, is given to the source.
+Restoring Rational Choice: The Challenge of Consumer Financial Regulation
+John Y. Campbell
+NBER Working Paper No. 22025
+February 2016, Revised March 2016
+JEL No. D12,D18,G28
+
+                                         ABSTRACT
+
+This lecture considers the case for consumer financial regulation in an environment where many
+households lack the knowledge to manage their financial affairs effectively. The lecture argues
+that financial ignorance is pervasive and unsurprising given the complexity of modern financial
+products, and that it contributes meaningfully to the evolution of wealth inequality. The lecture
+uses a stylized model to discuss the welfare economics of paternalistic intervention in financial
+markets, and discusses several specific examples including asset allocation in retirement savings,
+fees for unsecured short-term borrowing, and reverse mortgages.
+
+
+John Y. Campbell
+Morton L. and Carole S.
+Olshan Professor of Economics
+Department of Economics
+Harvard University
+Littauer Center 213
+Cambridge, MA 02138
+and NBER
+john_campbell@harvard.edu
+
+
+
+
+A online appendix is available at http://www.nber.org/data-appendix/w22025
+1         Introduction
+
+This lecture examines the case for intervention in consumer …nancial markets. The tension
+between laissez faire and interventionist tendencies is as old as the discipli
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+Figure 3: Financial illiteracy by age and gender, from the 2012 NFCS

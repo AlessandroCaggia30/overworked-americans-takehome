@@ -1,0 +1,224 @@
+=== heathcote_storesletten_violante_2014_NBER19268 ===
+len_chars=80195
+
+--- HEAD (first 4500 chars) ---
+                                NBER WORKING PAPER SERIES
+
+
+
+
+   EVIDENCE FOR SIGNIFICANT COMPRESSION OF MORBIDITY IN THE ELDERLY
+                            U.S. POPULATION
+
+                                          David M. Cutler
+                                          Kaushik Ghosh
+                                         Mary Beth Landrum
+
+                                        Working Paper 19268
+                                http://www.nber.org/papers/w19268
+
+
+                      NATIONAL BUREAU OF ECONOMIC RESEARCH
+                               1050 Massachusetts Avenue
+                                 Cambridge, MA 02138
+                                      July 2013
+
+
+
+
+We are grateful to the National Institute of Aging for research support (P01-AG005842) and to Dan
+McFadden for helpful comments. The views expressed herein are those of the authors and do not necessarily
+reflect the views of the National Bureau of Economic Research.
+
+At least one co-author has disclosed a financial relationship of potential relevance for this research.
+Further information is available online at http://www.nber.org/papers/w19268.ack
+
+NBER working papers are circulated for discussion and comment purposes. They have not been peer-
+reviewed or been subject to the review by the NBER Board of Directors that accompanies official
+NBER publications.
+
+© 2013 by David M. Cutler, Kaushik Ghosh, and Mary Beth Landrum. All rights reserved. Short sections
+of text, not to exceed two paragraphs, may be quoted without explicit permission provided that full
+credit, including © notice, is given to the source.
+Evidence for Significant Compression of Morbidity In the Elderly U.S. Population
+David M. Cutler, Kaushik Ghosh, and Mary Beth Landrum
+NBER Working Paper No. 19268
+July 2013
+JEL No. I1,J11
+
+                                            ABSTRACT
+
+The question of whether morbidity is being compressed into the period just before death has been
+at the center of health debates in the United States for some time. Compression of morbidity would
+lead to longer life but less rapid medical spending increases than if life extension were accompanied
+by expanding morbidity. Using nearly 20 years of data from the Medicare Current Beneficiary Survey,
+we examine how health is changing by time period until death. We show that functional measures
+of health are improving, and more so the farther away from death the person is surveyed. Disease
+rates are relatively constant at all times until death. On net, there is strong evidence for compression
+of morbidity based on measured disability, but less clear evidence based on disease-free survival.
+
+
+David M. Cutler                                    Mary Beth Landrum
+Department of Economics                            Harvard Medical School
+Harvard University                                 Department of Health Care Policy
+1875 Cambridge Street                              180 Longwood Avenue
+Cambridge, MA 02138                                Boston, MA 02115-5899
+and NBER                                           landrum@hcp.med.harvard.edu
+dcutler@harvard.edu
+
+Kaushik Ghosh
+NBER
+1050 Massachusetts Ave.
+Cambridge, MA 02138
+ghoshk@nber.org
+       Older Americans are living longer. Life expectancy at age 65 has increased about 2 years
+
+in the past two decades. But are we living healthier? This issue is vital for health policy and
+
+economic reasons. Longer life is valuable to people, but it is even more valuable if the
+
+additional years lived are in good health. For the public sector as well, the consequences of
+
+longer lives depend on their quality. Medical spending for healthy seniors is modest; spending
+
+for the severely disabled is much greater. Thus, if morbidity is being compressed into the period
+
+just before death, the impacts of population aging are not as severe as if additional life involves
+
+many years of expensive care.
+
+       This question of whether morbidity is being compressed into the period just before death
+
+has been at the center of health debates in the United States for some time. Fries (1980) first put
+
+forward the argument that the United States was undergoing a compression of morbidity. His
+
+work was provocative, and others took different views. Gruenberg (1977) argued that reduced
+
+disease mortality would extend unhealthy life, while Manton (1982) posited a dynamic
+
+equilibrium where both morbidity and mortality are falling, leading to indeterminate impacts on
+
+disability-free an
+
+--- CONCLUSION (≤4500 chars after match) ---
+
+
+
+
+         Summary Health Status Measures
+
+         The most common single measure of disability in the literature is any difficulty with
+
+ADL or IADLs. We follow this in our analysis and define “disability” as an ADL or IADL
+
+impairment.
+
+         While simple to implement, this measure lacks a rigorous theoretical foundation.
+
+Moreover, a binary measure does not capture heterogeneity in the population. For many
+
+purposes, we care about finer gradations in the distribution of health. There is a literature (e.g.
+
+3
+ With regard to the other IADLs, 61 percent of people living in institutions report difficulty using the telephone and
+85 percent report difficulty shopping for personal items and managing money. Over 90 percent report difficulty
+with basic activities such as stooping, crouching or kneeling, or carrying a 10 lb. object (Cutler and Landrum, 2011).
+
+                                                         10
+Verbrugge and Jette, 1994) arguing for a distinction between functional status (measures of
+
+specific physical functioning) and disability (the ability to engage in the activities typically
+
+expected of a person). Within this latter spirit, we examine the different dimensions of health
+
+among the elderly. In particular, we estimate a factor analytic model of the different domains of
+
+functioning and choose the number of domains that best summarize the data.
+
+       Formally, denote yij as the response to question j for individual i. Suppose there are J
+
+questions total (J=19 in our setting). We imagine that these health states are a linear function of
+
+K different unobserved factors, denoted Fik. We fit a factor analytic model of the form (e.g.,
+
+Bartholomew, 1987; and Knol and Berger, 1991):
+
+
+
+       yij = γ0j + γ1jFi1 + γ2jFi2 + γ3jFi3 + … + γKjFiK,                              (1)
+
+
+
+where yij is a 0 or 1 outcome variable, γ0j is a threshold parameter that accounts for varying
+
+prevalence of limitations in the population (for example, limitations climbing stairs are more
+
+common that limitations in bathing) and the γkj’s are factor loadings that describe the relationship
+
+between unobserved factor k and question j. Unobserved factors are assumed to follow a
+
+multivariate normal distribution. The latent variable model described by (1) is similar to the
+
+factor analyses and Grade of Membership models that have been previously used to describe
+
+dimensions of disability (Lamb, 1996; Manton et al., 1994, 1998; Woodbury et al., 1978).
+
+       We can fit this model provided K<J. Empirically, because the data tend to be highly
+
+correlated and we have 19 dimensions of health, a small number of factors is associated with a
+
+wide range of variation in the data.
+
+
+
+
+                                                  11
+       Table 4 shows the results of the factor analysis over the 1991-2009 time period. By the
+
+usual criterion of eigenvalues greater than 1, there are three significant factors. Together, these
+
+three account for 57 percent of the cumulative variation in the data. These three also have
+
+natural economic and demographic interpretations. We thus work with those three.
+
+       The predicted factor scores are positively correlated. Prior to rotation, the correlation
+
+between factors 1 and 2 is .501, between 1 and 3 is .246, and between 2 and 3 is .265. To aid in
+
+interpretation, we consider rotations of the factors that reduce the correlation between them.
+
+Specifically, we use an oblique rotation of the three factor scores (promax=3).
+
+       Figure 2 shows a radar plot of the (rotated) factor scores. The first factor loads heavily
+
+on ADL and IADL limitations, including bathing, dressing, eating, managing money, and
+
+preparing meals. This is a very severely impaired population. The second factor is largely
+
+associated with functional limitations and related IADLs, including difficulty walking, lifting,
+
+stooping, reading, and doing heavy housework. This group is generally somewhat less impaired.
+
+The third factor is concentrated in sensory impairments, including both vision and hearing.
+
+
+
+III.   Trends in Health
+
+       Our goal is to examine health trends by time until death. We start with overall health
+
+trends in the population as a whole and then proceed to trends for the different subgroups by time
+
+until death.
+
+
+
+       Disease prevalence
+
+       Disease prevalence is a first measure of health that we consider. Figure 3 shows the
+
+share of the elderly with the four categories of conditi
+
+--- NUMERICAL-CLAIM LINES (filtered) ---
+Figure 15: Trend in Disabled and Disability-Free Life Expectancy at 65, by Gender and Race

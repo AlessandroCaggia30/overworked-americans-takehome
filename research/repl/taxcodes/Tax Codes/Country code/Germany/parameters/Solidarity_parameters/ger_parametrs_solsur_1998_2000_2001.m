@@ -1,0 +1,9 @@
+function [solid_ceiling, sol_sur_rate, sol_sur_rate2] = ger_parametrs_solsur_2000
+
+% ********************* solidarity surcharge parameters*******************
+	solid_ceiling 	= 1836;
+	sol_sur_rate 	= 0.055;
+	sol_sur_rate2 	= 0.2;
+
+
+end   
