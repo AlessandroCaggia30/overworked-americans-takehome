@@ -1,7 +1,7 @@
-# LaTeX build artefacts
+# LaTeX build artefacts (keep replication script .out files: research/*.out)
 *.aux
 *.log
-*.out
+problem1.out
 *.toc
 *.fls
 *.fdb_latexmk

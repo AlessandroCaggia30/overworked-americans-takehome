@@ -1,0 +1,10 @@
+Country  OECD value   Tex claim   Match
+-------  ----------   ---------   -----
+USA      1949         1949        OK
+DEU      1960         1960        OK
+FRA      1993         1993        OK
+ITA      2042         2042        OK
+ESP      2046         2046        OK
+NLD      1809         1809        OK
+SWE      1562         1562        OK
+GBR      1775         1775        OK

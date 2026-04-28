@@ -1,0 +1,115 @@
+======================================================================
+Q7 NINE-CHANNEL LEDGER (MIT-REVISED CALIBRATION)
+Changes: (E) AGS-leisure only, no gov't-share term;
+         (R) restricted to binding caps (=0 in cross-section);
+         (P) EPL coefficient -0.05 (Boeri-Garibaldi 2007 anchored);
+         (S) Korea psi tightened from -0.10 to -0.04.
+======================================================================
+
+=== NW (DE/NL/SE/UK) ===
+  (M    ) = +0.2481
+  (I    ) = +0.0570
+  (R    ) = +0.0000
+  (S    ) = +0.0600
+  (E    ) = +0.0406
+  (Lint ) = -0.0181
+  (U    ) = -0.0210
+  (C    ) = -0.3285
+  (F    ) = -0.0034
+  (P    ) = -0.0100
+  TOTAL Delta W = +0.0247
+  lambda = +2.50%
+  W^j/W^US = 1.025
+
+=== ME (IT/ES/GR/PL/HU) ===
+  (M    ) = +0.2163
+  (I    ) = +0.0215
+  (R    ) = +0.0000
+  (S    ) = +0.0200
+  (E    ) = +0.0441
+  (Lint ) = -0.0079
+  (U    ) = -0.0450
+  (C    ) = -0.4780
+  (F    ) = -0.0087
+  (P    ) = -0.0135
+  TOTAL Delta W = -0.2513
+  lambda = -22.22%
+  W^j/W^US = 0.778
+
+=== JP (held-out) ===
+  (M    ) = +0.3435
+  (I    ) = +0.0282
+  (R    ) = +0.0000
+  (S    ) = -0.0400
+  (E    ) = -0.0011
+  (Lint ) = -0.0034
+  (U    ) = +0.0118
+  (C    ) = -0.3425
+  (F    ) = -0.0035
+  (P    ) = -0.0065
+  TOTAL Delta W = -0.0134
+  lambda = -1.33%
+  W^j/W^US = 0.987
+
+=== KR (held-out) ===
+  (M    ) = +0.3181
+  (I    ) = +0.0112
+  (R    ) = +0.0000
+  (S    ) = -0.0400
+  (E    ) = +0.0018
+  (Lint ) = +0.0000
+  (U    ) = -0.0000
+  (C    ) = -0.4308
+  (F    ) = -0.0074
+  (P    ) = -0.0110
+  TOTAL Delta W = -0.1580
+  lambda = -14.62%
+  W^j/W^US = 0.854
+
+=== Validation against JK 2016 Tab.2 ===
+  NW pred=1.025  vs JK [1.04, 1.13]   in-band: False
+  ME pred=0.778  vs JK [0.8, 0.9]   in-band: False
+  JP pred=0.987  vs JK 0.83  gap=+15.7pp
+  KR pred=0.854  vs JK 0.74  gap=+11.4pp
+
+=== JK-comparable subset (drop R, S, E) ===
+  NW: total=-0.0759  lam=-7.31%  ratio=0.927
+  ME: total=-0.3154  lam=-27.05%  ratio=0.730
+  JP: total=+0.0277  lam=+2.81%  ratio=1.028
+  KR: total=-0.1199  lam=-11.30%  ratio=0.887
+
+======================================================================
+SENSITIVITY: +/- 50% UNIVARIATE PERTURBATION (NW Europe baseline)
+======================================================================
+  tau_p         base=+0.300  lam(-50%)=+2.49%  lam(+50%)=-0.05%
+  v_z           base=+0.250  lam(-50%)=+5.90%  lam(+50%)=-0.79%
+  u             base=+0.070  lam(-50%)=+5.04%  lam(+50%)=+0.02%
+  P             base=+0.770  lam(-50%)=+2.72%  lam(+50%)=+2.11%
+  phi_I         base=+0.100  lam(-50%)=+2.89%  lam(+50%)=+2.11%
+  lambda_EPL    base=+0.200  lam(-50%)=+3.01%  lam(+50%)=+1.99%
+  psi           base=+0.060  lam(-50%)=-0.53%  lam(+50%)=+5.62%
+  T_n_ratio     base=+0.550  lam(-50%)=+2.50%  lam(+50%)=+2.50%
+
+  Range across all univariate perturbations: [-0.79%, +5.90%]
+  Baseline NW lambda = +2.50%
+
+  Joint adverse (v_z, u, phi_I, lambda_EPL all +50%, psi=0):
+  Adverse joint lambda = -9.63%
+
+  Eurosclerosis (u=0.10, phi_I=0.20, lambda_EPL=0.30, psi=0):
+  Eurosclerosis lambda = -6.67%
+
+======================================================================
+SOBOL FIRST-ORDER INDICES (uniform priors from primary sources)
+======================================================================
+  Source                     S_j (first-order)
+  Delta_e                      0.468
+  u_bar                        0.444
+  Delta_psi                    0.072
+  Delta_u                      0.006
+  Delta_v_z                    0.005
+  Delta_tau_p                  0.002
+  Delta_EPL                    0.002
+  Delta_phi_I                  0.001
+
+  Pr(lambda^NW > 0) under linear-Gaussian approx ~ 0.23-sigma above zero
