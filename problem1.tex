@@ -113,7 +113,7 @@ To allocate the country-by-country hours gap between the intensive and extensive
 \ln(H_{US}/H_X)\;=\;\underbrace{\ln(HE_{US}/HE_X)}_{\text{intensive margin}}\;+\;\underbrace{\ln(e_{US}/e_X)}_{\text{extensive margin}},
 \label{eq:q1decomp}
 \end{equation}
-where $HE$ is hours per worker and $e\!=\!E/N$ is the employment rate. Equation \eqref{eq:q1decomp} is an accounting identity (no behavioural content), following Ohanian--Raffo--Rogerson (2008, \emph{JME}) and BBF (2019, \emph{Scand.\ J.\ Econ.}\ 121(4) \S3). Applied to the BBF 2019 panel ($n\!=\!707$):
+where $HE$ is hours per worker and $e\!=\!E/N$ is the employment rate. Equation \eqref{eq:q1decomp} is an accounting identity (no behavioural content), following Ohanian--Raffo--Rogerson (2008, \emph{JME}) and BBF (2019, \emph{Scand.\ J.\ Econ.}\ 121(4) \S3). \textbf{Note on data sources:} the cross-section table in \S 1.1 uses 2023 OECD data (so US hours/worker $=\!1{,}805$); the decomposition table immediately below uses the BBF 2019 panel (so US hours/worker $=\!1{,}873$). The two series differ slightly because BBF harmonises hours per employed person across labour-force surveys with corrections that the OECD aggregate does not apply, and because of the four-year time gap. I use BBF for the decomposition because BBF supplies the panel intensive/extensive split directly. Applied to BBF 2019 ($n\!=\!707$ country-year observations):
 \begin{center}\footnotesize
 \begin{tabular}{lrrrrr}
 \toprule
@@ -150,21 +150,22 @@ Both margins \emph{reinforce} each other; the extensive margin dominates. Spain,
 
 \subsection{The two-regime classifier (BBF 2019 four-region partition)}
 
-The pattern is not a curiosity -- it tracks an institutional partition that BBF (2019, Tab.\ 2) construct independently. They group the 18 EU+US countries into four regions based on Hall--Soskice (2001) varieties of capitalism plus EU geographic clusters: \textbf{Anglo}, \textbf{Nordic}, \textbf{Continental}, \textbf{Southern}. I add Eastern Europe where data permit. Computing the extensive contribution share by country (\texttt{repl\_signflip.py}):
+The pattern tracks an institutional partition. BBF (2019, Tab.\ 2) group the 18 EU+US countries into four regions based on Hall--Soskice (2001) varieties of capitalism plus EU geographic clusters: \textbf{Anglo}, \textbf{Nordic}, \textbf{Continental}, \textbf{Southern}. I add Eastern Europe where BBF data permit. Computing the extensive contribution share country by country and aggregating by BBF region (\texttt{repl\_signflip.py} output):
 \begin{center}\footnotesize
-\begin{tabular}{p{0.18\textwidth}p{0.20\textwidth}cc}
+\begin{tabular}{p{0.16\textwidth}p{0.20\textwidth}cc}
 \toprule
-BBF region & Countries & Ext.\ share (range) & Sign-class collapse\\
+BBF region & Countries (excl.\ US baseline) & Ext.\ share mean (range) & Sign-class\\
 \midrule
-Anglo                  & UK, US, IE       & $-15\%\ ([-48,+20])$ & \emph{Northern} (intensive)\\
-Nordic                 & DK, NO, SE       & $-52\%\ ([-81,-21])$ & \emph{Northern} (intensive)\\
-Continental (DE/NL/AT) & AT, DE, NL       & $-37\%\ ([-53,-17])$ & \emph{Northern} (intensive)\\
-Continental (BE/CH/FR) & BE, CH, FR       & $+\phantom{0}6\%\ ([-1,+34])$ & boundary\\
-Southern + East EU     & ES, GR, IT, PT, HU, PL & $+57\%\ ([+27,+91])$ & \emph{Mediterranean+East} (ext.)\\
+Anglo               & UK, IE                              & $-14\%\ ([-48,+20])$ & boundary\\
+Nordic              & DK, NO, SE                          & $-42\%\ ([-81,-21])$ & \emph{Northern}\\
+Continental NW      & AT, DE, NL                          & $-37\%\ ([-53,-17])$ & \emph{Northern}\\
+Continental ME-leaning & BE, FR\hphantom{XX} (CH excluded$^\dagger$) & $+39\%\ ([+34,+45])$ & \emph{Mediterranean}\\
+Southern            & ES, GR, IT, PT                      & $+57\%\ ([+27,+91])$ & \emph{Mediterranean}\\
+East EU             & HU, PL                              & $+57\%\ ([+52,+62])$ & \emph{Mediterranean}\\
 \bottomrule
 \end{tabular}
 \end{center}
-The institutional partition is BBF's. My downstream re-labelling collapses the four BBF regions into two sign-classes: \textbf{Northern} (negative extensive contribution; intensive margin dominates) and \textbf{Mediterranean+East} (positive extensive contribution; extensive margin dominates). France and Belgium are the only borderline cases.
+\emph{$^\dagger$Switzerland excluded:} Swiss $\Delta\ln H_{US-CH}\!\approx\!0$ makes the extensive share ill-defined (denominator near zero). \emph{Reading.} Three of the four BBF regions are unambiguously \textbf{Northern} (negative extensive share, intensive margin dominates). The Anglo region is borderline (UK is Northern with $-48\%$, IE is Mediterranean-leaning at $+20\%$). The Continental region splits cleanly between a Northern subgroup (AT, DE, NL) and a Mediterranean-leaning subgroup (BE, FR, with FR at $+34\%$). The two-regime collapse I use downstream in Q2 and Q7 is: \textbf{Northern} $=$ Nordic $\cup$ Cont.\ NW $\cup$ \{UK\}; \textbf{Mediterranean+East} $=$ Cont.\ ME-leaning $\cup$ Southern $\cup$ East EU $\cup$ \{IE\}. The institutional partition is BBF's; the binary collapse is my labelling.
 
 \subsection{What the two-regime fact rules out (and what it does not)}
 
@@ -317,49 +318,47 @@ H^{EU}/N<H^{US}/N\;\Longleftrightarrow\;[F(\beta(\tau^{EU}))/F(\beta(\tau^{US}))
 \end{equation}
 which holds whenever $\tau^{EU}\!>\!\tau^{US}$ but allocates the gap between margins according to $f(\beta)/F(\beta)$ vs $\alpha/(\alpha+1{-}\tau)$ at the relevant point.
 
-\subsection{Calibration: BFS 2018 anchored, no free fitting on $P$}
+\subsection{Calibration: $\mu_b$ fitted to OECD 2023 employment, $\sigma_b$ common}
 
-Functional form: $b_i\!\sim\!\text{Logistic}(\mu_b,\sigma_b)$ giving closed-form $P(\tau)\!=\![1+\exp(-(\beta(\tau){-}\mu_b)/\sigma_b)]^{-1}$. \emph{Identification of $(\mu_b,\sigma_b)$ from microdata:} Bick--Fuchs-Sch\"undeln (2018, \emph{ReStud} 85(3), Tab.\ 2) report the cross-country dispersion of secondary-earner reservation utilities, by joint-vs-individual filing regime. I read $\mu_b^j$ as country mean and $\sigma_b^j$ as within-country sd, scaled to log-utility units. Common $\alpha\!=\!1.32$ from $h^{US}\!=\!0.33$ at $\tau^{US}\!=\!0.35$.
+Functional form: $b_i\!\sim\!\text{Logistic}(\mu_b,\sigma_b)$ giving closed-form $P(\tau)\!=\![1+\exp(-(\beta(\tau){-}\mu_b)/\sigma_b)]^{-1}$, with threshold $\beta(\tau)\!=\!\alpha\log(1{-}h^{*}(\tau))-\log(T_n/wh^{*})$ (after normalising $wh^{*}\!=\!1$). I fix $\alpha\!=\!1.32$ (anchored to $h^{US}\!=\!0.33$ at $\tau^{US}\!=\!0.35$) and $\sigma_b\!=\!0.20$ common (a moderate cross-country dispersion baseline; the cross-country pattern is captured by $\mu_b$ rather than by $\sigma_b$). The replacement rate $T_n/wh^{*}$ is country-specific from OECD social-protection data. The model is just-identified (one fitted parameter $\mu_b^j$ per country, one moment: the OECD 2023 employment rate). \emph{Computation in} \texttt{repl\_q2\_calibration.py}; output verifies $P_{\text{pred}}\!=\!P_{\text{data}}$ exactly:
 
 \begin{center}\footnotesize
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{lccccccccl}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lcccccccc}
 \toprule
-Country & $\tau$ & $\mu_b$ & $\sigma_b$ & $T_n/wh^{*}$ & $h^{*}(\tau)$ & $P$ pred & $P$ data & $H/N$ pred & source ($\sigma_b$)\\
+Country & $\tau$ & $h^{*}(\tau)$ & $T_n/wh^{*}$ & $\beta(\tau)$ & $\mu_b$ fit & $P$ pred & $P$ data & $H/N$ pred\\
 \midrule
-United States & 0.35 & 0.10 & 0.20 & 0.30 & 0.330 & 0.71 & 0.72 & 0.234 & BFS (low-disp.)\\
-Germany       & 0.56 & 0.10 & 0.20 & 0.50 & 0.250 & 0.78 & 0.77 & 0.195 & BFS (joint filing)\\
-Sweden        & 0.54 & 0.10 & 0.18 & 0.55 & 0.258 & 0.78 & 0.77 & 0.201 & BFS (indiv.\ filing)\\
-France        & 0.56 & 0.40 & 0.40 & 0.50 & 0.250 & 0.66 & 0.68 & 0.165 & BFS (joint, high $\sigma$)\\
-Italy         & 0.55 & 0.60 & 0.50 & 0.40 & 0.254 & 0.59 & 0.59 & 0.150 & BFS (high informal $\sigma$)\\
+United States & 0.35 & 0.330 & 0.30 & $+0.675$ & $+0.487$ & 0.719 & 0.719 & 0.237\\
+Germany       & 0.56 & 0.250 & 0.50 & $+0.313$ & $+0.071$ & 0.771 & 0.771 & 0.193\\
+Sweden        & 0.54 & 0.258 & 0.55 & $+0.203$ & $-0.042$ & 0.773 & 0.773 & 0.200\\
+France        & 0.56 & 0.250 & 0.50 & $+0.313$ & $+0.158$ & 0.685 & 0.685 & 0.171\\
+Italy         & 0.55 & 0.254 & 0.40 & $+0.529$ & $+0.431$ & 0.620 & 0.620 & 0.158\\
 \bottomrule
 \end{tabular}
 \end{center}
-\emph{Identification check:} $P(\tau)$ predictions match OECD employment $e_{15-64}$ for 2019 within $1$\,pp on 4 of 5 cells (Italy is exact). The cross-country $\sigma_b$ pattern (low in US/DE/SE, high in FR/IT) is taken from BFS, not fitted to $P$.
 
-\paragraph{Reading.} The two regimes emerge from $\sigma_b$ alone:
-\textbf{Northern} ($\sigma_b\!\approx\!0.18$--$0.20$): rigid participation, all action on $h^{*}(\tau)$ $\Rightarrow$ \emph{intensive regime}. Tax-only model nails Germany and Sweden exactly.
-\textbf{Mediterranean+East} ($\sigma_b\!\approx\!0.40$--$0.50$, anchored in BFS's high informal-sector dispersion): $P$ moves with $\tau$ $\Rightarrow$ \emph{extensive regime}. Tax-only model partially fits Italy via the synthesis, would fail without the extensive margin. \emph{This is a \emph{novel} one-parameter cross-validation of Prescott:} the residual $h^{\text{data}}_X - h^{*}(\tau_X)$ tracks $|\ln(e_{US}/e_X)|$ from Q1's decomposition, predicting which countries the synthesis will under-fit.
+\paragraph{Reading the calibration.} The fitted $\mu_b^j$ pattern is the substantive content:
+\textbf{Northern Europe (DE, SE):} $\mu_b\!\in\![-0.04,+0.07]$ -- low or near-zero average fixed cost of working. Strong institutions (childcare, individual filing, low informal sector) keep most workers in the formal labour force at any tax level. The action of $\tau$ on hours is on the intensive margin via $h^{*}(\tau)$.
+\textbf{Mediterranean (IT, FR):} $\mu_b\!\in\![+0.16,+0.43]$ -- high average fixed cost of working, capturing weak childcare, joint filing, and the option value of informal work. Many workers near the participation threshold; tax shifts pull them across the margin.
+\textbf{US:} $\mu_b\!=\!+0.49$ -- relatively high, reflecting institutional features outside the model (employer-tied health insurance, low unemployment insurance with strict means-testing, large disability-insurance rolls) that depress US participation despite a low tax wedge.
+\emph{This is the \emph{novel} content of the calibration: Q1's two-regime split is generated by the country-specific institutional fixed cost $\mu_b^j$, not by the tax wedge $\tau^j$ alone. \emph{Hence} the synthesis recovers the regime structure from one country-specific parameter that is in principle estimable from microdata on participation costs.}
 
-\subsection{The macro--micro Frisch puzzle dissolves}
+\subsection{Reconciling with the macro--micro Frisch literature}
 
-For any tax-based explanation, $\Delta\ln(H/N)\!=\!\varepsilon_H\,\Delta\ln(1{-}\tau)$. With $\tau^{US}\!=\!0.35$, $\tau^{DE/FR}\!=\!0.56$: $\Delta\ln(1{-}\tau)\!=\!\ln(0.65/0.44)\!\approx\!0.390$. Target the BBF 2019 NW-Europe intensive-margin mean $\overline{\ln(HE_{US}/HE_X)}\!\approx\!0.225$ for $X\!\in\!\{$DE, NL, SE, UK$\}$. Required $\varepsilon_{H/N}\!\approx\!0.58$.
+For any tax-based explanation, $\Delta\ln(H/N)\!=\!\varepsilon_H\,\Delta\ln(1{-}\tau)$. With $\tau^{US}\!=\!0.35$, $\tau^{DE/FR}\!=\!0.56$: $\Delta\ln(1{-}\tau)\!=\!\ln(0.65/0.44)\!\approx\!0.390$. Targeting the BBF 2019 NW-Europe intensive-margin mean $\overline{\ln(HE_{US}/HE_X)}\!\approx\!0.225$ requires $\varepsilon_{H/N}\!\approx\!0.58$.
 
-\begin{center}\footnotesize
-\setlength{\tabcolsep}{6pt}
-\begin{tabular}{lll}
-\toprule
-Object & Pre-synthesis (Prescott) & Post-synthesis \eqref{eq:HoverN}\\
-\midrule
-Required macro Frisch & $\approx\!3$ (Prescott 2004) & $\approx\!0.58$\\
-Decomposition & single elasticity & $\varepsilon^{\text{int}}\!+\!\varepsilon^{\text{ext}}$\\
-Intensive piece & $\approx 3$ ($5\times$ CGM consensus) & $\approx 0.30$ (CGM 2011) \checkmark\\
-Extensive piece & --- & $\approx 0.28$ (Chang--Kim 2006) \checkmark\\
-Reconciliation & Hansen--Rogerson lotteries & none required\\
-\bottomrule
-\end{tabular}
-\end{center}
-\emph{Hence} Prescott's controversy collapses to a misspecification of the choice set: the intensive-only model forces a single elasticity to do the work of two, pushing it to extreme values. Switching to the synthesis reconciles within micro-realistic ranges. \emph{Hence} what looked like a deep macro-vs-micro inconsistency is a \emph{novel} artefact of model misspecification, not a failure of taxation.
+\paragraph{What the synthesis can and cannot reconcile (honest reading).}
+The synthesis $H/N\!=\!P(\tau)\!\cdot\!h^{*}(\tau)$ delivers two elasticity components additively:
+\begin{equation*}
+\varepsilon^{H/N}_{1-\tau}\;=\;\underbrace{\varepsilon^{\text{int}}_{h,1-\tau}}_{=\,\alpha/(\alpha+(1-\tau))}\;+\;\underbrace{\varepsilon^{\text{ext}}_{P,1-\tau}}_{f(\beta)/F(\beta)\cdot\partial\beta/\partial\ln(1-\tau)}.
+\end{equation*}
+Substituting $\alpha\!=\!1.32$ and $\tau\!=\!0.35$ into the intensive component gives
+\[
+\varepsilon^{\text{int}}\;=\;\frac{1.32}{1.32+0.65}\;=\;0.67,
+\]
+which is \emph{higher}, not lower, than the Chetty--Guren--Manoli--Weber (2011) micro-Frisch consensus of $\approx\!0.30$. The model-implied individual intensive elasticity is in fact too \emph{large} to match CGM directly.
+
+\textbf{What the synthesis does buy us.} Aggregating the model across participants and non-participants yields an aggregate hours response that combines the within-participant intensive response ($0.67$) with the cross-participant extensive response. Because $P(\tau)$ also moves with $\tau$ in the synthesis, the aggregate elasticity of $H/N$ to $1{-}\tau$ becomes the sum of two terms, each multiplied by its own population share. The synthesis therefore matches the aggregate target $\varepsilon^{H/N}\!\approx\!0.58$ without requiring a single intensive elasticity of $\approx\!3$ -- which is the substantive escape from Prescott's controversy. The synthesis dissolves the puzzle at the \emph{aggregate} level but does \emph{not} reproduce the CGM micro-Frisch within-participant: the model's individual intensive response with $\alpha\!=\!1.32$ remains $0.67$. Matching CGM at the individual level would require a more flexible preference specification (KPR or GHH with separable iso-elastic disutility), which I leave to future work. The structural reframing is that the puzzle's resolution is the \emph{sum} of two empirical Frischs, not a tightening of either one alone.
 
 \subsection{Verdict and hand-off to Q7}
 
@@ -374,7 +373,7 @@ Reconciliation & Hansen--Rogerson lotteries & none required\\
 \begingroup\small\itshape\noindent\textbf{Question 7.} Write a stylised model representing the two systems and derive conditions under which the European system is welfare-enhancing compared to the US system. \emph{Use the words `hence' and `novel' twice.}\endgroup
 
 \begin{tldr}
-\small\textbf{TL;DR.} Ten-channel closed-form welfare ledger with four institutional propositions: (P1) hours caps (Q4), (P2) unions (Q5), (P3) formal/informal sector choice (Meghir--Narita--Robin 2015, new), (P4) employment protection (Boeri--Garibaldi 2007, new). Calibrated to primary sources, validated against Jones--Klenow 2016 within 2.2 pp on EU cells. \textbf{Verdict:} Northern Europe weakly dominates the US ($\mathcal W^{NW}/\mathcal W^{US}\!=\!1.025$); Mediterranean+East is dominated ($\mathcal W^{ME}/\mathcal W^{US}\!=\!0.778$). A reduced-form Aubry 35-hour DiD ($\hat\beta\!=\!-0.042$, $t\!=\!-6.6$) anchors (P1) numerically.
+\small\textbf{TL;DR.} Ten-channel closed-form welfare ledger with four institutional propositions: (P1) hours caps (Q4), (P2) unions (Q5), (P3) formal/informal sector choice (Albrecht--Navarro--Vroman 2009 audit-cost variant, new), (P4) employment protection (Boeri--Garibaldi 2007, new). Calibrated to primary sources, validated against Jones--Klenow 2016 within 2.2 pp on EU cells. \textbf{Verdict:} Northern Europe weakly dominates the US ($\mathcal W^{NW}/\mathcal W^{US}\!=\!1.025$); Mediterranean+East is dominated ($\mathcal W^{ME}/\mathcal W^{US}\!=\!0.778$). A reduced-form Aubry 35-hour DiD ($\hat\beta\!=\!-0.042$, $t\!=\!-6.6$) anchors (P1) numerically.
 \end{tldr}
 
 \subsection{Strategy}
@@ -399,8 +398,8 @@ Each proposition gives a closed-form contribution $\Delta\mathcal W$ to the welf
 
 \paragraph{(P2) Unions and sectoral shocks (Q5 of Problem 1, deepened).} Two sectors $z_jf(L_j)$ subject to a mean-preserving shock. Under competition, $u^{\text{comp}}\!=\!0$. Under unions with rigid wages, $u^U\!>\!0$ but wage variance compresses by $\Delta v_z\!=\!v_z^{\text{comp}}{-}v_z^U\!>\!0$. The proposition (App.\ B) gives $\Delta\mathcal W^{U}\!=\!\tfrac12\Delta v_z-\Delta u\cdot wh^{*}$, positive iff $\Delta v_z/\Delta u\!>\!2wh^{*}$. \emph{Empirical anchor:} Blanchard--Wolfers (2000) interaction $\hat\beta_2\!=\!+0.32$ (s.e.\ $0.10$). Calibration ($v_z^{US}\!=\!0.40$, $v_z^{EU}\!=\!0.25$, $\Delta u\!=\!0.03$): $\Delta\mathcal W^{U}\!=\!+0.054$ per worker per year; sign flips only at $u^{EU}\!>\!15\%$.
 
-\paragraph{(P3) Formal vs.\ informal sector choice (Meghir--Narita--Robin 2015 \emph{AER} 105(4) -- new to the ledger).} Each participant chooses formal (net pay $(1{-}\tau)w+\sigma$, where $\sigma$ is social insurance value) or informal (wage $\eta w$ with $\eta\!\in\!(0,1)$ the productivity penalty, no tax, no insurance, audit cost $\xi_i\!\sim\!G$). Worker $i$ goes informal iff $\xi_i\!<\!\xi^{*}\!\equiv\!w[\tau{-}(1{-}\eta)]{-}\sigma$, giving informal share $\phi^I\!=\!G(\xi^{*})$ with $\partial\phi^I/\partial\tau\!>\!0$. The proposition (App.\ D) gives the welfare cost above and beyond the consumption gap (C):
-$\Delta\mathcal W^{F}_j-\Delta\mathcal W^{F}_{US}\!=\!-(P^j\phi^I_j-P^{US}\phi^I_{US})\sigma/wh^{*}$. Calibration ($\eta\!=\!0.70$ La Porta--Shleifer 2014; $\sigma/wh^{*}\!=\!0.10$ OECD): NW $-0.003$, ME $-0.009$ (three times larger because $\phi^I_{ME}\!=\!0.22$ is $2.2\times$ NW's).
+\paragraph{(P3) Formal vs.\ informal sector choice (Albrecht--Navarro--Vroman 2009 \emph{EJ} 119(539) audit-cost variant; new to the ledger; informality data from Schneider 2010 and ILO 2018).} Each participant chooses formal (net pay $(1{-}\tau)w+\sigma$, with $\sigma$ the social-insurance value) or informal (wage $\eta w$ where $\eta\!\in\!(0,1)$ is a productivity penalty from foregone scale and contracts -- La~Porta--Shleifer 2014 \emph{JEP} 28(3); no tax, no insurance, audit/penalty cost $\xi_i\!\sim\!G$). Worker $i$ goes informal iff $\xi_i\!<\!\xi^{*}\!\equiv\!w[\tau{-}(1{-}\eta)]{-}\sigma$, giving informal share $\phi^I\!=\!G(\xi^{*})$ with $\partial\phi^I/\partial\tau\!>\!0$. The proposition (App.\ D) gives the welfare cost above and beyond the consumption gap (C):
+$\Delta\mathcal W^{F}_j-\Delta\mathcal W^{F}_{US}\!=\!-(P^j\phi^I_j-P^{US}\phi^I_{US})\sigma/wh^{*}$. Calibration ($\eta\!=\!0.70$ La~Porta--Shleifer; $\sigma/wh^{*}\!=\!0.10$ OECD): NW $-0.003$, ME $-0.009$ (three times larger because $\phi^I_{ME}\!=\!0.22$ is $2.2\!\times$ NW's).
 
 \paragraph{(P4) Employment protection legislation (Lazear 1990; Boeri--Garibaldi 2007 \emph{EJ} 117(521) -- new to the ledger).} EPL strictness $\lambda^{EPL}_j$ raises the firm's effective per-worker cost from $w$ to $w(1{+}\lambda^{EPL})$. Firms hire only $z\!\geq\!z^{*}$ where $z^{*}f'(L)\!=\!w(1{+}\lambda^{EPL})$. Two forces: composition gain (survivors more productive) versus outsider participation loss (non-hired drop from $V^w$ to $V^n$). The proposition (App.\ E) gives the net cost $\Delta\mathcal W^{P}\!\approx\!-0.05\cdot\Delta\lambda^{EPL}$, with the $-0.05$ coefficient anchored to Boeri--Garibaldi (2007) reduced-form estimates.
 
@@ -527,9 +526,8 @@ $S_j$  & 0.468 & 0.444 & 0.072 & 0.006 & 0.005 & 0.002 & 0.002 & 0.001\\
 \begin{verdictgreen}
 \small\textbf{Q7 verdict.}
 \textbf{Northern Europe} weakly welfare-dominates the US: $\mathcal W^{NW}/\mathcal W^{US}\!=\!1.025$ ($\lambda^{NW}\!=\!+2.5\%$), $1.5$\,pp below JK 2016's lower bound -- driven by mortality (M) and SWB (S), partially offset by (C). Sign-stable but not magnitude-robust.
-\textbf{Mediterranean+East} is welfare-dominated: $\mathcal W^{ME}/\mathcal W^{US}\!=\!0.778$, $2.2$\,pp below JK's lower bound -- driven by (C) plus the larger Q5 unemployment (U) and informality (F) channels.
-\textbf{Held-out} JP and KR over-predict by $11$--$16$\,pp; this is the calibration-portability limit.
-\textbf{Reframing.} ``The European system'' is two systems: NW weakly above US, ME well below. The $\sim\!28$-pp inside-Europe spread is larger than the Northern--US spread itself.
+\textbf{Mediterranean+East} is welfare-dominated: $\mathcal W^{ME}/\mathcal W^{US}\!=\!0.778$, $2.2$\,pp below JK's lower bound -- driven by (C) plus the larger Q5 unemployment (U) and informality (F) channels. \emph{Hence} the central reframing: ``the European system'' is two systems, with Northern Europe weakly above the US and Mediterranean+East well below. The $\sim\!28$-pp inside-Europe spread is larger than the Northern-US spread itself -- a \emph{novel} re-organisation of the JK 2016 welfare comparison around Q1's regime split.
+\textbf{Held-out} Japan and Korea over-predict by $11$--$16$\,pp; this is the calibration-portability limit.
 \end{verdictgreen}
 
 \paragraph{Honest scope.} This is a calibration paper, not an identification paper. Every channel value derives from a published estimate or primary data source. The Aubry DiD (\texttt{repl\_aubry\_did.py}) is the only reduced-form estimation; it sign-and-magnitude-confirms the (P1) calibration without identifying a new structural parameter. Stronger versions would: (i) replace the calibrated $-0.05$ EPL coefficient with a Lazear--Shaw 2007 / Saint-Paul 2017 IV estimate; (ii) endogenise $\eta$ from country-specific tax-evasion microdata; (iii) extend the Aubry DiD to firm-level Crepon-Kramarz / Estev\~ao--S\'a data; (iv) reproduce JK 2016 with a non-linear $\bar u(e)$ to fix the East-Asia over-prediction.
@@ -576,7 +574,8 @@ Helliwell, J., et al.\ \emph{World Happiness Report} (annual).
 Jones, C.\ I., \& Klenow, P.\ J.\ (2016). Beyond GDP? Welfare across Countries and Time. \emph{AER} 106(9) [\textbf{$\lambda$ benchmark}].
 La Porta, R., \& Shleifer, A.\ (2014). Informality and Development. \emph{JEP} 28(3).
 Lazear, E.\ P.\ (1990). Job Security Provisions and Employment. \emph{QJE} 105(3).
-Meghir, C., Narita, R., \& Robin, J.-M.\ (2015). Wages and Informality in Developing Countries. \emph{AER} 105(4) [\textbf{(P3) anchor}].
+Albrecht, J., Navarro, L., \& Vroman, S.\ (2009). The Effects of Labour Market Policies in an Economy with an Informal Sector. \emph{EJ} 119(539) [\textbf{(P3) audit-cost framework}].
+Schneider, F.\ (2010). The (Hidden) Financial Crisis: Estimates from 162 Countries. CESifo WP [\textbf{(P3) data on $\phi^I$}].
 Stevenson, B., \& Wolfers, J.\ (2008). Economic Growth and Subjective Well-Being. \emph{BPEA} Spring 2008.
 
 \medskip
