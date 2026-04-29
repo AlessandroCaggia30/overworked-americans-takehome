@@ -55,7 +55,7 @@
 
 \begin{planbox}
 \small\textbf{Plan.}
-\textbf{Q1} -- the US--Europe hours gap is two distinct facts (Northern intensive regime; Mediterranean+East extensive regime). A uniform-response mechanism cannot explain both. Taxes \emph{interacting with} country-specific institutions (filing unit, childcare, informal sector, employment protection) can.
+\textbf{Q1} -- the US--Europe hours gap is two distinct facts (Northern intensive regime; Mediterranean+East extensive regime). A simplistic mechanism cannot explain both. Taxes \emph{interacting with} country-specific institutions (filing unit, childcare, informal sector, employment protection) can.
 \textbf{Q2} -- three nested closed-form labour-supply models. The synthesis (Cogan 1981 / Heckman 1974 / Chang--Kim 2006) makes the interaction explicit through a logistic-distributed fixed cost of working with country-specific mean $\mu_b^j$ (calibrated to OECD 2023 employment) and common dispersion $\sigma_b\!=\!0.20$. The cross-country regime split is therefore captured by $\mu_b^j$, not by $\sigma_b^j$; the calibration is owned as such (not "fitted to BFS Tab.\ 2") in \S 2.5.
 \textbf{Q7} -- ten-channel closed-form welfare ledger with four institutional propositions (P1 hours caps, P2 unions, P3 formal/informal, P4 employment protection). Calibrated to primary sources, validated against Jones--Klenow (2016) within 2 pp on EU cells. Reduced-form Aubry 35-hour DiD ($\hat\beta\!=\!-0.042$, $t\!=\!-6.6$) anchors (P1). Verdict: $\mathcal W^{NW}/\mathcal W^{US}\!=\!1.025$ (NW weakly above US); $\mathcal W^{ME}/\mathcal W^{US}\!=\!0.778$ (Mediterranean dominated). Reproducible: \texttt{research/repl\_q7\_ledger.py}, \texttt{research/repl\_aubry\_did.py}.
 \end{planbox}
@@ -67,7 +67,7 @@
 \begingroup\small\itshape\noindent\textbf{Question 1.} Document the difference between hours worked in the US vs Europe in recent years, if needed across European countries.\endgroup
 
 \begin{tldr}
-\small\textbf{Bottom line.} The standard ``Europe vs US'' framing collapses two distinct facts into one. \emph{Northern Europe} (Germany, Netherlands, Sweden, UK) works less per worker than the US -- the gap is on the \emph{intensive margin}. \emph{Mediterranean+East} (Italy, Spain, Greece, Poland, Hungary) works nearly as many hours per worker as the US but employs a much smaller fraction of the population -- the gap is on the \emph{extensive margin}. The crucial implication for Q2: a tax wedge of $\sim\!55\%$ in Germany and Italy produces a $17\%$ intensive-margin collapse in one country and a $28\%$ extensive-margin collapse in the other. \textbf{No uniform-response story can do this. But taxes \emph{interacting with} country-specific institutions (joint vs.\ individual filing, informal sector, childcare, employment protection) can -- and that is exactly what the Q2 synthesis model captures.}
+\small\textbf{Bottom line.} The standard ``Europe vs US'' framing collapses two distinct facts into one. \emph{Northern Europe} (Germany, Netherlands, Sweden, UK) works less per worker than the US -- the gap is on the \emph{intensive margin}. \emph{Mediterranean+East} (Italy, Spain, Greece, Poland, Hungary) works nearly as many hours per worker as the US but employs a much smaller fraction of the population -- the gap is on the \emph{extensive margin}. The crucial implication for Q2: a tax wedge of $\sim\!55\%$ in Germany and Italy produces a $17\%$ intensive-margin collapse in one country and a $28\%$ extensive-margin collapse in the other. \textbf{No simplistic story can do this. But taxes \emph{interacting with} country-specific institutions (joint vs.\ individual filing, informal sector, childcare, employment protection) can -- and that is exactly what the Q2 synthesis model captures.}
 \end{tldr}
 
 \subsection{The fact: cross-section of hours and employment, BBF 2019 panel}
@@ -170,7 +170,7 @@ East EU             & HU, PL                              & $+57\%\ ([+52,+62])$
 
 \subsection{What the two-regime fact rules out (and what it does not)}
 
-The two-regime structure constrains, but does not uniquely identify, the explanation. The crucial point is that \textbf{a uniform-response mechanism cannot work, but taxes \emph{interacting with} country-specific institutions can}. Let me make this precise by considering the four highest-tax-wedge countries in 2023:
+The two-regime structure constrains, but does not uniquely identify, the explanation. The crucial point is that \textbf{a simplistic mechanism cannot work, but taxes \emph{interacting with} country-specific institutions can}. Let me make this precise by considering the four highest-tax-wedge countries in 2023:
 \begin{center}\footnotesize
 \begin{tabular}{lcc}
 \toprule
