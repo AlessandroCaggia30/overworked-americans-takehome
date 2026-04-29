@@ -134,21 +134,6 @@ Italy         & $+0.331$ & $28.2$ & $+0.137$ & $+41$ & $\mathbf{+59}$\\
 \end{tabular}
 \end{center}
 
-\paragraph{Worked example: Germany versus Italy.}
-The identity \eqref{eq:q1decomp} is best understood through two contrasting cases.
-
-\textbf{Germany.} German employment ($76.7\%$) is actually \emph{higher} than US employment ($71.4\%$) by $5.3$ percentage points. Holding hours per worker constant, this alone would push German hours per adult \emph{above} the US level. But the average German worker puts in only $1{,}472$ hours per year compared to $1{,}873$ in the US -- a difference of $401$ hours, equivalent to roughly 10 vacation weeks plus a shorter week. The arithmetic of \eqref{eq:q1decomp}:
-\[
-\underbrace{\ln(1338/1129)}_{=\,+0.170}\;=\;\underbrace{\ln(1873/1472)}_{=\,+0.241}\;+\;\underbrace{\ln(0.7142/0.7671)}_{=\,-0.071}.
-\]
-The two margins push in \emph{opposite} directions; intensive overwhelms the extensive offset. The Netherlands, Sweden and UK fit the same pattern.
-
-\textbf{Italy.} Italians work $1{,}634$ hours per year -- only $13\%$ less than Americans. What creates Italy's gap is that only $58.8\%$ of working-age Italians are employed, versus $71.4\%$ in the US ($-12.6$\,pp):
-\[
-\underbrace{\ln(1338/961)}_{=\,+0.331}\;=\;\underbrace{\ln(1873/1634)}_{=\,+0.137}\;+\;\underbrace{\ln(0.7142/0.5884)}_{=\,+0.194}.
-\]
-Both margins \emph{reinforce} each other; the extensive margin dominates. Spain, Greece, Poland and Hungary follow the same pattern.
-
 \subsection{The two-regime classifier (BBF 2019 four-region partition)}
 
 The pattern tracks an institutional partition. BBF (2019, Tab.\ 2) group the 18 EU+US countries into four regions based on Hall--Soskice (2001) varieties of capitalism plus EU geographic clusters: \textbf{Anglo}, \textbf{Nordic}, \textbf{Continental}, \textbf{Southern}. I add Eastern Europe where BBF data permit. Computing the extensive contribution share country by country and aggregating by BBF region (\texttt{repl\_signflip.py} output):
