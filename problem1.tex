@@ -134,25 +134,6 @@ Italy         & $+0.331$ & $28.2$ & $+0.137$ & $+41$ & $\mathbf{+59}$\\
 \end{tabular}
 \end{center}
 
-\subsection{The two-regime classifier (BBF 2019 four-region partition)}
-
-The pattern tracks an institutional partition. BBF (2019, Tab.\ 2) group the 18 EU+US countries into four regions based on Hall--Soskice (2001) varieties of capitalism plus EU geographic clusters: \textbf{Anglo}, \textbf{Nordic}, \textbf{Continental}, \textbf{Southern}. I add Eastern Europe where BBF data permit. Computing the extensive contribution share country by country and aggregating by BBF region (\texttt{repl\_signflip.py} output):
-\begin{center}\footnotesize
-\begin{tabular}{p{0.16\textwidth}p{0.20\textwidth}cc}
-\toprule
-BBF region & Countries (excl.\ US baseline) & Ext.\ share mean (range) & Sign-class\\
-\midrule
-Anglo               & UK, IE                              & $-14\%\ ([-48,+20])$ & boundary\\
-Nordic              & DK, NO, SE                          & $-42\%\ ([-81,-21])$ & \emph{Northern}\\
-Continental NW      & AT, DE, NL                          & $-37\%\ ([-53,-17])$ & \emph{Northern}\\
-Continental ME-leaning & BE, FR\hphantom{XX} (CH excluded$^\dagger$) & $+39\%\ ([+34,+45])$ & \emph{Mediterranean}\\
-Southern            & ES, GR, IT, PT                      & $+57\%\ ([+27,+91])$ & \emph{Mediterranean}\\
-East EU             & HU, PL                              & $+57\%\ ([+52,+62])$ & \emph{Mediterranean}\\
-\bottomrule
-\end{tabular}
-\end{center}
-\emph{$^\dagger$Switzerland excluded:} Swiss $\Delta\ln H_{US-CH}\!\approx\!0$ makes the extensive share ill-defined (denominator near zero). \emph{Reading.} Three of the four BBF regions are unambiguously \textbf{Northern} (negative extensive share, intensive margin dominates). The Anglo region is borderline (UK is Northern with $-48\%$, IE is Mediterranean-leaning at $+20\%$). The Continental region splits cleanly between a Northern subgroup (AT, DE, NL) and a Mediterranean-leaning subgroup (BE, FR, with FR at $+34\%$). The two-regime collapse I use downstream in Q2 and Q7 is: \textbf{Northern} $=$ Nordic $\cup$ Cont.\ NW $\cup$ \{UK\}; \textbf{Mediterranean+East} $=$ Cont.\ ME-leaning $\cup$ Southern $\cup$ East EU $\cup$ \{IE\}. The institutional partition is BBF's; the binary collapse is my labelling.
-
 \subsection{What the two-regime fact rules out (and what it does not)}
 
 The two-regime structure constrains, but does not uniquely identify, the explanation. The crucial point is that \textbf{a simplistic mechanism cannot work, but taxes \emph{interacting with} country-specific institutions can}. Let me make this precise by considering the four highest-tax-wedge countries in 2023:
