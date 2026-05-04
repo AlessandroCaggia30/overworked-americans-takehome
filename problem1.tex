@@ -603,150 +603,100 @@ Endpoints: $\eta\!=\!0\!\Rightarrow\!(w,h)\!=\!(1.0,0.5)$
 (IR-binding firm-power); $\eta\!=\!1\!\Rightarrow\!(1.455, 0.273)$
 (union maximises $V_w$).
 
-\subsection{Welfare result (Q5 verdict)}
-\textbf{Claim.} Under canonical RTM with our quadratic primitives,
-the joint-surplus criterion $W\!=\!V_w+V_f$ is monotone-decreasing
-in $\eta$ at our calibration. \emph{This headline is conditional on
-equal welfare weights}; under realistic inequality aversion the
-welfare-maximising $\eta$ is interior (\S 5.5b).
+\subsection{Bargain outcomes and welfare verdict}
+\textbf{Mechanism.} Higher $\eta$ raises the bargained wage $w$,
+which raises the firm's marginal cost of labour; the firm responds
+by sliding down its labour-demand curve to a lower $h$. The wage
+transfer itself is a wash in the joint pie $V_w+V_f$ (it cancels
+between the two parties); the only welfare-relevant movement is
+\emph{hours-misallocation} as $h$ moves away from the joint optimum.
 
-\textbf{Mechanism.} Higher $\eta$ raises $w$, raising the firm's
-marginal cost of labour. The firm responds by sliding down its
-labour-demand curve to a lower $h$. At our calibration $\eta\!=\!0$
-sits at the joint-surplus peak along the labour-demand path, so any
-positive $\eta$ pushes $h$ below the joint optimum and the joint
-pie shrinks. The wage transfer itself is a wash in $V_w+V_f$ (it
-cancels between the two parties); the welfare loss is the
-hours-misallocation, not a wedge effect.
+\textbf{Equal-weight verdict.} Under our $V_w^0\!=\!0.05$
+calibration, $\eta\!=\!0$ sits exactly at the joint-surplus peak
+along the labour-demand path: at $\alpha\!=\!\beta\!=\!2$, $A\!=\!2$,
+$W(x)\!=\!(1-\tau)x(1\!-\!x/2)$ with $x\!=\!A-w$, concave with peak
+at $x\!=\!1$. As $\eta$ rises, $x$ falls from $1$ to $x_{\eta=1}\!=\!0.545$
+on the decreasing branch, so $dW/d\eta=(1-\tau)(1-x)\,dx/d\eta<0$
+for all $\eta\!\in\!(0,1]$, $\tau\!\in\![0,1)$ (Fig.~\ref{fig:simunion_rtm}c
+black curve).$\;\square$
 
-\textbf{Proof.} Substituting $h\!=\!x/\beta$, $w\!=\!A\!-\!x$ at
-$\alpha\!=\!\beta\!=\!2$, $A\!=\!2$ gives $W(x)\!=\!(1\!-\!\tau)x(1\!-\!x/2)$,
-concave with peak at $x\!=\!1$. Our $V_w^0\!=\!0.05$ calibration
-places $\eta\!=\!0$ exactly at $x\!=\!1$ (the peak). As $\eta$ rises,
-$x$ falls monotonically from $1$ to $x_{\eta=1}\!=\!0.545$, on the
-decreasing branch; $dW/d\eta=(1\!-\!\tau)(1\!-\!x)\,dx/d\eta\!<\!0$
-for all $\eta\!\in\!(0,1]$, $\tau\!\in\![0,1)$.$\;\square$
+\textbf{Saez--Stantcheva criterion.} The equal-weight
+$W\!=\!V_w+V_f$ values \emph{nothing} of the firm-to-worker
+redistribution that the union effects. With generalised welfare
+weights:
+\[
+\boxed{\;W^{\lambda}(\eta)\;=\;(1+\lambda)V_w(\eta)\;+\;(1-\lambda)V_f(\eta),
+\qquad \lambda\in[0,1],\;}
+\]
+$\lambda$ is the redistribution premium ($\lambda\!=\!0$ equal
+weights, $\lambda\!=\!1$ Rawlsian). Three independent anchors
+converge on $\lambda\!\in\![0.25, 0.45]$: HSV (2017) progressivity
+$\tau_p\!=\!0.18$ under log utility gives $\lambda\!\approx\!0.43$;
+OECD worker/capital-owner consumption gap $\sim\!4{:}1$ gives
+$\lambda\!\approx\!0.30$; Diamond--Saez (2011) population-average
+sits in $[0.3,0.5]$. We adopt $\lambda\!=\!0.30$ as the central
+realistic case.
 
-\textbf{Distributional channel.} The union redistributes from firm
-to worker ($V_w\!:\!0.05\!\to\!0.164$ as $\eta\!:\!0\!\to\!1$, $V_f$
-falls); whether that redistribution has welfare value depends on the
-criterion (\S 5.5b). The textbook ``unions are welfare-improving up
-to $\eta^{\rm soc}$'' result is the restricted-EB artefact of sticky
-$w$; canonical RTM doesn't have it under equal weights, but does
-under any non-trivial inequality aversion.
+Differentiating $W^{\lambda}(\eta)$ along the RTM bargained path
+($V_w(x)\!=\!0.6x-0.55x^2$, $V_f(x)\!=\!x^2/4$) gives the closed-form
+welfare-maximising bargain:
+\begin{equation}
+\boxed{\;x^{*}(\lambda)=\frac{0.6(1+\lambda)}{0.6+1.6\lambda},\qquad
+h^{*}=x^{*}/\beta,\qquad w^{*}=A-x^{*}.\;}
+\label{eq:redist-optimum}
+\end{equation}
+At $\lambda\!=\!0.30$: $x^{*}\!=\!0.722$, $h^{*}\!=\!0.361$,
+$w^{*}\!=\!1.278$, recovering $\eta^{*}\!\approx\!0.58$ from the Q5
+quadratic -- \textbf{a moderately strong union is welfare-optimal},
+consistent with EU RTM coverage of $80$--$95\%$.
 
 \subsection{Numerical simulation}
 \begin{table}[H]
-\centering\small
-\begin{tabular}{cccccccc}
+\centering\footnotesize
+\begin{tabular}{cccccc|cccc}
 \toprule
-$\eta$ & $w(\eta)$ & $h(\eta)$ & $V_w(\eta)$ & $V_f(\eta)$ &
-$W(\eta)$ & $\Delta V_w$ & $\Delta W$ \\
+\multicolumn{6}{c}{\textbf{RTM bargain at varied $\eta$ ($\lambda\!=\!0$)}} &
+\multicolumn{4}{c}{\textbf{Welfare-maximising bargain at varied $\lambda$}} \\
+\cmidrule(lr){1-6}\cmidrule(lr){7-10}
+$\eta$ & $w$ & $h$ & $V_w$ & $V_f$ & $W$ &
+$\lambda$ & $\eta^{*}$ & $W^{\lambda}_{\rm peak}$ & $W^{\lambda}_{\eta=0}$ \\
 \midrule
-0.00 & 1.000 & 0.500 & 0.050 & 0.250 & \textbf{0.300} & --- & --- \\
-0.10 & 1.050 & 0.475 & 0.074 & 0.226 & 0.300 & $+0.024$ & $+0.000$ \\
-0.25 & 1.123 & 0.439 & 0.103 & 0.192 & 0.295 & $+0.053$ & $-0.005$ \\
-0.50 & 1.242 & 0.379 & 0.139 & 0.144 & 0.283 & $+0.089$ & $-0.017$ \\
-0.75 & 1.353 & 0.323 & 0.158 & 0.105 & 0.263 & $+0.108$ & $-0.037$ \\
-1.00 & 1.455 & 0.273 & 0.164 & 0.074 & 0.238 & $+0.114$ & $-0.062$ \\
+0.00 & 1.000 & 0.500 & 0.050 & 0.250 & \textbf{0.300} & 0.00 & 0.00 & \textbf{0.300} & 0.300 \\
+0.25 & 1.123 & 0.439 & 0.103 & 0.192 & 0.295 & 0.20 & 0.45 & \textbf{0.279} & 0.260 \\
+0.50 & 1.242 & 0.379 & 0.139 & 0.144 & 0.283 & \textbf{0.30} & \textbf{0.58} & \textbf{0.282} & \textbf{0.240} \\
+0.75 & 1.353 & 0.323 & 0.158 & 0.105 & 0.263 & 0.50 & 0.76 & \textbf{0.287} & 0.200 \\
+1.00 & 1.455 & 0.273 & 0.164 & 0.074 & 0.238 & 1.00 & 1.00 & \textbf{0.328} & 0.100 \\
 \bottomrule
 \end{tabular}
-\caption*{\scriptsize\textbf{RTM equilibrium}, baseline
-$\alpha\!=\!\beta\!=\!2$, $\tau\!=\!0.4$, $A\!=\!2$,
-$V_w^0\!=\!0.05$. Worker gain ($+0.114$) is dominated by firm loss
-($-0.176$); the joint-surplus shrinkage ($-0.062$) is the
-hours-misallocation as the firm cuts $h$ below the joint optimum.
-Computed via \eqref{eq:rtm-quadratic}.}
+\caption*{\scriptsize Left: RTM bargain at varied $\eta$, equal weights.
+$\eta\!=\!0$ peaks $W$; rising $\eta$ shrinks the joint pie via
+hours-misallocation. Right: welfare-maximising $\eta^{*}$ at varied
+$\lambda$ via \eqref{eq:redist-optimum}. The realistic central case
+$\lambda\!=\!0.30$ delivers $\eta^{*}\!\approx\!0.58$.}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/sim_union_rtm.pdf}
-\caption{\scriptsize \textbf{Q5 canonical RTM.}
-\textbf{(a)} $w(\eta)\!\uparrow$ from $1.00$ to $1.45$, $h(\eta)\!\downarrow$
-from $0.50$ to $0.27$.
-\textbf{(b)} $V_w$ rises (wage rents), $V_f$ falls, total
-$W\!=\!V_w+V_f$ falls monotonically.
-\textbf{(c)} $\Delta W$ vs.\ no-union baseline always non-positive
-under equal weights. \emph{Source:} \texttt{sim\_models\_v2.py}.}
+\caption{\scriptsize \textbf{Q5 RTM bargain: mechanism, distribution,
+and criterion-dependent welfare.}
+\textbf{(a)} Bargain mechanics: $w(\eta)\!\uparrow$ from $1.00$ to
+$1.45$, $h(\eta)\!\downarrow$ from $0.50$ to $0.27$ along the firm's
+labour-demand curve. Markers at $\eta\!\in\!\{0,0.5,1\}$.
+\textbf{(b)} Distribution: $V_w(\eta)$ rises monotonically as the
+union extracts wage rents; $V_f(\eta)$ falls -- a pure firm-to-worker
+transfer.
+\textbf{(c)} \emph{Welfare verdict is criterion-dependent.}
+$W^{\lambda}(\eta)$ for $\lambda\!\in\!\{0, 0.30, 0.50, 1\}$, peaks
+marked. At equal weights ($\lambda\!=\!0$, black) $W$ is monotone-decreasing
+and the optimum is the corner $\eta^{*}\!=\!0$. At the realistic
+$\lambda\!=\!0.30$ (green, highlighted) the optimum is interior at
+$\eta^{*}\!\approx\!0.58$ -- a moderately strong union is
+welfare-optimal. Higher $\lambda$ slides the optimum further toward
+the worker-capture corner. \emph{Source:}
+\texttt{sim\_models\_v2.py:make\_rtm}.}
 \label{fig:simunion_rtm}
 \end{figure}
-
-\subsection{Welfare under generalised weights (Saez--Stantcheva 2016)}
-The equal-weight $W\!=\!V_w+V_f$ values \emph{nothing} of the
-redistribution from firm to worker. With Saez--Stantcheva (2016)
-generalised welfare weights:
-\[
-\boxed{\;W^{\lambda}(\eta)\;=\;(1+\lambda)V_w(\eta)\;+\;(1-\lambda)V_f(\eta)
-\;=\;W(\eta)\;+\;\lambda\bigl[V_w(\eta)-V_f(\eta)\bigr],
-\qquad\lambda\in[0,1].\;}
-\]
-$\lambda$ is the redistribution premium ($\lambda\!=\!0$ equal
-weights, $\lambda\!=\!1$ Rawlsian). \textbf{Realistic calibration}:
-three anchors converge on $\lambda\!\in\![0.25,0.45]$ -- HSV (2017)
-$\tau_p\!=\!0.18$ under log utility gives $\lambda\!\approx\!0.43$;
-OECD worker/capital-owner consumption gap $\sim\!4{:}1$ gives
-$\lambda\!\approx\!0.30$; Diamond--Saez (2011) population-average
-$\lambda\!\in\![0.3,0.5]$. We adopt $\lambda\!=\!0.30$ central with
-$\lambda\!\in\!\{0.20,0.50\}$ sensitivity.
-
-\textbf{Closed-form optimum.} Differentiating $W^{\lambda}(\eta)$ in
-$x\!=\!A-w$ along the RTM bargained path, $V_w(x)\!=\!0.6x-0.55x^2$
-and $V_f(x)\!=\!x^2/4$, gives
-\begin{equation}
-\boxed{\;x^{*}(\lambda)\;=\;\frac{0.6(1+\lambda)}{0.6+1.6\lambda},
-\qquad
-h^{*}(\lambda)\;=\;x^{*}(\lambda)/\beta,\qquad
-w^{*}(\lambda)\;=\;A-x^{*}(\lambda).\;}
-\label{eq:redist-optimum}
-\end{equation}
-The corresponding $\eta^{*}(\lambda)$ is recovered from the Q5
-quadratic $1.1[x^{*}]^2-0.6(2-\eta)x^{*}+0.1(1-\eta)\!=\!0$.
-
-\textbf{Numerical results.}
-\begin{table}[H]
-\centering\small
-\begin{tabular}{ccccccccc}
-\toprule
-$\lambda$ & $x^{*}$ & $h^{*}$ & $w^{*}$ & $\eta^{*}$ & $V_w^{*}$ & $V_f^{*}$ & $W^{\lambda}_{\rm peak}$ & $W^{\lambda}_{\eta=0}$ \\
-\midrule
-0.00 & 1.000 & 0.500 & 1.000 & 0.00 & 0.050 & 0.250 & \textbf{0.300} & 0.300 \\
-0.20 & 0.783 & 0.392 & 1.217 & 0.45 & 0.130 & 0.153 & \textbf{0.279} & 0.260 \\
-\rowcolor{gray!12}
-0.30 & 0.722 & 0.361 & 1.278 & 0.58 & 0.147 & 0.130 & \textbf{0.282} & 0.240 \\
-0.50 & 0.643 & 0.321 & 1.357 & 0.76 & 0.157 & 0.103 & \textbf{0.287} & 0.200 \\
-1.00 & 0.545 & 0.273 & 1.455 & 1.00 & 0.164 & 0.074 & \textbf{0.328} & 0.100 \\
-\bottomrule
-\end{tabular}
-\caption*{\scriptsize \textbf{Welfare-maximising $\eta$ under
-$W^{\lambda}$.} $\lambda\!=\!0$ gives the corner $\eta^*\!=\!0$
-(\S 5.4 result); any $\lambda\!>\!0$ gives an interior optimum. At
-realistic $\lambda\!=\!0.30$ (shaded), $\eta^*\!\approx\!0.58$ --
-moderately strong, consistent with EU RTM coverage of $80$--$95\%$.}
-\end{table}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{figures/sim_redistribution.pdf}
-\caption{\scriptsize \textbf{Welfare under Saez--Stantcheva (2016)
-weights.} \textbf{(a)} $W^{\lambda}(\eta)$ for $\lambda\!\in\!\{0,0.2,0.3,0.5,1\}$:
-peak shifts right with $\lambda$. \textbf{(b)} $\eta^{*}(\lambda)$:
-realistic $\lambda\!=\!0.30$ (HSV 2017 + log utility) gives
-$\eta^{*}\!\approx\!0.58$, consistent with European RTM coverage of
-$80$--$95\%$. \textbf{(c)} Q7 EU--US gap and Shapley decomposition
-under $W^{\lambda}$: at $\lambda\!=\!0$ culture does everything,
-union nets to zero; at $\lambda\!=\!0.30$ they contribute roughly
-equally ($+0.079$ vs $+0.076$); at $\lambda\!=\!0.50$ union
-dominates. \emph{Source:} \texttt{sim\_models\_v2.py:make\_redistribution}.}
-\label{fig:simredist}
-\end{figure}
-
-\textbf{Reading.} The ``no welfare-improving region under RTM''
-headline of \S 5.4 is the $\lambda\!=\!0$ knife-edge: it holds only
-when the planner attaches no value to firm-to-worker redistribution.
-At any $\lambda\!\geq\!0.10$ the welfare-maximising bargaining
-strength is interior; at the realistic $\lambda\!=\!0.30$,
-$\eta^*\!\approx\!0.58$ -- a moderately strong union is optimal.
 
 \subsection{Two-sector application: union absorbs upside, amplifies downside}
 The single-sector RTM analysis of \S 5.1--\S 5.5b applies sector-by-sector
@@ -1056,18 +1006,31 @@ linearly because $\lambda$ values exactly the firm-to-worker
 transfer the union effects.}
 \end{table}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/sim_redistribution.pdf}
+\caption{\scriptsize \textbf{Q7 sensitivity under generalised welfare
+weights.} \textbf{(a)} Welfare-maximising bargaining strength
+$\eta^{*}(\lambda)$ slides from the corner ($\lambda\!=\!0$) to full
+worker-capture ($\lambda\!=\!1$); the realistic case
+$\lambda\!=\!0.30$ gives $\eta^{*}\!\approx\!0.58$.
+\textbf{(b)} Q7 EU--US gap and Shapley channel decomposition: at
+$\lambda\!=\!0$ culture does all the work and union nets to zero;
+at $\lambda\!=\!0.30$ culture and union contribute roughly equally
+($+0.079$ vs $+0.076$); at $\lambda\!=\!0.50$ union exceeds culture.
+\emph{Source:} \texttt{sim\_models\_v2.py:make\_redistribution}.}
+\label{fig:simredist}
+\end{figure}
+
 \textbf{Reading.} EU is welfare-dominant across all
 $\lambda\!\in\![0,1]$; the gap grows in $\lambda$. The composition
-shifts: at $\lambda\!=\!0$ culture does all the work and union nets
-to zero; at $\lambda\!=\!0.30$ they contribute roughly equally
-($+0.079$ vs $+0.076$); at $\lambda\!=\!0.50$ union exceeds culture.
-The ``culture does everything'' verdict is conditional on equal
-weights; under standard inequality aversion the union is a
-first-order contributor. A natural country-level extension lets
-$g^{US}(\theta)\!\neq\!g^{EU}(\theta)$ -- different fairness beliefs
-across countries (Alesina--Angeletos 2005) imply different
-$\lambda^{US},\lambda^{EU}$ in the welfare criterion itself; we
-flag this as an extension and do not pursue it.
+shifts: at $\lambda\!=\!0$ culture does all the work; at
+$\lambda\!=\!0.30$ they contribute roughly equally; at
+$\lambda\!=\!0.50$ union exceeds culture. The ``culture does
+everything'' verdict is conditional on equal weights. A natural
+country-level extension lets $g^{US}\!\neq\!g^{EU}$ -- different
+fairness beliefs across countries (Alesina--Angeletos 2005) -- which
+we flag as an extension and do not pursue.
 
 \subsection{Verdict}
 \noindent\textbf{Q7 verdict (canonical RTM + leisure-bonus culture).}

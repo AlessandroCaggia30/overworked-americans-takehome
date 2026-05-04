@@ -262,15 +262,21 @@ def rtm_W(eta, **kw):
 
 
 def make_rtm():
-    print("=== Q5 RTM ===")
+    """
+    Q5 unified figure:
+      (a) Bargain mechanics    : w(eta), h(eta) along the labour-demand path
+      (b) Distribution          : V_w(eta) up, V_f(eta) down (firm-to-worker transfer)
+      (c) Welfare is criterion-dependent: W^lambda(eta) for varied lambda,
+          with peaks marked. At lambda=0 the optimum is the corner;
+          at realistic lambda=0.30 the optimum is interior at eta* ~ 0.58.
+    """
+    print("=== Q5 RTM (unified narrative) ===")
     etas = np.linspace(0.0, 1.0, 401)
     ws   = np.array([rtm_w(e) for e in etas])
     hs   = np.array([rtm_h(e) for e in etas])
     Vw   = np.array([rtm_Vw(e) for e in etas])
     Vf   = np.array([rtm_Vf(e) for e in etas])
-    Wt   = Vw + Vf
 
-    # Print key points
     grid = [0.0, 0.10, 0.25, 0.50, 0.75, 1.00]
     print(f"  {'eta':>5} {'w':>7} {'h':>7} {'V_w':>7} {'V_f':>7} {'W':>7}")
     for e in grid:
@@ -281,44 +287,59 @@ def make_rtm():
     fig = plt.figure(figsize=(13.2, 4.0))
     gs = GridSpec(1, 3, wspace=0.32, left=0.06, right=0.98, top=0.88, bottom=0.13)
 
-    # Panel A: w(eta), h(eta)
+    # ---- Panel A: bargain mechanics ----
     ax = fig.add_subplot(gs[0, 0])
     style_axes(ax)
-    ax.plot(etas, ws, color=C_FIRM, lw=2, label='Bargained wage $w(\\eta)$')
-    ax.plot(etas, hs, color=C_WORKER, lw=2, label='Equilibrium hours $h(\\eta)$')
+    ax.plot(etas, ws, color=C_FIRM, lw=2.2, label=r'Bargained wage $w(\eta)$')
+    ax.plot(etas, hs, color=C_WORKER, lw=2.2, label=r'Equilibrium hours $h(\eta)$')
+    # mark eta=0, 0.5, 1
+    for e_mark, marker in [(0.0, 'o'), (0.5, 's'), (1.0, '^')]:
+        ax.scatter([e_mark], [rtm_w(e_mark)], color=C_FIRM, s=44,
+                   edgecolor='white', linewidth=0.7, zorder=5, marker=marker)
+        ax.scatter([e_mark], [rtm_h(e_mark)], color=C_WORKER, s=44,
+                   edgecolor='white', linewidth=0.7, zorder=5, marker=marker)
     ax.set_xlabel(r'Worker bargaining weight $\eta$')
-    ax.set_title('(a) Wage rises, hours fall')
-    ax.legend(loc='center left')
+    ax.set_title(r'(a) Mechanism: $w\!\uparrow$, $h\!\downarrow$ along labour demand')
+    ax.legend(loc='center left', fontsize=8.5)
     ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1.7)
 
-    # Panel B: surplus split
+    # ---- Panel B: distribution V_w vs V_f ----
     ax = fig.add_subplot(gs[0, 1])
     style_axes(ax)
-    ax.plot(etas, Vw, color=C_WORKER, lw=2, label='$V_w$ (worker)')
-    ax.plot(etas, Vf, color=C_FIRM, lw=2, label='$V_f$ (firm)')
-    ax.plot(etas, Wt, color=C_TOTAL, lw=2.2, label='$W = V_w + V_f$')
+    ax.plot(etas, Vw, color=C_WORKER, lw=2.2,
+            label=r'$V_w(\eta)$ (worker captures rents)')
+    ax.plot(etas, Vf, color=C_FIRM, lw=2.2,
+            label=r'$V_f(\eta)$ (firm loses rents)')
     ax.fill_between(etas, 0, Vw, color=C_WORKER, alpha=0.10)
+    ax.fill_between(etas, Vw, Vw + Vf, color=C_FIRM, alpha=0.10)
     ax.set_xlabel(r'$\eta$')
-    ax.set_title('(b) $V_w$ rises, $V_f$ falls, $W$ falls')
-    ax.legend(loc='upper right')
+    ax.set_title(r'(b) Distribution: firm-to-worker transfer of rents')
+    ax.legend(loc='upper right', fontsize=8.5)
     ax.set_xlim(0, 1)
     ax.axhline(0, color='black', lw=0.4)
 
-    # Panel C: Delta W vs eta = 0 baseline
+    # ---- Panel C: criterion-dependent welfare W^lambda(eta) ----
     ax = fig.add_subplot(gs[0, 2])
     style_axes(ax)
-    dW = Wt - rtm_W(0.0)
-    dVw = Vw - rtm_Vw(0.0)
-    ax.plot(etas, dW, color=C_TOTAL, lw=2.2, label=r'$\Delta W$ (joint)')
-    ax.plot(etas, dVw, color=C_WORKER, lw=2, ls='--',
-            label=r'$\Delta V_w$ (worker)')
-    ax.fill_between(etas, dW, 0, where=(dW <= 0), color=C_OVER, alpha=0.18,
-                    label=r'Region where $\Delta W < 0$ at $\lambda=0$')
+    lambdas = [0.00, 0.30, 0.50, 1.00]
+    colors_l = ['#1B1B1B', C_SOC, C_FIRM, C_OVER]
+    labels_l = [r'$\lambda=0$ (equal)',
+                r'$\lambda=0.30$ \textbf{(realistic)}',
+                r'$\lambda=0.50$',
+                r'$\lambda=1$ (Rawlsian)']
+    for lam, col, lab in zip(lambdas, colors_l, labels_l):
+        Wlam = (1 + lam) * Vw + (1 - lam) * Vf
+        lw = 2.6 if lam == 0.30 else 1.8
+        ax.plot(etas, Wlam, color=col, lw=lw, label=lab)
+        idx = int(np.argmax(Wlam))
+        ax.scatter([etas[idx]], [Wlam[idx]], color=col, s=52,
+                   edgecolor='white', linewidth=0.8, zorder=5)
     ax.set_xlabel(r'$\eta$')
-    ax.set_title(r'(c) $W$ monotone in $\eta$ at equal weights ($\lambda=0$)')
-    ax.legend(loc='lower left')
+    ax.set_ylabel(r'$W^{\lambda}(\eta) = (1+\lambda)V_w + (1-\lambda)V_f$')
+    ax.set_title(r'(c) Welfare verdict is criterion-dependent: $\eta^*\!\approx\!0.58$ at $\lambda\!=\!0.30$')
+    ax.legend(loc='lower left', fontsize=7.8)
     ax.set_xlim(0, 1)
-    ax.axhline(0, color='black', lw=0.5)
 
     plt.savefig(OUT_DIR / 'sim_union_rtm.pdf', bbox_inches='tight', pad_inches=0.05)
     plt.savefig(OUT_DIR / 'sim_union_rtm.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
@@ -641,62 +662,51 @@ def make_q7_v2():
 # λ=1   → Rawlsian (only worker surplus counts).
 
 def make_redistribution():
-    print("=== §5.5b Generalised welfare weights (Saez-Stantcheva 2016) ===")
+    """
+    §7.6 Q7-specific Saez-Stantcheva sensitivity figure.
+    Two panels (the Q5 criterion-dependent welfare panel moved to make_rtm()):
+      (a) eta*(lambda) -- the welfare-maximising bargaining strength as
+          a function of the redistribution premium
+      (b) Q7 EU-US gap and Shapley channel decomposition (culture, union)
+          as a function of lambda
+    """
+    print("=== §7.6 Q7 sensitivity under generalised welfare weights ===")
 
     etas = np.linspace(0.0, 1.0, 401)
     Vw_arr = np.array([rtm_Vw(e) for e in etas])
     Vf_arr = np.array([rtm_Vf(e) for e in etas])
+    lam_grid = np.linspace(0.0, 1.0, 401)
 
-    lambdas = [0.00, 0.20, 0.30, 0.50, 1.00]
-    colors_l = ['#1B1B1B', '#7060A0', '#1B7837', '#D9772A', '#B22222']
+    fig = plt.figure(figsize=(11.0, 4.2))
+    gs = GridSpec(1, 2, wspace=0.30, left=0.07, right=0.97, top=0.88, bottom=0.14)
 
-    fig = plt.figure(figsize=(13.2, 4.4))
-    gs = GridSpec(1, 3, wspace=0.34, left=0.06, right=0.98, top=0.88, bottom=0.13)
-
-    # ---- Panel (a) -- W^λ(η) for several λ ----
+    # ---- Panel (a) -- eta*(lambda) ----
     ax = fig.add_subplot(gs[0, 0])
     style_axes(ax)
-    for lam, col in zip(lambdas, colors_l):
-        Wlam = (1 + lam) * Vw_arr + (1 - lam) * Vf_arr
-        ax.plot(etas, Wlam, color=col, lw=2,
-                label=fr'$\lambda={lam:.2f}$')
-        idx = int(np.argmax(Wlam))
-        ax.scatter([etas[idx]], [Wlam[idx]], color=col, s=46,
-                   edgecolor='white', linewidth=0.7, zorder=5)
-    ax.set_xlabel(r'Worker bargaining weight $\eta$')
-    ax.set_ylabel(r'$W^{\lambda}(\eta)$')
-    ax.set_title(r'(a) $W^{\lambda}(\eta)$ -- peak shifts right with $\lambda$')
-    ax.legend(loc='lower left', fontsize=8)
-    ax.set_xlim(0, 1)
-
-    # ---- Panel (b) -- η*(λ) ----
-    ax = fig.add_subplot(gs[0, 1])
-    style_axes(ax)
-    lam_grid = np.linspace(0.0, 1.0, 401)
     eta_grid = []
     for lam in lam_grid:
         Wlam = (1 + lam) * Vw_arr + (1 - lam) * Vf_arr
         eta_grid.append(etas[int(np.argmax(Wlam))])
     eta_grid = np.array(eta_grid)
-    ax.plot(lam_grid, eta_grid, color=C_TOTAL, lw=2.2,
+    ax.plot(lam_grid, eta_grid, color=C_TOTAL, lw=2.4,
             label=r'$\eta^{*}(\lambda)$')
-    ax.axvline(0.30, color=C_SOC, ls=':', lw=1.1,
+    ax.axvline(0.30, color=C_SOC, ls=':', lw=1.2,
                label=r'realistic $\lambda=0.30$')
     idx30 = int(np.argmin(np.abs(lam_grid - 0.30)))
-    ax.scatter([0.30], [eta_grid[idx30]], color=C_SOC, s=72,
+    ax.scatter([0.30], [eta_grid[idx30]], color=C_SOC, s=80,
                edgecolor='white', linewidth=0.8, zorder=5)
-    ax.annotate(f'$\\eta^*\\approx{eta_grid[idx30]:.2f}$',
-                (0.30, eta_grid[idx30]), xytext=(8, -16),
-                textcoords='offset points', fontsize=9, color=C_SOC)
+    ax.annotate(f'$\\eta^*\\!\\approx\\!{eta_grid[idx30]:.2f}$',
+                (0.30, eta_grid[idx30]), xytext=(10, -18),
+                textcoords='offset points', fontsize=10, color=C_SOC)
     ax.set_xlabel(r'Redistribution premium $\lambda$')
     ax.set_ylabel(r'Welfare-maximising $\eta^{*}$')
-    ax.set_title(r'(b) Optimum $\eta^{*}(\lambda)$ slides $0\to 1$')
+    ax.set_title(r'(a) Optimum union strength as $\lambda$ rises')
     ax.legend(loc='lower right', fontsize=9)
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
 
-    # ---- Panel (c) -- Q7 ΔW^λ + Shapley decomposition ----
-    ax = fig.add_subplot(gs[0, 2])
+    # ---- Panel (b) -- Q7 ΔW^λ + Shapley decomposition ----
+    ax = fig.add_subplot(gs[0, 1])
     style_axes(ax)
     _, _, Vw_us, Vf_us, _ = rtm_country(0.0, THETA_US)
     _, _, Vw_eu, Vf_eu, _ = rtm_country(0.5, THETA_EU)
@@ -735,10 +745,10 @@ def make_redistribution():
                edgecolor='white', linewidth=0.7, zorder=5)
     ax.scatter([0.30], [sh_union[idx30]], color=C_WORKER, s=44,
                edgecolor='white', linewidth=0.7, zorder=5)
-    ax.set_xlabel(r'$\lambda$')
-    ax.set_ylabel(r'EU--US welfare gap, units of sim.')
-    ax.set_title(r'(c) Q7 decomposition under $W^{\lambda}$')
-    ax.legend(loc='upper left', fontsize=8)
+    ax.set_xlabel(r'Redistribution premium $\lambda$')
+    ax.set_ylabel(r'EU--US welfare gap (sim.\ units)')
+    ax.set_title(r'(b) Q7 channel decomposition under $W^{\lambda}$')
+    ax.legend(loc='upper left', fontsize=9)
     ax.set_xlim(0, 1)
 
     plt.savefig(OUT_DIR / 'sim_redistribution.pdf', bbox_inches='tight', pad_inches=0.05)
