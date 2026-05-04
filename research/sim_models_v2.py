@@ -313,9 +313,9 @@ def make_rtm():
     ax.plot(etas, dVw, color=C_WORKER, lw=2, ls='--',
             label=r'$\Delta V_w$ (worker)')
     ax.fill_between(etas, dW, 0, where=(dW <= 0), color=C_OVER, alpha=0.18,
-                    label='Welfare-reducing region')
+                    label=r'Region where $\Delta W < 0$ at $\lambda=0$')
     ax.set_xlabel(r'$\eta$')
-    ax.set_title(r'(c) $W$ monotone in $\eta$ (no welfare-improving region)')
+    ax.set_title(r'(c) $W$ monotone in $\eta$ at equal weights ($\lambda=0$)')
     ax.legend(loc='lower left')
     ax.set_xlim(0, 1)
     ax.axhline(0, color='black', lw=0.5)
@@ -475,16 +475,14 @@ def make_culture():
 
 
 # =====================================================================
-# 4) Q7 counterfactual decomposition under RTM + AGS
+# 4) Q7 counterfactual decomposition under RTM + leisure-bonus culture
 # =====================================================================
-# US: AGS-coordinated on h_H, no union (eta=0). W_US = 0.425.
-# EU: AGS-coordinated on h_L, with union (eta=0.5). W_EU = ?
-#
-# To combine the channels, we layer: at AGS equilibrium, h is fixed by
-# coordination (h=h_L for EU, h=h_H for US). On top of that, RTM bargain
-# determines wages. With h fixed by AGS, the firm pays w*h regardless;
-# the union pushes w up, redistributing from V_f to V_w but reducing W
-# via the tax wedge tau*w*h. We compute this layered welfare.
+# US: theta^US = 0, no union (eta=0). EU: theta^EU = 0.156, eta=0.5.
+# Each country's equilibrium is the RTM bargain at its own (theta, eta);
+# country-specific theta enters V_w through the leisure-bonus term.
+# Welfare is computed under equal weights (W = V_w + V_f); the
+# Saez-Stantcheva lambda extension is applied separately in
+# make_redistribution().
 
 def rtm_country(eta, theta_c, alpha=ALPHA, beta=BETA, tau=TAU, A_=A, vw0=VW0):
     """
