@@ -461,32 +461,46 @@ def make_culture():
     ax.legend(loc='lower left', fontsize=7.5)
     ax.set_xlim(0, 0.7)
 
-    # Panel C: welfare at each country's first-best (V_w + V_f stacked)
+    # Panel C: h^star vs h^soc -- the misallocation wedge under cultural premium
     ax = fig.add_subplot(gs[0, 2])
-    style_axes(ax)
-    bars = ['US\n($\\theta^{US}=0$,\n$h^*=0.300$)',
-            'EU\n($\\theta^{EU}=0.156$,\n$h^*=0.222$)']
-    Wvals = [W_us, W_eu]
-    Vwvals = [Vw_us, Vw_eu]
-    Vfvals = [Vf_us, Vf_eu]
+    style_axes(ax, gridx=False)
+    h_soc_us  = (A - TAU * W_ - THETA_US) / (ALPHA + BETA)
+    h_soc_eu  = (A - TAU * W_ - THETA_EU) / (ALPHA + BETA)
+    h_firm_v  = (A - W_) / BETA
+    countries = ['US ($\\theta=0$)', 'EU ($\\theta=0.156$)']
+    h_star_vals = [h_us, h_eu]
+    h_soc_vals  = [h_soc_us, h_soc_eu]
     x = np.arange(2)
-    width = 0.55
-    ax.bar(x, Vwvals, width, color=C_WORKER, label='$V_w$',
-           edgecolor='white', linewidth=0.5)
-    ax.bar(x, Vfvals, width, bottom=Vwvals, color=C_FIRM, label='$V_f$',
-           edgecolor='white', linewidth=0.5)
+    width = 0.28
+    bars1 = ax.bar(x - width, h_star_vals, width, color=C_WORKER,
+                   label=r'$h^{*}$ (worker free)', edgecolor='white', linewidth=0.5)
+    bars2 = ax.bar(x,         h_soc_vals,  width, color=C_SOC,
+                   label=r'$h^{\rm soc}$ (joint optimum)',
+                   edgecolor='white', linewidth=0.5)
+    bars3 = ax.bar(x + width, [h_firm_v, h_firm_v], width, color=C_FIRM,
+                   label=r'$h^{\rm firm}$ (firm free)',
+                   edgecolor='white', linewidth=0.5)
     for i in range(2):
-        ax.annotate(f'$W={Wvals[i]:.3f}$',
-                    (x[i], Wvals[i]), xytext=(0, 4),
-                    textcoords='offset points', ha='center', fontsize=9,
-                    fontweight='bold')
+        ax.annotate(f'{h_star_vals[i]:.3f}', (i - width, h_star_vals[i]),
+                    xytext=(0, 3), textcoords='offset points',
+                    ha='center', fontsize=8)
+        ax.annotate(f'{h_soc_vals[i]:.3f}', (i, h_soc_vals[i]),
+                    xytext=(0, 3), textcoords='offset points',
+                    ha='center', fontsize=8)
+        ax.annotate(f'{h_firm_v:.3f}', (i + width, h_firm_v),
+                    xytext=(0, 3), textcoords='offset points',
+                    ha='center', fontsize=8)
+        wedge = h_soc_vals[i] - h_star_vals[i]
+        ax.annotate(f'wedge\n$h^{{\\rm soc}}\\!-\\!h^*\\!=\\!{wedge:.3f}$',
+                    (i - 0.5 * width, (h_star_vals[i] + h_soc_vals[i]) / 2),
+                    xytext=(-30, 0), textcoords='offset points',
+                    fontsize=7.5, ha='right', color='gray')
     ax.set_xticks(x)
-    ax.set_xticklabels(bars, fontsize=8.5)
-    ax.set_ylabel(r'Joint surplus $W$')
-    ax.set_title(r'(c) EU welfare-DOMINATES: $\Delta W=$' +
-                 f'${W_eu-W_us:+.3f}$')
-    ax.legend(loc='upper left')
-    ax.set_ylim(0, 0.45)
+    ax.set_xticklabels(countries, fontsize=9)
+    ax.set_ylabel(r'$h$')
+    ax.set_title(r'(c) Cultural premium widens the $h^{\rm soc}\!-\!h^*$ wedge')
+    ax.legend(loc='upper right', fontsize=8)
+    ax.set_ylim(0, 0.65)
 
     plt.savefig(OUT_DIR / 'sim_culture.pdf', bbox_inches='tight', pad_inches=0.05)
     plt.savefig(OUT_DIR / 'sim_culture.png', bbox_inches='tight', pad_inches=0.05, dpi=200)

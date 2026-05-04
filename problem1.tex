@@ -864,20 +864,56 @@ endogenous preferences -- institutions shape preferences over
 generations; (c) Stevenson--Wolfers (2008) SWB residual is the
 direct empirical anchor.}
 
-\subsection{Cultural channel alone: EU welfare-dominant at first-best}
-At each country's first-best, plugging $h^*$ into the payoffs gives
+\subsection{Cultural channel alone: EU welfare-dominant at first-best, but with a wider hours-misallocation wedge}
+\textbf{The leisure-bonus is not a free lunch.} Adding $\theta^c(1-h)$
+to the worker's payoff has \emph{two} effects, not one. The first is
+to raise $V_w$ at every $h$ -- the direct utility from leisure. The
+second is to pull the worker's preferred hours \emph{below} the joint
+social optimum:
 \[
-\text{US:}\;V_w^*\!=\!0.090,\;V_f^*\!=\!0.210,\;W^{US}\!=\!0.300;
-\qquad
-\text{EU:}\;V_w^*\!=\!0.205,\;V_f^*\!=\!0.173,\;W^{EU}\!=\!0.378.
+h^*(\theta^c)=\frac{(1-\tau)w-\theta^c}{\alpha},\qquad
+h^{\rm soc}(\theta^c)=\frac{A-\tau w-\theta^c}{\alpha+\beta},\qquad
+h^{\rm soc}-h^*=\underbrace{\frac{A-w}{\alpha+\beta}-\frac{w(1-\tau)}{\alpha}\cdot\frac{\beta}{\alpha+\beta}}_{>0\text{ already at }\theta^c=0}
++\theta^c\!\left(\frac{1}{\alpha}-\frac{1}{\alpha+\beta}\right).
 \]
-The EU worker is strictly better off ($V_w$ from $0.090$ to $0.205$
-despite $h$ falling from $0.300$ to $0.222$): the cultural premium
-adds direct utility. The firm is worse off ($V_f$ from $0.210$ to
-$0.173$) because the worker chooses fewer hours, but the worker's
-gain dominates: $\Delta W\!=\!+0.078$. Under the alternative
-$\alpha$-shift specification, the welfare sign would reverse -- a
-feature of the wrong formalisation, not of the underlying economics.
+Both objects fall in $\theta^c$, but $h^*$ falls \emph{faster}
+($\partial h^*/\partial\theta^c\!=\!-1/\alpha\!=\!-0.5$ vs.\
+$\partial h^{\rm soc}/\partial\theta^c\!=\!-1/(\alpha+\beta)\!=\!-0.25$).
+\textbf{The cultural premium therefore widens the wedge between the
+worker's preferred hours and the joint optimum}: from $0.10$ at
+$\theta^c\!=\!0$ to $0.14$ at $\theta^c\!=\!0.156$ -- a $40\%$ larger
+hours-misallocation under EU culture if hours are set at the worker's
+first-best.
+
+\textbf{Welfare at the worker's first-best vs.\ joint optimum.}
+Plugging both reference levels into the payoffs:
+\begin{center}\small
+\begin{tabular}{lccccc}
+\toprule
+& $h^*$ & $h^{\rm soc}$ & $W$ at $h^*$ & $W$ at $h^{\rm soc}$ & misalloc.\ loss \\
+\midrule
+US ($\theta^{US}\!=\!0$) & 0.300 & 0.400 & 0.300 & 0.320 & $-0.020$ \\
+EU ($\theta^{EU}\!=\!0.156$) & 0.222 & 0.361 & 0.378 & 0.417 & $-0.039$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+At each country's worker-first-best, $W^{EU}-W^{US}\!=\!+0.078$ --
+the headline used downstream. At each country's joint optimum,
+$W^{EU}_{\rm soc}-W^{US}_{\rm soc}\!=\!+0.097$ -- the EU advantage is
+\emph{larger}, because under cultural premium the worker's free choice
+leaves more joint surplus on the table than under no premium. Both
+the direct-utility effect and the hours-misallocation effect are
+real; the model captures them both. \textbf{The cultural premium is
+welfare-improving on net, but it also amplifies the firm--worker
+hours wedge -- so the headline ``EU enjoys leisure more'' is partly
+offset by ``EU under-supplies hours relative to its own joint
+optimum more than the US does.''}
+
+Under the alternative $\alpha$-shift specification, the direct-utility
+effect would have the wrong sign (worker worse off at every $h$); the
+leisure-bonus is the right specification by SWB evidence
+(Stevenson--Wolfers 2008), but the wedge story above is the honest
+qualifier.
 
 \begin{figure}[H]
 \centering
@@ -885,14 +921,18 @@ feature of the wrong formalisation, not of the underlying economics.
 \caption{\scriptsize \textbf{Cultural channel: leisure bonus
 (Q7 expansion).}
 \textbf{(a)} $h^*(\tau,\theta^c)$: higher $\theta^c$ shifts $h^*$
-down ($h^*_{US}\!=\!0.300\!\to\!h^*_{EU}\!=\!0.222$,
-$\Delta h^*\!=\!-0.078$).
-\textbf{(b)} $V_w(h;\theta^c)$ at $\tau\!=\!0.4$: \emph{EU peak is
-higher and at lower $h$} -- the cultural premium dominates the
-disutility from fewer hours.
-\textbf{(c)} Joint surplus at each country's first-best:
-$W^{US}\!=\!0.300$, $W^{EU}\!=\!0.378$, $\Delta W\!=\!+0.078$.
-\emph{Source:} \texttt{sim\_models\_v2.py}.}
+down ($h^*_{US}\!=\!0.300\!\to\!h^*_{EU}\!=\!0.222$).
+\textbf{(b)} $V_w(h;\theta^c)$ at $\tau\!=\!0.4$: EU peak is higher
+and at lower $h$ (direct utility from leisure dominates the
+disutility from fewer hours).
+\textbf{(c)} \emph{The cultural premium widens the
+$h^{\rm soc}\!-\!h^*$ wedge}: from $0.10$ at $\theta^{US}\!=\!0$ to
+$0.14$ at $\theta^{EU}\!=\!0.156$. The leisure-bonus is not a free
+lunch -- it raises $V_w$ pointwise but pulls the worker's
+free-choice hours \emph{further} below the joint optimum, leaving
+more surplus on the table at first-best (US loss $0.020$, EU loss
+$0.039$).
+\emph{Source:} \texttt{sim\_models\_v2.py:make\_culture}.}
 \label{fig:simculture}
 \end{figure}
 
