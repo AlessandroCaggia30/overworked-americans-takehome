@@ -644,48 +644,51 @@ verdict. Under any $\lambda\!>\!0$ the optimum is interior
 (\eqref{eq:redist-optimum}; Fig.~\ref{fig:simunion_rtm}c).
 \begin{table}[H]
 \centering\footnotesize
-\begin{tabular}{cccccc|cccc}
+\begin{tabular}{ccccccc|cc}
 \toprule
-\multicolumn{6}{c}{\textbf{RTM bargain at varied $\eta$ ($\lambda\!=\!0$)}} &
-\multicolumn{4}{c}{\textbf{Welfare-maximising bargain at varied $\lambda$}} \\
-\cmidrule(lr){1-6}\cmidrule(lr){7-10}
-$\eta$ & $w$ & $h$ & $V_w$ & $V_f$ & $W$ &
-$\lambda$ & $\eta^{*}$ & $W^{\lambda}_{\rm peak}$ & $W^{\lambda}_{\eta=0}$ \\
+& \multicolumn{6}{c}{\textbf{Per-state RTM bargain at $\eta\!=\!0.5$, $\lambda\!=\!0$}} &
+\multicolumn{2}{c}{\textbf{Aggregate (s=0.5)}} \\
+\cmidrule(lr){2-7}\cmidrule(lr){8-9}
+state & $A_j$ & $w_j$ & $h_j$ & $V_w^j$ & $V_f^j$ & $W^j$ & $\bar V_w$ & $\bar V_f$ \\
 \midrule
-0.00 & 1.000 & 0.500 & 0.050 & 0.250 & \textbf{0.300} & 0.00 & 0.00 & \textbf{0.300} & 0.300 \\
-0.25 & 1.123 & 0.439 & 0.103 & 0.192 & 0.295 & 0.20 & 0.45 & \textbf{0.279} & 0.260 \\
-0.50 & 1.242 & 0.379 & 0.139 & 0.144 & 0.283 & \textbf{0.30} & \textbf{0.58} & \textbf{0.282} & \textbf{0.240} \\
-0.75 & 1.353 & 0.323 & 0.158 & 0.105 & 0.263 & 0.50 & 0.76 & \textbf{0.287} & 0.200 \\
-1.00 & 1.455 & 0.273 & 0.164 & 0.074 & 0.238 & 1.00 & 1.00 & \textbf{0.328} & 0.100 \\
+good & 2.2 & 1.354 & 0.423 & 0.165 & 0.179 & 0.344 & \multirow{2}{*}{$0.140$} & \multirow{2}{*}{$0.145$} \\
+bad  & 1.8 & 1.132 & 0.334 & 0.115 & 0.112 & 0.227 & & \\
+\midrule
+\multicolumn{7}{r}{\textbf{Aggregate welfare-maximising bargain at varied $\lambda$ via \eqref{eq:redist-optimum}}} & & \\
+\multicolumn{7}{r}{$\lambda\!=\!0\!\Rightarrow\!\eta^*\!=\!0$;
+$\lambda\!=\!0.20\!\Rightarrow\!\eta^*\!=\!0.45$;
+$\boxed{\lambda\!=\!0.30\!\Rightarrow\!\eta^*\!\approx\!0.58}$;
+$\lambda\!=\!0.50\!\Rightarrow\!\eta^*\!=\!0.76$;
+$\lambda\!=\!1\!\Rightarrow\!\eta^*\!=\!1$.} & & \\
 \bottomrule
 \end{tabular}
-\caption*{\scriptsize Left: RTM bargain at varied $\eta$, equal weights.
-$\eta\!=\!0$ peaks $W$; rising $\eta$ shrinks the joint pie via
-hours-misallocation. Right: welfare-maximising $\eta^{*}$ at varied
-$\lambda$ via \eqref{eq:redist-optimum}. The realistic central case
-$\lambda\!=\!0.30$ delivers $\eta^{*}\!\approx\!0.58$.}
+\caption*{\scriptsize Per-state RTM outcomes at the symmetric
+shock $A_{\rm good}\!=\!2.2$, $A_{\rm bad}\!=\!1.8$, $\eta\!=\!0.5$.
+The good state has higher $w$ and $h$ than the bad state. The
+aggregate at $s\!=\!0.5$ averages the two. The $\lambda$-dependent
+optimum applies per-state and aggregates linearly.}
 \end{table}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/sim_union_rtm.pdf}
-\caption{\scriptsize \textbf{Q5 RTM bargain: mechanism, distribution,
-and criterion-dependent welfare.}
-\textbf{(a)} Bargain mechanics: $w(\eta)\!\uparrow$ from $1.00$ to
-$1.45$, $h(\eta)\!\downarrow$ from $0.50$ to $0.27$ along the firm's
-labour-demand curve. Markers at $\eta\!\in\!\{0,0.5,1\}$.
-\textbf{(b)} Distribution: $V_w(\eta)$ rises monotonically as the
-union extracts wage rents; $V_f(\eta)$ falls -- a pure firm-to-worker
-transfer.
-\textbf{(c)} \emph{Welfare verdict is criterion-dependent.}
-$W^{\lambda}(\eta)$ for $\lambda\!\in\!\{0, 0.30, 0.50, 1\}$, peaks
-marked. At equal weights ($\lambda\!=\!0$, black) $W$ is monotone-decreasing
-and the optimum is the corner $\eta^{*}\!=\!0$. At the realistic
-$\lambda\!=\!0.30$ (green, highlighted) the optimum is interior at
-$\eta^{*}\!\approx\!0.58$ -- a moderately strong union is
-welfare-optimal. Higher $\lambda$ slides the optimum further toward
-the worker-capture corner. \emph{Source:}
-\texttt{sim\_models\_v2.py:make\_rtm}.}
+\caption{\scriptsize \textbf{Q5 RTM bargain across two states:
+mechanism, distribution, and aggregate criterion-dependent welfare.}
+\textbf{(a)} Per-state mechanics: $w_j(\eta)$ rises and $h_j(\eta)$
+falls in each state $j\!\in\!\{\text{good}, \text{bad}\}$ along its
+own labour-demand curve. The good state has uniformly higher $w$ and
+$h$ at every $\eta$.
+\textbf{(b)} Per-state distribution: $V_w^j(\eta)$ rises in $\eta$ in
+both states (worker captures rents); $V_f^j(\eta)$ falls (firm loses
+rents). The good state has higher $V_w$ and $V_f$ throughout.
+\textbf{(c)} \emph{Aggregate welfare verdict is criterion-dependent.}
+$\bar W^{\lambda}(\eta, s\!=\!0.5)\!=\!s\,W^{\lambda}_{\rm good}\!+\!(1\!-\!s)\,W^{\lambda}_{\rm bad}$
+for $\lambda\!\in\!\{0, 0.30, 0.50, 1\}$. At equal weights
+($\lambda\!=\!0$, black) the aggregate is monotone-decreasing and the
+optimum is at $\eta^*\!=\!0$. At realistic $\lambda\!=\!0.30$ (green,
+highlighted) the optimum is interior at $\eta^*\!\approx\!0.58$ --
+\emph{moderately strong union welfare-optimal in the aggregate}.
+\emph{Source:} \texttt{sim\_models\_v2.py:make\_rtm}.}
 \label{fig:simunion_rtm}
 \end{figure}
 

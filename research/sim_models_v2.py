@@ -263,63 +263,81 @@ def rtm_W(eta, **kw):
 
 def make_rtm():
     """
-    Q5 unified figure:
-      (a) Bargain mechanics    : w(eta), h(eta) along the labour-demand path
-      (b) Distribution          : V_w(eta) up, V_f(eta) down (firm-to-worker transfer)
-      (c) Welfare is criterion-dependent: W^lambda(eta) for varied lambda,
-          with peaks marked. At lambda=0 the optimum is the corner;
-          at realistic lambda=0.30 the optimum is interior at eta* ~ 0.58.
+    Q5 unified figure (two-state):
+      (a) Bargain mechanics per state: w_j(eta), h_j(eta) for j in {good, bad}
+      (b) Distribution per state: V_w_j(eta), V_f_j(eta)
+      (c) Aggregate welfare W^lambda_agg(eta, s=0.5) for varied lambda;
+          peak shifts right with lambda
     """
-    print("=== Q5 RTM (unified narrative) ===")
-    etas = np.linspace(0.0, 1.0, 401)
-    ws   = np.array([rtm_w(e) for e in etas])
-    hs   = np.array([rtm_h(e) for e in etas])
-    Vw   = np.array([rtm_Vw(e) for e in etas])
-    Vf   = np.array([rtm_Vf(e) for e in etas])
+    print("=== Q5 RTM (two-state unified narrative) ===")
+    A_pre  = 2.0
+    delta  = 0.2
+    A_good = A_pre + delta
+    A_bad  = A_pre - delta
+    s = 0.5  # equal share aggregation
 
-    grid = [0.0, 0.10, 0.25, 0.50, 0.75, 1.00]
-    print(f"  {'eta':>5} {'w':>7} {'h':>7} {'V_w':>7} {'V_f':>7} {'W':>7}")
-    for e in grid:
-        print(f"  {e:>5.2f} {rtm_w(e):>7.4f} {rtm_h(e):>7.4f} "
-              f"{rtm_Vw(e):>7.4f} {rtm_Vf(e):>7.4f} {rtm_W(e):>7.4f}")
+    etas = np.linspace(0.0, 1.0, 401)
+    # per-state trajectories
+    w_g = np.array([rtm_w(e, A=A_good) for e in etas])
+    h_g = np.array([rtm_h(e, A=A_good) for e in etas])
+    Vw_g = np.array([rtm_Vw(e, A=A_good) for e in etas])
+    Vf_g = np.array([rtm_Vf(e, A=A_good) for e in etas])
+    w_b = np.array([rtm_w(e, A=A_bad) for e in etas])
+    h_b = np.array([rtm_h(e, A=A_bad) for e in etas])
+    Vw_b = np.array([rtm_Vw(e, A=A_bad) for e in etas])
+    Vf_b = np.array([rtm_Vf(e, A=A_bad) for e in etas])
+    # aggregate at s=0.5
+    Vw_agg = s * Vw_g + (1 - s) * Vw_b
+    Vf_agg = s * Vf_g + (1 - s) * Vf_b
+
+    # print key per-state values at eta=0.5
+    print(f"  At eta=0.5:")
+    print(f"    Good (A={A_good}): w={rtm_w(0.5, A=A_good):.4f}, h={rtm_h(0.5, A=A_good):.4f}, "
+          f"V_w={rtm_Vw(0.5, A=A_good):.4f}, V_f={rtm_Vf(0.5, A=A_good):.4f}")
+    print(f"    Bad  (A={A_bad}): w={rtm_w(0.5, A=A_bad):.4f}, h={rtm_h(0.5, A=A_bad):.4f}, "
+          f"V_w={rtm_Vw(0.5, A=A_bad):.4f}, V_f={rtm_Vf(0.5, A=A_bad):.4f}")
+    print(f"    Aggregate s=0.5: V_w={s*rtm_Vw(0.5, A=A_good)+(1-s)*rtm_Vw(0.5, A=A_bad):.4f}, "
+          f"V_f={s*rtm_Vf(0.5, A=A_good)+(1-s)*rtm_Vf(0.5, A=A_bad):.4f}")
     print()
 
     fig = plt.figure(figsize=(13.2, 4.0))
     gs = GridSpec(1, 3, wspace=0.32, left=0.06, right=0.98, top=0.88, bottom=0.13)
 
-    # ---- Panel A: bargain mechanics ----
+    # ---- Panel A: bargain mechanics per state ----
     ax = fig.add_subplot(gs[0, 0])
     style_axes(ax)
-    ax.plot(etas, ws, color=C_FIRM, lw=2.2, label=r'Bargained wage $w(\eta)$')
-    ax.plot(etas, hs, color=C_WORKER, lw=2.2, label=r'Equilibrium hours $h(\eta)$')
-    # mark eta=0, 0.5, 1
-    for e_mark, marker in [(0.0, 'o'), (0.5, 's'), (1.0, '^')]:
-        ax.scatter([e_mark], [rtm_w(e_mark)], color=C_FIRM, s=44,
-                   edgecolor='white', linewidth=0.7, zorder=5, marker=marker)
-        ax.scatter([e_mark], [rtm_h(e_mark)], color=C_WORKER, s=44,
-                   edgecolor='white', linewidth=0.7, zorder=5, marker=marker)
+    ax.plot(etas, w_g, color=C_EU, lw=2.2,
+            label=r'$w_{\rm good}(\eta)$, $A\!=\!2.2$')
+    ax.plot(etas, w_b, color=C_US, lw=2.2,
+            label=r'$w_{\rm bad}(\eta)$, $A\!=\!1.8$')
+    ax.plot(etas, h_g, color=C_EU, lw=2.0, ls='--',
+            label=r'$h_{\rm good}(\eta)$')
+    ax.plot(etas, h_b, color=C_US, lw=2.0, ls='--',
+            label=r'$h_{\rm bad}(\eta)$')
     ax.set_xlabel(r'Worker bargaining weight $\eta$')
-    ax.set_title(r'(a) Mechanism: $w\!\uparrow$, $h\!\downarrow$ along labour demand')
-    ax.legend(loc='center left', fontsize=8.5)
+    ax.set_title(r'(a) Per-state mechanics: $w\!\uparrow$, $h\!\downarrow$')
+    ax.legend(loc='center left', fontsize=7.8)
     ax.set_xlim(0, 1)
-    ax.set_ylim(0, 1.7)
+    ax.set_ylim(0, 1.8)
 
-    # ---- Panel B: distribution V_w vs V_f ----
+    # ---- Panel B: distribution per state ----
     ax = fig.add_subplot(gs[0, 1])
     style_axes(ax)
-    ax.plot(etas, Vw, color=C_WORKER, lw=2.2,
-            label=r'$V_w(\eta)$ (worker captures rents)')
-    ax.plot(etas, Vf, color=C_FIRM, lw=2.2,
-            label=r'$V_f(\eta)$ (firm loses rents)')
-    ax.fill_between(etas, 0, Vw, color=C_WORKER, alpha=0.10)
-    ax.fill_between(etas, Vw, Vw + Vf, color=C_FIRM, alpha=0.10)
+    ax.plot(etas, Vw_g, color=C_EU, lw=2.2,
+            label=r'$V_w^{\rm good}$ (worker, $A\!=\!2.2$)')
+    ax.plot(etas, Vw_b, color=C_US, lw=2.2,
+            label=r'$V_w^{\rm bad}$ (worker, $A\!=\!1.8$)')
+    ax.plot(etas, Vf_g, color=C_EU, lw=2.0, ls='--',
+            label=r'$V_f^{\rm good}$ (firm)')
+    ax.plot(etas, Vf_b, color=C_US, lw=2.0, ls='--',
+            label=r'$V_f^{\rm bad}$ (firm)')
     ax.set_xlabel(r'$\eta$')
-    ax.set_title(r'(b) Distribution: firm-to-worker transfer of rents')
-    ax.legend(loc='upper right', fontsize=8.5)
+    ax.set_title(r'(b) Per-state distribution: $V_w\!\uparrow$, $V_f\!\downarrow$')
+    ax.legend(loc='upper right', fontsize=7.5)
     ax.set_xlim(0, 1)
     ax.axhline(0, color='black', lw=0.4)
 
-    # ---- Panel C: criterion-dependent welfare W^lambda(eta) ----
+    # ---- Panel C: aggregate criterion-dependent welfare at s=0.5 ----
     ax = fig.add_subplot(gs[0, 2])
     style_axes(ax)
     lambdas = [0.00, 0.30, 0.50, 1.00]
@@ -329,15 +347,15 @@ def make_rtm():
                 r'$\lambda=0.50$',
                 r'$\lambda=1$ (Rawlsian)']
     for lam, col, lab in zip(lambdas, colors_l, labels_l):
-        Wlam = (1 + lam) * Vw + (1 - lam) * Vf
+        Wlam_agg = (1 + lam) * Vw_agg + (1 - lam) * Vf_agg
         lw = 2.6 if lam == 0.30 else 1.8
-        ax.plot(etas, Wlam, color=col, lw=lw, label=lab)
-        idx = int(np.argmax(Wlam))
-        ax.scatter([etas[idx]], [Wlam[idx]], color=col, s=52,
+        ax.plot(etas, Wlam_agg, color=col, lw=lw, label=lab)
+        idx = int(np.argmax(Wlam_agg))
+        ax.scatter([etas[idx]], [Wlam_agg[idx]], color=col, s=52,
                    edgecolor='white', linewidth=0.8, zorder=5)
     ax.set_xlabel(r'$\eta$')
-    ax.set_ylabel(r'$W^{\lambda}(\eta) = (1+\lambda)V_w + (1-\lambda)V_f$')
-    ax.set_title(r'(c) Welfare verdict is criterion-dependent: $\eta^*\!\approx\!0.58$ at $\lambda\!=\!0.30$')
+    ax.set_ylabel(r'$\bar W^{\lambda}(\eta, s\!=\!0.5)$')
+    ax.set_title(r'(c) Aggregate welfare ($s\!=\!0.5$): $\eta^*\!\approx\!0.58$ at $\lambda\!=\!0.30$')
     ax.legend(loc='lower left', fontsize=7.8)
     ax.set_xlim(0, 1)
 
