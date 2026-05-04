@@ -554,89 +554,94 @@ economy and their response to sectoral shifts. Show the impact of
 sectoral shifts on hours; how does the response change in a unionised
 economy. \emph{Use the words `hence' and `novel' twice.}\endgroup
 
-\subsection{Modelling choice: canonical right-to-manage (RTM)}
+\subsection{Modelling choice and setup: state-dependent canonical RTM}
 We adopt the canonical right-to-manage Nash bargain (Nickell 1982;
-Layard--Nickell--Jackman 1991): union and firm bargain over the wage,
-the firm sets hours on its labour demand $h^d(w)\!=\!(A-w)/\beta$ ex
-post, with a utilitarian-over-members union objective (Oswald 1985).
-RTM is the workhorse of European-unemployment macro and the natural
-protocol for institutional realism (collective agreements specify
-wages, not employment levels). We bracket the alternatives -- monopoly
-union, efficient bargaining (McDonald--Solow 1981), Hall--Milgrom (2008)
-alternating offers -- and use one-shot Nash bargaining throughout.
+Layard--Nickell--Jackman 1991) embedded in a multi-state economy.
+States (sectors) are indexed by $j$ with productivity $A_j$; within
+each state the representative worker--firm pair has the
+quadratic-linear primitives of \S 3 (with state-specific $A_j$):
+\[
+V_w(w_j,h_j)=(1-\tau)w_j h_j-\tfrac{\alpha}{2}h_j^2,\qquad
+V_f(w_j,h_j;A_j)=A_j h_j-\tfrac{\beta}{2}h_j^2-w_j h_j.
+\]
+A single union covers the economy and Nash-bargains over wages with
+worker weight $\eta\!\in\![0,1]$; the firm in each state sets hours
+on its labour-demand curve $h_j^d(w_j)\!=\!(A_j-w_j)/\beta$ ex post.
+Three wage-setting regimes are admissible: \textbf{(a) free market} --
+firm-power Nash bargain ($\eta\!=\!0$) at each state's $A_j$, worker
+IR-binding; \textbf{(b) flexible union} -- sector-specific RTM bargain
+at $\eta\!>\!0$; \textbf{(c) rigid union} -- downward wage rigidity
+(Bewley 1999; Holden 1994), wages can rise freely but cannot fall
+below a pre-shock benchmark.
 
-\subsection{Setup}
-Primitives as in \S 3 ($V_w$, $V_f$); firm's labour demand
-$h^d(w)\!=\!(A-w)/\beta$. Asymmetric Nash bargain over wages:
-\begin{equation}
-w(\eta)=\arg\max_w[V_w(w)-V_w^0]^\eta\,V_f(w)^{1-\eta},\qquad \eta\in[0,1],
-\label{eq:rtm-bargain}
-\end{equation}
-firm sets $h=h^d(w(\eta))$ ex post. $V_w^0\!=\!0.05$ is calibrated
-so $\eta\!=\!0$ reproduces the firm-power baseline $(w,h)\!=\!(1,0.5)$.
+\textbf{The state-dependent structure is the foundation, not an
+extension.} Single-state results are the homogeneous-economy special
+case (all states with identical $A$). $V_w^0\!=\!0.05$ is calibrated
+so the homogeneous benchmark at $A\!=\!2$ reproduces $(w,h)\!=\!(1,0.5)$
+at $\eta\!=\!0$. (Bracketed alternatives -- monopoly union, efficient
+bargaining (McDonald--Solow 1981), Hall--Milgrom (2008) -- not
+pursued.)
 
-\subsection{Closed-form}
-Let $x\!\equiv\!A-w$, so $h\!=\!x/\beta$. The Nash FOC reduces to a
-quadratic $a\,x^2-b(2-\eta)x+c(1-\eta)=0$ with
-$a\!=\!2(1-\tau)/\beta+\alpha/\beta^2$, $b\!=\!(1-\tau)A/\beta$,
-$c\!=\!2V_w^0$. At baseline $(\alpha,\beta,\tau,A,V_w^0)\!=\!(2,2,0.4,2,0.05)$,
-$(a,b,c)\!=\!(1.1, 0.6, 0.1)$:
+\subsection{Closed-form per-state bargain}
+For each state $j$, let $x_j\!\equiv\!A_j-w_j$, so $h_j\!=\!x_j/\beta$.
+The Nash FOC reduces to a quadratic
+$a\,x_j^2-b_j(2-\eta)x_j+c(1-\eta)=0$ with
+$a\!=\!2(1-\tau)/\beta+\alpha/\beta^2$,
+$b_j\!=\!(1-\tau)A_j/\beta$, $c\!=\!2V_w^0$. At our baseline
+$(\alpha,\beta,\tau,V_w^0)\!=\!(2,2,0.4,0.05)$, the homogeneous case
+$A\!=\!2$ delivers $(a,b,c)\!=\!(1.1,0.6,0.1)$:
 \begin{equation}
-\boxed{\;1.1\,x^2\;-\;0.6(2-\eta)\,x\;+\;0.1(1-\eta)\;=\;0.\;}
+\boxed{\;1.1\,x^2-0.6(2-\eta)\,x+0.1(1-\eta)=0.\;}
 \label{eq:rtm-quadratic}
 \end{equation}
-Endpoints: $\eta\!=\!0\!\Rightarrow\!(w,h)\!=\!(1.0,0.5)$
-(IR-binding firm-power); $\eta\!=\!1\!\Rightarrow\!(1.455, 0.273)$
-(union maximises $V_w$).
+Endpoints: $\eta\!=\!0\!\Rightarrow\!(w,h)\!=\!(1, 0.5)$
+(firm-power); $\eta\!=\!1\!\Rightarrow\!(1.455, 0.273)$. State-specific
+solutions follow by substituting $A\!\to\!A_j$ in $b_j$.
 
-\subsection{Bargain outcomes and welfare verdict}
-\textbf{Mechanism.} Higher $\eta$ raises the bargained wage $w$,
-which raises the firm's marginal cost of labour; the firm responds
-by sliding down its labour-demand curve to a lower $h$. The wage
-transfer itself is a wash in the joint pie $V_w+V_f$ (it cancels
-between the two parties); the only welfare-relevant movement is
-\emph{hours-misallocation} as $h$ moves away from the joint optimum.
-
-\textbf{Equal-weight verdict.} Under our $V_w^0\!=\!0.05$
-calibration, $\eta\!=\!0$ sits exactly at the joint-surplus peak
-along the labour-demand path: at $\alpha\!=\!\beta\!=\!2$, $A\!=\!2$,
-$W(x)\!=\!(1-\tau)x(1\!-\!x/2)$ with $x\!=\!A-w$, concave with peak
-at $x\!=\!1$. As $\eta$ rises, $x$ falls from $1$ to $x_{\eta=1}\!=\!0.545$
-on the decreasing branch, so $dW/d\eta=(1-\tau)(1-x)\,dx/d\eta<0$
-for all $\eta\!\in\!(0,1]$, $\tau\!\in\![0,1)$ (Fig.~\ref{fig:simunion_rtm}c
-black curve).$\;\square$
-
-\textbf{Saez--Stantcheva criterion.} The equal-weight
-$W\!=\!V_w+V_f$ values \emph{nothing} of the firm-to-worker
-redistribution that the union effects. With generalised welfare
-weights:
+\subsection{Welfare criterion: equal weights vs Saez--Stantcheva $\lambda$}
+The equal-weight utilitarian $W\!=\!V_w+V_f$ values \emph{nothing} of
+the firm-to-worker redistribution that the union effects -- the wage
+transfer cancels between the two parties. The Saez--Stantcheva (2016)
+generalised welfare weights formalise the alternative:
 \[
-\boxed{\;W^{\lambda}(\eta)\;=\;(1+\lambda)V_w(\eta)\;+\;(1-\lambda)V_f(\eta),
-\qquad \lambda\in[0,1],\;}
+\boxed{\;W^{\lambda}(\eta)=(1+\lambda)V_w(\eta)+(1-\lambda)V_f(\eta),
+\qquad\lambda\in[0,1],\;}
 \]
-$\lambda$ is the redistribution premium ($\lambda\!=\!0$ equal
-weights, $\lambda\!=\!1$ Rawlsian). Three independent anchors
-converge on $\lambda\!\in\![0.25, 0.45]$: HSV (2017) progressivity
-$\tau_p\!=\!0.18$ under log utility gives $\lambda\!\approx\!0.43$;
-OECD worker/capital-owner consumption gap $\sim\!4{:}1$ gives
-$\lambda\!\approx\!0.30$; Diamond--Saez (2011) population-average
-sits in $[0.3,0.5]$. We adopt $\lambda\!=\!0.30$ as the central
-realistic case.
+$\lambda$ is the redistribution premium ($\lambda\!=\!0$ equal,
+$\lambda\!=\!1$ Rawlsian). Three independent anchors converge on
+$\lambda\!\in\![0.25,0.45]$: HSV (2017) $\tau_p\!=\!0.18$ under log
+utility $\Rightarrow$ $\lambda\!\approx\!0.43$; OECD
+worker/capital-owner consumption gap $\sim\!4{:}1$ $\Rightarrow$
+$\lambda\!\approx\!0.30$; Diamond--Saez (2011) population-average in
+$[0.3,0.5]$. We take $\lambda\!=\!0.30$ as the realistic central case.
 
-Differentiating $W^{\lambda}(\eta)$ along the RTM bargained path
-($V_w(x)\!=\!0.6x-0.55x^2$, $V_f(x)\!=\!x^2/4$) gives the closed-form
-welfare-maximising bargain:
+Differentiating $W^{\lambda}(\eta)$ along the per-state bargained path
+gives the welfare-maximising bargain:
 \begin{equation}
-\boxed{\;x^{*}(\lambda)=\frac{0.6(1+\lambda)}{0.6+1.6\lambda},\qquad
-h^{*}=x^{*}/\beta,\qquad w^{*}=A-x^{*}.\;}
+\boxed{\;x^{*}(\lambda)=\frac{0.6(1+\lambda)}{0.6+1.6\lambda},
+\qquad h^{*}\!=\!x^{*}/\beta,\qquad w^{*}\!=\!A-x^{*}.\;}
 \label{eq:redist-optimum}
 \end{equation}
 At $\lambda\!=\!0.30$: $x^{*}\!=\!0.722$, $h^{*}\!=\!0.361$,
-$w^{*}\!=\!1.278$, recovering $\eta^{*}\!\approx\!0.58$ from the Q5
-quadratic -- \textbf{a moderately strong union is welfare-optimal},
-consistent with EU RTM coverage of $80$--$95\%$.
+$w^{*}\!=\!1.278$, $\eta^{*}\!\approx\!0.58$ -- \textbf{a moderately
+strong union is welfare-optimal per state}, consistent with EU RTM
+coverage of $80$--$95\%$.
 
-\subsection{Numerical simulation}
+\subsection{Per-state mechanics: bargain dynamics and welfare}
+\textbf{Mechanism.} As $\eta$ rises, the bargained $w$ rises, raising
+the firm's marginal cost of labour; the firm slides down its
+labour-demand curve to a lower $h$. The wage transfer cancels in
+$V_w+V_f$; the welfare-relevant movement is hours-misallocation as
+$h$ moves away from the joint optimum.
+
+\textbf{Equal-weight monotonicity.} Substituting $h\!=\!x/\beta$,
+$w\!=\!A\!-\!x$ at the homogeneous case gives
+$W(x)\!=\!(1-\tau)x(1\!-\!x/2)$, concave with peak at $x\!=\!1$
+(where $V_w^0$ places $\eta\!=\!0$). Rising $\eta$ slides $x$ from
+$1$ to $x_{\eta=1}\!=\!0.545$ on the decreasing branch, so
+$dW/d\eta<0$ for all $\eta\!\in\!(0,1]$ -- the equal-weight
+verdict. Under any $\lambda\!>\!0$ the optimum is interior
+(\eqref{eq:redist-optimum}; Fig.~\ref{fig:simunion_rtm}c).
 \begin{table}[H]
 \centering\footnotesize
 \begin{tabular}{cccccc|cccc}
@@ -795,6 +800,24 @@ falling to $0.019$ at $s\!=\!1$ -- \emph{economies dominated by
 declining sectors lose nearly twice as much as those dominated by
 expanding sectors}.
 \end{itemize}
+
+\textbf{Aggregation under Saez--Stantcheva $\lambda$ weights.} Applying
+the redistribution-weighted criterion of \S 5.3 to the two-state
+aggregate gives
+$\bar W^{\lambda}(s)\!=\!s\,W^{\lambda}_{\rm good}\!+\!(1-s)\,W^{\lambda}_{\rm bad}$.
+At realistic $\lambda\!=\!0.30$ the per-state welfare-maximising
+$\eta^{*}\!\approx\!0.58$ remains optimal in any state, so the
+aggregate welfare-maximising bargain is also $\eta^{*}\!\approx\!0.58$
+regardless of $s$ (the optimum is per-state separable). The
+\emph{rigidity cost under $\lambda\!=\!0.30$} shrinks: under
+inequality aversion the worker's preserved wage in the rigid bad
+sector ($V_w\!=\!0.130$) gets a weight $1\!+\!\lambda\!=\!1.3$ while
+the firm's profit collapse ($V_f\!=\!0.078$) gets $1\!-\!\lambda\!=\!0.7$.
+At $\lambda\!=\!0.30$ the all-bad-sector ($s\!=\!0$) rigidity cost
+falls from $+0.019$ (equal weights) to $+0.005$; rigidity is
+\emph{nearly welfare-neutral} when redistribution is given welfare
+value, because the union member is materially better off at the
+stuck wage.
 
 \begin{figure}[H]
 \centering
