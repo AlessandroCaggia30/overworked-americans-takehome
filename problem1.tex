@@ -144,9 +144,13 @@ about hours, so $HE$ is the body's object.}
 DE/FR/IT/ES/NL/SE/UK; US baseline at zero).
 (b) Effective labour wedge $\tau_h$, percent deviation from US,
 1970--2007 (McDaniel 2011 national-accounts measure).
-(c) Composite tax wedge $\tau$ vs hours per worker, 2023 cross-section
-($n\!=\!19$ OECD countries); OLS line and $\pm 1\sigma_\text{resid}$
-band.
+(c) Composite tax wedge $\tau\!\equiv\!1\!-\!(1\!-\!\tau_l)/(1\!+\!\tau_c)$
+(OECD labour-tax wedge consolidated with VAT) vs hours per worker,
+2023 cross-section ($n\!=\!19$ OECD countries); OLS line and
+$\pm 1\sigma_\text{resid}$ band. Consolidating labour and consumption
+wedges puts the EU--US distance at $\approx\!20$pp (US
+$\tau\!\approx\!0.35$ vs DE/FR/IT/SE $\tau\!\approx\!0.54$--$0.56$),
+materially larger than a top-bracket comparison suggests.
 \emph{Source / replication:} \texttt{research/build\_figure\_panel.py}.}
 \label{fig:gapPanel}
 \end{figure}
@@ -212,17 +216,11 @@ $h^*(\tau)$ and a clean elasticity comparative static. Static
 abstracts from capital (small for prime-age workers, CGM 2011) and
 heterogeneity (Q4 treats heterogeneous workers).
 
-We use the OECD composite labour wedge
-$\tau\!\equiv\!1\!-\!(1\!-\!\tau_l)/(1\!+\!\tau_c)$, consolidating
-labour and consumption taxes (a static model with no untaxed savings
-makes a consumption tax isomorphic to a labour tax). After
-consolidation: US $\tau\!\approx\!0.35$, DE/FR/IT/SE
-$\tau\!\approx\!0.54$--$0.56$, EU--US distance $\approx\!20$pp --
-materially larger than a top-bracket comparison alone suggests.
-
 \subsection{The simplest one-margin model}
-Log--log preferences $u(c,h)=\log c+\alpha\log(1-h)$, wage $w$, taxes
-$(\tau_l,\tau_c)$, lump-sum rebate $T$. The FOC at the symmetric
+Log--log preferences $u(c,h)=\log c+\alpha\log(1-h)$, wage $w$, and
+the composite labour wedge $\tau\!\equiv\!1-(1-\tau_l)/(1+\tau_c)$
+(consumption tax is isomorphic to a labour tax in a static model with
+no untaxed savings). The FOC at the symmetric
 equilibrium $c=wh$ gives
 \begin{equation}
 \boxed{\;h^\ast(\tau)\;=\;\frac{1-\tau}{\alpha+1-\tau},
