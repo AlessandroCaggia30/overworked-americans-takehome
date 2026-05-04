@@ -684,23 +684,16 @@ the worker-capture corner. \emph{Source:}
 \label{fig:simunion_rtm}
 \end{figure}
 
-\subsection{State-dependent heterogeneity: asymmetric productivity shocks}
-The RTM model is canonically state-dependent: the same closed-form
-bargain produces different equilibria depending on the productivity
-state $A$. With heterogeneity in productivity across sectors -- or
-equivalently, state-dependent shocks hitting initially identical
-sectors -- a single union covering both states with one wage policy
-delivers an \emph{asymmetric pass-through}: good states absorb the
-shock through wages, bad states through hours and profit.
-
-Pre-shock, both sectors sit at the canonical bargain
-$(w_{\rm pre},h_{\rm pre})\!=\!(1.242,0.379)$ from \S 5.5
-(Fig.~\ref{fig:simunion_rtm}), with $V_{w,{\rm pre}}\!=\!0.139$,
-$V_{f,{\rm pre}}\!=\!0.144$, $W_{\rm pre}\!=\!0.283$. An asymmetric
-productivity shock $\delta\!=\!0.2$ then hits: good state
-$A_{\rm good}\!=\!2.2$, bad state $A_{\rm bad}\!=\!1.8$ (equivalently,
-an output-price shock from cross-state demand reallocation; the model
-is silent on the source).
+\subsection{Asymmetric pass-through under a shock}
+Apply the same RTM bargain to two states with productivity
+$A_{\rm good}\!=\!A_{\rm pre}+\delta\!=\!2.2$ and
+$A_{\rm bad}\!=\!A_{\rm pre}-\delta\!=\!1.8$ ($\delta\!=\!0.2$);
+both initially at the canonical bargain
+$(w_{\rm pre},h_{\rm pre})\!=\!(1.242,0.379)$ from
+Fig.~\ref{fig:simunion_rtm}. A single union covering both states
+with one wage policy delivers an \emph{asymmetric pass-through}:
+good states absorb the shock through wages, bad states through
+hours and profit.
 
 We compare three post-shock regimes.
 
@@ -778,8 +771,47 @@ free market.
 \label{fig:simshocks}
 \end{figure}
 
+\subsection{Aggregation across sector shares}
+The state-by-state results above translate into aggregate outcomes
+through the share $s\!\in\![0,1]$ of the good sector:
+\[
+\bar h(s)=s\,h_{\rm good}+(1-s)\,h_{\rm bad},\qquad
+\bar W(s)=s\,W_{\rm good}+(1-s)\,W_{\rm bad},
+\]
+for each regime. The aggregate welfare gap between regimes -- the
+\emph{rigidity cost} ($\bar W^{\rm flex}-\bar W^{\rm rigid}$) and the
+\emph{unionisation cost} ($\bar W^{\rm FM}-\bar W^{\rm flex}$) --
+depends on $s$:
+\begin{itemize}\setlength\itemsep{1pt}
+\item \textbf{Rigidity cost} concentrates at low $s$. At $s\!=\!0$
+(all-bad-sector economy) it is $0.019$; at $s\!=\!1$ (all-good) it
+vanishes (rigidity binds only on the downside). Linear in $1-s$.
+\item \textbf{Unionisation cost} (free market vs.\ flexible bargain)
+is roughly constant in $s$ ($\approx\!0.016$--$0.019$), reflecting
+the wedge that exists in any single state.
+\item \textbf{Total cost} of unionised rigidity vs.\ free market is
+$\bar W^{\rm FM}\!-\!\bar W^{\rm rigid}\!\approx\!0.035$ at $s\!=\!0$,
+falling to $0.019$ at $s\!=\!1$ -- \emph{economies dominated by
+declining sectors lose nearly twice as much as those dominated by
+expanding sectors}.
+\end{itemize}
 
-
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/sim_aggregation.pdf}
+\caption{\scriptsize \textbf{Aggregate hours and welfare by sector
+composition.}
+\textbf{(a)} Aggregate hours $\bar h(s)$ for the three regimes.
+\textbf{(b)} Aggregate welfare $\bar W(s)$. All three regimes rise
+in $s$; rigid union is uniformly below flexible, with the gap
+shrinking as $s\!\to\!1$.
+\textbf{(c)} Welfare-cost decomposition: rigidity cost concentrates
+at low $s$; unionisation cost is roughly constant; total cost of
+unionised rigidity vs.\ free market falls from $\sim\!0.035$ at
+$s\!=\!0$ to $\sim\!0.019$ at $s\!=\!1$.
+\emph{Source:} \texttt{sim\_models\_v2.py:make\_aggregation}.}
+\label{fig:simagg}
+\end{figure}
 
 % =========================================================================
 \section{Q7 -- Welfare comparison: culture as expansion, layered counterfactuals}

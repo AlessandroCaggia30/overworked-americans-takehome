@@ -965,6 +965,116 @@ def make_shocks(delta=0.2, eta_baseline=0.5, A_pre=2.0):
 
 
 # =====================================================================
+# 7) §5.6 Aggregation across sector shares
+# =====================================================================
+# Aggregate hours and welfare as a function of the share s of the good
+# sector. For each regime (free market / flexible / rigid):
+#   bar_X(s) = s * X_good + (1-s) * X_bad
+# This isolates how the "rigidity cost" depends on sector composition.
+
+def make_aggregation(delta=0.2, eta_baseline=0.5, A_pre=2.0):
+    print("=== §5.6 Aggregation across sector shares ===")
+
+    A_good = A_pre + delta
+    A_bad  = A_pre - delta
+    w_pre  = rtm_w(eta_baseline, A=A_pre)
+
+    # Free market: eta=0 (firm-power) at each state's new A
+    w_g_fm, h_g_fm, Vw_g_fm, Vf_g_fm, W_g_fm = rtm_country(0.0, 0.0, A_=A_good)
+    w_b_fm, h_b_fm, Vw_b_fm, Vf_b_fm, W_b_fm = rtm_country(0.0, 0.0, A_=A_bad)
+
+    # Flexible bargain: eta=eta_baseline
+    w_g_fl, h_g_fl, Vw_g_fl, Vf_g_fl, W_g_fl = rtm_country(eta_baseline, 0.0, A_=A_good)
+    w_b_fl, h_b_fl, Vw_b_fl, Vf_b_fl, W_b_fl = rtm_country(eta_baseline, 0.0, A_=A_bad)
+
+    # Rigid: good = flex; bad = wage stuck at w_pre
+    h_b_rg = (A_bad - w_pre) / BETA
+    Vw_b_rg = (1 - TAU) * w_pre * h_b_rg - 0.5 * ALPHA * h_b_rg ** 2
+    Vf_b_rg = A_bad * h_b_rg - 0.5 * BETA * h_b_rg ** 2 - w_pre * h_b_rg
+    W_b_rg = Vw_b_rg + Vf_b_rg
+
+    s = np.linspace(0.0, 1.0, 200)
+
+    # Aggregate hours
+    h_agg_fm = s * h_g_fm + (1 - s) * h_b_fm
+    h_agg_fl = s * h_g_fl + (1 - s) * h_b_fl
+    h_agg_rg = s * h_g_fl + (1 - s) * h_b_rg
+
+    # Aggregate welfare
+    W_agg_fm = s * W_g_fm + (1 - s) * W_b_fm
+    W_agg_fl = s * W_g_fl + (1 - s) * W_b_fl
+    W_agg_rg = s * W_g_fl + (1 - s) * W_b_rg
+
+    # Welfare costs (decompositions)
+    cost_rigid     = W_agg_fl - W_agg_rg   # rigidity vs flex
+    cost_unionised = W_agg_fm - W_agg_fl   # flex vs free market
+    cost_total     = W_agg_fm - W_agg_rg   # rigidity + unionisation
+
+    print(f"  At s=0.5 (equal mix):")
+    print(f"    h_agg:  FM={s.mean()*h_g_fm + (1-s.mean())*h_b_fm:.4f}, "
+          f"flex={s.mean()*h_g_fl + (1-s.mean())*h_b_fl:.4f}, "
+          f"rigid={s.mean()*h_g_fl + (1-s.mean())*h_b_rg:.4f}")
+    i_half = int(len(s) / 2)
+    print(f"    W_agg:  FM={W_agg_fm[i_half]:.4f}, flex={W_agg_fl[i_half]:.4f}, "
+          f"rigid={W_agg_rg[i_half]:.4f}")
+    print(f"  Rigidity cost (flex-rigid) at s=0: {cost_rigid[0]:+.4f}, "
+          f"at s=1: {cost_rigid[-1]:+.4f}")
+    print(f"  Total cost (FM-rigid)      at s=0: {cost_total[0]:+.4f}, "
+          f"at s=1: {cost_total[-1]:+.4f}")
+    print()
+
+    fig = plt.figure(figsize=(13.2, 4.0))
+    gs = GridSpec(1, 3, wspace=0.32, left=0.06, right=0.98, top=0.88, bottom=0.13)
+
+    # ---- Panel A: aggregate hours ----
+    ax = fig.add_subplot(gs[0, 0])
+    style_axes(ax)
+    ax.plot(s, h_agg_fm, color=C_NEUT, lw=2.0, ls='--', label='Free market')
+    ax.plot(s, h_agg_fl, color=C_WORKER, lw=2.0, label='Flexible union')
+    ax.plot(s, h_agg_rg, color=C_OVER, lw=2.4, label='Rigid union')
+    ax.set_xlabel(r'Share of good sector $s$')
+    ax.set_ylabel(r'Aggregate hours $\bar h(s)$')
+    ax.set_title('(a) Aggregate hours by composition')
+    ax.legend(loc='upper left', fontsize=8.5)
+    ax.set_xlim(0, 1)
+
+    # ---- Panel B: aggregate welfare ----
+    ax = fig.add_subplot(gs[0, 1])
+    style_axes(ax)
+    ax.plot(s, W_agg_fm, color=C_NEUT, lw=2.0, ls='--', label='Free market')
+    ax.plot(s, W_agg_fl, color=C_WORKER, lw=2.0, label='Flexible union')
+    ax.plot(s, W_agg_rg, color=C_OVER, lw=2.4, label='Rigid union')
+    ax.set_xlabel(r'Share of good sector $s$')
+    ax.set_ylabel(r'Aggregate welfare $\bar W(s)$')
+    ax.set_title('(b) Aggregate welfare by composition')
+    ax.legend(loc='upper left', fontsize=8.5)
+    ax.set_xlim(0, 1)
+
+    # ---- Panel C: welfare cost decomposition ----
+    ax = fig.add_subplot(gs[0, 2])
+    style_axes(ax)
+    ax.plot(s, cost_rigid,     color=C_OVER, lw=2.4,
+            label=r'Rigidity cost (Flex$-$Rigid)')
+    ax.plot(s, cost_unionised, color=C_WORKER, lw=2.0,
+            label=r'Unionisation cost (FM$-$Flex)')
+    ax.plot(s, cost_total,     color=C_TOTAL, lw=2.0, ls=':',
+            label=r'Total cost (FM$-$Rigid)')
+    ax.fill_between(s, 0, cost_rigid, color=C_OVER, alpha=0.12)
+    ax.set_xlabel(r'Share of good sector $s$')
+    ax.set_ylabel(r'Welfare cost vs benchmark')
+    ax.set_title(r'(c) Rigidity cost concentrated at low $s$')
+    ax.legend(loc='upper right', fontsize=8.5)
+    ax.set_xlim(0, 1)
+    ax.axhline(0, color='black', lw=0.4)
+
+    plt.savefig(OUT_DIR / 'sim_aggregation.pdf', bbox_inches='tight', pad_inches=0.05)
+    plt.savefig(OUT_DIR / 'sim_aggregation.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    plt.close()
+    print("  -> sim_aggregation.pdf written.")
+    print()
+
+
+# =====================================================================
 # Main
 # =====================================================================
 if __name__ == '__main__':
@@ -974,6 +1084,7 @@ if __name__ == '__main__':
     res = make_q7_v2()
     res_l = make_redistribution()
     res_s = make_shocks()
+    make_aggregation()
     print("=== Summary ===")
     print(f"  Q7 net welfare gap  : {res['W_eu'] - res['W_us']:+.4f}")
     print(f"  Q7 Shapley culture  : {res['sh_culture']:+.4f}")
