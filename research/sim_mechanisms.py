@@ -236,8 +236,8 @@ def make_sim_cap():
     ax.legend(loc='lower right', fontsize=8.5)
     style_axes(ax)
 
-    plt.savefig('../sim_cap.pdf', bbox_inches='tight', pad_inches=0.05)
-    plt.savefig('../sim_cap.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    plt.savefig('../figures/sim_cap.pdf', bbox_inches='tight', pad_inches=0.05)
+    plt.savefig('../figures/sim_cap.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
     plt.close(fig)
     print(f"sim_cap: h*={h_w:.3f}, h_soc={h_soc:.3f}, h_firm={h_f:.3f},  "
           f"max dW={dW.max():.4f} at cap={cbar[dW.argmax()]:.3f}")
@@ -335,8 +335,8 @@ def make_sim_union():
     ax.legend(loc='lower left', fontsize=8.5)
     style_axes(ax)
 
-    plt.savefig('../sim_union.pdf', bbox_inches='tight', pad_inches=0.05)
-    plt.savefig('../sim_union.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    plt.savefig('../figures/sim_union.pdf', bbox_inches='tight', pad_inches=0.05)
+    plt.savefig('../figures/sim_union.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
     plt.close(fig)
     print(f"sim_union: h(0)={h[0]:.3f}, h(1)={h[-1]:.3f}, eta_soc={eta_soc:.3f},  "
           f"max dW={dW.max():.4f}")
@@ -426,8 +426,8 @@ def make_sim_culture():
     ax.legend(loc='lower center', fontsize=8.5)
     style_axes(ax)
 
-    plt.savefig('../sim_culture.pdf', bbox_inches='tight', pad_inches=0.05)
-    plt.savefig('../sim_culture.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    plt.savefig('../figures/sim_culture.pdf', bbox_inches='tight', pad_inches=0.05)
+    plt.savefig('../figures/sim_culture.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
     plt.close(fig)
     print(f"sim_culture: h*_US(tau={TAU})={h_us_baseline:.3f}, "
           f"h*_EU(tau={TAU})={h_eu_baseline:.3f}, "
@@ -554,8 +554,8 @@ def make_sim_q7():
     for spine in ('left', 'bottom'):
         ax.spines[spine].set_color('#333333')
 
-    plt.savefig('../sim_q7.pdf', bbox_inches='tight', pad_inches=0.05)
-    plt.savefig('../sim_q7.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    plt.savefig('../figures/sim_q7.pdf', bbox_inches='tight', pad_inches=0.05)
+    plt.savefig('../figures/sim_q7.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
     plt.close(fig)
     print(f"sim_q7: W_US={W_US:.4f}, W_EU={W_EU:.4f}, W_EU-W_US={W_EU - W_US:+.4f}")
     print(f"        CF1 (no union, EU culture): W={W_cf1:.4f} (welfare destroyed: {W_cf1 - W_EU:+.4f})")

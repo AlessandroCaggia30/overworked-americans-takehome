@@ -59,7 +59,8 @@ C_EU     = '#1B7837'
 C_NEUT   = '#888888'
 C_LIGHT  = '#cccccc'
 
-OUT_DIR = Path('..')
+OUT_DIR = Path('..') / 'figures'
+OUT_DIR.mkdir(exist_ok=True)
 
 
 def style_axes(ax, gridx=True, gridy=True):

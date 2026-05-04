@@ -317,6 +317,6 @@ fig.legend(handles=patches, loc='lower center', ncol=5, fontsize=8.5,
            bbox_to_anchor=(0.5, 0.0), frameon=False,
            handlelength=1.2, handleheight=0.9, columnspacing=2.0)
 
-plt.savefig('../figure_panel.pdf', bbox_inches='tight', pad_inches=0.05)
-plt.savefig('../figure_panel.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+plt.savefig('../figures/figure_panel.pdf', bbox_inches='tight', pad_inches=0.05)
+plt.savefig('../figures/figure_panel.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
 print(f"Figure saved.  R^2={r*r:.3f}, slope={slope:.2f} hrs/pp, sigma_resid={sigma_resid:.0f} hrs")
