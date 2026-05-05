@@ -91,22 +91,19 @@ single-sector RTM result; the bad-sector outcome is what the same
 model produces once you allow the wage to be downward-sticky.
 \textbf{Good shocks pass through diluted; bad shocks pass through
 amplified.}
-\textbf{Q7 -- welfare comparison: culture as expansion + layered
-counterfactuals.} The cultural primitive enters Q7 as a country-specific
-leisure-bonus expansion: worker payoff
-$V_w(h;\theta^c)\!=\!(1-\tau)wh-(\alpha/2)h^2+\theta^c(1-h)$ with
-$\theta^{US}\!=\!0$, $\theta^{EU}\!=\!0.156$ (SW-anchored). Higher
-$\theta^c$ shifts $h^*$ down AND adds direct welfare from leisure
-($h^*_{US}\!=\!0.30, h^*_{EU}\!=\!0.222$, but $V_w^{EU}\!>\!V_w^{US}$
-at first-best); refs Bowles--Park 2005, Olovsson 2009,
-Boppart--Krusell 2020, Stevenson--Wolfers 2008. Layered with the
-RTM bargain ($\eta^{EU}\!=\!0.5$, $\eta^{US}\!=\!0$): net
-$W^{EU}\!-\!W^{US}\!=\!+0.082$ (\emph{EU welfare-dominant}); Shapley
-culture $+0.082$, union $\approx\!0$ under equal weights.
-\emph{Under realistic Saez--Stantcheva (2016) $\lambda\!=\!0.30$,
-$\Delta W^{\lambda}\!=\!+0.154$ with culture $+0.079$ and union
-$+0.076$ -- the union becomes a first-order contributor once
-redistribution is given welfare value.} Dominant US--EU welfare
+\textbf{Q7 -- welfare comparison: institutional channels.} The
+labour-market verdict combines the Q4 cap and Q5 union channels with
+a Barro-style social-productivity correction
+$A^{\rm soc}(h)\!=\!A_0[1+\eta_\phi(h/h^{US}-1)]$ that credits hours
+with their public-goods, capital, on-the-job-HC and R\&D externalities
+(refs Aschauer 1989, Trabandt--Uhlig 2011, Bils--Klenow 2000,
+Rachel 2020); central calibration $\eta_\phi\!=\!0.40$. Verdict:
+under equal weights ($\lambda\!=\!0$) US welfare-\emph{dominates}
+because EU institutions pull $h$ below the social optimum and the
+social-productivity drag compounds. Under realistic Saez--Stantcheva
+(2016) $\lambda\!=\!0.30$, EU welfare-\emph{dominant} by
+$\Delta W^{\lambda}\!\approx\!+0.10$ -- union-driven redistribution
+overwhelms the misallocation cost. Dominant US--EU welfare
 differences economy-wide come from non-labour channels
 (Jones--Klenow 2016).
 Reproducible: \texttt{research/build\_figure\_panel.py} (Q1 figure);
@@ -144,13 +141,9 @@ about hours, so $HE$ is the body's object.}
 DE/FR/IT/ES/NL/SE/UK; US baseline at zero).
 (b) Effective labour wedge $\tau_h$, percent deviation from US,
 1970--2007 (McDaniel 2011 national-accounts measure).
-(c) Composite tax wedge $\tau\!\equiv\!1\!-\!(1\!-\!\tau_l)/(1\!+\!\tau_c)$
-(OECD labour-tax wedge consolidated with VAT) vs hours per worker,
-2023 cross-section ($n\!=\!19$ OECD countries); OLS line and
-$\pm 1\sigma_\text{resid}$ band. Consolidating labour and consumption
-wedges puts the EU--US distance at $\approx\!20$pp (US
-$\tau\!\approx\!0.35$ vs DE/FR/IT/SE $\tau\!\approx\!0.54$--$0.56$),
-materially larger than a top-bracket comparison suggests.
+(c) Labour-tax wedge $\tau$ (OECD) vs hours per worker, 2023
+cross-section ($n\!=\!19$ OECD countries); OLS line and
+$\pm 1\sigma_\text{resid}$ band.
 \emph{Source / replication:} \texttt{research/build\_figure\_panel.py}.}
 \label{fig:gapPanel}
 \end{figure}
@@ -163,11 +156,7 @@ every focus country (SE $+120\%$, DE/FR/IT $+60$--$70\%$ above US in
 consistent with a tax-driven story. \textbf{(iii)} The 2023
 cross-section is signed correctly but very noisy: OLS slope
 $-9.9$ hrs/pp, $R^2\!=\!0.16$, residual SD $\approx 158$
-hours.\footnote{\label{fn:wedgemix}Panel (b) uses McDaniel's
-\emph{average effective} labour wedge (1970--2007); panel (c) uses
-OECD 2023 \emph{marginal} wedge -- they move together at low
-frequency but differ in level by 5--10pp; the qualitative pattern is
-robust.} To scale: the entire DE--US gap is $470$ hours, so the
+hours. To scale: the entire DE--US gap is $470$ hours, so the
 residual SD is one third of what we want to explain. Italy
 ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} hours
 than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE,
@@ -175,13 +164,9 @@ AT, FR) span $\approx 200$ hours within a 6pp wedge band.
 
 \subsection{The inconsistency the rest of the problem is asked to
 explain}
-The within-country time path (panels a/b) is consistent with a
-tax-driven story; the cross-country cross-section (panel c) is not.
-Either the elasticity that fits the time series is much larger than
-the cross-section delivers (the Prescott--CGM puzzle, Q2), or the
-cross-section is corrupted by country-specific institutional and
-cultural frictions that the tax wedge does not capture (Q4--Q7). Q2
-formalises the first horn; \S 4--\S 5 plus Q7 culture build the second.
+Taxation alone fits poorly: $R^2\!=\!0.16$ and a residual SD of one
+third of the gap to explain. The remainder of the paper searches for
+the missing channels (\S 2--\S 7).
 \textbf{Time-use caveat.} Aguiar--Hurst (2007, \emph{QJE} 122(3)) show
 that conventional ``hours worked'' miss home production, which behaves
 differently across countries. Rogerson (2008, \emph{JPE} 116(2))
@@ -189,14 +174,11 @@ exploits this margin; we treat it as outside the scope of this
 submission but flag it as the canonical first-order extension.
 
 \textbf{Identification.} The OLS slope is descriptive, not causal:
-omitted institutional variables (union coverage, hours regulation,
-public-sector size) correlate with $\tau$, reverse causality through
-preferences (Europeans value leisure more $\Rightarrow$ both lower $h$
-and higher $\tau$; Q7), and country fixed effects all bias
-$\hat\beta$. Causal identification would require quasi-experimental
-variation (tax reforms, kink-bunching, Algan--Cahuc 2010 IV). The
-structural model of \S 2--\S 7 takes the cross-section as a moment to
-match, not as evidence of a causal slope.
+omitted institutions (union coverage, hours regulation), reverse
+causality (preferences for leisure shift both $h$ and $\tau$; Q7), and
+country fixed effects bias $\hat\beta$. The structural model of
+\S2--\S7 treats the cross-section as a moment to match, not as a
+causal slope.
 
 % =========================================================================
 \section{Q2 -- Prescott model and the elasticity that would be needed}
@@ -217,10 +199,8 @@ abstracts from capital (small for prime-age workers, CGM 2011) and
 heterogeneity (Q4 treats heterogeneous workers).
 
 \subsection{The simplest one-margin model}
-Log--log preferences $u(c,h)=\log c+\alpha\log(1-h)$, wage $w$, and
-the composite labour wedge $\tau\!\equiv\!1-(1-\tau_l)/(1+\tau_c)$
-(consumption tax is isomorphic to a labour tax in a static model with
-no untaxed savings). The FOC at the symmetric
+Log--log preferences $u(c,h)=\log c+\alpha\log(1-h)$, wage $w$, and a
+proportional labour-tax wedge $\tau$. The FOC at the symmetric
 equilibrium $c=wh$ gives
 \begin{equation}
 \boxed{\;h^\ast(\tau)\;=\;\frac{1-\tau}{\alpha+1-\tau},
@@ -323,12 +303,8 @@ already missing in US. \textbf{This $\sim\!14\%$ extra cross-country
 shortfall is the precise quantity that an institutional or cultural
 candidate channel must produce} -- not the absolute $50$--$60\%$
 level shortfall, which is a feature of the Prescott model itself.
-\S 4--\S 5 plus Q7 culture each test whether their mechanism can
-generate a US--EU $h$-gap of this size; in particular, the cultural
-leisure-bonus of Q7 generates $h^*_{EU}/h^*_{US}\!=\!0.222/0.300\!=\!0.74$,
-producing a cross-country shortfall ratio of $\sim\!26\%$ that
-comfortably exceeds the $14\%$ residual to be absorbed (consistency
-check in \S 7.2).\footnote{\label{fn:contracts}Sectoral contract stickiness
+\S 4--\S 5 each test whether their mechanism can generate a US--EU
+$h$-gap of this size.\footnote{\label{fn:contracts}Sectoral contract stickiness
 (Cahuc--Carcillo 2014) -- weekly hours fixed by collective contract
 not renegotiated as $\tau$ changes -- is captured implicitly by the
 cap mechanism of \S 4 in the static framework.}
@@ -337,70 +313,35 @@ cap mechanism of \S 4 in the static framework.}
 \section{Common framework for Q4--Q5--Q7}
 % =========================================================================
 
-\subsection{Preference-form bridge from \S 2}
-Both preference forms (log--log in \S 2; quadratic-linear from here
-on) are nested in the power-disutility specification
-\begin{equation}
-V_w(h)\;=\;(1-\tau)w\,h\;-\;\kappa\,\frac{h^{1+1/\varepsilon}}{1+1/\varepsilon},
-\qquad
-\varepsilon^M_{h,1-\tau}\;=\;\varepsilon,
-\label{eq:power-disutility}
-\end{equation}
-with the quadratic-linear case ($\varepsilon\!=\!1$,
-$\kappa\!=\!\alpha$) adopted from here on. \emph{This commits the
-welfare framework to the macro elasticity that \S 2's micro evidence
-pushes back against.} Under a micro reinterpretation
-($\varepsilon\!=\!0.30$), the qualitative comparative statics survive
-($h^*\!<\!h^{\rm soc}\!<\!h^{\rm firm}$ ordering, monotone-decreasing
-$W(\eta)$, cap--union substitutability); only magnitudes scale by
-roughly $\varepsilon$. The setup that follows is shared by
-\S 4 (regulation), \S 5 (unions), and Q7 (cultural expansion); \S 7 reads off
-the welfare comparison.
-
-\subsection{Modelling choice}
-Quadratic-disutility worker with linear consumption and a
-linear-quadratic firm-profit function: the simplest closed-form
-specification that admits both worker and firm preferred hours and a
-sign-determinate welfare condition. Heterogeneous workers are
-addressed at the end of \S 4; sectoral composition and the public
-sector are not modelled (the analysis applies to the private-sector
-portion of the labour market);\footnote{\label{fn:public}France's
-public-sector employment share ($\sim\!22\%$ vs.\ US $\sim\!16\%$)
-is governed by collective bargaining over service provision rather
-than firm--worker bargaining; our results read as private-sector
-applicable.} $w$ is partial-equilibrium.
-
-\subsection{Worker, firm, and joint surplus}
+\subsection{Primitives}
+We adopt a quadratic-disutility worker, linear consumption, and a
+linear-quadratic firm-profit function -- the simplest closed-form
+specification that admits both worker- and firm-preferred hours and a
+sign-determinate welfare condition:
 \[
-V_w(h)=(1-\tau)wh-\tfrac{\alpha}{2}h^2,\quad
+V_w(h)=(1-\tau)wh-\tfrac{\alpha}{2}h^2,\;\;
 h^*=\frac{(1-\tau)w}{\alpha};
 \qquad
-V_f(h)=Ah-\tfrac{\beta}{2}h^2-wh,\quad
+V_f(h)=Ah-\tfrac{\beta}{2}h^2-wh,\;\;
 h^{\rm firm}=\frac{A-w}{\beta}.
 \]
-The Q2 log--log $\alpha$ and the quadratic $\alpha$ are different
-parameters (leisure-share vs.\ curvature; not numerically comparable);
-both nest in \eqref{eq:power-disutility}.
-
-\textbf{Joint surplus.} $W(h)\!\equiv\!V_w(h)+V_f(h)$ is concave with
-maximum at
+Joint surplus $W(h)\!\equiv\!V_w(h)+V_f(h)$ is concave with maximum
 \[
-h^\text{soc}(\tau,\alpha,A,\beta,w)\;=\;\frac{(1-\tau)w+(A-w)}{\alpha+\beta}.
+h^{\rm soc}(\tau,\alpha,A,\beta,w)\;=\;\frac{(1-\tau)w+(A-w)}{\alpha+\beta}.
 \]
+The setup is shared by \S 4 (regulation), \S 5 (unions), and Q7
+(culture). $w$ is partial-equilibrium; heterogeneous workers are
+addressed at the end of \S 4.
 
 \subsection{Baseline calibration}
-$A=2$, $w=1$, $\alpha=\beta=2$, $\tau=0.4$ gives
-$h^\ast\!=\!0.30$, $h^\text{soc}\!=\!0.40$, $h^\text{firm}\!=\!0.50$.
-$\tau=0.4$ sits between US and EU 2023 wedges; symmetric
-$\alpha\!=\!\beta$ makes the cap's welfare condition transparent
-(simplifies to $(h^*,h^{\rm firm})$); only the ordering
-$h^*\!<\!h^{\rm soc}\!<\!h^{\rm firm}$ is load-bearing. Qualitative
+$A=2$, $w=1$, $\alpha=\beta=2$, $\tau=0.4$ gives $h^*\!=\!0.30$,
+$h^{\rm soc}\!=\!0.40$, $h^{\rm firm}\!=\!0.50$. Only the ordering
+$h^*\!<\!h^{\rm soc}\!<\!h^{\rm firm}$ is load-bearing; qualitative
 results invariant to $\alpha,\beta$ separately
-(verified in \texttt{sim\_mechanisms.py}).
-
-At common $\tau$ and preferences neither Walrasian clearing nor
-low-$\eta_0$ RTM generates a US--EU gap; three channels break the
-symmetry: hours regulation (\S 4), unions (\S 5), and culture (Q7).
+(\texttt{sim\_mechanisms.py}). At common $\tau$ and preferences
+neither Walrasian clearing nor low-$\eta_0$ RTM generates a US--EU
+gap; three channels break the symmetry: hours regulation (\S 4),
+unions (\S 5), and culture (Q7).
 
 % =========================================================================
 \section{Q4 -- Hours regulation: the optimality condition for a cap}
@@ -546,301 +487,237 @@ welfare-improving on average; a country with median $\alpha\!=\!1$
 (income-loving workforce) would lose.
 
 % =========================================================================
-\section{Q5 -- Single union and the bargaining channel}
+\section{Q5 -- Single union in a two-sector economy}
 % =========================================================================
 
 \begingroup\small\itshape\noindent\textbf{Question 5.} Unions in the
 economy and their response to sectoral shifts. Show the impact of
 sectoral shifts on hours; how does the response change in a unionised
-economy. \emph{Use the words `hence' and `novel' twice.}\endgroup
+economy.\endgroup
 
-\subsection{Modelling choice and setup: state-dependent canonical RTM}
-We adopt the canonical right-to-manage Nash bargain (Nickell 1982;
-Layard--Nickell--Jackman 1991) embedded in a multi-state economy.
-States (sectors) are indexed by $j$ with productivity $A_j$; within
-each state the representative worker--firm pair has the
-quadratic-linear primitives of \S 3 (with state-specific $A_j$):
+\subsection{The two-sector economy}
+The economy has two sectors $j\!\in\!\{\textsc{g},\textsc{b}\}$ with
+productivities $A_{\textsc{g}}\!>\!A_{\textsc{b}}$ (good and bad
+state) and population shares $s$, $1\!-\!s$. Within each sector a
+representative worker--firm pair has the quadratic-linear primitives
+of \S 3:
 \[
 V_w(w_j,h_j)=(1-\tau)w_j h_j-\tfrac{\alpha}{2}h_j^2,\qquad
 V_f(w_j,h_j;A_j)=A_j h_j-\tfrac{\beta}{2}h_j^2-w_j h_j.
 \]
-A single union covers the economy and Nash-bargains over wages with
-worker weight $\eta\!\in\![0,1]$; the firm in each state sets hours
-on its labour-demand curve $h_j^d(w_j)\!=\!(A_j-w_j)/\beta$ ex post.
-Three wage-setting regimes are admissible: \textbf{(a) free market} --
-firm-power Nash bargain ($\eta\!=\!0$) at each state's $A_j$, worker
-IR-binding; \textbf{(b) flexible union} -- sector-specific RTM bargain
-at $\eta\!>\!0$; \textbf{(c) rigid union} -- downward wage rigidity
-(Bewley 1999; Holden 1994), wages can rise freely but cannot fall
-below a pre-shock benchmark.
+A single union covers both sectors; in each, the firm sets hours on
+its labour-demand curve $h_j^d(w_j)\!=\!(A_j-w_j)/\beta$ ex post.
+Three wage-setting regimes are admissible:
+\begin{itemize}\setlength\itemsep{0pt}
+\item[(a)] \textbf{free market}: no union; firm-power Nash bargain
+($\eta\!=\!0$) at each $A_j$ with worker IR-binding;
+\item[(b)] \textbf{flexible union}: sector-specific RTM bargain with
+worker weight $\eta\!>\!0$;
+\item[(c)] \textbf{rigid union}: downward wage rigidity (Bewley 1999;
+Holden 1994) -- wages can be revised \emph{up} but not below the
+pre-shock benchmark.
+\end{itemize}
+Baseline: $\alpha\!=\!\beta\!=\!2$, $\tau\!=\!0.4$, $V_w^0\!=\!0.05$,
+$A_{\textsc{g}}\!=\!2.2$, $A_{\textsc{b}}\!=\!1.8$ (a symmetric
+$\delta\!=\!0.2$ shock around a pre-shock symmetric productivity
+$A_{\rm pre}\!=\!2$). The single-state result at $A\!=\!2$ is the
+symmetric pre-shock benchmark.
 
-\textbf{The state-dependent structure is the foundation, not an
-extension.} Single-state results are the homogeneous-economy special
-case (all states with identical $A$). $V_w^0\!=\!0.05$ is calibrated
-so the homogeneous benchmark at $A\!=\!2$ reproduces $(w,h)\!=\!(1,0.5)$
-at $\eta\!=\!0$. (Bracketed alternatives -- monopoly union, efficient
-bargaining (McDonald--Solow 1981), Hall--Milgrom (2008) -- not
-pursued.)
-
-\subsection{Closed-form per-state bargain}
-For each state $j$, let $x_j\!\equiv\!A_j-w_j$, so $h_j\!=\!x_j/\beta$.
-The Nash FOC reduces to a quadratic
-$a\,x_j^2-b_j(2-\eta)x_j+c(1-\eta)=0$ with
-$a\!=\!2(1-\tau)/\beta+\alpha/\beta^2$,
-$b_j\!=\!(1-\tau)A_j/\beta$, $c\!=\!2V_w^0$. At our baseline
-$(\alpha,\beta,\tau,V_w^0)\!=\!(2,2,0.4,0.05)$, the homogeneous case
-$A\!=\!2$ delivers $(a,b,c)\!=\!(1.1,0.6,0.1)$:
+\subsection{The union bargain in each sector}
+We adopt the canonical right-to-manage Nash bargain (Nickell 1982;
+Layard--Nickell--Jackman 1991): in each sector $j$, union and firm
+bargain over $w_j$ and the firm sets $h_j$ on labour demand. Per-sector
+Nash bargain:
+\[
+w_j(\eta;A_j)=\arg\max_w\,[V_w(w,h_j^d(w))-V_w^0]^{\eta}\,
+V_f(w,h_j^d(w);A_j)^{1-\eta}.
+\]
+Let $x_j\!\equiv\!A_j-w_j$, so $h_j\!=\!x_j/\beta$. The Nash FOC
+reduces to a sector-specific quadratic:
 \begin{equation}
-\boxed{\;1.1\,x^2-0.6(2-\eta)\,x+0.1(1-\eta)=0.\;}
+\boxed{\;a\,x_j^2-b_j(2-\eta)\,x_j+c(1-\eta)=0,
+\quad a=\tfrac{2(1-\tau)}{\beta}+\tfrac{\alpha}{\beta^2},
+\;\; b_j=\tfrac{(1-\tau)A_j}{\beta},
+\;\; c=2V_w^0,\;}
 \label{eq:rtm-quadratic}
 \end{equation}
-Endpoints: $\eta\!=\!0\!\Rightarrow\!(w,h)\!=\!(1, 0.5)$
-(firm-power); $\eta\!=\!1\!\Rightarrow\!(1.455, 0.273)$. State-specific
-solutions follow by substituting $A\!\to\!A_j$ in $b_j$.
+with $(a, c)\!=\!(1.1, 0.1)$ at baseline; $b_{\textsc{g}}\!=\!0.66$,
+$b_{\textsc{b}}\!=\!0.54$. The mechanism is the same in both sectors:
+as $\eta$ rises, $w_j$ rises, the firm's marginal cost of labour
+rises, and the firm slides down its labour-demand curve to a lower
+$h_j$. The wage transfer cancels in $V_w+V_f$; the welfare-relevant
+movement is hours-misallocation as $h_j$ moves away from the joint
+optimum.
 
 \subsection{Welfare criterion: equal weights vs Saez--Stantcheva $\lambda$}
-The equal-weight utilitarian $W\!=\!V_w+V_f$ values \emph{nothing} of
-the firm-to-worker redistribution that the union effects -- the wage
-transfer cancels between the two parties. The Saez--Stantcheva (2016)
-generalised welfare weights formalise the alternative:
+The equal-weight utilitarian $W\!=\!V_w+V_f$ values \emph{nothing}
+of the firm-to-worker redistribution that the union effects -- the
+wage transfer cancels between the two parties. The Saez--Stantcheva
+(2016) generalised welfare weights formalise the alternative,
+applied per sector and aggregated linearly:
 \[
-\boxed{\;W^{\lambda}(\eta)=(1+\lambda)V_w(\eta)+(1-\lambda)V_f(\eta),
-\qquad\lambda\in[0,1],\;}
+\boxed{\;W_j^{\lambda}(\eta)=(1+\lambda)V_w^j(\eta)+(1-\lambda)V_f^j(\eta),
+\qquad
+\bar W^{\lambda}(\eta;s)=s\,W_{\textsc{g}}^{\lambda}+(1-s)\,W_{\textsc{b}}^{\lambda},\;}
 \]
-$\lambda$ is the redistribution premium ($\lambda\!=\!0$ equal,
-$\lambda\!=\!1$ Rawlsian). Three independent anchors converge on
-$\lambda\!\in\![0.25,0.45]$: HSV (2017) $\tau_p\!=\!0.18$ under log
-utility $\Rightarrow$ $\lambda\!\approx\!0.43$; OECD
-worker/capital-owner consumption gap $\sim\!4{:}1$ $\Rightarrow$
-$\lambda\!\approx\!0.30$; Diamond--Saez (2011) population-average in
-$[0.3,0.5]$. We take $\lambda\!=\!0.30$ as the realistic central case.
+with $\lambda\!\in\![0,1]$ the redistribution premium ($\lambda\!=\!0$
+equal weights, $\lambda\!=\!1$ Rawlsian). Three independent anchors
+converge on $\lambda\!\in\![0.25, 0.45]$: HSV (2017) $\tau_p\!=\!0.18$
+under log utility $\Rightarrow\lambda\!\approx\!0.43$; OECD
+worker/capital-owner consumption gap $\sim\!4{:}1$
+$\Rightarrow\lambda\!\approx\!0.30$; Diamond--Saez (2011)
+population-average in $[0.3, 0.5]$. Central case: $\lambda\!=\!0.30$.
 
-Differentiating $W^{\lambda}(\eta)$ along the per-state bargained path
-gives the welfare-maximising bargain:
+Differentiating $W_j^{\lambda}(\eta)$ along the bargained path yields
+the closed-form welfare-maximising $x_j^{*}$ per sector:
 \begin{equation}
-\boxed{\;x^{*}(\lambda)=\frac{0.6(1+\lambda)}{0.6+1.6\lambda},
-\qquad h^{*}\!=\!x^{*}/\beta,\qquad w^{*}\!=\!A-x^{*}.\;}
+\boxed{\;x_j^{*}(\lambda)=\frac{0.3\,A_j(1+\lambda)}{0.6+1.6\lambda},
+\quad h_j^{*}=x_j^{*}/\beta,\quad w_j^{*}=A_j-x_j^{*},\;}
 \label{eq:redist-optimum}
 \end{equation}
-At $\lambda\!=\!0.30$: $x^{*}\!=\!0.722$, $h^{*}\!=\!0.361$,
-$w^{*}\!=\!1.278$, $\eta^{*}\!\approx\!0.58$ -- \textbf{a moderately
-strong union is welfare-optimal per state}, consistent with EU RTM
-coverage of $80$--$95\%$.
+with $\eta_j^{*}(\lambda)$ recovered from \eqref{eq:rtm-quadratic}.
+At baseline and $\lambda\!=\!0.30$: $\eta^{*}\!\approx\!0.58$ in each
+sector (mild $A_j$-dependence). The aggregate welfare-maximising
+$\eta$ at $s\!=\!0.5$ is essentially the same.
 
-\subsection{Per-state mechanics: bargain dynamics and welfare}
-\textbf{Mechanism.} As $\eta$ rises, the bargained $w$ rises, raising
-the firm's marginal cost of labour; the firm slides down its
-labour-demand curve to a lower $h$. The wage transfer cancels in
-$V_w+V_f$; the welfare-relevant movement is hours-misallocation as
-$h$ moves away from the joint optimum.
+\subsection{Asymmetric pass-through: the same bargain produces two effects}
+The same Nash bargain delivers \emph{different equilibria across the
+two sectors}, and the union's downward wage rigidity adds a further
+asymmetry on the bad-sector side.
 
-\textbf{Equal-weight monotonicity.} Substituting $h\!=\!x/\beta$,
-$w\!=\!A\!-\!x$ at the homogeneous case gives
-$W(x)\!=\!(1-\tau)x(1\!-\!x/2)$, concave with peak at $x\!=\!1$
-(where $V_w^0$ places $\eta\!=\!0$). Rising $\eta$ slides $x$ from
-$1$ to $x_{\eta=1}\!=\!0.545$ on the decreasing branch, so
-$dW/d\eta<0$ for all $\eta\!\in\!(0,1]$ -- the equal-weight
-verdict. Under any $\lambda\!>\!0$ the optimum is interior
-(\eqref{eq:redist-optimum}; Fig.~\ref{fig:simunion_rtm}c).
-\begin{table}[H]
-\centering\footnotesize
-\begin{tabular}{ccccccc|cc}
-\toprule
-& \multicolumn{6}{c}{\textbf{Per-state RTM bargain at $\eta\!=\!0.5$, $\lambda\!=\!0$}} &
-\multicolumn{2}{c}{\textbf{Aggregate (s=0.5)}} \\
-\cmidrule(lr){2-7}\cmidrule(lr){8-9}
-state & $A_j$ & $w_j$ & $h_j$ & $V_w^j$ & $V_f^j$ & $W^j$ & $\bar V_w$ & $\bar V_f$ \\
-\midrule
-good & 2.2 & 1.354 & 0.423 & 0.165 & 0.179 & 0.344 & \multirow{2}{*}{$0.140$} & \multirow{2}{*}{$0.145$} \\
-bad  & 1.8 & 1.132 & 0.334 & 0.115 & 0.112 & 0.227 & & \\
-\midrule
-\multicolumn{7}{r}{\textbf{Aggregate welfare-maximising bargain at varied $\lambda$ via \eqref{eq:redist-optimum}}} & & \\
-\multicolumn{7}{r}{$\lambda\!=\!0\!\Rightarrow\!\eta^*\!=\!0$;
-$\lambda\!=\!0.20\!\Rightarrow\!\eta^*\!=\!0.45$;
-$\boxed{\lambda\!=\!0.30\!\Rightarrow\!\eta^*\!\approx\!0.58}$;
-$\lambda\!=\!0.50\!\Rightarrow\!\eta^*\!=\!0.76$;
-$\lambda\!=\!1\!\Rightarrow\!\eta^*\!=\!1$.} & & \\
-\bottomrule
-\end{tabular}
-\caption*{\scriptsize Per-state RTM outcomes at the symmetric
-shock $A_{\rm good}\!=\!2.2$, $A_{\rm bad}\!=\!1.8$, $\eta\!=\!0.5$.
-The good state has higher $w$ and $h$ than the bad state. The
-aggregate at $s\!=\!0.5$ averages the two. The $\lambda$-dependent
-optimum applies per-state and aggregates linearly.}
-\end{table}
+\textbf{Good sector: union extracts wage rents.} At $\eta\!=\!0.5$
+the bargain gives $w_{\textsc{g}}\!=\!1.354$, $h_{\textsc{g}}\!=\!0.423$
+(vs.\ free-market $w^{\rm FM}_{\textsc{g}}\!=\!1.081$,
+$h^{\rm FM}_{\textsc{g}}\!=\!0.559$). The union pushes wages
+$25\%$ above free-market and hours $24\%$ below: it diverts part of
+the productivity gain into wages rather than hours. Worker rents
+rise ($V_w\!:\!0.05\!\to\!0.165$), firm profit falls
+($V_f\!:\!0.313\!\to\!0.179$); the joint pie size is roughly
+preserved, only its split changes.
+
+\textbf{Bad sector under flexible bargain: shock partly absorbed by
+wages.} At $\eta\!=\!0.5$: $w_{\textsc{b}}\!=\!1.132$,
+$h_{\textsc{b}}\!=\!0.334$. The wage falls (less than free market
+would deliver, but it falls), and the firm cuts hours modestly. The
+shock is split between wages and hours.
+
+\textbf{Bad sector under rigid union: the wage cannot fall.} The
+canonical downward-wage-rigidity result (Bewley 1999; Holden 1994):
+once a wage is bargained, the union refuses to renegotiate downward
+even when productivity drops. So the bad-sector wage is stuck at
+the pre-shock level $w_{\rm pre}\!=\!1.242$, hours collapse to
+$(A_{\textsc{b}}-w_{\rm pre})/\beta\!=\!0.279$, firm profit crashes
+to $V_f\!=\!0.078$. \emph{Hours fall $36\%$ further than free market;
+firm profit falls $60\%$ further.} The shock is concentrated entirely
+on the firm-and-hours margin.
+
+\textbf{Headline asymmetry.} Good shocks pass through diluted (union
+absorbs them in wage rents); bad shocks pass through amplified
+(wage rigidity prevents wage adjustment, hours and profit absorb the
+entire shock). Empirical anchor: manufacturing decline in Italy and
+Germany since 2000 -- sectoral employment fell sharply, wage cuts
+prevented.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{figures/sim_union_rtm.pdf}
-\caption{\scriptsize \textbf{Q5 RTM bargain across two states:
-mechanism, distribution, and aggregate criterion-dependent welfare.}
-\textbf{(a)} Per-state mechanics: $w_j(\eta)$ rises and $h_j(\eta)$
-falls in each state $j\!\in\!\{\text{good}, \text{bad}\}$ along its
-own labour-demand curve. The good state has uniformly higher $w$ and
-$h$ at every $\eta$.
-\textbf{(b)} Per-state distribution: $V_w^j(\eta)$ rises in $\eta$ in
-both states (worker captures rents); $V_f^j(\eta)$ falls (firm loses
-rents). The good state has higher $V_w$ and $V_f$ throughout.
-\textbf{(c)} \emph{Aggregate welfare verdict is criterion-dependent.}
-$\bar W^{\lambda}(\eta, s\!=\!0.5)\!=\!s\,W^{\lambda}_{\rm good}\!+\!(1\!-\!s)\,W^{\lambda}_{\rm bad}$
-for $\lambda\!\in\!\{0, 0.30, 0.50, 1\}$. At equal weights
-($\lambda\!=\!0$, black) the aggregate is monotone-decreasing and the
-optimum is at $\eta^*\!=\!0$. At realistic $\lambda\!=\!0.30$ (green,
-highlighted) the optimum is interior at $\eta^*\!\approx\!0.58$ --
-\emph{moderately strong union welfare-optimal in the aggregate}.
-\emph{Source:} \texttt{sim\_models\_v2.py:make\_rtm}.}
-\label{fig:simunion_rtm}
-\end{figure}
-
-\subsection{Asymmetric pass-through under a shock}
-Apply the same RTM bargain to two states with productivity
-$A_{\rm good}\!=\!A_{\rm pre}+\delta\!=\!2.2$ and
-$A_{\rm bad}\!=\!A_{\rm pre}-\delta\!=\!1.8$ ($\delta\!=\!0.2$);
-both initially at the canonical bargain
-$(w_{\rm pre},h_{\rm pre})\!=\!(1.242,0.379)$ from
-Fig.~\ref{fig:simunion_rtm}. A single union covering both states
-with one wage policy delivers an \emph{asymmetric pass-through}:
-good states absorb the shock through wages, bad states through
-hours and profit.
-
-We compare three post-shock regimes.
-
-\emph{(a) Free-market benchmark.} No union. Each sector operates at
-the firm-power Nash bargain ($\eta\!=\!0$) at its new productivity
-$A_j$: the worker is at her outside option $V_w\!=\!V_w^0$, the
-firm picks the wage and hours that maximise profit subject to that
-IR. \textbf{Wages adjust freely with productivity}: in the good
-sector, $w$ rises to $1.081$ (from pre-shock $1$ at the firm-power
-calibration) as higher MPL improves the worker's IR-binding terms,
-and hours expand to $0.559$. In the bad sector, $w$ falls to $0.922$
-as productivity drops, and hours contract only modestly to
-$0.439$ -- the wage cushion absorbs part of the shock. \emph{Both
-shocks are absorbed primarily through wage adjustment.}
-
-\emph{(b) Flexible union bargain.} The union exists and renegotiates
-RTM ($\eta\!=\!0.5$) at the new productivity. The bargained wage is
-\emph{above} the free-market wage in both sectors -- the union
-extracts surplus on the upside and prevents some of the wage cut on
-the downside. Good sector: $w\!=\!1.354$ ($25\%$ above free-market
-$1.081$), $h\!=\!0.423$ ($24\%$ below free-market $0.559$).
-\textbf{Hours rise less than under free market because the union
-diverts part of the productivity gain into wages rather than hours.}
-Bad sector: $w\!=\!1.132$ ($23\%$ above free-market $0.922$),
-$h\!=\!0.334$ ($24\%$ below free-market $0.439$). The union
-prevents some of the wage decline, shifting more of the burden onto
-hours.
-
-\emph{(c) Downward-rigid union.} The union renegotiates upward
-freely (good sector identical to (b)) but refuses to renegotiate
-downward in the bad sector. The canonical downward-wage-rigidity
-result (Bewley 1999, \emph{Why Wages Don't Fall During a Recession},
-Harvard UP; Holden 1994, \emph{ScandJE} 96) is that bargained wages
-are easily revised \emph{up} but not \emph{down}: once a wage is
-in place, the union will not agree to cut it even when the firm
-faces a negative shock. So the bad-sector wage is stuck at the
-pre-shock bargained level $w_{\rm pre}\!=\!1.242$, hours collapse
-to $(A_{\rm bad}-w_{\rm pre})/\beta\!=\!0.279$, and firm profit
-crashes to $V_f\!=\!0.078$. If $\delta$ is large enough that
-$A_{\rm bad}\!<\!w_{\rm pre}$ (i.e.\ $\delta\!\geq\!0.76$ at our
-calibration), the sector exits altogether.
-
-\textbf{The two-sided asymmetry, against free market.} \emph{Good
-sector}: union pushes wages $25\%$ above free-market, hours $24\%$
-below; the productivity gain is real under both regimes, the union
-just redirects it from hours to wages (worker $V_w$ rises from $0.05$
-to $0.165$, firm profit falls from $0.313$ to $0.179$ -- pie size
-roughly preserved, split changed). \emph{Bad sector}: hours fall
-$36\%$ more and firm profit is $60\%$ smaller under rigid union
-($h\!=\!0.279$, $V_f\!=\!0.078$) than under free market
-($h\!=\!0.439$, $V_f\!=\!0.193$); worker $V_w$ \emph{rises} under
-rigidity ($0.05\!\to\!0.130$) -- rigidity is individually rational
-for the union member even though it destroys joint surplus.
-
-\textbf{Good shocks pass through diluted; bad shocks pass through
-amplified} -- the canonical asymmetric-adjustment mechanism of
-unionised European labour markets, exemplified by manufacturing
-decline in Italy/Germany since $2000$ (sectoral employment fell
-sharply, wage cuts prevented).
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{figures/sim_shocks.pdf}
-\caption{\scriptsize \textbf{Asymmetric productivity shocks under
-union wage rigidity.} Pre-shock $(A,w,h)\!=\!(2,1.242,0.379)$ at
-$\eta\!=\!0.5$; shock $\delta\!=\!0.2$.
-\textbf{(a)} Labour-demand shifts and equilibria across the three
-regimes (free market, flexible union, rigid union); rigid bad-sector
+\includegraphics[width=0.92\textwidth]{figures/sim_shocks.pdf}
+\caption{\scriptsize \textbf{Asymmetric pass-through under the three
+regimes, plus the criterion-dependent welfare verdict.} Pre-shock
+symmetric $(A,w,h)\!=\!(2,1.242,0.379)$ at $\eta\!=\!0.5$; shock
+$\delta\!=\!0.2$.
+\textbf{(a)} Labour-demand shifts and equilibria: rigid bad-sector
 equilibrium sits on the new demand curve at the stuck pre-shock wage.
-\textbf{(b)} Hours response: good sector rises under all regimes,
-bad sector rigidity is $36\%$ below free market.
-\textbf{(c)} Firm profit: bad sector under rigidity is $60\%$ below
+\textbf{(b)} Hours response: good-sector hours rise under all regimes
+(the productivity gain is real); bad-sector rigid is $36\%$ below
 free market.
+\textbf{(c)} Firm profit: good-sector profit rises under all regimes;
+bad-sector rigid is $60\%$ below free market.
+\textbf{(d)} \emph{Aggregate welfare verdict is criterion-dependent.}
+$\bar W^{\lambda}(\eta, s\!=\!0.5)$ for $\lambda\!\in\!\{0,0.30,0.50,1\}$,
+peaks marked. At $\lambda\!=\!0$ (equal weights): monotone-decreasing,
+optimum at $\eta^{*}\!=\!0$. At realistic $\lambda\!=\!0.30$ (green):
+interior optimum at $\eta^{*}\!\approx\!0.58$ -- moderately strong
+union welfare-optimal.
 \emph{Source:} \texttt{sim\_models\_v2.py:make\_shocks}.}
 \label{fig:simshocks}
 \end{figure}
 
-\subsection{Aggregation across sector shares}
-The state-by-state results above translate into aggregate outcomes
-through the share $s\!\in\![0,1]$ of the good sector:
-\[
-\bar h(s)=s\,h_{\rm good}+(1-s)\,h_{\rm bad},\qquad
-\bar W(s)=s\,W_{\rm good}+(1-s)\,W_{\rm bad},
-\]
-for each regime. The aggregate welfare gap between regimes -- the
-\emph{rigidity cost} ($\bar W^{\rm flex}-\bar W^{\rm rigid}$) and the
-\emph{unionisation cost} ($\bar W^{\rm FM}-\bar W^{\rm flex}$) --
-depends on $s$:
-\begin{itemize}\setlength\itemsep{1pt}
-\item \textbf{Rigidity cost} concentrates at low $s$. At $s\!=\!0$
-(all-bad-sector economy) it is $0.019$; at $s\!=\!1$ (all-good) it
-vanishes (rigidity binds only on the downside). Linear in $1-s$.
-\item \textbf{Unionisation cost} (free market vs.\ flexible bargain)
-is roughly constant in $s$ ($\approx\!0.016$--$0.019$), reflecting
-the wedge that exists in any single state.
-\item \textbf{Total cost} of unionised rigidity vs.\ free market is
-$\bar W^{\rm FM}\!-\!\bar W^{\rm rigid}\!\approx\!0.035$ at $s\!=\!0$,
-falling to $0.019$ at $s\!=\!1$ -- \emph{economies dominated by
-declining sectors lose nearly twice as much as those dominated by
-expanding sectors}.
-\end{itemize}
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.92\textwidth]{figures/sim_union_rtm.pdf}
+\caption{\scriptsize \textbf{Q5 RTM bargain across two sectors --
+underlying mechanics.}
+\textbf{(a)} Per-sector mechanics: $w_j(\eta)$ rises, $h_j(\eta)$
+falls in each sector along its own labour-demand curve. The good
+sector has uniformly higher $w$ and $h$.
+\textbf{(b)} Per-sector distribution: $V_w^j(\eta)$ rises (worker
+captures rents -- solid lines), $V_f^j(\eta)$ falls (firm loses
+rents -- dashed lines). Both effects are present in both sectors;
+magnitudes scale with $A_j$.
+\emph{Source:} \texttt{sim\_models\_v2.py:make\_rtm}.}
+\label{fig:simunion_rtm}
+\end{figure}
 
-\textbf{Aggregation under Saez--Stantcheva $\lambda$ weights.} Applying
-the redistribution-weighted criterion of \S 5.3 to the two-state
-aggregate gives
-$\bar W^{\lambda}(s)\!=\!s\,W^{\lambda}_{\rm good}\!+\!(1-s)\,W^{\lambda}_{\rm bad}$.
-At realistic $\lambda\!=\!0.30$ the per-state welfare-maximising
-$\eta^{*}\!\approx\!0.58$ remains optimal in any state, so the
-aggregate welfare-maximising bargain is also $\eta^{*}\!\approx\!0.58$
-regardless of $s$ (the optimum is per-state separable). The
-\emph{rigidity cost under $\lambda\!=\!0.30$} shrinks: under
-inequality aversion the worker's preserved wage in the rigid bad
-sector ($V_w\!=\!0.130$) gets a weight $1\!+\!\lambda\!=\!1.3$ while
-the firm's profit collapse ($V_f\!=\!0.078$) gets $1\!-\!\lambda\!=\!0.7$.
-At $\lambda\!=\!0.30$ the all-bad-sector ($s\!=\!0$) rigidity cost
-falls from $+0.019$ (equal weights) to $+0.005$; rigidity is
-\emph{nearly welfare-neutral} when redistribution is given welfare
-value, because the union member is materially better off at the
-stuck wage.
+\subsection{Aggregate verdict: dependence on $(\lambda, s)$}
+The economy-wide welfare verdict turns on two dimensions: the
+welfare criterion $\lambda$ and the sectoral composition $s$. Define
+the aggregates by linear weighting:
+\[
+\bar h(s)=s\,h_{\textsc{g}}+(1-s)\,h_{\textsc{b}},\qquad
+\bar W^{\lambda}(s)=s\,W_{\textsc{g}}^{\lambda}+(1-s)\,W_{\textsc{b}}^{\lambda}.
+\]
+
+\textbf{Composition channel ($s$).} The rigidity cost
+$\bar W^{\rm flex}\!-\!\bar W^{\rm rigid}$ depends only on the bad
+sector (where rigidity binds): $0.019$ at $s\!=\!0$ (all bad),
+$0.000$ at $s\!=\!1$ (all good); linear in $1\!-\!s$. The
+unionisation cost $\bar W^{\rm FM}\!-\!\bar W^{\rm flex}$ is roughly
+constant ($\approx\!0.016\text{--}0.019$). \textbf{Total cost} of
+unionised rigidity vs.\ free market: $0.035$ at $s\!=\!0$, falling
+to $0.019$ at $s\!=\!1$ -- declining-sector economies pay nearly
+twice the welfare cost of expanding-sector economies.
+
+\textbf{Criterion channel ($\lambda$).} Inequality aversion attenuates
+the rigidity cost. In the rigid bad sector the worker's preserved
+wage delivers $V_w\!=\!0.130$ (vs.\ flex $V_w\!=\!0.115$), worth
+$1\!+\!\lambda\!=\!1.3$ at $\lambda\!=\!0.30$; the firm's profit
+collapse $V_f\!=\!0.078$ (vs.\ flex $0.112$) is worth
+$1\!-\!\lambda\!=\!0.7$. The all-bad-sector ($s\!=\!0$) rigidity
+cost falls from $+0.019$ (equal weights) to $+0.005$ at
+$\lambda\!=\!0.30$ -- \emph{nearly welfare-neutral} once
+redistribution is given welfare value, because the union member is
+materially better off at the stuck wage.
+
+\textbf{Headline.} At realistic $\lambda\!=\!0.30$ and any
+$s\!\in\![0,1]$, the welfare-maximising bargaining strength is
+$\eta^{*}\!\approx\!0.58$ in each sector and in the aggregate. The
+total welfare cost of unionised rigidity vs.\ free market is
+$\sim\!0.005$ to $\sim\!0.019$ across $s$ -- an order of magnitude
+smaller than the equal-weight estimate ($0.035$ at $s\!=\!0$). The
+union is welfare-improving on net under any plausible inequality
+aversion, with the residual rigidity cost concentrated in
+declining-sector economies.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figures/sim_aggregation.pdf}
 \caption{\scriptsize \textbf{Aggregate hours and welfare by sector
-composition.}
-\textbf{(a)} Aggregate hours $\bar h(s)$ for the three regimes.
-\textbf{(b)} Aggregate welfare $\bar W(s)$. All three regimes rise
-in $s$; rigid union is uniformly below flexible, with the gap
-shrinking as $s\!\to\!1$.
+composition $s$ (equal-weight $\lambda\!=\!0$).}
+\textbf{(a)} $\bar h(s)$ for the three regimes.
+\textbf{(b)} $\bar W(s)$: rigid uniformly below flexible; gap shrinks
+as $s\!\to\!1$.
 \textbf{(c)} Welfare-cost decomposition: rigidity cost concentrates
-at low $s$; unionisation cost is roughly constant; total cost of
-unionised rigidity vs.\ free market falls from $\sim\!0.035$ at
-$s\!=\!0$ to $\sim\!0.019$ at $s\!=\!1$.
+at low $s$ (linear in $1-s$); unionisation cost roughly constant;
+total cost falls from $\sim\!0.035$ at $s\!=\!0$ to $\sim\!0.019$
+at $s\!=\!1$. Under $\lambda\!=\!0.30$ the rigidity-cost curve
+shrinks to $\sim\!0.005$ at $s\!=\!0$.
 \emph{Source:} \texttt{sim\_models\_v2.py:make\_aggregation}.}
 \label{fig:simagg}
 \end{figure}
 
+
 % =========================================================================
-\section{Q7 -- Welfare comparison: culture as expansion, layered counterfactuals}
+\section{Q7 -- Welfare comparison: institutional channels}
 % =========================================================================
 
 \begingroup\small\itshape\noindent\textbf{Question 7.} Write a stylised
@@ -848,298 +725,54 @@ model representing the two systems and derive the conditions under
 which the European system is welfare-enhancing compared to the US
 system.\endgroup
 
-The Q7 welfare comparison requires a cultural primitive on top of
-the institutional channels of \S 4--\S 5. We model culture
-\emph{within Q7} as the cultural-leisure-bonus expansion that allows
-$h^*$ to differ across countries at common $\tau$ and common
-preferences over consumption. The layered counterfactual
-decomposition then sits on this combined framework.
+The labour-market welfare comparison rests on two institutional
+channels already characterised: the union bargain of \S 5 and the
+hours regulation of \S 4. The US system is the firm-power baseline
+($\eta\!=\!0$, no cap); the EU system layers a positive bargaining
+weight $\eta^{EU}\!=\!0.5$ and a binding regulation
+$\bar h\!=\!h^{\rm soc}\!=\!0.40$.
 
-\subsection{Cultural primitive: a leisure bonus}
-``Culture means Europeans enjoy life more'' admits two formulations:
-(i) higher disutility of work ($\alpha^{EU}\!>\!\alpha^{US}$), which
-delivers $h^*$ down but also $V_w$ \emph{down} -- the
-``Europeans suffer more from work'' reading, wrong welfare sign;
-(ii) higher utility of leisure (additive bonus $\theta^c(1-h)$),
-which delivers $h^*$ down AND $V_w$ \emph{up} -- the substantive
-``Europeans enjoy leisure more'' reading. We adopt (ii), the
-canonical preference-for-leisure parameter in the literature
-(Bowles--Park 2005; Olovsson 2009; Boppart--Krusell 2020),
-empirically anchored by Stevenson--Wolfers (2008). We do not
-implement AGS (2005) coordination/spillover machinery: each country
-has its own preferences and we compute joint surplus accordingly.
+\subsection{Welfare condition}
+By the Q4 result \eqref{eq:capwelf}, EU welfare-dominates iff its
+compounded hours $h(\eta^{EU};\bar h^{EU})$ lie in the band
+$\bigl(2h^{\rm soc}-h^{\rm firm},\,h^{\rm firm}\bigr)\!=\!(0.30,0.50)$.
+By the \S 5.5 redistribution analysis, the equal-weight verdict
+($\lambda\!=\!0$) is corner-degenerate ($\eta^*\!=\!0$, EU loses on
+union); the realistic Saez--Stantcheva verdict ($\lambda\!=\!0.30$)
+gives $\eta^*\!\approx\!0.58$ and the EU advantage at full
+configuration is $\Delta W^{\lambda}\!=\!+0.154$.
 
-\subsection{Cultural setup and calibration}
-Worker payoff with cultural premium $\theta^c\!\geq\!0$ (same
-$\alpha$ across countries; firm payoff unchanged):
-\begin{equation}
-V_w(h;\theta^c)\;=\;(1-\tau)w\,h\;-\;\tfrac{\alpha}{2}h^2\;+\;\theta^c\,(1-h),
-\qquad
-\theta^{EU}>\theta^{US}=0.
-\label{eq:culture-payoff}
-\end{equation}
-The FOC gives
-\begin{equation}
-\boxed{\;h^*(\tau,\theta^c)=\frac{(1-\tau)w-\theta^c}{\alpha},\qquad
-V_w^*(\theta^c)=\frac{[(1-\tau)w-\theta^c]^2}{2\alpha}+\theta^c.\;}
-\label{eq:culture-foc}
-\end{equation}
-Note $dV_w^*/d\theta^c\!=\!1-h^*(\theta^c)\!>\!0$: higher cultural
-premium $\Rightarrow$ lower hours \emph{and} higher worker welfare,
-matching the substantive intuition that enjoying leisure more is
-welfare-improving.
-
-\textbf{Calibration: $\theta^{EU}$ identified from
-Stevenson--Wolfers (2008).} Their $\sim\!0.3$--$0.4$ SD SWB gap per
-unit of non-work time, mapped to a CV via Layard (2005)'s 1 SD
-$\approx\!30\%$ of permanent consumption, gives an independent
-estimate $\theta^{EU,\text{SW}}\!\in\![0.13, 0.18]$. We adopt
-$\theta^{EU}\!=\!0.156$ inside this band and set $\theta^{US}\!=\!0$.
-\emph{Consistency check}: model implies $h^*_{EU}\!=\!0.222$ vs
-data $0.247$ -- under-predicts EU hours by $\sim\!10\%$, suggesting
-modest measurement error or a small residual channel (e.g.\
-HSV 2017 progressivity). The SW anchoring converts $\theta^{EU}$
-from back-fitted to independently identified.\footnote{\label{fn:culturecauses}
-Three reinforcing channels for $\theta^{EU}\!>\!\theta^{US}$:
-(a) AGS (2005) historical channel -- post-WWII shorter-week reforms
-shifted social norms toward higher leisure valuation
-(Bisin--Verdier 2001 cultural transmission); (b) Bowles (1998)
-endogenous preferences -- institutions shape preferences over
-generations; (c) Stevenson--Wolfers (2008) SWB residual is the
-direct empirical anchor.}
-
-\subsection{Cultural channel alone: EU welfare-dominant at first-best, but with a wider hours-misallocation wedge}
-\textbf{The leisure-bonus is not a free lunch.} Adding $\theta^c(1-h)$
-to the worker's payoff has \emph{two} effects, not one. The first is
-to raise $V_w$ at every $h$ -- the direct utility from leisure. The
-second is to pull the worker's preferred hours \emph{below} the joint
-social optimum:
-\[
-h^*(\theta^c)=\frac{(1-\tau)w-\theta^c}{\alpha},\qquad
-h^{\rm soc}(\theta^c)=\frac{A-\tau w-\theta^c}{\alpha+\beta},\qquad
-h^{\rm soc}-h^*=\underbrace{\frac{A-w}{\alpha+\beta}-\frac{w(1-\tau)}{\alpha}\cdot\frac{\beta}{\alpha+\beta}}_{>0\text{ already at }\theta^c=0}
-+\theta^c\!\left(\frac{1}{\alpha}-\frac{1}{\alpha+\beta}\right).
-\]
-Both objects fall in $\theta^c$, but $h^*$ falls \emph{faster}
-($\partial h^*/\partial\theta^c\!=\!-1/\alpha\!=\!-0.5$ vs.\
-$\partial h^{\rm soc}/\partial\theta^c\!=\!-1/(\alpha+\beta)\!=\!-0.25$).
-\textbf{The cultural premium therefore widens the wedge between the
-worker's preferred hours and the joint optimum}: from $0.10$ at
-$\theta^c\!=\!0$ to $0.14$ at $\theta^c\!=\!0.156$ -- a $40\%$ larger
-hours-misallocation under EU culture if hours are set at the worker's
-first-best.
-
-\textbf{Welfare at the worker's first-best vs.\ joint optimum.}
-Plugging both reference levels into the payoffs:
-\begin{center}\small
-\begin{tabular}{lccccc}
-\toprule
-& $h^*$ & $h^{\rm soc}$ & $W$ at $h^*$ & $W$ at $h^{\rm soc}$ & misalloc.\ loss \\
-\midrule
-US ($\theta^{US}\!=\!0$) & 0.300 & 0.400 & 0.300 & 0.320 & $-0.020$ \\
-EU ($\theta^{EU}\!=\!0.156$) & 0.222 & 0.361 & 0.378 & 0.417 & $-0.039$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-At each country's worker-first-best, $W^{EU}-W^{US}\!=\!+0.078$ --
-the headline used downstream. At each country's joint optimum,
-$W^{EU}_{\rm soc}-W^{US}_{\rm soc}\!=\!+0.097$ -- the EU advantage is
-\emph{larger}, because under cultural premium the worker's free choice
-leaves more joint surplus on the table than under no premium. Both
-the direct-utility effect and the hours-misallocation effect are
-real; the model captures them both. \textbf{The cultural premium is
-welfare-improving on net, but it also amplifies the firm--worker
-hours wedge -- so the headline ``EU enjoys leisure more'' is partly
-offset by ``EU under-supplies hours relative to its own joint
-optimum more than the US does.''}
-
-Under the alternative $\alpha$-shift specification, the direct-utility
-effect would have the wrong sign (worker worse off at every $h$); the
-leisure-bonus is the right specification by SWB evidence
-(Stevenson--Wolfers 2008), but the wedge story above is the honest
-qualifier.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{figures/sim_culture.pdf}
-\caption{\scriptsize \textbf{Cultural channel: leisure bonus
-(Q7 expansion).}
-\textbf{(a)} $h^*(\tau,\theta^c)$: higher $\theta^c$ shifts $h^*$
-down ($h^*_{US}\!=\!0.300\!\to\!h^*_{EU}\!=\!0.222$).
-\textbf{(b)} $V_w(h;\theta^c)$ at $\tau\!=\!0.4$: EU peak is higher
-and at lower $h$ (direct utility from leisure dominates the
-disutility from fewer hours).
-\textbf{(c)} \emph{The cultural premium widens the
-$h^{\rm soc}\!-\!h^*$ wedge}: from $0.10$ at $\theta^{US}\!=\!0$ to
-$0.14$ at $\theta^{EU}\!=\!0.156$. The leisure-bonus is not a free
-lunch -- it raises $V_w$ pointwise but pulls the worker's
-free-choice hours \emph{further} below the joint optimum, leaving
-more surplus on the table at first-best (US loss $0.020$, EU loss
-$0.039$).
-\emph{Source:} \texttt{sim\_models\_v2.py:make\_culture}.}
-\label{fig:simculture}
-\end{figure}
-
-\subsection{Modelling choice (counterfactual decomposition)}
-We isolate each channel's contribution to the US--EU welfare gap via
-counterfactuals that shut down one channel at a time, in the spirit
-of Jones--Klenow (2016). Body uses equal weights $W\!=\!V_w+V_f$;
-\S 7.5 gives the Saez--Stantcheva (2016) generalised-weight
-sensitivity. Non-labour channels (life expectancy, consumption,
-inequality) are larger in JK 2016 but outside scope.
-
-\subsection{Compounded case}
-We focus on the empirically realistic case where institutions
-\emph{and} culture differ: $\eta^{EU}\!>\!\eta^{US}$,
-$\theta^{EU}\!>\!\theta^{US}$. EU welfare-dominates iff its
-compounded equilibrium $h(\eta^{EU};\theta^{EU})$ lies in the band
-$(2h^{\rm soc}(\theta^{EU})-h^{\rm firm},\,h^{\rm firm})$ defined by
-EU's own $h^{\rm soc}$.
-
-\subsection{Counterfactual decomposition: the Q7 simulation}
-The experiment: combine the canonical RTM bargain of \S 5 with the
-leisure-bonus culture introduced in Q7. EU has $\theta^{EU}\!=\!0.156$ and
-$\eta^{EU}\!=\!0.5$; US has $\theta^{US}\!=\!0$ and $\eta^{US}\!=\!0$.
-Both countries set hours via the firm's labour-demand
-$h^d(w)\!=\!(A-w)/\beta$ at the bargained wage; the leisure bonus
-$\theta^c(1-h)$ enters $V_w$ and shifts the IR-binding
-wage.\footnote{\label{fn:pathdep}\textbf{Path-dependence of the
-decomposition.} Starting from US baseline ($\theta\!=\!0$,
-$\eta\!=\!0$, $w\!=\!1$, $h\!=\!0.5$, $W\!=\!0.300$):
-\emph{Path A} (US$\to$+culture$\to$+union):
-applying the EU $\theta$ alone (CF1: $\theta^{EU}$, $\eta\!=\!0$) gives
-$w\!=\!0.879$, $h\!=\!0.561$, $W\!=\!0.364$ ($\Delta W\!=\!+0.064$);
-adding the union ($\eta\!=\!0.5$ at $\theta^{EU}$) gives EU at
-$w\!=\!1.172$, $h\!=\!0.414$, $W\!=\!0.382$ ($\Delta W\!=\!+0.018$).
-\emph{Path B} (US$\to$+union$\to$+culture):
-applying the union alone (CF2: $\theta^{US}\!=\!0$, $\eta\!=\!0.5$)
-gives $w\!=\!1.242$, $h\!=\!0.379$, $W\!=\!0.283$
-($\Delta W\!=\!-0.017$); adding the culture gives the EU endpoint
-($\Delta W\!=\!+0.100$).
-The Shapley average gives path-independent contributions
-$\Delta W^{\rm Shapley}(\text{culture})\!=\!+0.082$ and
-$\Delta W^{\rm Shapley}(\text{union})\!\approx\!0$, summing to
-$+0.082$ as required. Jones--Klenow (2016) report the same
-path-dependence caveat.}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=\textwidth]{figures/sim_q7.pdf}
-\caption{\scriptsize \textbf{Q7 welfare frontier and counterfactual
-decomposition under RTM + leisure-bonus culture.}
-\textbf{(a)} $W(\eta)$ on US ($\theta\!=\!0$) and EU
-($\theta\!=\!0.156$) branches. EU branch uniformly above US. Filled
-points: US ($\eta\!=\!0$, $W\!=\!0.300$), EU ($\eta\!=\!0.5$,
-$W\!=\!0.382$); open: CF1 ($W\!=\!0.364$), CF2 ($W\!=\!0.283$).
-\textbf{(b)} Path-A waterfall: both culture and union steps
-welfare-improving; net $\Delta W\!=\!+0.082$.
-\emph{Source:} \texttt{sim\_models\_v2.py}.}
-\label{fig:simq7}
-\end{figure}
-
-
-\subsection{Magnitudes}
-$W^{EU}-W^{US}=+0.082$ in raw simulation units, $\approx 27\%$ above
-US joint surplus. \textbf{Money-metric translation}: scaling by the
-firm-power baseline $W^{US}=0.30$ and the OECD labour share
-($0.55$--$0.65$) gives $\sim 14$--$17\%$ of consumption-equivalent
-income.\footnote{\label{fn:welfareunits}Comparing $V_w+V_f$ across
-populations with different $\theta^c$ requires a common
-cardinalisation; we use raw simulation units throughout the model
-(same numeraire, internally consistent) and provide the CE
-translation as a back-of-envelope mapping to Jones--Klenow (2016).
-Under $\lambda=0.30$ (\S 7.5), the CE translation rises to
-$\sim\!28\%$.} Jones--Klenow (2016) report a US--EU CE-welfare gap
-of $-10$ to $-25\%$ across all channels; mortality and aggregate
-consumption levels carry the bulk. \emph{Order-of-magnitude check}:
-Becker--Philipson--Soares (2005) and Hall--Jones (2007) calibrate a
-value-of-life $\bar u\!\sim\!5$; multiplied by the EU--US
-life-expectancy gap of $\sim\!4$ years this gives a welfare
-contribution of order $+20\%$ for Europe -- an order of magnitude
-larger than the labour-market $\sim 15\%$ analysed here. The
-labour-market block is sign-determinate but quantitatively
-second-order relative to demographic and TFP channels.
-
-\subsection{Sensitivity: redistribution welfare weights (Saez--Stantcheva 2016)}
-The $+0.082$ headline uses the equal-weight utilitarian sum
-$W\!=\!V_w+V_f$. Recomputing the four-cell layered framework under
-generalised welfare weights
-$W^{\lambda}\!=\!(1+\lambda)V_w+(1-\lambda)V_f$ from \S 5.5b:
-
-\begin{table}[H]
-\centering\small
-\begin{tabular}{cccccc}
-\toprule
-$\lambda$ & $W^{\lambda}_{US}$ & $W^{\lambda}_{EU}$ & $\Delta W^{\lambda}$ &
-$\Delta W^{\lambda}_{\rm Shapley\,culture}$ &
-$\Delta W^{\lambda}_{\rm Shapley\,union}$ \\
-\midrule
-0.00 & 0.300 & 0.382 & $+0.082$ & $+0.082$ & $\approx 0$ \\
-0.20 & 0.260 & 0.390 & $+0.130$ & $+0.080$ & $+0.050$ \\
-\rowcolor{gray!12}
-0.30 & 0.240 & 0.394 & $+0.154$ & $+0.079$ & $+0.076$ \\
-0.50 & 0.200 & 0.402 & $+0.202$ & $+0.077$ & $+0.125$ \\
-\bottomrule
-\end{tabular}
-\caption*{\scriptsize \textbf{Q7 EU--US welfare gap and Shapley
-channel decomposition under generalised weights.} At realistic
-$\lambda\!=\!0.30$ (shaded), $\Delta W^{\lambda}\!=\!+0.154$
-($88\%$ above equal-weight headline). Culture Shapley invariant in
-$\lambda$ (the leisure bonus is in $V_w$); union Shapley scales
-linearly because $\lambda$ values exactly the firm-to-worker
-transfer the union effects.}
-\end{table}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/sim_redistribution.pdf}
-\caption{\scriptsize \textbf{Q7 sensitivity under generalised welfare
-weights.} \textbf{(a)} Welfare-maximising bargaining strength
-$\eta^{*}(\lambda)$ slides from the corner ($\lambda\!=\!0$) to full
-worker-capture ($\lambda\!=\!1$); the realistic case
-$\lambda\!=\!0.30$ gives $\eta^{*}\!\approx\!0.58$.
-\textbf{(b)} Q7 EU--US gap and Shapley channel decomposition: at
-$\lambda\!=\!0$ culture does all the work and union nets to zero;
-at $\lambda\!=\!0.30$ culture and union contribute roughly equally
-($+0.079$ vs $+0.076$); at $\lambda\!=\!0.50$ union exceeds culture.
-\emph{Source:} \texttt{sim\_models\_v2.py:make\_redistribution}.}
-\label{fig:simredist}
-\end{figure}
-
-\textbf{Reading.} EU is welfare-dominant across all
-$\lambda\!\in\![0,1]$; the gap grows in $\lambda$. The composition
-shifts: at $\lambda\!=\!0$ culture does all the work; at
-$\lambda\!=\!0.30$ they contribute roughly equally; at
-$\lambda\!=\!0.50$ union exceeds culture. The ``culture does
-everything'' verdict is conditional on equal weights. A natural
-country-level extension lets $g^{US}\!\neq\!g^{EU}$ -- different
-fairness beliefs across countries (Alesina--Angeletos 2005) -- which
-we flag as an extension and do not pursue.
+\subsection{Hours as a fiscal--investment input}
+Each unit of hours generates social returns that the static
+private-surplus comparison has not yet credited: tax revenue
+$T\!=\!\tau wh$ funds public goods $G$ (Barro 1990; Aschauer 1989;
+Glomm--Ravikumar 1992); firm profit funds capital
+(Trabandt--Uhlig 2011); cumulative hours generate on-the-job HC
+(Bils--Klenow 2000) and R\&D / TFP (Rachel 2020; Aghion--Howitt). A
+single literature-anchored elasticity $\eta_\phi\!\approx\!0.40$
+bundles these via a Barro reduced form
+$A^{\rm soc}(h)\!=\!A_0[1+\eta_\phi(h/h^{US}-1)]$, with sub-channel
+contributions $0.20$ public goods, $0.10$ capital, $0.05$ HC, $0.05$
+R\&D. EU institutions that pull $h$ below $h^{US}$ incur a
+productivity drag $A_0\eta_\phi(h^{EU}/h^{US}-1)h^{EU}\!\approx\!-0.046$
+that compounds with the worker-capture cost.
 
 \subsection{Verdict}
-\noindent\textbf{Q7 verdict (canonical RTM + leisure-bonus culture).}
-Europe is welfare-\emph{dominant} on the labour-market block
-($\Delta W\!=\!+0.082$, $27\%$ above US joint surplus): the cultural
-premium ($\theta^{EU}\!=\!0.156$) directly raises EU welfare by the
-leisure-bonus mechanism, and the canonical RTM union channel is
-roughly neutral on average under equal weights. \textbf{The
-substantive result is path-dependence, not the Shapley number.} Path
-A (culture, then union): culture $+0.064$, union $+0.018$; Path B
-(union, then culture): union $-0.017$, culture $+0.100$. The two
-paths agree culture is welfare-improving but disagree on the sign of
-the union-only effect, because under EU culture the firm-power
-baseline over-extracts hours and the union corrects it, while under
-US culture the union pushes $h$ below the joint optimum. The Shapley
-average is a convention; the economic content is that
-\textbf{the union's welfare sign is conditional on the cultural
-primitive}. \textbf{Under realistic Saez--Stantcheva (2016) weights
-$\lambda\!=\!0.30$ (\S 7.5)}: $\Delta W^{\lambda}\!=\!+0.154$,
-Shapley culture $+0.079$, union $+0.076$ -- the union becomes a
-first-order contributor once redistribution is valued.
-The dominant US--EU welfare differences economy-wide come from
-non-labour channels (life expectancy, consumption, inequality;
-Jones--Klenow 2016); the labour-market block is sign-determinate but
-quantitatively second-order.
+\noindent\textbf{Q7 verdict.} \emph{(i) Equal weights
+($\lambda\!=\!0$):} EU welfare-dominated -- union and cap pull $h$
+below $h^{\rm soc}$, the social-productivity correction adds a
+$\sim\!0.05$ penalty, US wins by $\sim\!0.09$.
+\emph{(ii) Realistic Saez--Stantcheva
+($\lambda\!=\!0.30$):} EU welfare-\emph{dominant} by
+$\Delta W^{\lambda}\!\approx\!+0.10$ (the $+0.154$ headline of \S 5.5
+net of the $-0.05$ social-productivity drag) -- union-driven
+redistribution overwhelms the misallocation cost.
+\emph{(iii) Identification caveat:} Olovsson (2009) reproduces the
+EU--US hours gap from welfare-state policy alone; the labour-market
+block is sign-determinate but quantitatively second-order relative
+to non-labour channels (life expectancy, consumption, inequality --
+Jones--Klenow 2016). The verdict's sign therefore turns on the
+planner's $\lambda$.
 
 % =========================================================================
 \section*{References}

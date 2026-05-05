@@ -300,8 +300,8 @@ def make_rtm():
           f"V_f={s*rtm_Vf(0.5, A=A_good)+(1-s)*rtm_Vf(0.5, A=A_bad):.4f}")
     print()
 
-    fig = plt.figure(figsize=(13.2, 4.0))
-    gs = GridSpec(1, 3, wspace=0.32, left=0.06, right=0.98, top=0.88, bottom=0.13)
+    fig = plt.figure(figsize=(9.0, 4.0))
+    gs = GridSpec(1, 2, wspace=0.30, left=0.08, right=0.98, top=0.88, bottom=0.13)
 
     # ---- Panel A: bargain mechanics per state ----
     ax = fig.add_subplot(gs[0, 0])
@@ -336,28 +336,6 @@ def make_rtm():
     ax.legend(loc='upper right', fontsize=7.5)
     ax.set_xlim(0, 1)
     ax.axhline(0, color='black', lw=0.4)
-
-    # ---- Panel C: aggregate criterion-dependent welfare at s=0.5 ----
-    ax = fig.add_subplot(gs[0, 2])
-    style_axes(ax)
-    lambdas = [0.00, 0.30, 0.50, 1.00]
-    colors_l = ['#1B1B1B', C_SOC, C_FIRM, C_OVER]
-    labels_l = [r'$\lambda=0$ (equal)',
-                r'$\lambda=0.30$ \textbf{(realistic)}',
-                r'$\lambda=0.50$',
-                r'$\lambda=1$ (Rawlsian)']
-    for lam, col, lab in zip(lambdas, colors_l, labels_l):
-        Wlam_agg = (1 + lam) * Vw_agg + (1 - lam) * Vf_agg
-        lw = 2.6 if lam == 0.30 else 1.8
-        ax.plot(etas, Wlam_agg, color=col, lw=lw, label=lab)
-        idx = int(np.argmax(Wlam_agg))
-        ax.scatter([etas[idx]], [Wlam_agg[idx]], color=col, s=52,
-                   edgecolor='white', linewidth=0.8, zorder=5)
-    ax.set_xlabel(r'$\eta$')
-    ax.set_ylabel(r'$\bar W^{\lambda}(\eta, s\!=\!0.5)$')
-    ax.set_title(r'(c) Aggregate welfare ($s\!=\!0.5$): $\eta^*\!\approx\!0.58$ at $\lambda\!=\!0.30$')
-    ax.legend(loc='lower left', fontsize=7.8)
-    ax.set_xlim(0, 1)
 
     plt.savefig(OUT_DIR / 'sim_union_rtm.pdf', bbox_inches='tight', pad_inches=0.05)
     plt.savefig(OUT_DIR / 'sim_union_rtm.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
@@ -684,6 +662,219 @@ def make_q7_v2():
 
 
 # =====================================================================
+# 4b) §7.2.2 Q7 full counterfactual: 3 channels + social productivity
+# =====================================================================
+# Adds:
+#   - Cap channel (h_cap regulation, Q4 mechanism) as a third on/off switch
+#   - Social-productivity correction A^soc(h) = A_0 [1 + eta_phi*(h/h_ref - 1)]
+#     bundling Aschauer 1989 (public goods), Trabandt-Uhlig 2011 (capital),
+#     Bils-Klenow 2000 (HC), Rachel 2020 / Aghion-Howitt (R&D).
+# Generates a 2x2 figure showing:
+#   (a) Delta W^soc(eta_phi) sensitivity -- when does EU dominate?
+#   (b) eta_phi literature decomposition (Aschauer + capital + HC + R&D)
+#   (c) 8-cell (cul x union x cap) counterfactual welfare bars
+#   (d) Shapley decomposition into 3 channels
+def make_q7_full(eta_phi=0.40, h_cap=0.40, theta_eu=THETA_EU, eta_eu=0.5):
+    print("=== Q7 full: 3-channel counterfactual + social productivity ===")
+    print(f"  Calibration: eta_phi={eta_phi}, h_cap={h_cap}, theta^EU={theta_eu}")
+
+    def cell(theta_c, eta_w, cap_on):
+        w_b, h_b, _, _, _ = rtm_country(eta_w, theta_c)
+        if cap_on and h_b > h_cap:
+            h_eq = h_cap
+            cap_binds = True
+        else:
+            h_eq = h_b
+            cap_binds = False
+        Vw = (1 - TAU) * w_b * h_eq - 0.5 * ALPHA * h_eq * h_eq + theta_c * (1 - h_eq)
+        Vf = A * h_eq - 0.5 * BETA * h_eq * h_eq - w_b * h_eq
+        W = Vw + Vf
+        return {'theta': theta_c, 'eta_w': eta_w, 'cap_on': cap_on,
+                'w': w_b, 'h': h_eq, 'h_unc': h_b,
+                'Vw': Vw, 'Vf': Vf, 'W': W, 'cap_binds': cap_binds}
+
+    # Build 8 cells indexed by (cul, un, cap) in {0,1}^3
+    grid = {}
+    for cul in (0, 1):
+        for un in (0, 1):
+            for cap in (0, 1):
+                grid[(cul, un, cap)] = cell(theta_eu if cul else 0.0,
+                                            eta_eu if un else 0.0,
+                                            bool(cap))
+
+    us = grid[(0, 0, 0)]
+    eu_full = grid[(1, 1, 1)]
+    h_ref = us['h']
+
+    # Social-productivity boost: V_f gets (A^soc - A_0)*h = A_0*eta_phi*(h/h_ref-1)*h
+    def soc(h_eq, ep):
+        return A * ep * (h_eq / h_ref - 1.0) * h_eq
+
+    for c in grid.values():
+        c['soc'] = soc(c['h'], eta_phi)
+        c['W_soc'] = c['W'] + c['soc']
+
+    # Print all 8 cells
+    for key, c in sorted(grid.items()):
+        tag = ('cul' if key[0] else 'no-cul') + ',' + \
+              ('un'  if key[1] else 'no-un')  + ',' + \
+              ('cap' if key[2] else 'no-cap')
+        print(f"  {tag:<22}: h={c['h']:.3f} (unc={c['h_unc']:.3f}, "
+              f"binds={c['cap_binds']}), W={c['W']:.4f}, "
+              f"soc={c['soc']:+.4f}, W_soc={c['W_soc']:.4f}")
+
+    # Shapley over 3 channels (culture, union, cap)
+    from itertools import permutations
+    sh = {'culture': 0.0, 'union': 0.0, 'cap': 0.0}
+    for perm in permutations(['culture', 'union', 'cap']):
+        state = [0, 0, 0]
+        prev = grid[tuple(state)]['W_soc']
+        for ch in perm:
+            idx = {'culture': 0, 'union': 1, 'cap': 2}[ch]
+            state[idx] = 1
+            new = grid[tuple(state)]['W_soc']
+            sh[ch] += (new - prev)
+            prev = new
+    for k in sh:
+        sh[k] /= 6
+    delta_total = eu_full['W_soc'] - us['W_soc']
+    print(f"  Shapley culture = {sh['culture']:+.4f}")
+    print(f"  Shapley union   = {sh['union']:+.4f}")
+    print(f"  Shapley cap     = {sh['cap']:+.4f}")
+    print(f"  Sum             = {sum(sh.values()):+.4f} (should equal {delta_total:+.4f})")
+    print()
+
+    # eta_phi sensitivity for three trajectories vs US base (W_soc difference)
+    eta_grid = np.linspace(0.0, 1.0, 200)
+    def trajectory(target_cell):
+        c = target_cell
+        out = []
+        for ep in eta_grid:
+            W_soc_target = c['W'] + soc(c['h'], ep)
+            W_soc_us = us['W'] + soc(us['h'], ep)  # always 0
+            out.append(W_soc_target - W_soc_us)
+        return np.array(out)
+
+    t_cul   = trajectory(grid[(1, 0, 0)])  # +culture only
+    t_culun = trajectory(grid[(1, 1, 0)])  # +cul +union
+    t_full  = trajectory(grid[(1, 1, 1)])  # full EU
+
+    # Figure
+    fig = plt.figure(figsize=(11.0, 8.6))
+    gs = GridSpec(2, 2, wspace=0.28, hspace=0.46,
+                  left=0.07, right=0.98, top=0.94, bottom=0.07)
+
+    # Panel (a) — eta_phi sensitivity
+    ax = fig.add_subplot(gs[0, 0])
+    style_axes(ax)
+    ax.plot(eta_grid, t_cul,   color=C_EU,     lw=2.4, label='+culture only')
+    ax.plot(eta_grid, t_culun, color=C_WORKER, lw=2.0, label='+culture +union')
+    ax.plot(eta_grid, t_full,  color=C_OVER,   lw=2.4, label='EU full (cul+un+cap)')
+    ax.axhline(0, color='black', lw=0.5)
+    ax.axvline(eta_phi, color=C_NEUT, ls=':', lw=1.0)
+    ax.annotate(fr'central $\eta_\phi={eta_phi}$',
+                (eta_phi, 0.015), xytext=(4, 0),
+                textcoords='offset points', fontsize=8, color=C_NEUT)
+    # mark sign-flip thresholds
+    for traj, col in [(t_cul, C_EU), (t_culun, C_WORKER), (t_full, C_OVER)]:
+        # find first crossing of zero
+        signs = np.sign(traj)
+        crossings = np.where(np.diff(signs) != 0)[0]
+        if len(crossings) > 0:
+            i = crossings[0]
+            x0 = eta_grid[i] - traj[i] * (eta_grid[i+1] - eta_grid[i]) / (traj[i+1] - traj[i])
+            ax.scatter([x0], [0], color=col, s=70, zorder=5,
+                       edgecolor='white', linewidth=0.9)
+    ax.set_xlabel(r'Social-productivity elasticity $\eta_\phi$')
+    ax.set_ylabel(r'$\Delta W^{\rm soc}$ (cell $-$ US base)')
+    ax.set_title(r'(a) When does the EU still welfare-dominate? $\Delta W^{\rm soc}(\eta_\phi)$')
+    ax.legend(loc='lower left', fontsize=7.8)
+    ax.set_xlim(0, 1)
+
+    # Panel (b) — eta_phi decomposition
+    ax = fig.add_subplot(gs[0, 1])
+    style_axes(ax, gridx=False)
+    sub_chans = ['Public goods\n(Aschauer 89,\nBarro 90)',
+                 'Capital\n(Trabandt-\nUhlig 11)',
+                 'On-job HC\n(Bils-Klenow 00)',
+                 'R\\&D / TFP\n(Rachel 20,\nAghion-Howitt)',
+                 r'\textbf{Total $\eta_\phi$}']
+    sub_vals = [0.20, 0.10, 0.05, 0.05, 0.40]
+    sub_cols = [C_SOC, C_WORKER, C_FIRM, C_OVER, '#1B1B1B']
+    ax.bar(np.arange(5), sub_vals, color=sub_cols,
+           edgecolor='white', linewidth=0.6, width=0.65)
+    for i, v in enumerate(sub_vals):
+        ax.annotate(f'{v:.2f}', (i, v), xytext=(0, 4),
+                    textcoords='offset points', ha='center',
+                    fontsize=9, fontweight='bold' if i == 4 else 'normal')
+    ax.set_xticks(np.arange(5))
+    ax.set_xticklabels(sub_chans, fontsize=7.5)
+    ax.set_ylabel(r'Elasticity contribution')
+    ax.set_title(r'(b) $\eta_\phi$ decomposition (literature-anchored)')
+    ax.set_ylim(0, 0.5)
+
+    # Panel (c) — 8-cell counterfactual
+    ax = fig.add_subplot(gs[1, 0])
+    style_axes(ax, gridx=False)
+    order = [(0,0,0), (0,0,1), (0,1,0), (0,1,1),
+             (1,0,0), (1,0,1), (1,1,0), (1,1,1)]
+    Ws = [grid[k]['W_soc'] for k in order]
+    short = ['US\nbase', '+cap', '+un', '+un\n+cap',
+             '+cul', '+cul\n+cap', '+cul\n+un', 'EU\nfull']
+    cols_8 = []
+    for k in order:
+        n = sum(k)
+        cols_8.append([C_US, C_NEUT, C_WORKER, C_EU][min(n, 3)])
+    ax.bar(np.arange(8), Ws, color=cols_8,
+           edgecolor='white', linewidth=0.5, width=0.65)
+    for i, w_ in enumerate(Ws):
+        ax.annotate(f'{w_:.3f}', (i, w_), xytext=(0, 4),
+                    textcoords='offset points', ha='center', fontsize=7.5)
+    ax.set_xticks(np.arange(8))
+    ax.set_xticklabels(short, fontsize=7.5)
+    ax.set_ylabel(r'$W^{\rm soc}$')
+    ax.set_title(rf'(c) 8-cell counterfactual at $\eta_\phi\!=\!{eta_phi}$, '
+                 rf'$\bar h\!=\!{h_cap}$')
+    pad = 0.02 * (max(Ws) - min(Ws) + 0.01)
+    ax.set_ylim(min(Ws) - 4*pad, max(Ws) + 6*pad)
+
+    # Panel (d) — Shapley decomposition
+    ax = fig.add_subplot(gs[1, 1])
+    style_axes(ax, gridx=False)
+    sh_keys = ['culture', 'union', 'cap']
+    sh_vals = [sh[k] for k in sh_keys]
+    sh_cols = [C_EU, C_WORKER, C_OVER]
+    sh_labs = [r'Culture $\theta^c$', r'Union $\eta_w$', r'Cap $\bar h$']
+    ax.bar(np.arange(3), sh_vals, color=sh_cols,
+           edgecolor='white', linewidth=0.5, width=0.55)
+    for i, v in enumerate(sh_vals):
+        ax.annotate(f'${v:+.4f}$', (i, v),
+                    xytext=(0, 6 if v >= 0 else -14),
+                    textcoords='offset points', ha='center',
+                    fontsize=10, fontweight='bold')
+    ax.axhline(0, color='black', lw=0.6)
+    ax.axhline(delta_total, color=C_TOTAL, ls=':', lw=1.0,
+               label=fr'Total $\Delta W^{{\rm soc}}\!=\!{delta_total:+.4f}$')
+    ax.set_xticks(np.arange(3))
+    ax.set_xticklabels(sh_labs, fontsize=9)
+    ax.set_ylabel(r'Shapley contribution')
+    ax.set_title(r'(d) Shapley channels: culture / union / cap')
+    ax.legend(loc='best', fontsize=8)
+
+    plt.savefig(OUT_DIR / 'sim_q7_full.pdf', bbox_inches='tight', pad_inches=0.05)
+    plt.savefig(OUT_DIR / 'sim_q7_full.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    plt.close()
+    print("  -> sim_q7_full.pdf written.")
+    print()
+
+    return {
+        'eta_phi': eta_phi, 'h_cap': h_cap,
+        'delta_total': delta_total, 'sh': sh,
+        'grid': grid,
+    }
+
+
+# =====================================================================
 # 5) §5.5b Welfare under generalised welfare weights (Saez-Stantcheva 2016)
 # =====================================================================
 # W^λ(η) = (1+λ) V_w(η) + (1-λ) V_f(η)
@@ -868,9 +1059,10 @@ def make_shocks(delta=0.2, eta_baseline=0.5, A_pre=2.0):
     print(f"    Rigid:       w={w_b_rg:.3f}, h={h_b_rg:.3f}, V_w={Vw_b_rg:.4f}, V_f={Vf_b_rg:.4f}")
     print()
 
-    # ---- Figure: 3 panels ----
-    fig = plt.figure(figsize=(13.2, 4.4))
-    gs = GridSpec(1, 3, wspace=0.34, left=0.06, right=0.98, top=0.88, bottom=0.13)
+    # ---- Figure: 2x2 panels ----
+    fig = plt.figure(figsize=(11.0, 8.4))
+    gs = GridSpec(2, 2, wspace=0.30, hspace=0.42,
+                  left=0.07, right=0.98, top=0.94, bottom=0.08)
 
     # Panel A: labour-demand curves with equilibria
     ax = fig.add_subplot(gs[0, 0])
@@ -946,7 +1138,7 @@ def make_shocks(delta=0.2, eta_baseline=0.5, A_pre=2.0):
     ax.set_ylim(0, 0.6)
 
     # Panel C: firm-profit bar chart
-    ax = fig.add_subplot(gs[0, 2])
+    ax = fig.add_subplot(gs[1, 0])
     style_axes(ax, gridx=False)
     Vf_g = [Vf_g_nu, Vf_g_fl, Vf_g_rg]
     Vf_b = [Vf_b_nu, Vf_b_fl, Vf_b_rg]
@@ -966,6 +1158,35 @@ def make_shocks(delta=0.2, eta_baseline=0.5, A_pre=2.0):
     ax.set_title('(c) Firm profit -- bad sector amplified by rigidity')
     ax.legend(loc='upper right', fontsize=8)
     ax.set_ylim(0, max(Vf_g) * 1.25)
+
+    # Panel D: aggregate criterion-dependent welfare W^lambda(eta) at s=0.5
+    ax = fig.add_subplot(gs[1, 1])
+    style_axes(ax)
+    etas_d = np.linspace(0.0, 1.0, 401)
+    Vw_g_eta = np.array([rtm_Vw(e, A=A_good) for e in etas_d])
+    Vf_g_eta = np.array([rtm_Vf(e, A=A_good) for e in etas_d])
+    Vw_b_eta = np.array([rtm_Vw(e, A=A_bad)  for e in etas_d])
+    Vf_b_eta = np.array([rtm_Vf(e, A=A_bad)  for e in etas_d])
+    Vw_agg_eta = 0.5 * Vw_g_eta + 0.5 * Vw_b_eta
+    Vf_agg_eta = 0.5 * Vf_g_eta + 0.5 * Vf_b_eta
+    lambdas = [0.00, 0.30, 0.50, 1.00]
+    colors_l = ['#1B1B1B', C_SOC, C_FIRM, C_OVER]
+    labels_l = [r'$\lambda=0$ (equal)',
+                r'$\lambda=0.30$ \textbf{(realistic)}',
+                r'$\lambda=0.50$',
+                r'$\lambda=1$ (Rawlsian)']
+    for lam, col, lab in zip(lambdas, colors_l, labels_l):
+        Wlam_agg = (1 + lam) * Vw_agg_eta + (1 - lam) * Vf_agg_eta
+        lw = 2.6 if lam == 0.30 else 1.8
+        ax.plot(etas_d, Wlam_agg, color=col, lw=lw, label=lab)
+        idx = int(np.argmax(Wlam_agg))
+        ax.scatter([etas_d[idx]], [Wlam_agg[idx]], color=col, s=52,
+                   edgecolor='white', linewidth=0.8, zorder=5)
+    ax.set_xlabel(r'$\eta$')
+    ax.set_ylabel(r'$\bar W^{\lambda}(\eta, s\!=\!0.5)$')
+    ax.set_title(r'(d) Welfare verdict: $\eta^*\!\approx\!0.58$ at $\lambda\!=\!0.30$')
+    ax.legend(loc='lower left', fontsize=7.8)
+    ax.set_xlim(0, 1)
 
     plt.savefig(OUT_DIR / 'sim_shocks.pdf', bbox_inches='tight', pad_inches=0.05)
     plt.savefig(OUT_DIR / 'sim_shocks.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
@@ -1100,6 +1321,7 @@ if __name__ == '__main__':
     make_rtm()
     make_culture()
     res = make_q7_v2()
+    res_full = make_q7_full()
     res_l = make_redistribution()
     res_s = make_shocks()
     make_aggregation()
