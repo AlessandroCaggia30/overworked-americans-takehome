@@ -140,7 +140,8 @@ def make_decomposition():
     # Panel B: log-gap decomposition (waterfall)
     ax = fig.add_subplot(gs[0, 1])
     style_axes(ax)
-    bars = ['Data\nlog gap', 'Macro\nPrescott', 'Micro\nPrescott', 'Residual\n(institutions)']
+    bars = ['Data\nlog gap', 'Macro\nPrescott', 'Micro\nPrescott',
+            'Residual\n(inst./culture/other)']
     vals = [-100*log_gap_data, -100*log_gap_macro, -100*log_gap_micro,
             -100*(log_gap_data - log_gap_micro)]
     colors = [C_OVER, C_NEUT, C_WORKER, C_SOC]
@@ -1059,10 +1060,9 @@ def make_shocks(delta=0.2, eta_baseline=0.5, A_pre=2.0):
     print(f"    Rigid:       w={w_b_rg:.3f}, h={h_b_rg:.3f}, V_w={Vw_b_rg:.4f}, V_f={Vf_b_rg:.4f}")
     print()
 
-    # ---- Figure: 2x2 panels ----
-    fig = plt.figure(figsize=(11.0, 8.4))
-    gs = GridSpec(2, 2, wspace=0.30, hspace=0.42,
-                  left=0.07, right=0.98, top=0.94, bottom=0.08)
+    # ---- Figure: 1x3 panels ----
+    fig = plt.figure(figsize=(13.2, 4.4))
+    gs = GridSpec(1, 3, wspace=0.34, left=0.06, right=0.98, top=0.88, bottom=0.13)
 
     # Panel A: labour-demand curves with equilibria
     ax = fig.add_subplot(gs[0, 0])
@@ -1138,7 +1138,7 @@ def make_shocks(delta=0.2, eta_baseline=0.5, A_pre=2.0):
     ax.set_ylim(0, 0.6)
 
     # Panel C: firm-profit bar chart
-    ax = fig.add_subplot(gs[1, 0])
+    ax = fig.add_subplot(gs[0, 2])
     style_axes(ax, gridx=False)
     Vf_g = [Vf_g_nu, Vf_g_fl, Vf_g_rg]
     Vf_b = [Vf_b_nu, Vf_b_fl, Vf_b_rg]
@@ -1158,35 +1158,6 @@ def make_shocks(delta=0.2, eta_baseline=0.5, A_pre=2.0):
     ax.set_title('(c) Firm profit -- bad sector amplified by rigidity')
     ax.legend(loc='upper right', fontsize=8)
     ax.set_ylim(0, max(Vf_g) * 1.25)
-
-    # Panel D: aggregate criterion-dependent welfare W^lambda(eta) at s=0.5
-    ax = fig.add_subplot(gs[1, 1])
-    style_axes(ax)
-    etas_d = np.linspace(0.0, 1.0, 401)
-    Vw_g_eta = np.array([rtm_Vw(e, A=A_good) for e in etas_d])
-    Vf_g_eta = np.array([rtm_Vf(e, A=A_good) for e in etas_d])
-    Vw_b_eta = np.array([rtm_Vw(e, A=A_bad)  for e in etas_d])
-    Vf_b_eta = np.array([rtm_Vf(e, A=A_bad)  for e in etas_d])
-    Vw_agg_eta = 0.5 * Vw_g_eta + 0.5 * Vw_b_eta
-    Vf_agg_eta = 0.5 * Vf_g_eta + 0.5 * Vf_b_eta
-    lambdas = [0.00, 0.30, 0.50, 1.00]
-    colors_l = ['#1B1B1B', C_SOC, C_FIRM, C_OVER]
-    labels_l = [r'$\lambda=0$ (equal)',
-                r'$\lambda=0.30$ \textbf{(realistic)}',
-                r'$\lambda=0.50$',
-                r'$\lambda=1$ (Rawlsian)']
-    for lam, col, lab in zip(lambdas, colors_l, labels_l):
-        Wlam_agg = (1 + lam) * Vw_agg_eta + (1 - lam) * Vf_agg_eta
-        lw = 2.6 if lam == 0.30 else 1.8
-        ax.plot(etas_d, Wlam_agg, color=col, lw=lw, label=lab)
-        idx = int(np.argmax(Wlam_agg))
-        ax.scatter([etas_d[idx]], [Wlam_agg[idx]], color=col, s=52,
-                   edgecolor='white', linewidth=0.8, zorder=5)
-    ax.set_xlabel(r'$\eta$')
-    ax.set_ylabel(r'$\bar W^{\lambda}(\eta, s\!=\!0.5)$')
-    ax.set_title(r'(d) Welfare verdict: $\eta^*\!\approx\!0.58$ at $\lambda\!=\!0.30$')
-    ax.legend(loc='lower left', fontsize=7.8)
-    ax.set_xlim(0, 1)
 
     plt.savefig(OUT_DIR / 'sim_shocks.pdf', bbox_inches='tight', pad_inches=0.05)
     plt.savefig(OUT_DIR / 'sim_shocks.png', bbox_inches='tight', pad_inches=0.05, dpi=200)

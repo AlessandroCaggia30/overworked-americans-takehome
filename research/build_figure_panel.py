@@ -24,30 +24,30 @@ mpl.rcParams.update({
     'font.family': 'serif',
     'font.serif': ['Times New Roman', 'Times', 'STIX', 'DejaVu Serif'],
     'mathtext.fontset': 'stix',
-    'font.size': 9,
-    'axes.titlesize': 10,
-    'axes.labelsize': 9.5,
-    'axes.linewidth': 0.7,
+    'font.size': 10.5,
+    'axes.titlesize': 11.5,
+    'axes.labelsize': 11,
+    'axes.linewidth': 0.85,
     'axes.spines.top': False,
     'axes.spines.right': False,
     'axes.titleweight': 'bold',
-    'axes.titlepad': 6,
-    'xtick.labelsize': 8.5,
-    'ytick.labelsize': 8.5,
+    'axes.titlepad': 7,
+    'xtick.labelsize': 10,
+    'ytick.labelsize': 10,
     'xtick.direction': 'out',
     'ytick.direction': 'out',
-    'xtick.major.size': 3.5,
-    'ytick.major.size': 3.5,
-    'xtick.major.width': 0.6,
-    'ytick.major.width': 0.6,
-    'xtick.minor.size': 2.0,
-    'ytick.minor.size': 2.0,
-    'xtick.minor.width': 0.4,
-    'ytick.minor.width': 0.4,
-    'legend.fontsize': 8,
+    'xtick.major.size': 4.0,
+    'ytick.major.size': 4.0,
+    'xtick.major.width': 0.75,
+    'ytick.major.width': 0.75,
+    'xtick.minor.size': 2.4,
+    'ytick.minor.size': 2.4,
+    'xtick.minor.width': 0.5,
+    'ytick.minor.width': 0.5,
+    'legend.fontsize': 9.5,
     'legend.frameon': False,
-    'lines.linewidth': 1.5,
-    'lines.markersize': 5,
+    'lines.linewidth': 1.8,
+    'lines.markersize': 6,
     'figure.dpi': 150,
     'savefig.dpi': 300,
     'savefig.bbox': 'tight',
@@ -136,7 +136,7 @@ TAX_WEDGE_TS = {
 
 
 def smart_label(ax, x, y, text, color, dx=4, dy=0, **kw):
-    ax.annotate(text, (x, y), fontsize=8, color=color,
+    ax.annotate(text, (x, y), fontsize=9.5, color=color,
                 ha='left', va='center', xytext=(dx, dy),
                 textcoords='offset points', fontweight='bold', **kw)
 
@@ -152,9 +152,9 @@ def style_axes(ax, gridx=False, gridy=True):
 # =====================================================================
 # Build figure -- 3 panels horizontal
 # =====================================================================
-fig = plt.figure(figsize=(14.5, 4.2))
-gs = GridSpec(1, 3, figure=fig, wspace=0.32,
-              left=0.05, right=0.985, top=0.88, bottom=0.16)
+fig = plt.figure(figsize=(15.5, 4.7))
+gs = GridSpec(1, 3, figure=fig, wspace=0.30,
+              left=0.05, right=0.985, top=0.90, bottom=0.16)
 
 # ---------------------------------------------------------------------
 # (a) Hours per worker, % deviation from US, 1970-2024
@@ -173,7 +173,7 @@ for iso2 in focus_a:
     if not yrs:
         continue
     vals = [(series[y] / us_series[y] - 1.0) * 100.0 for y in yrs]
-    ax_a.plot(yrs, vals, color=color_of(iso2), linewidth=1.4, alpha=0.9,
+    ax_a.plot(yrs, vals, color=color_of(iso2), linewidth=1.8, alpha=0.92,
               solid_capstyle='round')
     end_pts_a.append((iso2, yrs[-1], vals[-1]))
 
@@ -189,7 +189,7 @@ for iso2, xv, yv in end_pts_a:
     last_y = yv_lbl
 
 # Annotate the US zero line
-ax_a.text(2025, 0.4, 'US', fontsize=8, color=color_of('US'),
+ax_a.text(2025, 0.4, 'US', fontsize=9.5, color=color_of('US'),
           fontweight='bold', ha='left', va='bottom')
 
 ax_a.set_xlabel('Year')
@@ -217,9 +217,9 @@ for iso2 in focus_b:
     series = TAX_WEDGE_TS[iso2]
     yrs = sorted(y for y in series if y in us_wedge)
     vals = [(series[y] / us_wedge[y] - 1.0) * 100.0 for y in yrs]
-    ax_b.plot(yrs, vals, color=color_of(iso2), linewidth=1.4,
-              marker='o', markersize=3.0, markeredgecolor='white',
-              markeredgewidth=0.5, alpha=0.92)
+    ax_b.plot(yrs, vals, color=color_of(iso2), linewidth=1.8,
+              marker='o', markersize=3.6, markeredgecolor='white',
+              markeredgewidth=0.6, alpha=0.94)
     end_pts_b.append((iso2, yrs[-1], vals[-1]))
 
 end_pts_b.sort(key=lambda t: -t[2])
@@ -232,7 +232,7 @@ for iso2, xv, yv in end_pts_b:
     smart_label(ax_b, xv, yv_lbl, iso2, color_of(iso2), dx=5, dy=0)
     last_y = yv_lbl
 
-ax_b.text(2008, 1.5, 'US', fontsize=8, color=color_of('US'),
+ax_b.text(2008, 1.5, 'US', fontsize=9.5, color=color_of('US'),
           fontweight='bold', ha='left', va='bottom')
 
 ax_b.set_xlabel('Year')
@@ -286,10 +286,10 @@ E_OFFSETS = {
 }
 for c in common:
     xv, yv = TAX_WEDGE_2023[c], HRS_WKR_2023[c]
-    ax_c.scatter(xv, yv, color=color_of(c), s=70,
-                 edgecolor='white', linewidth=1.0, zorder=4)
+    ax_c.scatter(xv, yv, color=color_of(c), s=95,
+                 edgecolor='white', linewidth=1.1, zorder=4)
     dx, dy = E_OFFSETS.get(c, (5, 4))
-    ax_c.annotate(c, (xv, yv), fontsize=8, color=color_of(c),
+    ax_c.annotate(c, (xv, yv), fontsize=9.5, color=color_of(c),
                   fontweight='bold', ha='left', va='center',
                   xytext=(dx, dy), textcoords='offset points', zorder=5)
 
@@ -304,7 +304,7 @@ ax_c.xaxis.set_minor_locator(MultipleLocator(1))
 ax_c.yaxis.set_major_locator(MultipleLocator(100))
 ax_c.yaxis.set_minor_locator(MultipleLocator(50))
 ax_c.legend(loc='upper right', frameon=True, framealpha=0.95,
-            edgecolor='#bbbbbb', fancybox=False, fontsize=7.5)
+            edgecolor='#bbbbbb', fancybox=False, fontsize=9)
 style_axes(ax_c, gridx=True)
 
 # ---------------------------------------------------------------------
@@ -313,9 +313,9 @@ style_axes(ax_c, gridx=True)
 patches = [mpatches.Patch(facecolor=info['color'], edgecolor='white',
                           label=name)
            for name, info in REGIONS.items()]
-fig.legend(handles=patches, loc='lower center', ncol=5, fontsize=8.5,
+fig.legend(handles=patches, loc='lower center', ncol=5, fontsize=10,
            bbox_to_anchor=(0.5, 0.0), frameon=False,
-           handlelength=1.2, handleheight=0.9, columnspacing=2.0)
+           handlelength=1.4, handleheight=1.0, columnspacing=2.2)
 
 plt.savefig('../figures/figure_panel.pdf', bbox_inches='tight', pad_inches=0.05)
 plt.savefig('../figures/figure_panel.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
