@@ -675,6 +675,153 @@ def make_q7_v2():
 #   (b) eta_phi literature decomposition (Aschauer + capital + HC + R&D)
 #   (c) 8-cell (cul x union x cap) counterfactual welfare bars
 #   (d) Shapley decomposition into 3 channels
+def make_q7_eta_lambda(eta_us_obs=0.15, eta_eu_obs=0.50,
+                       lam_planner=0.30, A_=A):
+    """
+    Q7 (V2 framework): plot eta*(lambda) curve, mark observed
+    (eta_US, eta_EU) and the implied lambda^rev, plus the welfare-loss
+    wedge under a common-lambda planner.
+
+    Reading A: common lambda = lam_planner. Both countries should sit
+    at eta*(lam_planner). Distance to the curve = welfare loss.
+
+    Reading B: each country at its own optimum -> implied lambda^rev
+    inverts eta*(lambda).
+    """
+    print("=== Q7 V2: eta*(lambda) revealed-preference diagnostic ===")
+
+    # Closed-form: x*(lambda) = 0.3*A*(1+lam)/(0.6+1.6*lam) at baseline
+    def x_star(lam):
+        return 0.3 * A_ * (1 + lam) / (0.6 + 1.6 * lam)
+
+    # Recover eta* from x* using the Nash bargain quadratic
+    # 1.1 x^2 - 0.6(2-eta) x + 0.1(1-eta) = 0
+    # Solve for eta given x:
+    #   eta * (0.6 x - 0.1) = 1.2 x - 1.1 x^2 - 0.1
+    def eta_star(lam):
+        x = x_star(lam)
+        num = 1.2 * x - 1.1 * x ** 2 - 0.1
+        den = 0.6 * x - 0.1
+        if abs(den) < 1e-9:
+            return 0.0
+        return max(0.0, min(1.0, num / den))
+
+    # Inverse: given observed eta, solve for implied lambda^rev numerically
+    def lam_rev(eta_obs):
+        lam_grid = np.linspace(0.0, 1.0, 5001)
+        eta_grid = np.array([eta_star(l) for l in lam_grid])
+        idx = int(np.argmin(np.abs(eta_grid - eta_obs)))
+        return lam_grid[idx]
+
+    lam_us_rev = lam_rev(eta_us_obs)
+    lam_eu_rev = lam_rev(eta_eu_obs)
+
+    # Welfare under W^lambda at given eta (single-sector, A=2)
+    def W_lambda(eta_, lam):
+        Vw = rtm_Vw(eta_, A=A_)
+        Vf = rtm_Vf(eta_, A=A_)
+        return (1 + lam) * Vw + (1 - lam) * Vf
+
+    # Reading A: common lam_planner. Welfare loss vs optimum at this lambda.
+    eta_opt_A = eta_star(lam_planner)
+    W_opt_A = W_lambda(eta_opt_A, lam_planner)
+    W_us_A = W_lambda(eta_us_obs, lam_planner)
+    W_eu_A = W_lambda(eta_eu_obs, lam_planner)
+    loss_us_A = W_opt_A - W_us_A
+    loss_eu_A = W_opt_A - W_eu_A
+
+    # Reading B: each country at own implied lambda
+    W_us_B = W_lambda(eta_us_obs, lam_us_rev)
+    W_eu_B = W_lambda(eta_eu_obs, lam_eu_rev)
+
+    print(f"  eta*(lambda=0.30) = {eta_opt_A:.3f}")
+    print(f"  US: eta_obs={eta_us_obs}, lambda^rev={lam_us_rev:.3f}, "
+          f"W^0.30(obs)={W_us_A:.4f}, W^0.30(opt)={W_opt_A:.4f}, "
+          f"loss={loss_us_A:.4f}")
+    print(f"  EU: eta_obs={eta_eu_obs}, lambda^rev={lam_eu_rev:.3f}, "
+          f"W^0.30(obs)={W_eu_A:.4f}, W^0.30(opt)={W_opt_A:.4f}, "
+          f"loss={loss_eu_A:.4f}")
+
+    # ---- Figure ----
+    fig = plt.figure(figsize=(11.0, 4.4))
+    gs = GridSpec(1, 2, wspace=0.30, left=0.07, right=0.97,
+                  top=0.88, bottom=0.16)
+
+    lam_grid = np.linspace(0.0, 1.0, 401)
+    eta_grid = np.array([eta_star(l) for l in lam_grid])
+
+    # Panel (a): eta*(lambda) curve with observed points
+    ax = fig.add_subplot(gs[0, 0])
+    style_axes(ax)
+    ax.plot(lam_grid, eta_grid, color='#1B1B1B', lw=2.4,
+            label=r'$\eta^{*}(\lambda)$ welfare-optimum')
+    # mark common-lambda planner point on the curve
+    ax.axvline(lam_planner, color=C_SOC, ls=':', lw=1.2, alpha=0.6)
+    ax.scatter([lam_planner], [eta_opt_A], color=C_SOC, s=80, zorder=5,
+               edgecolor='white', linewidth=0.9,
+               label=fr'$\eta^{{*}}(\lambda\!=\!{lam_planner})\!=\!{eta_opt_A:.2f}$')
+    # observed points: at their revealed-preference lambda
+    ax.scatter([lam_us_rev], [eta_us_obs], color=C_US, s=110, marker='s',
+               zorder=6, edgecolor='white', linewidth=1.0,
+               label=fr'US obs ($\hat\eta\!=\!{eta_us_obs}$, $\lambda^{{\rm rev}}\!\approx\!{lam_us_rev:.2f}$)')
+    ax.scatter([lam_eu_rev], [eta_eu_obs], color=C_EU, s=110, marker='s',
+               zorder=6, edgecolor='white', linewidth=1.0,
+               label=fr'EU obs ($\hat\eta\!=\!{eta_eu_obs}$, $\lambda^{{\rm rev}}\!\approx\!{lam_eu_rev:.2f}$)')
+    # Reading A wedge: vertical lines from observed to curve at lam=0.30
+    ax.plot([lam_planner, lam_planner], [eta_us_obs, eta_opt_A],
+            color=C_US, lw=1.2, ls='--', alpha=0.7)
+    ax.plot([lam_planner, lam_planner], [eta_eu_obs, eta_opt_A],
+            color=C_EU, lw=1.2, ls='--', alpha=0.7)
+    ax.set_xlabel(r'Fairness premium $\lambda$')
+    ax.set_ylabel(r'Optimal worker bargaining weight $\eta^{*}$')
+    ax.set_title(r'(a) $\eta^{*}(\lambda)$: revealed vs.\ common-$\lambda$ readings')
+    ax.legend(loc='lower right', fontsize=7.8)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1.05)
+
+    # Panel (b): welfare loss at common lambda=0.30
+    ax = fig.add_subplot(gs[0, 1])
+    style_axes(ax, gridx=False)
+    eta_dense = np.linspace(0.0, 1.0, 401)
+    Wlam = np.array([W_lambda(e, lam_planner) for e in eta_dense])
+    ax.plot(eta_dense, Wlam, color='#1B1B1B', lw=2.4,
+            label=fr'$W^{{\lambda\!=\!{lam_planner}}}(\eta)$')
+    # mark optimum
+    ax.scatter([eta_opt_A], [W_opt_A], color=C_SOC, s=90, zorder=5,
+               edgecolor='white', linewidth=0.9,
+               label=fr'optimum at $\eta^{{*}}\!=\!{eta_opt_A:.2f}$')
+    # mark US, EU
+    ax.scatter([eta_us_obs], [W_us_A], color=C_US, s=110, marker='s',
+               zorder=6, edgecolor='white', linewidth=1.0,
+               label=fr'US: $W\!=\!{W_us_A:.3f}$ (loss $\!-\!{loss_us_A:.3f}$)')
+    ax.scatter([eta_eu_obs], [W_eu_A], color=C_EU, s=110, marker='s',
+               zorder=6, edgecolor='white', linewidth=1.0,
+               label=fr'EU: $W\!=\!{W_eu_A:.3f}$ (loss $\!-\!{loss_eu_A:.3f}$)')
+    # vertical loss segments
+    ax.plot([eta_us_obs, eta_us_obs], [W_us_A, W_opt_A],
+            color=C_US, lw=1.2, ls='--', alpha=0.7)
+    ax.plot([eta_eu_obs, eta_eu_obs], [W_eu_A, W_opt_A],
+            color=C_EU, lw=1.2, ls='--', alpha=0.7)
+    ax.set_xlabel(r'Bargaining weight $\eta$')
+    ax.set_ylabel(rf'$W^{{\lambda\!=\!{lam_planner}}}(\eta)$')
+    ax.set_title(rf'(b) Reading A welfare loss at common $\lambda\!=\!{lam_planner}$')
+    ax.legend(loc='lower center', fontsize=7.8)
+    ax.set_xlim(0, 1)
+
+    plt.savefig(OUT_DIR / 'sim_q7_eta_lambda.pdf', bbox_inches='tight',
+                pad_inches=0.05)
+    plt.savefig(OUT_DIR / 'sim_q7_eta_lambda.png', bbox_inches='tight',
+                pad_inches=0.05, dpi=200)
+    plt.close()
+    print("  -> sim_q7_eta_lambda.pdf written.")
+    print()
+    return {
+        'eta_opt_A': eta_opt_A, 'W_opt_A': W_opt_A,
+        'lam_us_rev': lam_us_rev, 'lam_eu_rev': lam_eu_rev,
+        'loss_us_A': loss_us_A, 'loss_eu_A': loss_eu_A,
+    }
+
+
 def make_q7_lambda_s(delta=0.2, A_pre=2.0, eta_baseline=0.5):
     """
     Q7 figure (1x2) consolidating the lambda- and s-dependence dropped
@@ -1396,6 +1543,7 @@ if __name__ == '__main__':
     res = make_q7_v2()
     res_full = make_q7_full()
     make_q7_lambda_s()
+    make_q7_eta_lambda()
     res_l = make_redistribution()
     res_s = make_shocks()
     make_aggregation()

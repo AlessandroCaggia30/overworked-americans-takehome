@@ -2,7 +2,6 @@
 
 \usepackage{graphicx}
 \graphicspath{{figures/}}
-\usepackage{wrapfig}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{booktabs}
@@ -17,7 +16,7 @@
 \captionsetup[table]{labelfont=footnotesize}
 \captionsetup[figure]{labelfont=footnotesize}
 
-\title{Take-Home Exam, Advanced Microeconomics --- v2\\[0.2em]\large Problem 1: Overworked Americans -- Q1, Q2, Q4, Q5}
+\title{Take-Home Exam, Advanced Microeconomics --- v2\\[0.2em]\large Problem 1: Overworked Americans -- Q1, Q2, Q4, Q5, Q7}
 \author{Alessandro Caggia (), Stefano De Bianchi (), Eduard (), Francesco Mastidoro (3323853)}
 \date{May 2026}
 
@@ -234,24 +233,99 @@ Substituting $A_{\textsc{g}}, A_{\textsc{b}}$ into \eqref{eq:rtm-bargain} at $\e
 The model makes three falsifiable predictions: (a) hours are \emph{decreasing} in union bargaining strength conditional on productivity; (b) the cross-country US--EU gap is a rising function of the union-coverage gap; (c) bad-sector productivity shocks generate larger hours responses in unionised economies than in competitive ones. To test: sectoral employment / hours panels by industry (OECD STAN, EU KLEMS), union-coverage by sector (ICTWSS), collective-agreement wage indices. Identification of the rigidity asymmetry exploits shocks to which the bad sector responds: the post-2000 manufacturing decline in DE and IT (sectoral hours and employment fell sharply, real wages did not).
 
 % =========================================================================
+\section{Q7 -- Welfare comparison: a revealed-preference reading}
+% =========================================================================
+
+\begingroup\small\itshape\noindent\textbf{Question 7.} Now consider broadly a subset of your choice of the aspects considered above. There are many people who claim that the European system is more attractive than the American system. Write a stylised model representing the two systems and derive conditions under which the European system is welfare-enhancing compared to the US system.\endgroup
+
+\subsection{Modelling choice}
+The Q4 cap and Q5 union are both quantity instruments that pull hours from $h^{\mathrm{firm}}$ toward $h^{\mathrm{soc}}$. Whether a given configuration is welfare-enhancing depends on \emph{whose} welfare we are summing. The natural representation of the cross-country welfare disagreement is the Saez--Stantcheva (2016) generalised welfare weight: the planner attaches premium $\lambda\!\in\![0,1]$ to a worker dollar over a firm-owner dollar,
+\[
+\boxed{\;W^{\lambda}(\eta)\;=\;(1+\lambda)\,V_w(\eta)\;+\;(1-\lambda)\,V_f(\eta).\;}
+\]
+$\lambda\!=\!0$ is equal-weight utilitarianism, $\lambda\!=\!1$ is Rawlsian. Following Alesina--Angeletos (2005), $\lambda$ is a country-specific primitive: it captures fairness beliefs (whether income inequality is seen as deserved or as luck), which can differ across countries even at common preferences and technology. We compare the two systems through the lens of this single parameter.
+
+\subsection{Welfare-optimum bargaining weight: closed form}
+Maximising $W^{\lambda}(\eta)$ along the bargained path of \eqref{eq:rtm-bargain} gives the welfare-optimum reduced-form variable $x^{*}\!\equiv\!A-w^{*}\!=\!\beta h^{*}$:
+\[
+x^{*}(\lambda)\;=\;\frac{0.3\,A\,(1+\lambda)}{0.6+1.6\,\lambda}\qquad\text{(at baseline; derivation in \texttt{sim\_models\_v2.py})}.
+\]
+Substituting $x^{*}(\lambda)$ into the Nash-bargain quadratic recovers the \emph{welfare-optimum bargaining weight}:
+\[
+\boxed{\;\eta^{*}(\lambda)\;=\;\frac{1.2\,x^{*}-1.1\,(x^{*})^{2}-0.1}{0.6\,x^{*}-0.1}.\;}
+\]
+$\eta^{*}$ is monotonically increasing in $\lambda$, with $\eta^{*}(0)\!=\!0$ (firm-power optimal under equal weights) and $\eta^{*}(1)\!=\!1$ (full union under Rawlsian).
+
+\subsection{Confronting data: observed unionisation in US and EU}
+We map the Nash-bargain weight $\eta$ to OECD bargaining-coverage data: $\hat\eta^{\,US}\!\approx\!0.15$ (coverage $\sim\!12\%$), $\hat\eta^{\,EU}\!\approx\!0.50$ (coverage $\sim\!60\%$ population-weighted across DE/FR/IT/SE).\footnote{The mapping is a coarse linear proxy: it overstates Nordic high-density regimes and understates French \emph{erga omnes} extension regimes, where coverage is high but bargaining power is weak. A wage-premium calibration via Card et al.\ (2018) gives a comparable band.} These two observations admit two competing readings.
+
+\paragraph{Reading A --- common $\lambda$.} If both countries share the HSV-anchored $\lambda\!=\!0.30$, the unique welfare-optimum is $\eta^{*}(0.30)\!=\!0.58$. Both observed values are \emph{below} the optimum: the US is heavily under-unionised ($\hat\eta^{US}\!=\!0.15$, far from $0.58$), the EU is mildly under ($\hat\eta^{EU}\!=\!0.50$). Welfare loss under this reading:
+\begin{center}\footnotesize
+\begin{tabular}{lcccccc}
+\toprule
+& $\hat\eta$ & $\eta^{*}(0.30)$ & direction & $W^{0.30}(\hat\eta)$ & $W^{0.30}(\eta^{*})$ & loss \\
+\midrule
+US & 0.15 & 0.58 & under-unionised & 0.259 & 0.282 & $\mathbf{-0.022}$ \\
+EU & 0.50 & 0.58 & mildly under & 0.281 & 0.282 & $\mathbf{-0.001}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Reading A delivers an unconditional verdict: \textbf{at HSV-implied fairness, EU institutions are essentially welfare-optimal; US institutions leave $\sim\!8\%$ of joint surplus on the table because the firm extracts too much.} Equivalently, the US is below the welfare-improving band of Q4 \eqref{eq:capwelf} \emph{from the union side}: a US planner that accepted $\lambda\!=\!0.30$ would push for higher union coverage.
+
+\paragraph{Reading B --- country-specific $\lambda$.} Inverting $\eta^{*}(\lambda)$ on observed coverage:
+\[
+\hat\eta^{\,US}\!=\!0.15\;\Longrightarrow\;\lambda^{\,US,\rm rev}\!\approx\!0.05,\qquad
+\hat\eta^{\,EU}\!=\!0.50\;\Longrightarrow\;\lambda^{\,EU,\rm rev}\!\approx\!0.24.
+\]
+Each country's institutions are then \emph{at-optimum given its own fairness primitive}; cross-country fairness-belief gap is $\Delta\lambda\!\approx\!0.19$. The hours drag from the union channel is small in the US ($h^{\mathrm{firm}}\!\to\!0.45$, $-9\%$) and larger in the EU ($h^{\mathrm{firm}}\!\to\!0.38$, $-24\%$). \textbf{This is the missing variable in Q1 panel (c)}: the residual $\sim\!54\%$ of the cross-country hours gap that taxes alone could not absorb (Q2 decomposition) is reconstructed by the $\lambda$-driven union channel.
+
+\subsection{Verdict}
+The two readings give compatible verdicts on \emph{whether} the EU system is more welfare-enhancing, but disagree on \emph{why}.
+\begin{itemize}\setlength\itemsep{1pt}
+\item \emph{Reading A} (common $\lambda\!=\!0.30$): \textbf{EU is unconditionally welfare-better}, because EU institutions are closer to any reasonable planner's optimum than US institutions are. The mechanism is institutional implementation, not preferences.
+\item \emph{Reading B} (country-specific $\lambda$): \textbf{neither country is welfare-better in absolute terms} --- each implements its own optimum. The cross-country hours gap reflects a fairness-belief gap, which is the missing variable in the noisy Q1 cross-section.
+\end{itemize}
+
+The two readings are \emph{empirically distinguishable}: Reading A predicts all countries on the same horizontal line $\eta\!=\!\eta^{*}(0.30)$, which the observed range (US 0.15, FR 0.98, SE 0.88, DE 0.52) clearly violates. \textbf{The data prefer Reading B} --- but Reading A is the cleaner welfare argument.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{sim_q7_eta_lambda.pdf}
+\caption{\footnotesize \textbf{Q7 revealed-preference diagnostic.} \textbf{(a)} The $\eta^{*}(\lambda)$ welfare-optimum locus (black). Observed US and EU points sit on the locus at their revealed-preference $\lambda^{\rm rev}$ (Reading B). Vertical dashed segments show the deviation under common $\lambda\!=\!0.30$ (Reading A): both countries below the optimum, US far more so. \textbf{(b)} $W^{\lambda\!=\!0.30}(\eta)$: peak at $\eta^{*}\!=\!0.58$. US loss $-0.022$ (under-unionised by 0.43); EU loss $-0.001$ (essentially at-optimum). \emph{Source:} \texttt{sim\_models\_v2.py:make\_q7\_eta\_lambda}.}
+\label{fig:simq7etalambda}
+\end{figure}
+
+\textbf{Honest caveats.} (i) The $\eta\!\leftrightarrow\!$\,coverage map is a coarse proxy --- countries with high coverage but weak bargaining power (France) sit above the locus mechanically. (ii) HSV-implied $\lambda\!=\!0.30$ is calibrated to US tax progressivity; it is not by construction country-neutral. (iii) The cap channel is orthogonal at our calibration: in both readings the union alone pulls $h$ below any sensible cap, so the Q4 instrument is a counterfactual backstop, not an active driver. (iv) Beyond the labour-market block, dominant US--EU welfare differences come from non-labour channels (life expectancy, consumption levels --- Jones--Klenow 2016); our verdict is sign-determinate but quantitatively second-order.
+
+% =========================================================================
 \section*{References}
 % =========================================================================
 \begingroup
 \setlength{\parindent}{-1.2em}\setlength{\leftskip}{1.2em}
 \footnotesize
 
+Alesina, A., \& Angeletos, G.-M.\ (2005). Fairness and Redistribution. \emph{AER} 95(4), 960--980 [\textbf{Q7 country-specific $\lambda$}].
+
 Bick, A., Br\"uggemann, B., \& Fuchs-Sch\"undeln, N.\ (2019). Hours Worked in Europe and the US: New Data, New Answers. \emph{Scandinavian Journal of Economics} 121(4), 1381--1416 [\textbf{Q1 decomposition}].
 
 Calmfors, L., \& Driffill, J.\ (1988). Bargaining Structure, Corporatism and Macroeconomic Performance. \emph{Economic Policy} 3(6), 13--61 [\textbf{Q5 encompassing-union foundation}].
+
+Card, D., Cardoso, A.\ R., Heining, J., \& Kline, P.\ (2018). Firms and Labor Market Inequality: Evidence and Some Theory. \emph{JOLE} 36(S1), S13--S70 [\textbf{Q7 wage-premium calibration}].
 
 Chetty, R., Guren, A., Manoli, D., \& Weber, A.\ (2011). Are Micro and Macro Labor Supply Elasticities Consistent? A Review of Evidence on the Intensive and Extensive Margins. \emph{AER P\&P} 101(3), 471--475 [\textbf{Q2 micro consensus 0.30}].
 
 Estev\~ao, M., \& S\'a, F.\ (2008). The 35-Hour Workweek in France: Straightjacket or Welfare Improvement? \emph{Economic Policy} 23(55), 418--463 [\textbf{Q4 Aubry empirical anchor}].
 
+Heathcote, J., Storesletten, K., \& Violante, G.\ L.\ (2017). Optimal Tax Progressivity: An Analytical Framework. \emph{QJE} 132(4), 1693--1754 [\textbf{Q7 $\lambda\!=\!0.30$ anchor}].
+
+Jones, C.\ I., \& Klenow, P.\ J.\ (2016). Beyond GDP? Welfare across Countries and Time. \emph{AER} 106(9), 2426--2457 [\textbf{Q7 non-labour benchmark}].
+
 Prescott, E.\ C.\ (2004). Why Do Americans Work So Much More than Europeans? \emph{Federal Reserve Bank of Minneapolis Quarterly Review} 28(1), 2--13 [\textbf{Q2 origin}].
 
+Saez, E., \& Stantcheva, S.\ (2016). Generalized Social Marginal Welfare Weights for Optimal Tax Theory. \emph{AER} 106(1), 24--45 [\textbf{Q7 $\lambda$-weighted welfare}].
+
 \medskip
-\noindent\emph{Replication scripts in \texttt{research/}: \texttt{build\_figure\_panel.py} (Q1 figure); \texttt{sim\_models\_v2.py} (Q2 decomposition; Q5 RTM and sectoral shocks); \texttt{sim\_mechanisms.py} (Q4 cap simulation).}
+\noindent\emph{Replication scripts in \texttt{research/}: \texttt{build\_figure\_panel.py} (Q1 figure); \texttt{sim\_models\_v2.py} (Q2 decomposition; Q5 RTM and sectoral shocks; Q7 \texttt{make\_q7\_eta\_lambda}); \texttt{sim\_mechanisms.py} (Q4 cap simulation).}
 \endgroup
 
 \end{document}
