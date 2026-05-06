@@ -675,6 +675,108 @@ def make_q7_v2():
 #   (b) eta_phi literature decomposition (Aschauer + capital + HC + R&D)
 #   (c) 8-cell (cul x union x cap) counterfactual welfare bars
 #   (d) Shapley decomposition into 3 channels
+def make_q7_lambda_s(delta=0.2, A_pre=2.0, eta_baseline=0.5):
+    """
+    Q7 figure (1x2) consolidating the lambda- and s-dependence dropped
+    from Q5 (former §5.3 panel-d and former §5.5 sim_aggregation).
+      (a) Aggregate W^lambda(eta, s=0.5) for lambda in {0, 0.30, 0.50, 1};
+          peaks at eta*(lambda) marked.
+      (b) Rigidity cost (Flex-Rigid) as a function of sector share s
+          under lambda=0 (equal weights) vs lambda=0.30 (realistic).
+    """
+    print("=== Q7 lambda-s sensitivity (sim_q7_lambda_s) ===")
+    A_good = A_pre + delta
+    A_bad  = A_pre - delta
+
+    # ---- Panel (a) data: W^lambda(eta) at s=0.5 ----
+    etas = np.linspace(0.0, 1.0, 401)
+    Vw_g = np.array([rtm_Vw(e, A=A_good) for e in etas])
+    Vf_g = np.array([rtm_Vf(e, A=A_good) for e in etas])
+    Vw_b = np.array([rtm_Vw(e, A=A_bad)  for e in etas])
+    Vf_b = np.array([rtm_Vf(e, A=A_bad)  for e in etas])
+    Vw_agg = 0.5 * Vw_g + 0.5 * Vw_b
+    Vf_agg = 0.5 * Vf_g + 0.5 * Vf_b
+
+    # ---- Panel (b) data: rigidity cost over s under two lambdas ----
+    w_pre = rtm_w(eta_baseline, A=A_pre)
+    # flexible: each sector renegotiates RTM at new A_j
+    _, _, Vw_g_fl, Vf_g_fl, _ = rtm_country(eta_baseline, 0.0, A_=A_good)
+    _, _, Vw_b_fl, Vf_b_fl, _ = rtm_country(eta_baseline, 0.0, A_=A_bad)
+    # rigid: bad sector wage stuck at w_pre
+    h_b_rg = (A_bad - w_pre) / BETA
+    Vw_b_rg = (1 - TAU) * w_pre * h_b_rg - 0.5 * ALPHA * h_b_rg ** 2
+    Vf_b_rg = A_bad * h_b_rg - 0.5 * BETA * h_b_rg ** 2 - w_pre * h_b_rg
+    # good sector identical under flex / rigid
+    Vw_g_rg, Vf_g_rg = Vw_g_fl, Vf_g_fl
+
+    s_grid = np.linspace(0.0, 1.0, 200)
+    def cost_at(lam):
+        Wfl_g = (1 + lam) * Vw_g_fl + (1 - lam) * Vf_g_fl
+        Wfl_b = (1 + lam) * Vw_b_fl + (1 - lam) * Vf_b_fl
+        Wrg_g = (1 + lam) * Vw_g_rg + (1 - lam) * Vf_g_rg
+        Wrg_b = (1 + lam) * Vw_b_rg + (1 - lam) * Vf_b_rg
+        Wfl = s_grid * Wfl_g + (1 - s_grid) * Wfl_b
+        Wrg = s_grid * Wrg_g + (1 - s_grid) * Wrg_b
+        return Wfl - Wrg
+
+    cost_lam0    = cost_at(0.00)
+    cost_lam_30  = cost_at(0.30)
+
+    print(f"  Rigidity cost at s=0: lambda=0 -> {cost_lam0[0]:+.4f}, "
+          f"lambda=0.30 -> {cost_lam_30[0]:+.4f}")
+    print(f"  Rigidity cost at s=1: lambda=0 -> {cost_lam0[-1]:+.4f}, "
+          f"lambda=0.30 -> {cost_lam_30[-1]:+.4f}")
+
+    # ---- Figure ----
+    fig = plt.figure(figsize=(11.0, 4.2))
+    gs = GridSpec(1, 2, wspace=0.30, left=0.07, right=0.97,
+                  top=0.88, bottom=0.16)
+
+    # Panel (a): W^lambda(eta) with peaks
+    ax = fig.add_subplot(gs[0, 0])
+    style_axes(ax)
+    lambdas = [0.00, 0.30, 0.50, 1.00]
+    colors_l = ['#1B1B1B', C_SOC, C_FIRM, C_OVER]
+    labels_l = [r'$\lambda=0$ (equal)',
+                r'$\lambda=0.30$ \textbf{(realistic)}',
+                r'$\lambda=0.50$',
+                r'$\lambda=1$ (Rawlsian)']
+    for lam, col, lab in zip(lambdas, colors_l, labels_l):
+        Wlam_agg = (1 + lam) * Vw_agg + (1 - lam) * Vf_agg
+        lw = 2.6 if lam == 0.30 else 1.8
+        ax.plot(etas, Wlam_agg, color=col, lw=lw, label=lab)
+        idx = int(np.argmax(Wlam_agg))
+        ax.scatter([etas[idx]], [Wlam_agg[idx]], color=col, s=52,
+                   edgecolor='white', linewidth=0.8, zorder=5)
+    ax.set_xlabel(r'Worker bargaining weight $\eta$')
+    ax.set_ylabel(r'$\bar W^{\lambda}(\eta, s\!=\!0.5)$')
+    ax.set_title(r'(a) Aggregate welfare: $\eta^{*}(\lambda\!=\!0.30)\!\approx\!0.58$')
+    ax.legend(loc='lower left', fontsize=7.8)
+    ax.set_xlim(0, 1)
+
+    # Panel (b): rigidity cost vs s under two lambdas
+    ax = fig.add_subplot(gs[0, 1])
+    style_axes(ax)
+    ax.plot(s_grid, cost_lam0,   color='#1B1B1B', lw=2.0,
+            label=r'$\lambda=0$ (equal)')
+    ax.plot(s_grid, cost_lam_30, color=C_SOC, lw=2.6,
+            label=r'$\lambda=0.30$ \textbf{(realistic)}')
+    ax.fill_between(s_grid, 0, cost_lam0,   color='#1B1B1B', alpha=0.06)
+    ax.fill_between(s_grid, 0, cost_lam_30, color=C_SOC, alpha=0.16)
+    ax.axhline(0, color='black', lw=0.5)
+    ax.set_xlabel(r'Share of good sector $s$')
+    ax.set_ylabel(r'Rigidity cost $\bar W^{\lambda}_{\rm flex}-\bar W^{\lambda}_{\rm rigid}$')
+    ax.set_title(r'(b) $\lambda\!=\!0.30$ shrinks rigidity cost $\sim\!4\times$ at $s\!=\!0$')
+    ax.legend(loc='upper right', fontsize=8.5)
+    ax.set_xlim(0, 1)
+
+    plt.savefig(OUT_DIR / 'sim_q7_lambda_s.pdf', bbox_inches='tight', pad_inches=0.05)
+    plt.savefig(OUT_DIR / 'sim_q7_lambda_s.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    plt.close()
+    print("  -> sim_q7_lambda_s.pdf written.")
+    print()
+
+
 def make_q7_full(eta_phi=0.40, h_cap=0.40, theta_eu=THETA_EU, eta_eu=0.5):
     print("=== Q7 full: 3-channel counterfactual + social productivity ===")
     print(f"  Calibration: eta_phi={eta_phi}, h_cap={h_cap}, theta^EU={theta_eu}")
@@ -1293,6 +1395,7 @@ if __name__ == '__main__':
     make_culture()
     res = make_q7_v2()
     res_full = make_q7_full()
+    make_q7_lambda_s()
     res_l = make_redistribution()
     res_s = make_shocks()
     make_aggregation()

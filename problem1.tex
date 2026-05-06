@@ -682,6 +682,26 @@ shrinking the rigidity cost to $+0.005$ at $s\!=\!0$. The
 and $s$, but the single-sector verdict below is the leading-order
 signal.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{figures/sim_q7_lambda_s.pdf}
+\caption{\scriptsize \textbf{Q7 $\lambda$- and $s$-dependence
+consolidating the welfare verdict.}
+\textbf{(a)} Aggregate welfare $\bar W^{\lambda}(\eta, s\!=\!0.5)$
+for $\lambda\!\in\!\{0,0.30,0.50,1\}$, peaks marked. At
+$\lambda\!=\!0$ the verdict is corner-degenerate ($\eta^{*}\!=\!0$,
+no union); at realistic $\lambda\!=\!0.30$ the interior optimum is
+$\eta^{*}\!\approx\!0.58$. \textbf{(b)} Rigidity cost
+$\bar W^{\lambda}_{\rm flex}\!-\!\bar W^{\lambda}_{\rm rigid}$ as a
+function of sector composition $s$ under $\lambda\!=\!0$ (black) vs
+$\lambda\!=\!0.30$ (green). Inequality aversion shrinks the
+rigidity cost from $0.019$ to $0.005$ at $s\!=\!0$ -- a
+$\sim\!4\times$ attenuation -- because the rigid bad-sector wage is
+worth more under a worker-tilted welfare functional.
+\emph{Source:} \texttt{sim\_models\_v2.py:make\_q7\_lambda\_s}.}
+\label{fig:simq7lambdas}
+\end{figure}
+
 \subsection{Verdict: EU welfare-dominates iff $\lambda>\bar\lambda$}
 Computing the EU--US gap:
 \begin{equation}
