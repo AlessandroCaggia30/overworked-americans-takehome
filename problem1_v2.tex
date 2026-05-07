@@ -11,7 +11,7 @@
 \usepackage{siunitx}
 \usepackage{titlesec}
 \usepackage{float}
-\geometry{top=0.85in, right=0.85in, left=0.85in, bottom=0.85in}
+\geometry{top=0.7in, right=0.7in, left=0.7in, bottom=0.7in}
 
 \captionsetup[table]{labelfont=footnotesize}
 \captionsetup[figure]{labelfont=footnotesize}
@@ -76,9 +76,13 @@ We use log--log preferences with a balanced lump-sum rebate (Prescott 2004). \em
 Log--log preferences $u(c,h)=\log c+\alpha\log(1-h)$, wage $w$, proportional labour-tax wedge $\tau$, lump-sum rebate $T$. Worker budget is $c=(1-\tau)wh+T$ with $T$ rebated such that $c=wh$ in equilibrium. The static FOC is the canonical $(1-\tau)w\,u_c=-u_l$:
 \[
 \frac{(1-\tau)w}{c}\;=\;\frac{\alpha}{1-h},\qquad c=wh \;\Longrightarrow\; \frac{1-\tau}{h}\;=\;\frac{\alpha}{1-h}\;\Longrightarrow\;
-\boxed{\;h^*(\tau)\;=\;\frac{1-\tau}{\alpha+1-\tau},\qquad \varepsilon^M_{h,1-\tau}\;=\;\frac{\alpha}{\alpha+1-\tau}\in(0,1).\;}
+h^*(\tau) = \frac{1-\tau}{\alpha+1-\tau},\qquad \varepsilon^M_{h,1-\tau} = \frac{\alpha}{\alpha+1-\tau}\in(0,1).
 \]
-$\partial h^*/\partial\tau<0$: a higher European tax wedge mechanically reduces hours, which is the cross-section sign of panel~(c). The elasticity $\varepsilon^M$ is \emph{Marshallian} (uncompensated, holds the rebate fixed at the margin), not Frisch --- the static model has no intertemporal margin. CGM (2011) report the steady-state \emph{Hicksian} intensive at $\approx\!0.30$ and argue that micro and macro Hicksian estimates agree; our calibration is silent on Frisch and addresses the Marshallian.
+$\partial h^*/\partial\tau<0$, so the model delivers a sharp formal condition for ``Europe works less than the US'' under common preferences:
+\[
+h_E^* < h_U^* \;\iff\; \tau_E > \tau_U \qquad (\text{at common } \alpha).
+\]
+\emph{Remark.} With country-specific $\alpha$ (different leisure-disutility weights), the condition is no longer monotone in $\tau$ alone: $h_E^* < h_U^*$ becomes joint in $(\tau,\alpha)$, and Europe could work less even at common $\tau$ if $\alpha^{EU}\!>\!\alpha^{US}$ (i.e., Europeans put higher weight on leisure in the utility function). This is the channel Q5 (unions) and Q7 ($\lambda$) reactivate via institutions and welfare weights rather than via preferences directly. The elasticity $\varepsilon^M$ is \emph{Marshallian} (uncompensated, holds the rebate fixed at the margin), not Frisch --- the static model has no intertemporal margin.
 
 \subsection{Anchor and the cross-section fit}
 Anchoring $h^{US}\!=\!0.33$ at $\tau^{US}\!=\!0.35$, invert $h^*(\tau)\!=\!(1-\tau)/(\alpha+1-\tau)$ for $\alpha$:
@@ -94,7 +98,7 @@ At $\alpha\!=\!1.32$, $\alpha$ absorbs everything (preferences, institutions, cu
 \]
 Predicted hours at this $\alpha$: $h^*_{US}\!=\!0.65/(0.279+0.65)\!=\!0.700$, $h^*_{EU}\!=\!0.44/(0.279+0.44)\!=\!0.612$, log-drop $\log(0.612/0.700)\!=\!-0.134$. Data log-drop is $-0.290$. Hence:
 \[
-\boxed{\;\text{Prescott share of EU--US hours gap}\;=\;\frac{0.134}{0.290}\;\approx\;46\%, \qquad \text{residual}\;\approx\;15.6\,\text{pp}\;\approx\;54\%.\;}
+\text{Prescott share of EU--US hours gap} = \frac{0.134}{0.290} \approx 46\%, \qquad \text{residual} \approx 15.6\,\text{pp} \approx 54\%.
 \]
 \textbf{Taxes alone explain about $46\%$ of the observed gap; the residual $54\%$ lies outside the Prescott mechanism, and its source is not yet identified.} Q4 (hours regulation) and Q5 (unions) propose two candidate institutional channels and ask whether each can absorb part of this residual.
 
@@ -112,12 +116,12 @@ Predicted hours at this $\alpha$: $h^*_{US}\!=\!0.65/(0.279+0.65)\!=\!0.700$, $h
 \subsection{Primitives}
 We adopt a quadratic-disutility worker, linear consumption, and a linear-quadratic firm-profit function --- the simplest closed-form specification that admits both worker- and firm-preferred hours and sign-determinate welfare conditions:
 \[
-V_w(h)=(1-\tau)wh-\tfrac{\alpha}{2}h^2,\;\; \boxed{h^*=\frac{(1-\tau)w}{\alpha}}; \qquad
-V_f(h)=Ah-\tfrac{\beta}{2}h^2-wh,\;\; \boxed{h^{\mathrm{firm}}=\frac{A-w}{\beta}}.
+V_w(h)=(1-\tau)wh-\tfrac{\alpha}{2}h^2,\;\; h^*=\frac{(1-\tau)w}{\alpha}; \qquad
+V_f(h)=Ah-\tfrac{\beta}{2}h^2-wh,\;\; h^{\mathrm{firm}}=\frac{A-w}{\beta}.
 \]
 Joint surplus is $W(h)\!\equiv\!V_w(h)+V_f(h)\!=\!Ah-\tau wh-\tfrac{\alpha+\beta}{2}h^2$. The wage transfer cancels between worker and firm; only the tax wedge $\tau wh$ survives. $W$ is concave with maximum
 \[
-\boxed{h^{\mathrm{soc}}(\tau,\alpha,A,\beta,w) \;=\;\frac{A-\tau w}{\alpha+\beta}.}
+h^{\mathrm{soc}}(\tau,\alpha,A,\beta,w)  = \frac{A-\tau w}{\alpha+\beta}.
 \]
 The setup is shared by Q4 (regulation) and Q5 (unions). Wages are partial-equilibrium; heterogeneity returns at the end of Q4.
 
@@ -155,7 +159,7 @@ $\Delta W(\bar h)=\Delta V_w+\Delta V_f$ & $-\tfrac{\alpha+\beta}{2}\bigl[(h^{\m
 \subsection{Optimality condition (the Q4 result)}
 \textbf{Claim.} Joint surplus $W(h)$ is strictly concave and quadratic with peak at $h^{\mathrm{soc}}$; hence $W(\bar h)$ is symmetric in $\bar h$ around $h^{\mathrm{soc}}$. The function $\Delta W(\bar h)$ thus equals zero at $\bar h\!=\!h^{\mathrm{firm}}$ (no cap) and at the mirror point $2h^{\mathrm{soc}}\!-\!h^{\mathrm{firm}}$, and is positive between them. Hence:
 \begin{equation}
-\boxed{\;\Delta W(\bar h) \;\;\begin{cases} =0 & \text{if } \bar h\geq h^{\mathrm{firm}}\\ >0 & \text{iff } \bar h\in\bigl(2h^{\mathrm{soc}}-h^{\mathrm{firm}},\,h^{\mathrm{firm}}\bigr)\\ <0 & \text{if } \bar h<2h^{\mathrm{soc}}-h^{\mathrm{firm}} \end{cases}\;}
+\Delta W(\bar h)   \begin{cases} =0 & \text{if } \bar h\geq h^{\mathrm{firm}}\\ >0 & \text{iff } \bar h\in\bigl(2h^{\mathrm{soc}}-h^{\mathrm{firm}},\,h^{\mathrm{firm}}\bigr)\\ <0 & \text{if } \bar h<2h^{\mathrm{soc}}-h^{\mathrm{firm}} \end{cases}
 \label{eq:capwelf}
 \end{equation}
 provided $h^{\mathrm{firm}}>h^{\mathrm{soc}}$ (which holds at our baseline, $0.50\!>\!0.40$). The peak gain at $\bar h\!=\!h^{\mathrm{soc}}$ is $\tfrac{1}{2}(\alpha+\beta)(h^{\mathrm{firm}}-h^{\mathrm{soc}})^{2}\!=\!0.020$ at calibration. At $\alpha\!=\!\beta$ the band collapses to $\bar h\!\in\!(h^*,h^{\mathrm{firm}})\!=\!(0.30,0.50)$.
@@ -165,7 +169,7 @@ provided $h^{\mathrm{firm}}>h^{\mathrm{soc}}$ (which holds at our baseline, $0.5
 \subsection{Heterogeneous workers: who is rationed}
 With worker types indexed by the leisure-disutility curvature $\alpha_i$ (but identical $w,\tau$), the cap forces every type to $\bar h$. The individual payoff change $\Delta V_w^i(\bar h)\!=\!(\bar h-h^{\mathrm{firm}})\bigl[(1-\tau)w-\tfrac{\alpha_i}{2}(\bar h+h^{\mathrm{firm}})\bigr]$ is positive iff $\alpha_i\!>\!\alpha^*(\bar h)$ where
 \begin{equation}
-\boxed{\;\alpha^*(\bar h)\;=\;\frac{2(1-\tau)w}{\bar h+h^{\mathrm{firm}}}.\;}
+\alpha^*(\bar h) = \frac{2(1-\tau)w}{\bar h+h^{\mathrm{firm}}}.
 \label{eq:alpha-threshold}
 \end{equation}
 At $\bar h\!=\!h^{\mathrm{soc}}\!=\!0.4$: $\alpha^*\!=\!1.333$. \textbf{High-$\alpha$ (leisure-loving) workers gain; low-$\alpha$ (income-loving) workers are rationed on the intensive margin}: their preferred hours $h_i^*\!=\!(1-\tau)w/\alpha_i$ exceed $\bar h$ and the cap forces them below their personal optimum. The cap is therefore a redistributive instrument across worker types: it transfers welfare from low-$\alpha$ workers to high-$\alpha$ workers and away from the firm.
@@ -199,7 +203,7 @@ Two sectors $j\!\in\!\{\textsc{g},\textsc{b}\}$ (good, bad) with productivities 
 
 \textbf{Competitive (Walrasian) benchmark.} With perfect labour mobility across sectors, sector wages clear at the marginal value product: the firm's labour demand is $h_j^d(w)\!=\!(A_j-w)/\beta$, and the worker's IR pins $w_j^{\rm FM}$ such that hours equal $h^{\mathrm{firm}}_j(w_j^{\rm FM})$. The headline competitive comparative static is:
 \[
-\boxed{\;\frac{\partial h_j^{\rm FM}}{\partial A_j}\;>\;0,\qquad \frac{\partial w_j^{\rm FM}}{\partial A_j}\;>\;0.\;}
+\frac{\partial h_j^{\rm FM}}{\partial A_j} > 0,\qquad \frac{\partial w_j^{\rm FM}}{\partial A_j} > 0.
 \]
 \emph{Hours follow productivity}: positive shocks raise hours and wages in the good sector; negative shocks lower them in the bad sector. Cross-sectoral allocation is efficient given the shock.
 
@@ -211,7 +215,7 @@ w_j(\eta;A_j)=\arg\max_w\, \bigl[V_w(w,h_j^d(w))-V_w^{\,0}\bigr]^{\eta}\; V_f(w,
 \end{equation}
 \textbf{Boundary conditions.} At $\eta\!=\!0$ the bargain reduces to $\max_w V_f$ subject to worker IR; the worker is indifferent and the firm picks the wage that makes itself best off, so $h_j\!=\!h^{\mathrm{firm}}_j$. At $\eta\!\to\!1$ the bargain reduces to $\max_w V_w(w,h_j^d(w))$ subject to firm IR; substituting $h_j^d(w)\!=\!(A_j-w)/\beta$ into $V_w$ and taking the FOC gives $w_j$ such that the firm's labour-demand response delivers exactly $h_j^d\!=\!h_j^{*}\!=\!(1-\tau)w_j/\alpha$. Hence:
 \[
-\boxed{\;\eta\!=\!0:\;\;h_j\!=\!h^{\mathrm{firm}}_j;\qquad \eta\!\to\!1:\;\;h_j\!\to\!h_j^{*}\!=\!(1-\tau)w_j/\alpha.\;}
+\eta\!=\!0:  h_j\!=\!h^{\mathrm{firm}}_j;\qquad \eta\!\to\!1:  h_j\!\to\!h_j^{*}\!=\!(1-\tau)w_j/\alpha.
 \]
 \textbf{Comparative static.} Differentiating \eqref{eq:rtm-bargain} in $\eta$, $\partial w_j/\partial\eta>0$ (the union extracts a higher wage as it gains weight), and via labour demand $\partial h_j/\partial\eta=-1/\beta\cdot\partial w_j/\partial\eta<0$. The intermediate $\eta$ trace continuously between the boundary cases: as $\eta$ rises from $0$, hours fall monotonically from $h^{\mathrm{firm}}_j$ toward $h_j^*$.
 
@@ -243,7 +247,7 @@ The model makes three falsifiable predictions: (a) hours are \emph{decreasing} i
 \subsection{Modelling choice}
 The Q4 cap and Q5 union are both quantity instruments that pull hours from $h^{\mathrm{firm}}$ toward $h^{\mathrm{soc}}$. Whether a given configuration is welfare-enhancing depends on \emph{whose} welfare we are summing. The natural representation of the cross-country welfare disagreement is the Saez--Stantcheva (2016) generalised welfare weight: the planner attaches premium $\lambda\!\in\![0,1]$ to a worker dollar over a firm-owner dollar,
 \[
-\boxed{\;W^{\lambda}(\eta)\;=\;(1+\lambda)\,V_w(\eta)\;+\;(1-\lambda)\,V_f(\eta).\;}
+W^{\lambda}(\eta) = (1+\lambda)\,V_w(\eta) + (1-\lambda)\,V_f(\eta).
 \]
 $\lambda\!=\!0$ is equal-weight utilitarianism, $\lambda\!=\!1$ is Rawlsian. Following Alesina--Angeletos (2005), $\lambda$ is a country-specific primitive: it captures fairness beliefs (whether income inequality is seen as deserved or as luck), which can differ across countries even at common preferences and technology. We compare the two systems through the lens of this single parameter.
 
@@ -254,7 +258,7 @@ x^{*}(\lambda)\;=\;\frac{0.3\,A\,(1+\lambda)}{0.6+1.6\,\lambda}\qquad\text{(at b
 \]
 Substituting $x^{*}(\lambda)$ into the Nash-bargain quadratic recovers the \emph{welfare-optimum bargaining weight}:
 \[
-\boxed{\;\eta^{*}(\lambda)\;=\;\frac{1.2\,x^{*}-1.1\,(x^{*})^{2}-0.1}{0.6\,x^{*}-0.1}.\;}
+\eta^{*}(\lambda) = \frac{1.2\,x^{*}-1.1\,(x^{*})^{2}-0.1}{0.6\,x^{*}-0.1}.
 \]
 $\eta^{*}$ is monotonically increasing in $\lambda$, with $\eta^{*}(0)\!=\!0$ (firm-power optimal under equal weights) and $\eta^{*}(1)\!=\!1$ (full union under Rawlsian).
 
