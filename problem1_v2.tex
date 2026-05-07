@@ -80,7 +80,7 @@ Joint surplus is $W(h)\!\equiv\!V_w(h)+V_f(h)\!=\!Ah-\tau wh-\tfrac{\alpha+\beta
 \[
 h^{\mathrm{soc}}(\tau,\alpha,A,\beta,w)  = \frac{A-\tau w}{\alpha+\beta}.
 \]
-The setup is shared by Q4 (regulation) and Q5 (unions). Wages are partial-equilibrium; heterogeneity returns at the end of Q4.
+The setup is shared by Q4 (regulation) and Q5 (unions). Wages are partial-equilibrium throughout.
 
 \subsection{Baseline calibration and the firm-power ordering}
 $A\!=\!2$, $w\!=\!1$, $\alpha\!=\!\beta\!=\!2$, $\tau\!=\!0.4$, $V_w^{0}\!=\!0.05$ gives $h^*\!=\!0.30$, $h^{\mathrm{soc}}\!=\!0.40$, $h^{\mathrm{firm}}\!=\!0.50$. \textbf{Justification of the parameter choices.} (i) $\tau\!=\!0.4$ is the population-weighted midpoint between US ($0.35$) and EU ($0.56$) labour-tax wedges (OECD \emph{Taxing Wages 2023}, Q1 panel (c)). (ii) The hours scale anchors $h^*\!=\!0.30$ to BLS-OECD hours-per-worker over awake-time at the US point ($\sim\!2{,}000$ work hours / $\sim\!6{,}500$ awake hours $\approx\!0.31$, in line with Prescott 2004). (iii) $\alpha\!=\!\beta$ is a symmetry assumption that makes the welfare-improving band of \eqref{eq:capwelf} collapse to the textbook expression $(h^*,h^{\mathrm{firm}})$, but \textbf{only the ordering $h^*\!<\!h^{\mathrm{soc}}\!<\!h^{\mathrm{firm}}$ is load-bearing} for what follows; the qualitative results are invariant in $\alpha,\beta$ separately, provided $A\!>\!w$, $\tau\!\in\!(0,1)$, and the sufficient condition $\alpha(A-w)>\beta(1-\tau)w$ holds (algebraically equivalent to the ordering; verified at calibration: $2\!=\!\alpha(A-w)>\beta(1-\tau)w\!=\!1.2$). (iv) $A\!=\!2,\,w\!=\!1$ are normalisations: the level of $A$ is identified only relative to $w$, and our results depend on the ratio $A/w$, not the absolute scale. (v) $V_w^{0}\!=\!0.05$ is the worker outside option used to pin the IR-binding wage. It is jointly determined with $w\!=\!1$: at the firm-power baseline IR binds, so $V_w(h^{\mathrm{firm}};w\!=\!1)\!=\!(1-\tau)w h^{\mathrm{firm}}-\tfrac{\alpha}{2}(h^{\mathrm{firm}})^{2}\!=\!0.05$ recovers $V_w^{0}$. The discriminant condition $A_v^{2}\!>\!4B_v V_w^{0}$ for a real larger root of \eqref{eq:rtm-quad} is verified in Appendix~\ref{app:q5}.
@@ -94,7 +94,7 @@ The ordering says that, when the firm has all the bargaining power, it overshoot
 \begingroup\small\itshape\noindent\textbf{Question 4.} Derive the welfare effects of an hours cap on workers and firms; extend to heterogeneous workers.\endgroup
 
 \subsection{Modelling choice}
-A cap $\bar h$ is a quantity instrument that takes the firm's labour-demand response as given. \emph{What the trade-off captures.} Workers value leisure (low $h^*$); firms value output (high $h^{\mathrm{firm}}$); a binding cap forces hours from $h^{\mathrm{firm}}$ toward $\bar h$. Whether the redistribution is welfare-improving depends on whether $\bar h$ lands inside or outside the welfare-improving band defined by joint-surplus concavity: too tight a cap overshoots and destroys joint surplus. \emph{What this buys.} A closed-form welfare condition that depends only on the gap $h^{\mathrm{firm}}\!-\!h^{\mathrm{soc}}$, transparent in the heterogeneity extension. \emph{What it costs.} (a) Extensive margin shut down (Q1 footnote): no firm response on number of bodies hired. (b) Wages held at the firm-power IR-binding level (no adjustment of $w$ to absorb the cap). (c) Heterogeneity on $\alpha$ only (workers differ in disutility curvature; we abstract from heterogeneous wages and outside options). The closest sufficient-statistics analogue is Lee--Saez (2012) on the minimum wage, but their welfare logic runs through extensive-margin rationing whereas a binding hours cap rations \emph{intensive}-margin only.
+A cap $\bar h$ is a quantity instrument that takes the firm's labour-demand response as given. \emph{What the trade-off captures.} Workers value leisure (low $h^*$); firms value output (high $h^{\mathrm{firm}}$); a binding cap forces hours from $h^{\mathrm{firm}}$ toward $\bar h$. Whether the redistribution is welfare-improving depends on whether $\bar h$ lands inside or outside the welfare-improving band defined by joint-surplus concavity: too tight a cap overshoots and destroys joint surplus. \emph{What this buys.} A closed-form welfare condition that depends only on the gap $h^{\mathrm{firm}}\!-\!h^{\mathrm{soc}}$. \emph{What it costs.} (a) Extensive margin shut down (Q1 footnote): no firm response on number of bodies hired. (b) Wages held at the firm-power IR-binding level (no adjustment of $w$ to absorb the cap). (c) Representative-worker setup (homogeneous preferences). The closest sufficient-statistics analogue is Lee--Saez (2012) on the minimum wage, but their welfare logic runs through extensive-margin rationing whereas a binding hours cap rations \emph{intensive}-margin only.
 
 \subsection{Setup: firm-power baseline}
 At $w^*\!=\!1$ pinning the worker's IR at $V_w^0$, the firm picks $h^{\mathrm{firm}}\!=\!(A-w^*)/\beta\!=\!0.50$. Hours sit \emph{above} $h^{\mathrm{soc}}\!=\!0.40$, so the cap has something to correct. With cap $\bar h$ the constrained equilibrium is $h^{\mathrm{eq}}(\bar h)\!=\!\min\{\bar h,\,h^{\mathrm{firm}}\}$.
@@ -114,7 +114,7 @@ $\Delta W(\bar h)=\Delta V_w+\Delta V_f$ & $-\tfrac{\alpha+\beta}{2}\bigl[(h^{\m
 \end{center}
 
 \subsection{Optimality condition (the Q4 result)}
-Full Lagrangian/FOC derivation of \eqref{eq:capwelf}, \eqref{eq:alpha-threshold}, and the aggregate condition is in Appendix~\ref{app:q4}.
+Full Lagrangian/FOC derivation of \eqref{eq:capwelf} is in Appendix~\ref{app:q4}.
 
 \textbf{Claim.} Joint surplus $W(h)$ is strictly concave and quadratic with peak at $h^{\mathrm{soc}}$; hence $W(\bar h)$ is symmetric in $\bar h$ around $h^{\mathrm{soc}}$. The function $\Delta W(\bar h)$ thus equals zero at $\bar h\!=\!h^{\mathrm{firm}}$ (no cap) and at the mirror point $2h^{\mathrm{soc}}\!-\!h^{\mathrm{firm}}$, and is positive between them. Hence:
 \begin{equation}
@@ -124,20 +124,6 @@ Full Lagrangian/FOC derivation of \eqref{eq:capwelf}, \eqref{eq:alpha-threshold}
 provided $h^{\mathrm{firm}}>h^{\mathrm{soc}}$ (which holds at our baseline, $0.50\!>\!0.40$). The peak gain at $\bar h\!=\!h^{\mathrm{soc}}$ is $\tfrac{1}{2}(\alpha+\beta)(h^{\mathrm{firm}}-h^{\mathrm{soc}})^{2}\!=\!0.020$ at calibration. At $\alpha\!=\!\beta$ the band collapses to $\bar h\!\in\!(h^*,h^{\mathrm{firm}})\!=\!(0.30,0.50)$.
 
 \textbf{Reading.} A cap that pulls $h$ \emph{toward} the joint-surplus optimum is unambiguously welfare-improving (the green band of Figure~\ref{fig:simcap}c). Two thresholds matter as the cap tightens past $h^{\mathrm{soc}}$. Joint surplus turns negative once $\bar h\!<\!2h^{\mathrm{soc}}-h^{\mathrm{firm}}\!=\!h^{*}\!=\!0.30$ (firm losses begin to dominate worker gains). The worker individually keeps benefiting until the cap hits her bliss $h^{*}\!=\!0.30$; she only becomes worse off than no-cap once the cap tightens further to $\bar h\!<\!2h^{*}-h^{\mathrm{firm}}\!=\!0.10$ --- well below the joint-surplus threshold (Appendix~\ref{app:q4}).
-
-\subsection{Heterogeneous workers: who is rationed}
-With worker types indexed by the leisure-disutility curvature $\alpha_i$ (but identical $w,\tau$), the cap forces every type to $\bar h$. The individual payoff change $\Delta V_w^i(\bar h)\!=\!(\bar h-h^{\mathrm{firm}})\bigl[(1-\tau)w-\tfrac{\alpha_i}{2}(\bar h+h^{\mathrm{firm}})\bigr]$ is positive iff $\alpha_i\!>\!\alpha^*(\bar h)$ where
-\begin{equation}
-\alpha^*(\bar h) = \frac{2(1-\tau)w}{\bar h+h^{\mathrm{firm}}}.
-\label{eq:alpha-threshold}
-\end{equation}
-At $\bar h\!=\!h^{\mathrm{soc}}\!=\!0.4$: $\alpha^*\!=\!1.333$. \textbf{High-$\alpha$ (leisure-loving) workers gain; low-$\alpha$ (income-loving) workers are rationed on the intensive margin}: their preferred hours $h_i^*\!=\!(1-\tau)w/\alpha_i$ exceed $\bar h$ and the cap forces them below their personal optimum. The cap is therefore a redistributive instrument across worker types: it transfers welfare from low-$\alpha$ workers to high-$\alpha$ workers and away from the firm.
-
-\textbf{Aggregate condition.} Integrating over the type distribution $F$ with mean $\bar\alpha$, the cap is welfare-improving on average iff
-\[
-\int\Delta V_w^i(\bar h)\,dF(\alpha)+\Delta V_f(\bar h)>0.
-\]
-At baseline ($\bar\alpha\!=\!2$, $\alpha^*\!=\!1.333$ at $\bar h\!=\!h^{\mathrm{soc}}$) the cap is welfare-improving on average; a workforce with mean $\bar\alpha\!=\!1$ would lose. \emph{Bridge.} A cap helps if the average worker in a country has higher leisure preference than the threshold $\alpha^{*}$. If the workforce skews toward income-lovers ($\alpha_i$ low), the cap hurts more workers than it helps and the aggregate verdict flips.
 
 \begin{figure}[H]
 \centering
@@ -285,7 +271,7 @@ Saez, E., \& Stantcheva, S.\ (2016). Generalized Social Marginal Welfare Weights
 \section{Formal derivation of the Q4 cap results}\label{app:q4}
 % =========================================================================
 
-This appendix derives the cap surpluses, the welfare band \eqref{eq:capwelf}, the heterogeneous-worker threshold \eqref{eq:alpha-threshold}, and the aggregate condition from primitives via Lagrangian and FOC.
+This appendix derives the cap surpluses and the welfare band \eqref{eq:capwelf} from primitives via Lagrangian and FOC.
 
 \subsection{Primitives, FOCs, and the three bliss points}
 The worker and firm payoffs are
@@ -395,28 +381,6 @@ at calibration. Outside the band ($\bar h<2h^{*}-h^{\mathrm{firm}}$), the cap is
 \qquad(\text{since }h^{\mathrm{soc}}\ge h^{*}).
 \]
 Equality holds at the no-tax limit $\tau\!=\!0$ (where $h^{\mathrm{soc}}\!=\!h^{*}$ in this calibration); generically the joint threshold is strictly above the worker threshold. At baseline $(2h^{\mathrm{soc}}-h^{\mathrm{firm}},\,2h^{*}-h^{\mathrm{firm}})=(0.30,\,0.10)$, so for $\bar h\in(0.10,0.30)$ the cap is welfare-reducing on aggregate (firm losses dominate) but the worker individually still benefits. The \S 3.4 ``Reading'' restates this distinction.
-
-\subsection{Heterogeneous-worker threshold: derivation of \texorpdfstring{\eqref{eq:alpha-threshold}}{Eq.\ (2)}}
-Replace $\alpha$ by the type-specific $\alpha_i$ in \eqref{eq:dVw}:
-\[
-\Delta V_w^{i}(\bar h)=(\bar h-h^{\mathrm{firm}})\Bigl[(1-\tau)w-\tfrac{\alpha_i}{2}(\bar h+h^{\mathrm{firm}})\Bigr].
-\]
-Since $\bar h<h^{\mathrm{firm}}$, the leading factor is negative; therefore $\Delta V_w^{i}>0$ iff the bracket is also negative:
-\[
-(1-\tau)w<\tfrac{\alpha_i}{2}(\bar h+h^{\mathrm{firm}})
-\;\Longleftrightarrow\;
-\alpha_i>\frac{2(1-\tau)w}{\bar h+h^{\mathrm{firm}}}\equiv\alpha^{*}(\bar h),
-\]
-which is \eqref{eq:alpha-threshold}. At $\bar h=h^{\mathrm{soc}}=0.40$: $\alpha^{*}=2(0.6)(1)/(0.4+0.5)=4/3\approx1.333$.
-
-\subsection{Aggregate welfare condition}
-With type distribution $F$ and mean $\bar\alpha\equiv\int\alpha\,dF(\alpha)$, integrate \eqref{eq:dVw} (with $\alpha\mapsto\alpha_i$) and add \eqref{eq:dVf}:
-\[
-\overline{\Delta W}(\bar h)
-\equiv\int\!\Delta V_w^{i}(\bar h)\,dF(\alpha)+\Delta V_f(\bar h)
-=(\bar h-h^{\mathrm{firm}})\!\Bigl[(1-\tau)w-\tfrac{\bar\alpha}{2}(\bar h+h^{\mathrm{firm}})\Bigr]-\tfrac{\beta}{2}(h^{\mathrm{firm}}-\bar h)^{2}.
-\]
-Completing the square in $\bar h$ shows $\overline{\Delta W}(\bar h)>0$ iff $\bar h\in(2\hat h^{\mathrm{soc}}-h^{\mathrm{firm}},\,h^{\mathrm{firm}})$, where $\hat h^{\mathrm{soc}}\equiv(A-\tau w)/(\bar\alpha+\beta)$ is the social optimum at the population-mean disutility $\bar\alpha$. The band has the same structure as \eqref{eq:capwelf} with $\alpha\mapsto\bar\alpha$. At baseline ($\bar\alpha=2$, $\alpha^{*}=1.333$ at $\bar h=h^{\mathrm{soc}}$) the cap is welfare-improving on average; a workforce with mean $\bar\alpha=1$ would have $\hat h^{\mathrm{soc}}=(A-\tau w)/(\bar\alpha+\beta)=1.6/3\approx 0.53>h^{\mathrm{firm}}$, so any binding cap reduces aggregate welfare for that workforce.
 
 % =========================================================================
 \section{Formal derivation of the Q5 RTM bargain}\label{app:q5}
