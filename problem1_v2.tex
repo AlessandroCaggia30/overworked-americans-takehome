@@ -351,103 +351,51 @@ Equality holds at the no-tax limit $\tau\!=\!0$ (where $h^{\mathrm{soc}}\!=\!h^{
 \section{Formal derivation of the Q5 RTM bargain}\label{app:q5}
 % =========================================================================
 
-\subsection{Composite payoffs along the labour-demand curve}
-Per sector $j\in\{\textsc{g},\textsc{b}\}$, the firm responds on its labour-demand curve $h^d_j(w)=(A_j-w)/\beta$. Substituting into the primitives of \S 3:
-\begin{align*}
-V_w(w;A_j) &\equiv V_w(w,h^d_j(w))=\frac{(1-\tau)w(A_j-w)}{\beta}-\frac{\alpha(A_j-w)^{2}}{2\beta^{2}},\\
-V_f(w;A_j) &\equiv V_f(w,h^d_j(w);A_j)=\frac{(A_j-w)^{2}}{2\beta},
-\end{align*}
-where $V_f$ collapses to the standard Cournot-residual form $(A_j-w)^{2}/(2\beta)$ because the firm is on its own FOC. Reparameterise $x_j\equiv A_j-w=\beta h^d_j(w)$; then
-\begin{equation}
-V_w(x_j)=A_v\,x_j-B_v\,x_j^{2},\qquad A_v\equiv\frac{(1-\tau)A_j}{\beta},\quad B_v\equiv\frac{1-\tau}{\beta}+\frac{\alpha}{2\beta^{2}};\qquad V_f(x_j)=\frac{x_j^{2}}{2\beta}.
-\label{eq:rtm-composite}
-\end{equation}
+\noindent\emph{Unabridged \S B.1--\S B.7 in companion \href{https://github.com/AlessandroCaggia30/overworked-americans-takehome/blob/main/appendix_full.pdf}{\texttt{appendix\_full.pdf}}.}
 
-\subsection{Lagrangian for the generalised Nash programme}
-Union and firm choose $w$ to maximise the asymmetric Nash product subject to the participation (IR) constraints:
+\subsection{Composite payoffs and bargained equilibrium}
+With $h^d_j(w)=(A_j-w)/\beta$ and $x_j\equiv A_j-w$, the composite primitives are
 \[
-\max_{w}\;\bigl[V_w(w;A_j)-V_w^{0}\bigr]^{\eta}\,V_f(w;A_j)^{1-\eta}\qquad\text{s.t.}\quad V_w\ge V_w^{0},\ V_f\ge 0.
+V_w(x_j)=A_v x_j-B_v x_j^{2},\qquad V_f(x_j)=\frac{x_j^{2}}{2\beta},
 \]
-Taking logs (both factors strictly positive on the interior), the Lagrangian with multipliers $\mu_w,\mu_f\ge 0$ is
-\[
-\mathcal{L}(x_j;\mu_w,\mu_f)
-=\eta\ln\!\bigl(V_w(x_j)-V_w^{0}\bigr)+(1-\eta)\ln V_f(x_j)+\mu_w\bigl(V_w(x_j)-V_w^{0}\bigr)+\mu_f V_f(x_j),
-\]
-using $w=A_j-x_j$ and $dw/dx_j=-1$ (so the FOC in $x_j$ is the negative of the FOC in $w$, leaving the zero-locus unchanged). On the interior, $\mu_w=\mu_f=0$ and the FOC is
+where $A_v\!\equiv\!(1-\tau)A_j/\beta$ and $B_v\!\equiv\!(1-\tau)/\beta+\alpha/(2\beta^{2})$. The interior FOC of the asymmetric Nash product $[V_w-V_w^{0}]^{\eta}V_f^{1-\eta}$ reduces to the quadratic
 \begin{equation}
-\frac{\eta\,V_w'(x_j)}{V_w(x_j)-V_w^{0}}+\frac{(1-\eta)\,V_f'(x_j)}{V_f(x_j)}=0,\qquad V_w'=A_v-2B_vx_j,\ V_f'=x_j/\beta.
-\label{eq:rtm-foc}
-\end{equation}
-
-\subsection{Reduction to a quadratic in $x_j$}
-Multiply \eqref{eq:rtm-foc} through by $\bigl(V_w-V_w^{0}\bigr)V_f$, substitute $V_f=x_j^{2}/(2\beta)$, and cancel one factor of $x_j/(2\beta)$ (assuming $x_j\!\neq\!0$, which excludes the no-employment corner $w=A_j$):
-\[
-\eta\,(A_v-2B_vx_j)\,x_j+2(1-\eta)\,\bigl(A_vx_j-B_vx_j^{2}-V_w^{0}\bigr)=0.
-\]
-Collecting terms:
-\begin{equation}
-2B_v\,x_j^{2}-A_v(2-\eta)\,x_j+2(1-\eta)\,V_w^{0}=0.
+2B_v x_j^{2}-A_v(2-\eta)\,x_j+2(1-\eta)\,V_w^{0}=0,
 \label{eq:rtm-quad}
 \end{equation}
-The equilibrium $x_j^{\star}(\eta)$ is the larger root (the smaller root is the IR-binding fixed point at the $\eta\!=\!0$ corner --- see below), and the bargained wage and hours follow as $w_j(\eta)=A_j-x_j^{\star}(\eta)$, $h_j(\eta)=x_j^{\star}(\eta)/\beta$. At calibration $(\alpha,\beta,\tau,V_w^{0})=(2,2,0.4,0.05)$, \eqref{eq:rtm-quad} reads $1.1\,x^{2}-0.3A_j(2-\eta)x+0.1(1-\eta)=0$. Two checks: at $(A,\eta)=(2,0)$ we get $x^{\star}=1$, recovering $w=1,\,h=0.5$; at $(A_g,\eta)=(2.2,0.5)$ we get $x^{\star}\!\approx\!0.846$, giving $w\!\approx\!1.354$, $h\!\approx\!0.423$ (Figure~\ref{fig:simshocks} good-sector numbers).
+whose larger root $x_j^{\star}(\eta)$ delivers the bargained $w_j=A_j-x_j^{\star}$, $h_j=x_j^{\star}/\beta$. At baseline this reads $1.1\,x^{2}-0.3A_j(2-\eta)x+0.1(1-\eta)=0$: $(A,\eta)=(2,0)\Rightarrow x^{\star}=1$ ($w=1,\,h=0.5$); $(A_g,\eta)=(2.2,0.5)\Rightarrow x^{\star}\!\approx\!0.846$ ($w\!\approx\!1.354,\,h\!\approx\!0.423$, Figure~\ref{fig:simshocks}).
 
 \subsection{Boundary conditions}
-\textbf{(i) $\eta=0$.} Equation \eqref{eq:rtm-quad} becomes $2B_vx_j^{2}-2A_vx_j+2V_w^{0}=0$, i.e.\ $V_w(x_j)=V_w^{0}$. The worker's IR binds and the firm picks the wage that strips all rent above the outside option; on the firm's labour-demand curve this delivers $h_j=h^{\mathrm{firm}}_j$.
+\emph{(i)} $\eta\!=\!0$: \eqref{eq:rtm-quad} becomes $V_w(x_j)\!=\!V_w^{0}$ (IR binds), so $h_j\!=\!h^{\mathrm{firm}}_j$.
+\emph{(ii)} $\eta\!\to\!1$: $2B_v x^{2}-A_v x=0$ with non-trivial root $x_j^{\star}(1)\!=\!A_v/(2B_v)$, giving $h_j(1)\!=\!(1-\tau)A_j/[2\beta(1-\tau)+\alpha]$. The SOC bracket $4B_v x-A_v(2-\eta)$ at this point equals $A_v\!>\!0$, so the limit is a maximum, not a corner.
 
-\textbf{(ii) $\eta\to 1$.} \eqref{eq:rtm-quad} becomes $2B_vx_j^{2}-A_vx_j=0$, with non-trivial root
-\[
-x_j^{\star}(1)=\frac{A_v}{2B_v}=\frac{(1-\tau)A_j\,\beta}{2\beta(1-\tau)+\alpha}\;\Longrightarrow\;
-h_j(1)=\frac{x_j^{\star}(1)}{\beta}=\frac{(1-\tau)A_j}{2\beta(1-\tau)+\alpha}.
-\]
-\emph{SOC at the limit.} Evaluating the bracket $4B_v x_j-A_v(2-\eta)$ at $(x,\eta)=(A_v/(2B_v),1)$ gives $4B_v\!\cdot\!A_v/(2B_v)-A_v\!=\!2A_v-A_v\!=\!A_v>0$, so the second-order condition for the Nash maximum holds at the limit and $x_j^{\star}(1)$ is indeed the maximiser, not a corner.
+\subsection{Walrasian benchmark and comparative statics in $A_j$}\label{app:q5-walras}
+\textbf{Maintained regularity.} \emph{(R1)} $A_v^{2}\!>\!4B_vV_w^{0}$ (real distinct roots); \emph{(R2)} $x_j^{\mathrm{FM}}(A_j)^{2}>2\beta^{2}V_w^{0}/\alpha$.\footnote{At calibration: (R1) $0.36>0.11$. (R2) $x_j^{\mathrm{FM}}\!=\!1$ vs.\ threshold $0.2$; on $A_j\!\in\![1.8,2.2]$ the worst case $x_b\!=\!0.878$ gives $x^{2}\!=\!0.771>0.2$.}
 
-\subsection{Walrasian benchmark and the \S 4.2 comparative statics}\label{app:q5-walras}
-\textbf{Maintained regularity.} Two conditions on $V_w^{0}$ are imposed throughout. \emph{(R1)} $A_v^{2}\!>\!4B_vV_w^{0}$ (strict discriminant), so the IR-binding equation $V_w(x_j)\!=\!V_w^{0}$ admits two distinct real roots. \emph{(R2)} $x_j^{\mathrm{FM}}(A_j)^{2}>2\beta^{2}V_w^{0}/\alpha$ over the range of $A_j$ considered, which delivers $\partial w_j^{\mathrm{FM}}/\partial A_j>0$.\footnote{At calibration: (R1) $A_v^{2}\!=\!0.36>4B_vV_w^{0}\!=\!4(0.55)(0.05)\!=\!0.11$. (R2) $x_j^{\mathrm{FM}}\!=\!1$ and $2\beta^{2}V_w^{0}/\alpha\!=\!0.2$, so (R2) holds with slack; on the sectoral range $A_j\!\in\![1.8,2.2]$ used in Q5 it remains satisfied (smallest value $x_b^{\mathrm{FM}}\!=\!0.878$ gives $x^{2}\!=\!0.771>0.2$).}
+The free-market larger root is $x_j^{\mathrm{FM}}(A_j)=[A_v+\sqrt{A_v^{2}-4B_v V_w^{0}}]/(2B_v)$. Implicit differentiation of $V_w(x_j;A_j)\!=\!V_w^{0}$ gives
+\[
+\frac{\partial x_j^{\mathrm{FM}}}{\partial A_j}=\frac{(1-\tau)\,x_j^{\mathrm{FM}}}{\beta(2B_v x_j^{\mathrm{FM}}-A_v)}>0
+\]
+(denominator positive: larger root past parabola vertex). Substituting the IR identity $A_v x\!=\!B_v x^{2}+V_w^{0}$ rewrites this as $(1-\tau)x^{2}/[\beta(B_v x^{2}-V_w^{0})]<1$ under (R2). So
+\[
+\partial h_j^{\mathrm{FM}}/\partial A_j>0,\qquad \partial w_j^{\mathrm{FM}}/\partial A_j>0
+\]
+--- ``hours and wages follow productivity'' under perfect labour mobility.
 
-The competitive (free-market) outcome of \S 4.2 is the $\eta\!=\!0$ specialisation of \eqref{eq:rtm-quad}: $V_w(x_j)\!=\!V_w^{0}$, with larger root
-\begin{equation}
-x_j^{\mathrm{FM}}(A_j)=\frac{A_v+\sqrt{A_v^{2}-4B_v V_w^{0}}}{2B_v},\qquad h_j^{\mathrm{FM}}=\frac{x_j^{\mathrm{FM}}}{\beta},\qquad w_j^{\mathrm{FM}}=A_j-x_j^{\mathrm{FM}}.\label{eq:walras}
-\end{equation}
-Differentiating $V_w(x_j;A_j)\!=\!V_w^{0}$ implicitly and using $\partial A_v/\partial A_j=(1-\tau)/\beta$:
+\subsection{Comparative statics in $\eta$ and the welfare-restorer claim}
+Implicit differentiation of \eqref{eq:rtm-quad}:
 \[
-\frac{\partial x_j^{\mathrm{FM}}}{\partial A_j}=\frac{(1-\tau)\,x_j^{\mathrm{FM}}}{\beta(2B_vx_j^{\mathrm{FM}}-A_v)}>0,
+\bigl[4B_v x_j-A_v(2-\eta)\bigr]\frac{dx_j}{d\eta}=-A_v x_j+2V_w^{0}.
 \]
-positive because the larger root sits past the vertex $x\!=\!A_v/(2B_v)$ of the parabola $V_w$, where $V_w'\!=\!A_v\!-\!2B_vx<0$. So $\partial h_j^{\mathrm{FM}}/\partial A_j\!=\!\beta^{-1}\partial x_j^{\mathrm{FM}}/\partial A_j>0$. For the wage, substituting $A_v x_j\!=\!B_v x_j^{2}\!+\!V_w^{0}$ into the numerator above gives $\partial x_j^{\mathrm{FM}}/\partial A_j\!=\!(1-\tau)x_j^{2}/[\beta(B_vx_j^{2}-V_w^{0})]<1$ whenever $x_j^{2}\!>\!2\beta^{2}V_w^{0}/\alpha$ (using $\beta B_v\!-\!(1-\tau)\!=\!\alpha/(2\beta)$); this is exactly condition (R2), so $\partial w_j^{\mathrm{FM}}/\partial A_j\!=\!1-\partial x_j^{\mathrm{FM}}/\partial A_j>0$ holds under the maintained regularity (and is verified at calibration). Together, these give the headline \S 4.2 comparative statics
+The bracket on the LHS equals $\sqrt{D(\eta)}$, where $D(\eta)\!\equiv\!A_v^{2}(2-\eta)^{2}-16B_v(1-\eta)V_w^{0}$ is the discriminant of \eqref{eq:rtm-quad}; under (R1), $D>0$ on $[0,1]$.\footnote{$D(\eta)$ is a quadratic in $\eta$ with positive leading $A_v^{2}$ and minimum $16B_vV_w^{0}(A_v^{2}-4B_vV_w^{0})/A_v^{2}>0$ under (R1); at calibration the vertex sits at $\eta_v\!=\!1.39\!\notin\![0,1]$.} The RHS is strictly negative since $A_v x_j^{\star}\ge A_v^{2}/(2B_v)>2V_w^{0}$ by (R1). So
 \[
-\frac{\partial h_j^{\mathrm{FM}}}{\partial A_j}>0,\qquad \frac{\partial w_j^{\mathrm{FM}}}{\partial A_j}>0,
+\frac{dx_j}{d\eta}<0,\qquad \frac{dw_j}{d\eta}>0,\qquad \frac{dh_j}{d\eta}<0.
 \]
-i.e.\ ``hours follow productivity'' under perfect labour mobility.
 
-\subsection{Comparative statics}
-Differentiating \eqref{eq:rtm-quad} implicitly in $\eta$:
+\textbf{Welfare-restorer.} $W$ is concave with peak at $h^{\mathrm{soc}}_j\!\in\!(h^{*}_j,h^{\mathrm{firm}}_j)$. Since $h_j(\eta)$ is continuous, strictly decreasing, with $h_j(0)\!=\!h^{\mathrm{firm}}_j$, IVT delivers a unique $\hat\eta_j\!\in\!(0,1)$ with $h_j(\hat\eta_j)\!=\!h^{\mathrm{soc}}_j$. Combined with the quadratic identity \eqref{eq:dW},
 \[
-\bigl[4B_vx_j-A_v(2-\eta)\bigr]\frac{dx_j}{d\eta}=-A_vx_j+2V_w^{0}.
+W\bigl(h_j(\eta)\bigr)-W\bigl(h^{\mathrm{firm}}_j\bigr)=-\tfrac{\alpha+\beta}{2}\Bigl[(h^{\mathrm{soc}}_j-h_j(\eta))^{2}-(h^{\mathrm{soc}}_j-h^{\mathrm{firm}}_j)^{2}\Bigr]
 \]
-\textbf{Bracket positivity (global on $[0,1)$).} The larger root of \eqref{eq:rtm-quad} is $x_j^{\star}(\eta)\!=\![A_v(2-\eta)+\sqrt{D(\eta)}]/(4B_v)$ with $D(\eta)\!\equiv\!A_v^{2}(2-\eta)^{2}-16B_v(1-\eta)V_w^{0}$. At $\eta\!=\!0$, $D(0)\!=\!4A_v^{2}-16B_vV_w^{0}\!=\!4(A_v^{2}-4B_vV_w^{0})>0$ by (R1); at $\eta\!\to\!1$, $D(1)\!=\!A_v^{2}\!>\!0$; and $D$ is continuous, so $D(\eta)\!>\!0$ on $[0,1)$ with at most one interior dip --- direct check confirms $D(\eta)>0$ throughout.\footnote{$D(\eta)$ is a quadratic in $\eta$ with positive leading coefficient $A_v^{2}$, vertex at $\eta_v\!=\!2\bigl(1-4B_vV_w^{0}/A_v^{2}\bigr)$, and minimum value $D_{\min}\!=\!16B_vV_w^{0}(A_v^{2}-4B_vV_w^{0})/A_v^{2}>0$ under (R1). At calibration $\eta_v\!=\!1.39$ lies outside $[0,1]$, so $D$ is monotone on the relevant interval (decreasing from $D(0)\!=\!1.0$ to $D(1)\!=\!0.36$).} Therefore $4B_vx_j^{\star}(\eta)\!=\!A_v(2-\eta)+\sqrt{D(\eta)}>A_v(2-\eta)$ on $[0,1)$, so the bracket $4B_vx_j-A_v(2-\eta)\!=\!\sqrt{D(\eta)}>0$ strictly. The bracket equals $-V_w'(x_j^{\star})\cdot(\text{positive})$ at the larger root, where $V_w'(x_j^{\star})\!<\!0$ (root past the vertex), so positivity of the bracket is the second-order condition for the Nash maximum.
-
-\textbf{Sign of the right-hand side.} $-A_vx_j+2V_w^{0}<0$ iff $A_v x_j>2V_w^{0}$. At the larger root we have $x_j^{\star}(\eta)\!\ge\!x_j^{\star}(1)\!=\!A_v/(2B_v)$, so $A_v x_j^{\star}\!\ge\!A_v^{2}/(2B_v)>2V_w^{0}$ where the last inequality is exactly (R1). So the RHS is strictly negative on $[0,1]$, and combined with the strictly positive bracket:
-\[
-\frac{dx_j}{d\eta}<0\;\Longrightarrow\;\frac{dw_j}{d\eta}=-\frac{dx_j}{d\eta}>0,\qquad \frac{dh_j}{d\eta}=\frac{1}{\beta}\frac{dx_j}{d\eta}<0,
-\]
-the union-pulls-wages-up / hours-down statics of \S 4.3.
-
-\subsection{The welfare-restorer claim}
-\textbf{Joint surplus.} $W$ is concave in $h$ with peak at $h^{\mathrm{soc}}_j\in(h^{*}_j,h^{\mathrm{firm}}_j)$ (\S 3, ordering at the firm-power baseline). Since $h_j(\eta)$ is continuous and strictly decreasing in $\eta$ with $h_j(0)=h^{\mathrm{firm}}_j$, by the intermediate-value theorem there exists a unique $\hat\eta_j\in(0,1)$ with $h_j(\hat\eta_j)=h^{\mathrm{soc}}_j$. Combining with the quadratic identity \eqref{eq:dW} of Appendix A,
-\[
-W\bigl(h_j(\eta)\bigr)-W(h^{\mathrm{firm}}_j)=-\tfrac{\alpha+\beta}{2}\Bigl[(h^{\mathrm{soc}}_j-h_j(\eta))^{2}-(h^{\mathrm{soc}}_j-h^{\mathrm{firm}}_j)^{2}\Bigr],
-\]
-which is increasing on $[0,\hat\eta_j]$ (the union pulls hours \emph{toward} the social bliss) and decreasing on $[\hat\eta_j,1]$ (overshoot region).
-
-\textbf{Worker surplus is monotone in $\eta$.} On the labour-demand curve $V_w(x_j)=A_v x_j-B_vx_j^{2}$ is a concave parabola with maximum at $\hat x\!\equiv\!A_v/(2B_v)\!=\!x_j^{\star}(1)$. At $\eta\!=\!0$, $V_w(x_j^{\star}(0))=V_w^{0}$, so $x_j^{\star}(0)$ is the larger root of $V_w(x)=V_w^{0}$:
-\[
-x_j^{\star}(0)=\frac{A_v+\sqrt{A_v^{2}-4B_vV_w^{0}}}{2B_v}>\frac{A_v}{2B_v}=\hat x=x_j^{\star}(1),
-\]
-which together with monotonicity of $x_j^{\star}(\eta)$ (\S B.5) gives $x_j^{\star}(\eta)\in(\hat x,x_j^{\star}(0)]$ for all $\eta\in[0,1)$. On this interval $V_w'(x)=A_v-2B_vx<0$, so as $x_j^{\star}$ falls in $\eta$, $V_w$ rises. Formally,
-\[
-\frac{dV_w}{d\eta}=V_w'(x_j^{\star})\cdot\frac{dx_j^{\star}}{d\eta}>0\qquad\text{for all }\eta\in[0,1),
-\]
-a product of two negatives.
-
-\textbf{Conclusion.} Joint surplus is hump-shaped in $\eta$ on $[0,1]$ with peak at $\hat\eta_j$, and worker surplus is strictly increasing in $\eta$. A planner with any positive worker weight $\lambda>0$ in the Q7 weighting $W^{\lambda}(\eta)=(1+\lambda)V_w+(1-\lambda)V_f$ thus strictly prefers $\eta\!>\!0$ to $\eta\!=\!0$, since $V_f$ is bounded above by its $\eta\!=\!0$ value while $V_w$ is strictly higher.
+is increasing on $[0,\hat\eta_j]$ (toward the social optimum) and decreasing thereafter (overshoot). Worker surplus is monotone in $\eta$: $V_w(x)$ is concave with peak at $\hat x\!=\!A_v/(2B_v)\!=\!x_j^{\star}(1)$, and $x_j^{\star}(\eta)\!\in\!(\hat x,x_j^{\star}(0)]$ on $[0,1)$ where $V_w'<0$, so $dV_w/d\eta\!=\!V_w'\cdot dx_j^{\star}/d\eta>0$ (product of two negatives). Any planner with positive worker weight $\lambda$ in the Q7 weighting $W^{\lambda}=(1+\lambda)V_w+(1-\lambda)V_f$ therefore strictly prefers $\eta\!>\!0$.
 
 \end{document}
