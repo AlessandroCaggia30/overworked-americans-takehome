@@ -260,42 +260,25 @@ Saez, E., \& Stantcheva, S.\ (2016). Generalized Social Marginal Welfare Weights
 \section{Formal derivation of the Q4 cap results}\label{app:q4}
 % =========================================================================
 
+\noindent\emph{Detailed (unabridged) versions of \S A.1 and \S A.2 are reproduced in the companion document \texttt{appendix\_full.pdf} at \href{https://github.com/AlessandroCaggia30/overworked-americans-takehome/blob/main/appendix_full.pdf}{\texttt{github.com/AlessandroCaggia30/overworked-americans-takehome}}.}
+
 \subsection{Primitives, FOCs, and the three bliss points}
-The worker and firm payoffs are
+Worker and firm payoffs $V_w(h)=(1-\tau)wh-\tfrac{\alpha}{2}h^{2}$ and $V_f(h)=Ah-\tfrac{\beta}{2}h^{2}-wh$ have FOCs
 \[
-V_w(h)=(1-\tau)wh-\tfrac{\alpha}{2}h^2,
-\qquad
-V_f(h)=Ah-\tfrac{\beta}{2}h^2-wh.
+h^{*}=(1-\tau)w/\alpha,\qquad h^{\mathrm{firm}}=(A-w)/\beta.
 \]
-\textbf{Worker FOC.} $V_w'(h)=(1-\tau)w-\alpha h=0\;\Longrightarrow\;h^{*}=(1-\tau)w/\alpha$ (the worker's preferred hours absent any constraint).
-
-\textbf{Firm FOC.} $V_f'(h)=A-\beta h-w=0\;\Longrightarrow\;h^{\mathrm{firm}}=(A-w)/\beta$ (the firm's unconstrained labour demand at wage $w$).
-
-\textbf{Joint-surplus FOC.} Adding the two payoffs the wage transfer cancels and
+The wage transfer cancels in $W\!\equiv\!V_w+V_f=Ah-\tau wh-\tfrac{\alpha+\beta}{2}h^{2}$, which maximises at
 \[
-W(h)=V_w(h)+V_f(h)=Ah-\tau wh-\tfrac{\alpha+\beta}{2}h^{2},\qquad W'(h)=A-\tau w-(\alpha+\beta)h=0\;\Longrightarrow\;h^{\mathrm{soc}}=\frac{A-\tau w}{\alpha+\beta}.
+h^{\mathrm{soc}}=(A-\tau w)/(\alpha+\beta).
 \]
-At the calibration $(A,w,\tau,\alpha,\beta)=(2,1,0.4,2,2)$: $h^{*}=0.30$, $h^{\mathrm{soc}}=0.40$, $h^{\mathrm{firm}}=0.50$, so the firm-power ordering $h^{*}<h^{\mathrm{soc}}<h^{\mathrm{firm}}$ holds.
+At calibration $(A,w,\tau,\alpha,\beta)=(2,1,0.4,2,2)$: $h^{*}=0.30,\,h^{\mathrm{soc}}=0.40,\,h^{\mathrm{firm}}=0.50$, the firm-power ordering.
 
 \subsection{Firm's constrained programme under a cap}
-In the firm-power baseline the firm chooses $h$ to maximise its own surplus subject to (i) the regulatory cap $h\le\bar h$ and (ii) the worker's individual-rationality (IR) constraint $V_w(h)\ge V_w^{0}$, with the wage chosen so that IR binds.
-
-\textbf{Why IR enters the programme.} Without IR the firm-power problem is degenerate (the firm could set $w$ arbitrarily low and extract unbounded rents); IR pins the wage at the lowest level that satisfies the worker's outside option $V_w^{0}$, closing the model.
-
-The Lagrangian is
+The firm maximises $V_f(h)$ subject to $h\le\bar h$ and IR $V_w(h)\ge V_w^{0}$, with $w$ chosen to bind IR.\footnote{Without IR the firm-power problem is degenerate (firm pushes $w$ arbitrarily low for unbounded rents); IR pins $w$ at the level matching the outside option $V_w^{0}$.} The Lagrangian $\mathcal{L}=V_f(h)-\mu(h-\bar h)+\lambda(V_w(h)-V_w^{0})$, $\mu,\lambda\ge 0$, gives KKT conditions $V_f'(h)+\lambda V_w'(h)=\mu$, $\mu(h-\bar h)=0$, $\lambda(V_w-V_w^{0})=0$. With IR binding the wage is pinned, the hours problem reduces to $\max V_f$ s.t.\ $h\le\bar h$, and
 \[
-\mathcal{L}(h,\mu,\lambda)=V_f(h)-\mu(h-\bar h)+\lambda\bigl(V_w(h)-V_w^{0}\bigr),\qquad \mu,\lambda\ge 0.
+h^{\mathrm{eq}}(\bar h)=\min\{\bar h,\,h^{\mathrm{firm}}\},\qquad \mu=\max\{0,\,A-w-\beta\bar h\}.
 \]
-The FOC and KKT slackness conditions read
-\[
-V_f'(h)+\lambda V_w'(h)=\mu,\qquad \mu(h-\bar h)=0,\qquad \lambda(V_w(h)-V_w^{0})=0.
-\]
-The wage is set so that IR binds, which fixes $\lambda$; the inner choice of $h$ then collapses to $\max_h V_f(h)$ s.t.\ $h\le\bar h$. Two cases:
-\begin{itemize}\itemsep0pt
-\item \textbf{Cap slack} ($\bar h\ge h^{\mathrm{firm}}$): $\mu=0$, $h^{\mathrm{eq}}=h^{\mathrm{firm}}$.
-\item \textbf{Cap binding} ($\bar h<h^{\mathrm{firm}}$): $h^{\mathrm{eq}}=\bar h$ and $\mu=V_f'(\bar h)=A-w-\beta\bar h>0$ (the shadow price of the cap is the firm's marginal value of an extra hour at the constrained equilibrium).
-\end{itemize}
-Combined: $h^{\mathrm{eq}}(\bar h)=\min\{\bar h,\,h^{\mathrm{firm}}\}$. All subsequent surpluses are evaluated at this $h^{\mathrm{eq}}$ relative to the no-cap baseline $h^{\mathrm{firm}}$.
+All subsequent surpluses are evaluated at this $h^{\mathrm{eq}}$ relative to the no-cap baseline $h^{\mathrm{firm}}$.
 
 \subsection{Quadratic identities for the three surpluses}
 Any concave quadratic $g(h)$ with bliss point $h^{\dagger}$ and curvature $-\kappa$ satisfies
