@@ -11,7 +11,7 @@
 \usepackage{siunitx}
 \usepackage{titlesec}
 \usepackage{float}
-\geometry{top=0.5in, right=0.5in, left=0.5in, bottom=0.5in}
+\geometry{top=0.5in, right=0.45in, left=0.45in, bottom=0.5in}
 
 \captionsetup[table]{labelfont=small}
 \captionsetup[figure]{labelfont=small}
@@ -64,7 +64,7 @@ For the working-age (15--64) population: hours per employed worker $HE$ (the int
 \label{fig:gapPanel}
 \end{figure}
 
-Three readings of Figure~\ref{fig:gapPanel}. \textbf{(i)} Hours fell in every focus country relative to the US since 1970 (DE/NL $\approx -25$ to $-30\%$; IT/ES $\approx -10$ to $-15\%$). \textbf{(ii)} The labour-wedge cross-country pattern has no clean structure: Italy's relative wedge drifts up, the UK's narrows, France stays roughly flat --- no obvious mirroring of the panel-(a) hours pattern. \textbf{(iii)} The 2023 cross-section is signed correctly but noisy: OLS slope $-9.9$\,hrs/pp, $R^2\!=\!0.16$, residual SD $\approx\!158$ hours, one third of the entire DE--US gap. Italy ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE, AT, FR) span $\approx\!200$ hours within a 6\,pp wedge band. The regression in panel (c) thus supports two complementary discussions: \emph{(I) identifying the true slope} of the tax--hours relation (OLS signs it correctly but recovers it weakly, with the well-known endogeneity of $\tau$ biasing the estimate), and \emph{(II) explaining why observations scatter so widely around that slope} (residual SD $\approx\!158$ hours --- a third of the DE--US gap). Q4 and Q5 develop two institutional channels (an hours cap and union bargaining) that plausibly sit in those residuals as endogenous confounders, not as orthogonal additions to the tax effect.\footnote{Other candidates we do not model: cultural attitudes to work vs.\ leisure (Alesina, Glaeser \& Sacerdote 2005); home-production substitution (Rogerson 2008).}
+Three readings of Figure~\ref{fig:gapPanel}. \textbf{(i)} Hours fell in every focus country relative to the US since 1970 (DE/NL $\approx -25$ to $-30\%$; IT/ES $\approx -10$ to $-15\%$). \textbf{(ii)} The labour-wedge cross-country pattern has no clean structure: Italy's relative wedge drifts up, the UK's narrows, France stays roughly flat --- no obvious mirroring of the panel-(a) hours pattern. \textbf{(iii)} The 2023 cross-section is signed correctly but noisy: OLS slope $-9.9$\,hrs/pp, $R^2\!=\!0.16$, residual SD $\approx\!158$ hours, one third of the entire DE--US gap. Italy ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE, AT, FR) span $\approx\!200$ hours within a 6\,pp wedge band. Panel (c) thus motivates two questions: the true slope of the tax--hours relation (OLS-biased by $\tau$ endogeneity), and the wide residual scatter around it ($\approx\!158$ hours SD), into which Q4 and Q5 develop two institutional channels --- an hours cap and union bargaining --- as endogenous confounders.\footnote{Other candidates we do not model: cultural attitudes to work vs.\ leisure (Alesina, Glaeser \& Sacerdote 2005); home-production substitution (Rogerson 2008).}
 
 % =========================================================================
 \section{Common framework for Q4 and Q5}
@@ -210,21 +210,12 @@ We map the Nash-bargain weight $\eta$ to OECD bargaining-coverage data: $\hat\et
 
 \paragraph{Reading A --- common $\lambda$.} If both countries share the HSV-anchored $\lambda\!=\!0.30$, the welfare-optimum is $\eta^{*}(0.30)\!=\!0.58$, so the US ($\hat\eta\!=\!0.15$) is heavily under-unionised and the EU ($\hat\eta\!=\!0.50$) only mildly. The implied losses $W^{0.30}(\eta^{*})-W^{0.30}(\hat\eta)$ are $0.022$ for the US and $0.001$ for the EU --- the US leaves $\sim\!8\%$ of joint surplus on the table. We flag this reading but do not endorse it (see Reading B).
 
-\paragraph{Reading B --- country-specific $\lambda$.} Inverting $\eta^{*}(\lambda)$ on observed coverage:
+\paragraph{Reading B --- country-specific $\lambda$ (preferred).} Inverting $\eta^{*}(\lambda)$ on observed coverage:
 \[
 \hat\eta^{\,US}\!=\!0.15\;\Longrightarrow\;\lambda^{\,US,\rm rev}\!\approx\!0.05,\qquad
 \hat\eta^{\,EU}\!=\!0.50\;\Longrightarrow\;\lambda^{\,EU,\rm rev}\!\approx\!0.24.
 \]
-Each country's institutions are then \emph{at-optimum given its own fairness primitive}; cross-country fairness-belief gap is $\Delta\lambda\!\approx\!0.19$. The hours drag from the union channel is small in the US ($h^{\mathrm{firm}}\!\to\!0.45$, $-9\%$) and larger in the EU ($h^{\mathrm{firm}}\!\to\!0.38$, $-24\%$). \textbf{This is the missing variable in Q1 panel (c)}: the cross-country hours variation that the noisy tax--hours relation cannot pin down is reconstructed by the $\lambda$-driven union channel.
-
-\subsection{Verdict}
-The two readings give compatible verdicts on \emph{whether} the EU system is more welfare-enhancing, but disagree on \emph{why}.
-\begin{itemize}\setlength\itemsep{0pt}\setlength\parskip{0pt}\setlength\topsep{2pt}
-\item \emph{Reading A} (common $\lambda\!=\!0.30$): \textbf{EU is unconditionally welfare-better}, because EU institutions are closer to any reasonable planner's optimum than US institutions are. The mechanism is institutional implementation, not preferences.
-\item \emph{Reading B} (country-specific $\lambda$): \textbf{neither country is welfare-better in absolute terms} --- each implements its own optimum. The cross-country hours gap reflects a fairness-belief gap, which is the missing variable in the noisy Q1 cross-section.
-\end{itemize}
-
-The two readings are \emph{empirically distinguishable} (Figure~\ref{fig:simq7etalambda}): Reading A predicts all countries on the same horizontal line $\eta\!=\!\eta^{*}(0.30)$, which the observed range (US 0.15, FR 0.98, SE 0.88, DE 0.52) clearly violates. \textbf{The data prefer Reading B} --- but Reading A is the cleaner welfare argument.\footnote{The cap channel (Q4) is orthogonal at our calibration: the union alone pulls $h$ below any sensible cap, so Q4 is a counterfactual backstop, not an active driver. Outside the labour-market block, dominant US--EU welfare differences run through non-labour channels (life expectancy, consumption levels --- Jones--Klenow 2016); our verdict is sign-determinate but quantitatively second-order.}
+Each country's institutions are at-optimum given its own fairness primitive ($\Delta\lambda\!\approx\!0.19$); the union-channel hours drag is small in the US ($h^{\mathrm{firm}}\!\to\!0.45$, $-9\%$) and larger in the EU ($h^{\mathrm{firm}}\!\to\!0.38$, $-24\%$). \textbf{Verdict.} Neither country is welfare-better in absolute terms --- each implements its own optimum, and the EU--US hours gap reflects a fairness-belief gap rather than institutional misalignment, supplying the missing variable in Q1 panel (c). The data prefer this reading over A (Figure~\ref{fig:simq7etalambda}): Reading A would put all countries on the horizontal line $\eta\!=\!\eta^{*}(0.30)$, which the observed range (US 0.15, FR 0.98, SE 0.88, DE 0.52) clearly violates.\footnote{The cap channel (Q4) is orthogonal at our calibration: the union alone pulls $h$ below any sensible cap, so Q4 is a counterfactual backstop, not an active driver. Outside the labour-market block, dominant US--EU welfare differences run through non-labour channels (life expectancy, consumption levels --- Jones--Klenow 2016); our verdict is sign-determinate but quantitatively second-order.}
 
 \begin{figure}[H]
 \centering
