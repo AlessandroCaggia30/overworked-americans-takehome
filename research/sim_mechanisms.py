@@ -121,54 +121,62 @@ def style_axes(ax, gridx=True, gridy=True):
 # SIM 1: Hours cap (3 panels: surplus, components, Delta-W)
 # =====================================================================
 def make_sim_cap():
-    fig = plt.figure(figsize=(13.2, 4.0))
-    gs = GridSpec(1, 3, figure=fig, wspace=0.30,
-                  left=0.045, right=0.985, top=0.90, bottom=0.16)
+    fig = plt.figure(figsize=(13.6, 4.6))
+    gs = GridSpec(1, 3, figure=fig, wspace=0.32,
+                  left=0.045, right=0.985, top=0.84, bottom=0.16)
 
     h_w   = h_star(TAU, ALPHA)
     h_f   = h_firm()
     h_soc = h_social(TAU, ALPHA)
+    band_lo = 2 * h_soc - h_f       # welfare-improving band lower edge
 
-    h_grid = np.linspace(0.01, h_f + 0.10, 600)
+    h_grid = np.linspace(0.01, h_f + 0.10, 800)
 
-    # ----- Panel (a): primitive functions over the FULL choice domain -----
+    def annotate_bliss(ax, h_max, color, lbl, y_label, *, va='bottom'):
+        ax.axvline(h_max, color=color, linestyle=(0, (3, 2)),
+                   linewidth=1.0, alpha=0.55, zorder=1)
+        ax.text(h_max, y_label, lbl, color=color, fontsize=10,
+                fontweight='bold', ha='center', va=va,
+                bbox=dict(boxstyle='round,pad=0.18',
+                          fc='white', ec='none', alpha=0.85))
+
+    # =========================================================
+    # Panel (a): primitives V_w, V_f, W with bliss markers
+    # =========================================================
     ax = fig.add_subplot(gs[0, 0])
     Vw_full = V_worker(h_grid, TAU, ALPHA)
     Vf_full = V_firm(h_grid)
     Wt_full = Vw_full + Vf_full
 
-    ax.plot(h_grid, Vw_full, color=C_WORKER, linewidth=1.7, label=r'Worker $V_w(h)$')
-    ax.plot(h_grid, Vf_full, color=C_FIRM,   linewidth=1.7, label=r'Firm $V_f(h)$')
-    ax.plot(h_grid, Wt_full, color=C_TOTAL,  linewidth=2.2, label=r'Total $W(h)=V_w+V_f$')
+    ax.plot(h_grid, Vw_full, color=C_WORKER, linewidth=1.9,
+            label=r'Worker $V_w(h)$')
+    ax.plot(h_grid, Vf_full, color=C_FIRM,   linewidth=1.9,
+            label=r'Firm $V_f(h)$')
+    ax.plot(h_grid, Wt_full, color=C_TOTAL,  linewidth=2.4,
+            label=r'Joint $W(h)$')
 
-    # Mark each function's maximum
-    for h_max, color, lbl, va in [(h_w,   C_WORKER, r'$h^\ast$', 'top'),
-                                  (h_soc, C_SOC,    r'$h^{\rm soc}$', 'bottom'),
-                                  (h_f,   C_FIRM,   r'$h^{\rm firm}$', 'top')]:
-        ax.axvline(h_max, color=color, linestyle='--', linewidth=0.8, alpha=0.7)
-        # Mark the maximum point on the relevant curve with a dot
-        if lbl == r'$h^\ast$':
-            ax.scatter([h_max], [V_worker(h_max, TAU, ALPHA)], color=color, s=42,
-                       zorder=5, edgecolor='white', linewidth=0.9)
-        elif lbl == r'$h^{\rm soc}$':
-            ax.scatter([h_max], [W_total(h_max, TAU, ALPHA)], color=color, s=42,
-                       zorder=5, edgecolor='white', linewidth=0.9)
-        elif lbl == r'$h^{\rm firm}$':
-            ax.scatter([h_max], [V_firm(h_max)], color=color, s=42,
-                       zorder=5, edgecolor='white', linewidth=0.9)
-        ax.text(h_max, 0.42, lbl, color=color, fontsize=10,
-                fontweight='bold', ha='center', va='bottom')
+    for h_max, color, lbl, fn in [
+            (h_w,   C_WORKER, r'$h^\ast$',        lambda x: V_worker(x, TAU, ALPHA)),
+            (h_soc, C_SOC,    r'$h^{\rm soc}$',  lambda x: W_total(x, TAU, ALPHA)),
+            (h_f,   C_FIRM,   r'$h^{\rm firm}$', lambda x: V_firm(x))]:
+        annotate_bliss(ax, h_max, color, lbl, 0.43)
+        ax.scatter([h_max], [fn(h_max)], color=color, s=70,
+                   zorder=6, edgecolor='white', linewidth=1.0)
 
-    ax.axhline(0, color='#bbbbbb', linewidth=0.5)
+    ax.axhline(0, color='#cccccc', linewidth=0.6, zorder=0)
     ax.set_xlabel(r'Hours $h$')
     ax.set_ylabel(r'Surplus')
-    ax.set_title(r'(a) Primitives: $V_w(h)$, $V_f(h)$, $W(h)$', loc='left')
+    ax.set_title('(a) Primitives and bliss points')
     ax.set_xlim(0, h_f + 0.08)
-    ax.set_ylim(-0.06, 0.45)
-    ax.legend(loc='lower center', fontsize=8.5, ncol=1)
+    ax.set_ylim(-0.07, 0.46)
+    leg = ax.legend(loc='lower center', fontsize=8.5, ncol=1,
+                    handlelength=1.6, borderpad=0.5)
+    leg.get_frame().set_alpha(0.0)
     style_axes(ax)
 
-    # ----- Panel (b): equilibrium under cap -- min{cap, h_firm} -----
+    # =========================================================
+    # Panel (b): surplus along h^eq(bar h) = min{bar h, h_firm}
+    # =========================================================
     ax = fig.add_subplot(gs[0, 1])
     cbar = h_grid
     h_eq = np.minimum(cbar, h_f)
@@ -176,68 +184,114 @@ def make_sim_cap():
     Vf_eq = V_firm(h_eq)
     Wt_eq = Vw_eq + Vf_eq
 
-    ax.plot(cbar, Vw_eq, color=C_WORKER, linewidth=1.7, label=r'Worker $V_w(h^{eq})$')
-    ax.plot(cbar, Vf_eq, color=C_FIRM,   linewidth=1.7, label=r'Firm $V_f(h^{eq})$')
-    ax.plot(cbar, Wt_eq, color=C_TOTAL,  linewidth=2.2, label=r'Total $W$')
+    # Welfare-improving band (under the W curve)
+    band_mask = (cbar > band_lo) & (cbar < h_f)
+    ax.fill_between(cbar, 0, Wt_eq, where=band_mask,
+                    color=C_SOC, alpha=0.10, zorder=0,
+                    label='welfare-improving band')
 
-    for h_max, color, lbl in [(h_w, C_WORKER, r'$h^\ast$'),
-                              (h_soc, C_SOC,  r'$h^{\rm soc}$'),
-                              (h_f, C_FIRM,   r'$h^{\rm firm}$')]:
-        ax.axvline(h_max, color=color, linestyle='--', linewidth=0.8, alpha=0.7)
-        ax.text(h_max, 0.42, lbl, color=color, fontsize=10,
-                fontweight='bold', ha='center', va='bottom')
+    ax.plot(cbar, Vw_eq, color=C_WORKER, linewidth=1.9,
+            label=r'Worker $V_w$')
+    ax.plot(cbar, Vf_eq, color=C_FIRM,   linewidth=1.9,
+            label=r'Firm $V_f$')
+    ax.plot(cbar, Wt_eq, color=C_TOTAL,  linewidth=2.4,
+            label=r'Joint $W$')
 
-    # Mark joint optimum
-    ax.scatter([h_soc], [W_total(h_soc, TAU, ALPHA)], color=C_SOC, s=70,
-               zorder=6, edgecolor='white', linewidth=1.0,
-               label=r'$\arg\max_{\bar h} W$')
+    for h_max, color, lbl in [(h_w,   C_WORKER, r'$h^\ast$'),
+                              (h_soc, C_SOC,    r'$h^{\rm soc}$'),
+                              (h_f,   C_FIRM,   r'$h^{\rm firm}$')]:
+        annotate_bliss(ax, h_max, color, lbl, 0.43)
+
+    # Joint optimum on this trace
+    ax.scatter([h_soc], [W_total(h_soc, TAU, ALPHA)], color=C_SOC, s=110,
+               zorder=6, edgecolor='white', linewidth=1.2, marker='*')
+    ax.annotate(r'cap optimum',
+                (h_soc, W_total(h_soc, TAU, ALPHA)),
+                xytext=(14, -10), textcoords='offset points',
+                fontsize=8.5, color=C_SOC, fontweight='bold')
 
     ax.set_xlabel(r'Cap level $\bar h$  ($h^{eq}=\min\{\bar h,h^{\rm firm}\}$)')
     ax.set_ylabel(r'Surplus at constrained equilibrium')
-    ax.set_title(r'(b) Surplus along $h^{eq}(\bar h)$', loc='left')
+    ax.set_title(r'(b) Surplus along $h^{eq}(\bar h)$')
     ax.set_xlim(0, h_f + 0.08)
-    ax.set_ylim(-0.06, 0.45)
-    ax.legend(loc='lower right', fontsize=8.5)
+    ax.set_ylim(-0.07, 0.46)
+    leg = ax.legend(loc='lower right', fontsize=8.5, handlelength=1.5,
+                    borderpad=0.5)
+    leg.get_frame().set_alpha(0.0)
     style_axes(ax)
 
-    # ----- Panel (c): Delta-W vs no-cap baseline + welfare-improving region -----
+    # =========================================================
+    # Panel (c): Delta W with shaded improving / overshoot regions
+    # =========================================================
     ax = fig.add_subplot(gs[0, 2])
     Wt_base = W_total(h_f, TAU, ALPHA)
     dW = Wt_eq - Wt_base
-    ax.axhline(0, color='#888888', linewidth=0.6)
-    ax.plot(cbar, dW, color=C_TOTAL, linewidth=2.2)
-    ax.fill_between(cbar, 0, dW, where=(dW > 0), alpha=0.28, color=C_SOC,
-                    label='cap welfare-improving')
-    ax.fill_between(cbar, 0, dW, where=(dW < 0), alpha=0.28, color=C_OVER,
-                    label='cap welfare-reducing (overshoot)')
 
-    for h_max, color, lbl in [(h_w, C_WORKER, r'$h^\ast$'),
-                              (h_soc, C_SOC,  r'$h^{\rm soc}$'),
-                              (h_f, C_FIRM,   r'$h^{\rm firm}$')]:
-        ax.axvline(h_max, color=color, linestyle='--', linewidth=0.8, alpha=0.7)
-        ax.text(h_max, dW.max() * 1.05 + 0.005, lbl, color=color, fontsize=10,
+    ax.axhline(0, color='#888888', linewidth=0.7, zorder=1)
+    ax.fill_between(cbar, 0, dW, where=(dW > 0), alpha=0.32,
+                    color=C_SOC, zorder=2,
+                    label='welfare-improving')
+    ax.fill_between(cbar, 0, dW, where=(dW < 0), alpha=0.32,
+                    color=C_OVER, zorder=2,
+                    label='overshoot (welfare-reducing)')
+    ax.plot(cbar, dW, color=C_TOTAL, linewidth=2.4, zorder=3)
+
+    # Threshold annotations on the band edges
+    ax.axvline(band_lo, color=C_SOC, linestyle=':', linewidth=1.1,
+               alpha=0.85, zorder=1)
+    ax.axvline(h_f,    color=C_FIRM, linestyle=':', linewidth=1.1,
+               alpha=0.85, zorder=1)
+    ax.text(band_lo, dW.max() * 0.10,
+            rf'$2h^{{\rm soc}}\!-\!h^{{\rm firm}}\!=\!{band_lo:.2f}$',
+            color=C_SOC, fontsize=8, ha='right', va='bottom',
+            rotation=90, fontweight='bold',
+            bbox=dict(boxstyle='round,pad=0.15', fc='white',
+                      ec='none', alpha=0.85))
+    ax.text(h_f, dW.max() * 0.10, rf'$h^{{\rm firm}}\!=\!{h_f:.2f}$',
+            color=C_FIRM, fontsize=8, ha='right', va='bottom',
+            rotation=90, fontweight='bold',
+            bbox=dict(boxstyle='round,pad=0.15', fc='white',
+                      ec='none', alpha=0.85))
+
+    for h_max, color, lbl in [(h_w,   C_WORKER, r'$h^\ast$'),
+                              (h_soc, C_SOC,    r'$h^{\rm soc}$')]:
+        ax.axvline(h_max, color=color, linestyle=(0, (3, 2)),
+                   linewidth=0.9, alpha=0.55, zorder=1)
+        ax.text(h_max, dW.max() * 1.10, lbl, color=color, fontsize=10,
                 fontweight='bold', ha='center', va='bottom')
 
-    # Annotate optimum
+    # Optimum callout
     i_opt = dW.argmax()
-    ax.scatter([cbar[i_opt]], [dW[i_opt]], color=C_SOC, s=70,
-               zorder=6, edgecolor='white', linewidth=1.0)
-    ax.annotate(rf'optimum: $\bar h={cbar[i_opt]:.2f},\;\Delta W={dW[i_opt]:.4f}$',
+    ax.scatter([cbar[i_opt]], [dW[i_opt]], color=C_SOC, s=140,
+               zorder=7, edgecolor='white', linewidth=1.2, marker='*')
+    ax.annotate(rf'peak gain $\Delta W={dW[i_opt]:.3f}$' '\n'
+                rf'at $\bar h={cbar[i_opt]:.2f}=h^{{\rm soc}}$',
                 xy=(cbar[i_opt], dW[i_opt]),
-                xytext=(cbar[i_opt] + 0.07, dW[i_opt] + 0.005),
-                fontsize=8.5, color=C_SOC,
-                arrowprops=dict(arrowstyle='->', color=C_SOC, lw=0.8))
+                xytext=(cbar[i_opt] + 0.10, dW[i_opt] + 0.005),
+                fontsize=8.5, color=C_SOC, fontweight='bold',
+                arrowprops=dict(arrowstyle='-|>', color=C_SOC, lw=1.0,
+                                shrinkA=4, shrinkB=4),
+                bbox=dict(boxstyle='round,pad=0.30', fc='#F1F8F2',
+                          ec=C_SOC, lw=0.9))
 
     ax.set_xlabel(r'Cap level $\bar h$')
-    ax.set_ylabel(r'$\Delta W(\bar h) = W(\bar h) - W(h^{\rm firm})$')
-    ax.set_title(r'(c) Welfare gain over no-cap baseline', loc='left')
+    ax.set_ylabel(r'$\Delta W(\bar h)$ vs no-cap baseline')
+    ax.set_title('(c) Welfare gain: improving band vs overshoot')
     ax.set_xlim(0, h_f + 0.08)
-    ax.set_ylim(dW.min() - 0.02, dW.max() * 1.30 + 0.04)
-    ax.legend(loc='lower right', fontsize=8.5)
+    ax.set_ylim(dW.min() - 0.02, dW.max() * 1.32 + 0.04)
+    leg = ax.legend(loc='lower right', fontsize=8.5, handlelength=1.5,
+                    borderpad=0.5)
+    leg.get_frame().set_alpha(0.0)
     style_axes(ax)
 
-    plt.savefig('../figures/sim_cap.pdf', bbox_inches='tight', pad_inches=0.05)
-    plt.savefig('../figures/sim_cap.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    fig.suptitle(
+        r'Hours cap: optimal at $\bar h=h^{\rm soc}$; '
+        r'welfare-improving on $\bar h\!\in\!(2h^{\rm soc}\!-\!h^{\rm firm},\,h^{\rm firm})$, '
+        r'overshoot below',
+        fontsize=10.4, y=0.97, color='#1B1B1B')
+
+    plt.savefig('../figures/sim_cap.pdf', bbox_inches='tight', pad_inches=0.06)
+    plt.savefig('../figures/sim_cap.png', bbox_inches='tight', pad_inches=0.06, dpi=220)
     plt.close(fig)
     print(f"sim_cap: h*={h_w:.3f}, h_soc={h_soc:.3f}, h_firm={h_f:.3f},  "
           f"max dW={dW.max():.4f} at cap={cbar[dW.argmax()]:.3f}")

@@ -757,76 +757,159 @@ def make_q7_eta_lambda(eta_us_obs=0.15, eta_eu_obs=0.50,
           f"W^0.30(obs)={W_eu_A:.4f}, W^0.30(opt)={W_opt_A:.4f}, "
           f"loss={loss_eu_A:.4f}")
 
-    # ---- Figure ----
-    fig = plt.figure(figsize=(11.0, 4.4))
-    gs = GridSpec(1, 2, wspace=0.30, left=0.07, right=0.97,
-                  top=0.88, bottom=0.16)
+    # ---- Figure (publication style) ----
+    fig = plt.figure(figsize=(12.4, 4.8))
+    gs = GridSpec(1, 2, wspace=0.28, left=0.06, right=0.985,
+                  top=0.83, bottom=0.15)
 
     lam_grid = np.linspace(0.0, 1.0, 401)
     eta_grid = np.array([eta_star(l) for l in lam_grid])
 
-    # Panel (a): eta*(lambda) curve with observed points
+    # =========================================================
+    # Panel (a): eta*(lambda) locus with two readings
+    # =========================================================
     ax = fig.add_subplot(gs[0, 0])
     style_axes(ax)
-    ax.plot(lam_grid, eta_grid, color='#1B1B1B', lw=2.4,
+
+    # Soft-shaded "Reading A horizontal" reference at eta_opt_A
+    ax.fill_between([0, 1], eta_opt_A - 0.005, eta_opt_A + 0.005,
+                    color=C_SOC, alpha=0.10, zorder=0)
+
+    ax.plot(lam_grid, eta_grid, color='#1B1B1B', lw=2.6, zorder=4,
             label=r'$\eta^{*}(\lambda)$ welfare-optimum')
-    # mark common-lambda planner point on the curve
-    ax.axvline(lam_planner, color=C_SOC, ls=':', lw=1.2, alpha=0.6)
-    ax.scatter([lam_planner], [eta_opt_A], color=C_SOC, s=80, zorder=5,
-               edgecolor='white', linewidth=0.9,
-               label=fr'$\eta^{{*}}(\lambda\!=\!{lam_planner})\!=\!{eta_opt_A:.2f}$')
-    # observed points: at their revealed-preference lambda
-    ax.scatter([lam_us_rev], [eta_us_obs], color=C_US, s=110, marker='s',
-               zorder=6, edgecolor='white', linewidth=1.0,
-               label=fr'US obs ($\hat\eta\!=\!{eta_us_obs}$, $\lambda^{{\rm rev}}\!\approx\!{lam_us_rev:.2f}$)')
-    ax.scatter([lam_eu_rev], [eta_eu_obs], color=C_EU, s=110, marker='s',
-               zorder=6, edgecolor='white', linewidth=1.0,
-               label=fr'EU obs ($\hat\eta\!=\!{eta_eu_obs}$, $\lambda^{{\rm rev}}\!\approx\!{lam_eu_rev:.2f}$)')
-    # Reading A wedge: vertical lines from observed to curve at lam=0.30
-    ax.plot([lam_planner, lam_planner], [eta_us_obs, eta_opt_A],
-            color=C_US, lw=1.2, ls='--', alpha=0.7)
-    ax.plot([lam_planner, lam_planner], [eta_eu_obs, eta_opt_A],
-            color=C_EU, lw=1.2, ls='--', alpha=0.7)
+
+    # Reading A: common-lambda guideline (horizontal at eta*(0.30))
+    ax.axhline(eta_opt_A, color=C_SOC, ls=(0, (5, 3)), lw=1.4, alpha=0.7,
+               zorder=2,
+               label=fr'Reading A: $\eta^{{*}}(\lambda\!=\!{lam_planner})\!=\!{eta_opt_A:.2f}$')
+    ax.axvline(lam_planner, color=C_SOC, ls=':', lw=1.0, alpha=0.45,
+               zorder=1)
+
+    # Reading A wedges (vertical from observed eta to optimum at lambda=0.30)
+    ax.annotate('', xy=(lam_planner, eta_opt_A),
+                xytext=(lam_planner, eta_us_obs),
+                arrowprops=dict(arrowstyle='-|>', color=C_US, lw=1.4,
+                                shrinkA=4, shrinkB=4, alpha=0.85), zorder=3)
+    ax.annotate('', xy=(lam_planner, eta_opt_A),
+                xytext=(lam_planner, eta_eu_obs),
+                arrowprops=dict(arrowstyle='-|>', color=C_EU, lw=1.4,
+                                shrinkA=4, shrinkB=4, alpha=0.85), zorder=3)
+
+    # Reading B: observed points sit on the locus at their revealed lambda
+    ax.scatter([lam_us_rev], [eta_us_obs], color=C_US, s=140, marker='s',
+               zorder=7, edgecolor='white', linewidth=1.2,
+               label=fr'US obs: $\hat\eta\!=\!{eta_us_obs}$, '
+                     fr'$\lambda^{{\rm rev}}\!\approx\!{lam_us_rev:.2f}$')
+    ax.scatter([lam_eu_rev], [eta_eu_obs], color=C_EU, s=140, marker='s',
+               zorder=7, edgecolor='white', linewidth=1.2,
+               label=fr'EU obs: $\hat\eta\!=\!{eta_eu_obs}$, '
+                     fr'$\lambda^{{\rm rev}}\!\approx\!{lam_eu_rev:.2f}$')
+
+    # Reading A optimum point
+    ax.scatter([lam_planner], [eta_opt_A], color=C_SOC, s=180, marker='*',
+               zorder=8, edgecolor='white', linewidth=1.2)
+    ax.annotate(r'planner optimum', (lam_planner, eta_opt_A),
+                xytext=(8, 12), textcoords='offset points',
+                fontsize=8.5, color=C_SOC, fontweight='bold')
+
+    # Country labels next to their points
+    ax.annotate('US', (lam_us_rev, eta_us_obs), xytext=(8, -2),
+                textcoords='offset points', fontsize=9, color=C_US,
+                fontweight='bold')
+    ax.annotate('EU', (lam_eu_rev, eta_eu_obs), xytext=(8, -2),
+                textcoords='offset points', fontsize=9, color=C_EU,
+                fontweight='bold')
+
     ax.set_xlabel(r'Fairness premium $\lambda$')
-    ax.set_ylabel(r'Optimal worker bargaining weight $\eta^{*}$')
-    ax.set_title(r'(a) $\eta^{*}(\lambda)$: revealed vs.\ common-$\lambda$ readings')
-    ax.legend(loc='lower right', fontsize=7.8)
+    ax.set_ylabel(r'Bargaining weight $\eta$')
+    ax.set_title(r'(a) Reading A vs B on the $\eta^{*}(\lambda)$ locus')
+    leg = ax.legend(loc='lower right', fontsize=7.8, handlelength=1.6,
+                    borderpad=0.5)
+    leg.get_frame().set_alpha(0.0)
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1.05)
 
-    # Panel (b): welfare loss at common lambda=0.30
+    # =========================================================
+    # Panel (b): W^lambda(eta) at common lambda = 0.30, with losses
+    # =========================================================
     ax = fig.add_subplot(gs[0, 1])
     style_axes(ax, gridx=False)
     eta_dense = np.linspace(0.0, 1.0, 401)
     Wlam = np.array([W_lambda(e, lam_planner) for e in eta_dense])
-    ax.plot(eta_dense, Wlam, color='#1B1B1B', lw=2.4,
+
+    # Light shaded loss regions
+    ax.fill_between([eta_us_obs, eta_opt_A], 0, max(Wlam) * 1.05,
+                    color=C_US, alpha=0.06, zorder=0)
+    ax.fill_between([eta_eu_obs, eta_opt_A], 0, max(Wlam) * 1.05,
+                    color=C_EU, alpha=0.08, zorder=0)
+
+    ax.plot(eta_dense, Wlam, color='#1B1B1B', lw=2.6, zorder=4,
             label=fr'$W^{{\lambda\!=\!{lam_planner}}}(\eta)$')
-    # mark optimum
-    ax.scatter([eta_opt_A], [W_opt_A], color=C_SOC, s=90, zorder=5,
-               edgecolor='white', linewidth=0.9,
-               label=fr'optimum at $\eta^{{*}}\!=\!{eta_opt_A:.2f}$')
-    # mark US, EU
-    ax.scatter([eta_us_obs], [W_us_A], color=C_US, s=110, marker='s',
-               zorder=6, edgecolor='white', linewidth=1.0,
-               label=fr'US: $W\!=\!{W_us_A:.3f}$ (loss $\!-\!{loss_us_A:.3f}$)')
-    ax.scatter([eta_eu_obs], [W_eu_A], color=C_EU, s=110, marker='s',
-               zorder=6, edgecolor='white', linewidth=1.0,
-               label=fr'EU: $W\!=\!{W_eu_A:.3f}$ (loss $\!-\!{loss_eu_A:.3f}$)')
-    # vertical loss segments
-    ax.plot([eta_us_obs, eta_us_obs], [W_us_A, W_opt_A],
-            color=C_US, lw=1.2, ls='--', alpha=0.7)
-    ax.plot([eta_eu_obs, eta_eu_obs], [W_eu_A, W_opt_A],
-            color=C_EU, lw=1.2, ls='--', alpha=0.7)
+
+    # Optimum
+    ax.scatter([eta_opt_A], [W_opt_A], color=C_SOC, s=180, marker='*',
+               zorder=7, edgecolor='white', linewidth=1.2)
+    ax.annotate(fr'peak $\eta^{{*}}\!=\!{eta_opt_A:.2f}$',
+                (eta_opt_A, W_opt_A), xytext=(10, 0),
+                textcoords='offset points',
+                fontsize=8.5, color=C_SOC, fontweight='bold')
+
+    # Country observations
+    ax.scatter([eta_us_obs], [W_us_A], color=C_US, s=140, marker='s',
+               zorder=7, edgecolor='white', linewidth=1.2)
+    ax.scatter([eta_eu_obs], [W_eu_A], color=C_EU, s=140, marker='s',
+               zorder=7, edgecolor='white', linewidth=1.2)
+
+    # Vertical loss segments + arrowed callouts
+    ax.annotate('', xy=(eta_us_obs, W_opt_A), xytext=(eta_us_obs, W_us_A),
+                arrowprops=dict(arrowstyle='-|>', color=C_US, lw=1.5,
+                                shrinkA=4, shrinkB=4, alpha=0.9), zorder=5)
+    ax.annotate('', xy=(eta_eu_obs, W_opt_A), xytext=(eta_eu_obs, W_eu_A),
+                arrowprops=dict(arrowstyle='-|>', color=C_EU, lw=1.5,
+                                shrinkA=4, shrinkB=4, alpha=0.9), zorder=5)
+
+    # Loss boxes
+    y_mid_us = 0.5 * (W_us_A + W_opt_A)
+    y_mid_eu = 0.5 * (W_eu_A + W_opt_A)
+    ax.annotate(fr'US loss $-{loss_us_A:.3f}$',
+                (eta_us_obs, y_mid_us), xytext=(12, 0),
+                textcoords='offset points', fontsize=8.4,
+                color=C_US, fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.28', fc='#FFF1F1',
+                          ec=C_US, lw=0.9))
+    ax.annotate(fr'EU loss $-{loss_eu_A:.3f}$',
+                (eta_eu_obs, y_mid_eu), xytext=(12, 0),
+                textcoords='offset points', fontsize=8.4,
+                color=C_EU, fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.28', fc='#F1F8F2',
+                          ec=C_EU, lw=0.9))
+
+    # Country labels at observation points
+    ax.annotate('US', (eta_us_obs, W_us_A), xytext=(-22, -2),
+                textcoords='offset points', fontsize=9, color=C_US,
+                fontweight='bold')
+    ax.annotate('EU', (eta_eu_obs, W_eu_A), xytext=(-22, -2),
+                textcoords='offset points', fontsize=9, color=C_EU,
+                fontweight='bold')
+
     ax.set_xlabel(r'Bargaining weight $\eta$')
     ax.set_ylabel(rf'$W^{{\lambda\!=\!{lam_planner}}}(\eta)$')
-    ax.set_title(rf'(b) Reading A welfare loss at common $\lambda\!=\!{lam_planner}$')
-    ax.legend(loc='lower center', fontsize=7.8)
+    ax.set_title(rf'(b) Welfare under common $\lambda\!=\!{lam_planner}$ (Reading A)')
+    leg = ax.legend(loc='lower center', fontsize=8.2, handlelength=1.4,
+                    borderpad=0.5)
+    leg.get_frame().set_alpha(0.0)
     ax.set_xlim(0, 1)
+    ax.set_ylim(min(Wlam) - 0.005, max(Wlam) * 1.05)
+
+    fig.suptitle(
+        r'Q7: under common $\lambda\!=\!0.30$ (Reading A) US is heavily under-unionised; '
+        r'under country-specific $\lambda$ (Reading B) each is at-optimum on $\eta^{*}(\lambda)$',
+        fontsize=10.4, y=0.96, color='#1B1B1B')
 
     plt.savefig(OUT_DIR / 'sim_q7_eta_lambda.pdf', bbox_inches='tight',
-                pad_inches=0.05)
+                pad_inches=0.06)
     plt.savefig(OUT_DIR / 'sim_q7_eta_lambda.png', bbox_inches='tight',
-                pad_inches=0.05, dpi=200)
+                pad_inches=0.06, dpi=220)
     plt.close()
     print("  -> sim_q7_eta_lambda.pdf written.")
     print()
