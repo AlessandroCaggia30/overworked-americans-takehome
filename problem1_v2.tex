@@ -58,10 +58,7 @@ For the working-age (15--64) population: hours per employed worker $HE$ (the int
 \label{fig:gapPanel}
 \end{figure}
 
-Three readings. \textbf{(i)} Hours fell in every focus country relative to the US since 1970 (DE/NL $\approx -25$ to $-30\%$; IT/ES $\approx -10$ to $-15\%$). \textbf{(ii)} The cross-country labour-wedge gap to the US has been roughly stable since 1970, so a tax-driven story has to rationalise a roughly time-invariant cross-country hours gap --- broadly consistent with panel (a). \textbf{(iii)} The 2023 cross-section is signed correctly but very noisy: OLS slope $-9.9$\,hrs/pp, $R^2\!=\!0.16$, residual SD $\approx\!158$ hours. The entire DE--US gap is $\approx\!470$ hours, so the residual SD is one third of what we want to explain. Italy ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE, AT, FR) span $\approx\!200$ hours within a 6\,pp wedge band.
-
-\subsection{The inconsistency the rest of the problem is asked to explain}
-Taxation alone fits poorly: $R^2\!=\!0.16$ and a residual SD of one third of the gap to explain. Q2 asks whether a structural labour-supply model can recover the tax-elasticity number that this fit would require, and whether that number is consistent with microeconometric evidence. Q4 and Q5 propose two institutional channels that could absorb the residual. We treat home production / time-use measurement as outside the scope of this submission.
+Three readings. \textbf{(i)} Hours fell in every focus country relative to the US since 1970 (DE/NL $\approx -25$ to $-30\%$; IT/ES $\approx -10$ to $-15\%$). \textbf{(ii)} The labour-wedge cross-country pattern has no clean structure: Italy's relative wedge drifts up, the UK's narrows, France stays roughly flat --- no obvious mirroring of the panel-(a) hours pattern. \textbf{(iii)} The 2023 cross-section is signed correctly but noisy: OLS slope $-9.9$\,hrs/pp, $R^2\!=\!0.16$, residual SD $\approx\!158$ hours, one third of the entire DE--US gap. Italy ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE, AT, FR) span $\approx\!200$ hours within a 6\,pp wedge band. Taxation alone therefore fits poorly --- Q2 asks what tax-elasticity would be needed to fit it and whether that number is consistent with micro evidence; Q4 and Q5 propose two institutional channels for the residual.
 
 % =========================================================================
 \section{Q2 -- Prescott model and the elasticity that would be needed}
@@ -75,8 +72,11 @@ We use log--log preferences with a balanced lump-sum rebate (Prescott 2004). \em
 \subsection{The simplest one-margin model}
 Log--log preferences $u(c,h)=\log c+\alpha\log(1-h)$, wage $w$, proportional labour-tax wedge $\tau$, lump-sum rebate $T$. Worker budget is $c=(1-\tau)wh+T$ with $T$ rebated such that $c=wh$ in equilibrium. The static FOC is the canonical $(1-\tau)w\,u_c=-u_l$:
 \[
-\frac{(1-\tau)w}{c}\;=\;\frac{\alpha}{1-h},\qquad c=wh \;\Longrightarrow\; \frac{1-\tau}{h}\;=\;\frac{\alpha}{1-h}\;\Longrightarrow\;
-h^*(\tau) = \frac{1-\tau}{\alpha+1-\tau},\qquad \varepsilon^M_{h,1-\tau} = \frac{\alpha}{\alpha+1-\tau}\in(0,1).
+\frac{(1-\tau)w}{c}\;=\;\frac{\alpha}{1-h},\qquad c=wh \;\Longrightarrow\; \frac{1-\tau}{h}\;=\;\frac{\alpha}{1-h}.
+\]
+Solving for $h$ and computing the Marshallian intensive elasticity:
+\[
+h^*(\tau) \;=\; \frac{1-\tau}{\alpha+1-\tau},\qquad \varepsilon^M_{h,1-\tau} \;=\; \frac{\alpha}{\alpha+1-\tau}\;\in\;(0,1).
 \]
 $\partial h^*/\partial\tau<0$, so the model delivers a sharp formal condition for ``Europe works less than the US'' under common preferences:
 \[
