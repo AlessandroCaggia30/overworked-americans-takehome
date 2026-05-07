@@ -469,6 +469,21 @@ h_j(1)=\frac{x_j^{\star}(1)}{\beta}=\frac{(1-\tau)A_j}{2\beta(1-\tau)+\alpha}.
 \]
 \textbf{Note on the text's $\eta\!\to\!1$ statement.} \S 4.3 reads ``$h_j\to h_j^{*}=(1-\tau)w_j/\alpha$'' as $\eta\!\to\!1$. The exact RTM limit gives $h_j(1)/h^{*}(w_j(1))=\alpha/[\alpha+\beta(1-\tau)]<1$ (equal to $0.625$ at calibration). The reason: under RTM the firm \emph{always} chooses on its own labour demand $h^d(w)$, so the worker's preferred hours $h^{*}(w)=(1-\tau)w/\alpha$ are reached only at the wage $w^{**}\equiv\alpha A_j/[\alpha+\beta(1-\tau)]$ where the two schedules intersect. The union, optimising on the demand curve as $\eta\!\to\!1$, picks a wage \emph{above} $w^{**}$, so $h^d(w_{\eta=1})<h^{*}(w_{\eta=1})$. The ``welfare-restorer'' claim of \S 4.3 is unaffected --- $h_j(\eta)$ still falls monotonically through $h^{\mathrm{soc}}$ --- but the equality $h_j(1)=h^{*}_j$ should be replaced by the strict inequality $h_j(1)<h^{*}(w_j(1))$.
 
+\subsection{Walrasian benchmark and the \S 4.2 comparative statics}\label{app:q5-walras}
+The competitive (free-market) outcome of \S 4.2 is the $\eta\!=\!0$ specialisation of \eqref{eq:rtm-quad}: $V_w(x_j)\!=\!V_w^{0}$, with larger root
+\begin{equation}
+x_j^{\mathrm{FM}}(A_j)=\frac{A_v+\sqrt{A_v^{2}-4B_v V_w^{0}}}{2B_v},\qquad h_j^{\mathrm{FM}}=\frac{x_j^{\mathrm{FM}}}{\beta},\qquad w_j^{\mathrm{FM}}=A_j-x_j^{\mathrm{FM}}.\label{eq:walras}
+\end{equation}
+Differentiating $V_w(x_j;A_j)\!=\!V_w^{0}$ implicitly and using $\partial A_v/\partial A_j=(1-\tau)/\beta$:
+\[
+\frac{\partial x_j^{\mathrm{FM}}}{\partial A_j}=\frac{(1-\tau)\,x_j^{\mathrm{FM}}}{\beta(2B_vx_j^{\mathrm{FM}}-A_v)}>0,
+\]
+positive because the larger root sits past the vertex $x\!=\!A_v/(2B_v)$ of the parabola $V_w$, where $V_w'\!=\!A_v\!-\!2B_vx<0$. Hence $\partial h_j^{\mathrm{FM}}/\partial A_j\!=\!\beta^{-1}\partial x_j^{\mathrm{FM}}/\partial A_j>0$. For the wage, substituting $A_v x_j\!=\!B_v x_j^{2}\!+\!V_w^{0}$ into the numerator above gives $\partial x_j^{\mathrm{FM}}/\partial A_j\!=\!(1-\tau)x_j^{2}/[\beta(B_vx_j^{2}-V_w^{0})]<1$ whenever $x_j^{2}\!>\!2\beta^{2}V_w^{0}/\alpha$ (using $\beta B_v\!-\!(1-\tau)\!=\!\alpha/(2\beta)$); at calibration $x_j^{2}\!=\!1>0.2$, so $\partial w_j^{\mathrm{FM}}/\partial A_j\!=\!1-\partial x_j^{\mathrm{FM}}/\partial A_j>0$. Together, these give the headline \S 4.2 comparative statics
+\[
+\frac{\partial h_j^{\mathrm{FM}}}{\partial A_j}>0,\qquad \frac{\partial w_j^{\mathrm{FM}}}{\partial A_j}>0,
+\]
+i.e.\ ``hours follow productivity'' under perfect labour mobility.
+
 \subsection{Comparative statics}
 Differentiating \eqref{eq:rtm-quad} implicitly in $\eta$:
 \[
@@ -481,13 +496,69 @@ The bracket equals $V_w'(x_j)\cdot$ (positive constant) at the larger root and i
 the union-pulls-wages-up / hours-down statics of \S 4.3.
 
 \subsection{The welfare-restorer claim}
-Joint surplus is concave in $h$ with peak at $h^{\mathrm{soc}}_j\in(h^{*}_j,h^{\mathrm{firm}}_j)$ (\S 3, ordering at the firm-power baseline). Since $h_j(\eta)$ is continuous and strictly decreasing in $\eta$ with $h_j(0)=h^{\mathrm{firm}}_j$, by the intermediate-value theorem there exists a unique $\hat\eta_j\in(0,1)$ with $h_j(\hat\eta_j)=h^{\mathrm{soc}}_j$. Combining with the quadratic identity \eqref{eq:dW} of Appendix A,
+\textbf{Joint surplus.} $W$ is concave in $h$ with peak at $h^{\mathrm{soc}}_j\in(h^{*}_j,h^{\mathrm{firm}}_j)$ (\S 3, ordering at the firm-power baseline). Since $h_j(\eta)$ is continuous and strictly decreasing in $\eta$ with $h_j(0)=h^{\mathrm{firm}}_j$, by the intermediate-value theorem there exists a unique $\hat\eta_j\in(0,1)$ with $h_j(\hat\eta_j)=h^{\mathrm{soc}}_j$. Combining with the quadratic identity \eqref{eq:dW} of Appendix A,
 \[
 W\bigl(h_j(\eta)\bigr)-W(h^{\mathrm{firm}}_j)=-\tfrac{\alpha+\beta}{2}\Bigl[(h^{\mathrm{soc}}_j-h_j(\eta))^{2}-(h^{\mathrm{soc}}_j-h^{\mathrm{firm}}_j)^{2}\Bigr],
 \]
-which is increasing on $[0,\hat\eta_j]$ (the union pulls hours \emph{toward} the social bliss) and decreasing on $[\hat\eta_j,1]$ (overshoot region). Worker surplus $V_w(h_j(\eta))$ is monotonically increasing throughout because the union is the worker's agent. A planner with any positive worker weight thus strictly prefers $\eta>0$ to $\eta=0$.
+which is increasing on $[0,\hat\eta_j]$ (the union pulls hours \emph{toward} the social bliss) and decreasing on $[\hat\eta_j,1]$ (overshoot region).
 
-\subsection{Sectoral shocks: rigidity as a binding wage-floor}
-For \S 4.4, substitute $A_g=2.2$ and $A_b=1.8$ into \eqref{eq:rtm-quad} at $\eta=0.5$. \emph{Flexible} bargain: numerical roots give $w_g^{U}\!\approx\!1.354$, $h_g^{U}\!\approx\!0.423$ and $w_b^{U}\!\approx\!1.132$, $h_b^{U}\!\approx\!0.334$. \emph{Rigid} bargain: replace the multiplier $\mu_f$ on firm IR by a wage-floor multiplier $\mu_{\mathrm{rig}}$ on $w\ge w_{\mathrm{pre}}\equiv w_j(\eta;A_{\rm pre})$. KKT: in the bad sector the constraint binds ($\mu_{\mathrm{rig}}>0$, $w_b=w_{\mathrm{pre}}$), the FOC \eqref{eq:rtm-foc} no longer holds with equality, and hours are determined off the firm's labour-demand schedule alone, $h_b^{\mathrm{rig}}=(A_b-w_{\mathrm{pre}})/\beta$. In the good sector the constraint is slack and the standard FOC \eqref{eq:rtm-foc} applies. Asymmetry follows: positive shocks pass through diluted (union absorbs them in wage rents via the unconstrained FOC), negative shocks pass through amplified (rigidity prevents the wage from absorbing the shock; hours collapse on the demand curve at the stuck wage).
+\textbf{Worker surplus is monotone in $\eta$.} On the labour-demand curve $V_w(x_j)=A_v x_j-B_vx_j^{2}$ is a concave parabola with maximum at $\hat x\!\equiv\!A_v/(2B_v)\!=\!x_j^{\star}(1)$. At $\eta\!=\!0$, $V_w(x_j^{\star}(0))=V_w^{0}$, so $x_j^{\star}(0)$ is the larger root of $V_w(x)=V_w^{0}$:
+\[
+x_j^{\star}(0)=\frac{A_v+\sqrt{A_v^{2}-4B_vV_w^{0}}}{2B_v}>\frac{A_v}{2B_v}=\hat x=x_j^{\star}(1),
+\]
+which together with monotonicity of $x_j^{\star}(\eta)$ (\S B.5) gives $x_j^{\star}(\eta)\in(\hat x,x_j^{\star}(0)]$ for all $\eta\in[0,1)$. On this interval $V_w'(x)=A_v-2B_vx<0$, so as $x_j^{\star}$ falls in $\eta$, $V_w$ rises. Formally,
+\[
+\frac{dV_w}{d\eta}=V_w'(x_j^{\star})\cdot\frac{dx_j^{\star}}{d\eta}>0\qquad\text{for all }\eta\in[0,1),
+\]
+a product of two negatives.
+
+\textbf{Conclusion.} Joint surplus is hump-shaped in $\eta$ on $[0,1]$ with peak at $\hat\eta_j$, and worker surplus is strictly increasing in $\eta$. A planner with any positive worker weight $\lambda>0$ in the Q7 weighting $W^{\lambda}(\eta)=(1+\lambda)V_w+(1-\lambda)V_f$ thus strictly prefers $\eta\!>\!0$ to $\eta\!=\!0$, since $V_f$ is bounded above by its $\eta\!=\!0$ value while $V_w$ is strictly higher.
+
+\subsection{Sectoral shocks: derivation of the \S 4.4 numbers}
+At calibration the bargain quadratic reads $1.1x^{2}-0.3A_j(2-\eta)x+0.1(1-\eta)=0$, with larger root
+\(x^{\star}_j(\eta;A_j)=[0.3A_j(2-\eta)+\sqrt{0.09A_j^{2}(2-\eta)^{2}-0.44(1-\eta)}]/2.2\).
+
+\textbf{(i) Three regimes per sector.} Evaluating at the two productivities $A_g=2.2$, $A_b=1.8$ and the pre-shock baseline $A_{\rm pre}=2$:
+\vspace{-4pt}
+\begin{center}\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}
+\toprule
+& $A_j$ & $\eta$ & $x_j^{\star}$ & $w_j$ & $h_j$ \\
+\midrule
+Free market (FM) -- good & 2.2 & 0 & 1.119 & 1.081 & 0.559 \\
+Flexible union -- good   & 2.2 & 0.5 & 0.846 & 1.354 & 0.423 \\
+Free market (FM) -- bad  & 1.8 & 0 & 0.878 & 0.922 & 0.439 \\
+Flexible union -- bad    & 1.8 & 0.5 & 0.668 & 1.132 & 0.334 \\
+Pre-shock union           & 2.0 & 0.5 & 0.758 & 1.242 & 0.379 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\vspace{-4pt}
+\noindent The good-sector union-vs-FM headlines follow as
+\[
+\frac{\Delta w_g}{w_g^{\rm FM}}=\frac{1.354-1.081}{1.081}=+25.2\%,\qquad
+\frac{\Delta h_g}{h_g^{\rm FM}}=\frac{0.423-0.559}{0.559}=-24.4\%.
+\]
+Joint surplus at the good sector is $W=A_jh-\tau w h-\tfrac{\alpha+\beta}{2}h^{2}$; substituting yields $W^{\rm FM}_g=0.363$ and $W^{U}_g=0.344$, a $5\%$ shrinkage --- ``roughly preserved, only its split changes,'' as in \S 4.4.
+
+\textbf{(ii) Rigid bad sector.} The KKT step adds a wage-floor multiplier $\mu_{\rm rig}\!\ge\!0$ on $w\ge w_{\rm pre}$, which binds in the bad sector ($w_b=w_{\rm pre}=1.242$). Hours are then determined off labour demand alone:
+\[
+h_b^{\rm rig}=(A_b-w_{\rm pre})/\beta=(1.8-1.242)/2=0.279.
+\]
+The good sector's floor is slack and the standard FOC applies. The headline asymmetries:
+\[
+\frac{h_b^{\rm rig}-h_b^{\rm FM}}{h_b^{\rm FM}}=\frac{0.279-0.439}{0.439}=-36.4\%,
+\]
+\[
+V_f^{\rm FM,b}=\frac{(A_b-w_b^{\rm FM})^{2}}{2\beta}=\frac{0.878^{2}}{4}=0.193,\qquad
+V_f^{\rm rig,b}=A_bh_b^{\rm rig}-\tfrac{\beta}{2}(h_b^{\rm rig})^{2}-w_{\rm pre}h_b^{\rm rig}=0.078,
+\]
+\[
+\frac{V_f^{\rm rig,b}-V_f^{\rm FM,b}}{V_f^{\rm FM,b}}=\frac{0.078-0.193}{0.193}=-59.6\%,
+\]
+i.e.\ the $36\%$ hours drop and $60\%$ profit drop reported in Figure~\ref{fig:simshocks} and \S 4.4.
+
+\textbf{Asymmetry.} In the good sector the constraint is slack and \eqref{eq:rtm-foc} applies: the productivity gain is split between a wage rent and an hours cut (the union ``absorbs'' the shock). In the bad sector $\mu_{\rm rig}>0$ and the wage cannot adjust: the entire shock flows through the labour-demand schedule into hours, hence the amplification.
 
 \end{document}
