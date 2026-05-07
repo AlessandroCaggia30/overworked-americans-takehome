@@ -64,7 +64,7 @@ For the working-age (15--64) population: hours per employed worker $HE$ (the int
 \label{fig:gapPanel}
 \end{figure}
 
-Three readings of Figure~\ref{fig:gapPanel}. \textbf{(i)} Hours fell in every focus country relative to the US since 1970 (DE/NL $\approx -25$ to $-30\%$; IT/ES $\approx -10$ to $-15\%$). \textbf{(ii)} The labour-wedge cross-country pattern has no clean structure: Italy's relative wedge drifts up, the UK's narrows, France stays roughly flat --- no obvious mirroring of the panel-(a) hours pattern. \textbf{(iii)} The 2023 cross-section is signed correctly but noisy: OLS slope $-9.9$\,hrs/pp, $R^2\!=\!0.16$, residual SD $\approx\!158$ hours, one third of the entire DE--US gap. Italy ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE, AT, FR) span $\approx\!200$ hours within a 6\,pp wedge band. Taxation alone therefore fits poorly; Q4 and Q5 propose two institutional channels for the residual variation.
+Three readings of Figure~\ref{fig:gapPanel}. \textbf{(i)} Hours fell in every focus country relative to the US since 1970 (DE/NL $\approx -25$ to $-30\%$; IT/ES $\approx -10$ to $-15\%$). \textbf{(ii)} The labour-wedge cross-country pattern has no clean structure: Italy's relative wedge drifts up, the UK's narrows, France stays roughly flat --- no obvious mirroring of the panel-(a) hours pattern. \textbf{(iii)} The 2023 cross-section is signed correctly but noisy: OLS slope $-9.9$\,hrs/pp, $R^2\!=\!0.16$, residual SD $\approx\!158$ hours, one third of the entire DE--US gap. Italy ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE, AT, FR) span $\approx\!200$ hours within a 6\,pp wedge band. The regression in panel (c) thus supports two complementary discussions: \emph{(I) identifying the true slope} of the tax--hours relation (OLS signs it correctly but recovers it weakly, with the well-known endogeneity of $\tau$ biasing the estimate), and \emph{(II) explaining why observations scatter so widely around that slope} (residual SD $\approx\!158$ hours --- a third of the DE--US gap). Q4 and Q5 develop two institutional channels (an hours cap and union bargaining) that plausibly sit in those residuals as endogenous confounders, not as orthogonal additions to the tax effect.\footnote{Other candidates we do not model: cultural attitudes to work vs.\ leisure (Alesina, Glaeser \& Sacerdote 2005); home-production substitution (Rogerson 2008).}
 
 % =========================================================================
 \section{Common framework for Q4 and Q5}
@@ -272,6 +272,8 @@ Acemoglu, D., \& Pischke, J.-S.\ (1999). The Structure of Wages and Investment i
 
 Alesina, A., \& Angeletos, G.-M.\ (2005). Fairness and Redistribution. \emph{AER} 95(4), 960--980 [\textbf{Q7 country-specific $\lambda$}].
 
+Alesina, A., Glaeser, E., \& Sacerdote, B.\ (2005). Work and Leisure in the United States and Europe: Why So Different? \emph{NBER Macroeconomics Annual} 20, 1--64 [\textbf{Q1 cultural confounder}].
+
 Bento, P., \& Restuccia, D.\ (2017). Misallocation, Establishment Size, and Productivity. \emph{AEJ: Macro} 9(3) [\textbf{Q5 sectoral TFP dispersion}].
 
 Bick, A., Br\"uggemann, B., \& Fuchs-Sch\"undeln, N.\ (2019). Hours Worked in Europe and the US: New Data, New Answers. \emph{Scandinavian Journal of Economics} 121(4), 1381--1416 [\textbf{Q1 decomposition}].
@@ -289,6 +291,8 @@ Hsieh, C.-T., \& Klenow, P.\ J.\ (2009). Misallocation and Manufacturing TFP in 
 Lee, D., \& Saez, E.\ (2012). Optimal Minimum Wage Policy in Competitive Labor Markets. \emph{JPubE} 96(9-10) [\textbf{Q4 sufficient-statistics analogue}].
 
 MaCurdy, T.\ E., \& Pencavel, J.\ H.\ (1986). Testing Between Competing Models of Wage and Employment Determination in Unionised Industries. \emph{JPE} 94(3) [\textbf{Q5 RTM vs efficient bargaining}].
+
+Rogerson, R.\ (2008). Structural Transformation and the Deterioration of European Labor Market Outcomes. \emph{JPE} 116(2), 235--259 [\textbf{Q1 home-production confounder}].
 
 Heathcote, J., Storesletten, K., \& Violante, G.\ L.\ (2017). Optimal Tax Progressivity: An Analytical Framework. \emph{QJE} 132(4), 1693--1754 [\textbf{Q7 $\lambda\!=\!0.30$ anchor}].
 
@@ -325,7 +329,11 @@ W(h)=V_w(h)+V_f(h)=Ah-\tau wh-\tfrac{\alpha+\beta}{2}h^{2},\qquad W'(h)=A-\tau w
 At the calibration $(A,w,\tau,\alpha,\beta)=(2,1,0.4,2,2)$: $h^{*}=0.30$, $h^{\mathrm{soc}}=0.40$, $h^{\mathrm{firm}}=0.50$, so the firm-power ordering $h^{*}<h^{\mathrm{soc}}<h^{\mathrm{firm}}$ holds.
 
 \subsection{Firm's constrained programme under a cap}
-In the firm-power baseline the firm chooses $h$ to maximise its own surplus subject to (i) the regulatory cap $h\le\bar h$ and (ii) the worker's individual-rationality (IR) constraint $V_w(h)\ge V_w^{0}$, with the wage chosen so that IR binds. The Lagrangian is
+In the firm-power baseline the firm chooses $h$ to maximise its own surplus subject to (i) the regulatory cap $h\le\bar h$ and (ii) the worker's individual-rationality (IR) constraint $V_w(h)\ge V_w^{0}$, with the wage chosen so that IR binds.
+
+\textbf{Why IR enters the programme.} In the firm-power setup the firm chooses both the wage $w$ and the hours $h$. Without IR the problem would be degenerate: the firm could set $w$ arbitrarily low and extract unbounded rents, since the worker has no recourse. The IR constraint disciplines the wage offer --- the worker has an outside option $V_w^{0}$ (unemployment, home production, or another job) and refuses any contract that delivers less. In equilibrium the firm offers the lowest wage that still induces participation, so $V_w(h)=V_w^{0}$ exactly: IR binds and pins down $w$ as a function of $h$. Once $w$ is pinned, the firm's residual choice is $h$, which it sets at $h^{\mathrm{firm}}$ absent the cap. IR thus plays two roles: it defines the firm-power benchmark (the worker is held at her outside option, the firm captures all worker--firm surplus, so $V_w=V_w^{0}$ in equilibrium), and it provides the wage equation that closes the model when $w$ would otherwise be free. This is the standard monopsony / take-it-or-leave-it setup (Manning 2003); efficient bargaining (Q5 with $\eta>0$) replaces ``IR binds'' with a Nash-product split, but the structural role of IR --- determining how the worker--firm surplus is divided --- is the same.
+
+The Lagrangian is
 \[
 \mathcal{L}(h,\mu,\lambda)=V_f(h)-\mu(h-\bar h)+\lambda\bigl(V_w(h)-V_w^{0}\bigr),\qquad \mu,\lambda\ge 0.
 \]
