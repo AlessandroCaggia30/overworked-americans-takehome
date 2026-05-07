@@ -473,7 +473,7 @@ Multiply \eqref{eq:rtm-foc} through by $\bigl(V_w-V_w^{0}\bigr)V_f$, substitute 
 \]
 Collecting terms:
 \begin{equation}
-\boxed{\;2B_v\,x_j^{2}-A_v(2-\eta)\,x_j+2(1-\eta)\,V_w^{0}=0.\;}
+2B_v\,x_j^{2}-A_v(2-\eta)\,x_j+2(1-\eta)\,V_w^{0}=0.
 \label{eq:rtm-quad}
 \end{equation}
 The equilibrium $x_j^{\star}(\eta)$ is the larger root (the smaller root is the IR-binding fixed point at $\eta\!=\!0$ corner --- see below), and the bargained wage and hours follow as $w_j(\eta)=A_j-x_j^{\star}(\eta)$, $h_j(\eta)=x_j^{\star}(\eta)/\beta$. This is exactly the equation solved by \texttt{rtm\_x}; at calibration $(\alpha,\beta,\tau,A,V_w^{0})=(2,2,0.4,2,0.05)$ it reads $1.1x^{2}-0.6(2-\eta)x+0.1(1-\eta)=0$, with $x^{\star}(0)=1$ recovering $w\!=\!1$, $h\!=\!0.5$, and $x^{\star}(0.5)\!\approx\!0.846$ giving $w\!\approx\!1.154$, $h\!\approx\!0.423$ (Figure 3 numbers).
