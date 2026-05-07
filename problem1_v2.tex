@@ -253,16 +253,12 @@ Jones, C.\ I., \& Klenow, P.\ J.\ (2016). Beyond GDP? Welfare across Countries a
 
 Saez, E., \& Stantcheva, S.\ (2016). Generalized Social Marginal Welfare Weights for Optimal Tax Theory. \emph{AER} 106(1), 24--45 [\textbf{Q7 $\lambda$-weighted welfare}].
 
-\medskip
-\noindent\emph{Replication scripts in \texttt{research/}: \texttt{build\_figure\_panel.py} (Q1 figure); \texttt{sim\_models\_v2.py} (Q5 RTM and sectoral shocks; Q7 \texttt{make\_q7\_eta\_lambda}); \texttt{sim\_mechanisms.py} (Q4 cap simulation).}
 \endgroup
 
 % =========================================================================
 \appendix
 \section{Formal derivation of the Q4 cap results}\label{app:q4}
 % =========================================================================
-
-This appendix derives the cap surpluses and the welfare band \eqref{eq:capwelf} from primitives via Lagrangian and FOC.
 
 \subsection{Primitives, FOCs, and the three bliss points}
 The worker and firm payoffs are
@@ -377,8 +373,6 @@ Equality holds at the no-tax limit $\tau\!=\!0$ (where $h^{\mathrm{soc}}\!=\!h^{
 \section{Formal derivation of the Q5 RTM bargain}\label{app:q5}
 % =========================================================================
 
-This appendix derives the right-to-manage Nash-bargain equilibrium of \S 4.3 from primitives via Lagrangian and FOC. It supplies (i) the closed-form bargain equation behind the curves $w_j(\eta), h_j(\eta)$, (ii) the boundary conditions at $\eta\!=\!0$ and $\eta\!\to\!1$, (iii) the comparative statics $\partial w/\partial\eta>0$, $\partial h/\partial\eta<0$, and (iv) the welfare-restorer claim. The derivation matches the equilibrium condition implemented in \texttt{research/sim\_models\_v2.py:rtm\_x} (annotated quadratic in lines 234--239 of that file).
-
 \subsection{Composite payoffs along the labour-demand curve}
 Per sector $j\in\{\textsc{g},\textsc{b}\}$, the firm responds on its labour-demand curve $h^d_j(w)=(A_j-w)/\beta$. Substituting into the primitives of \S 3:
 \begin{align*}
@@ -427,7 +421,7 @@ The equilibrium $x_j^{\star}(\eta)$ is the larger root (the smaller root is the 
 x_j^{\star}(1)=\frac{A_v}{2B_v}=\frac{(1-\tau)A_j\,\beta}{2\beta(1-\tau)+\alpha}\;\Longrightarrow\;
 h_j(1)=\frac{x_j^{\star}(1)}{\beta}=\frac{(1-\tau)A_j}{2\beta(1-\tau)+\alpha}.
 \]
-\emph{SOC at the limit.} Evaluating the bracket $4B_v x_j-A_v(2-\eta)$ at $(x,\eta)=(A_v/(2B_v),1)$ gives $4B_v\!\cdot\!A_v/(2B_v)-A_v\!=\!2A_v-A_v\!=\!A_v>0$, so the second-order condition for the Nash maximum holds at the limit and $x_j^{\star}(1)$ is indeed the maximiser, not a corner. The ratio $h_j(1)/h^{*}(w_j(1))=\alpha/[\alpha+\beta(1-\tau)]<1$ ($0.625$ at calibration), confirming the strict inequality stated in \S 4.3: under RTM the firm responds on its own labour demand $h^d(w)$, so the worker's bliss $h^{*}(w)=(1-\tau)w/\alpha$ is reached only at the schedule-intersection wage $w^{**}\!\equiv\!\alpha A_j/[\alpha+\beta(1-\tau)]$, while the union as $\eta\!\to\!1$ picks a wage strictly above $w^{**}$.
+\emph{SOC at the limit.} Evaluating the bracket $4B_v x_j-A_v(2-\eta)$ at $(x,\eta)=(A_v/(2B_v),1)$ gives $4B_v\!\cdot\!A_v/(2B_v)-A_v\!=\!2A_v-A_v\!=\!A_v>0$, so the second-order condition for the Nash maximum holds at the limit and $x_j^{\star}(1)$ is indeed the maximiser, not a corner.
 
 \subsection{Walrasian benchmark and the \S 4.2 comparative statics}\label{app:q5-walras}
 \textbf{Maintained regularity.} Two conditions on the outside option $V_w^{0}$ are imposed throughout. \emph{(R1)} $A_v^{2}\!>\!4B_vV_w^{0}$ (strict discriminant), so the IR-binding equation $V_w(x_j)\!=\!V_w^{0}$ admits two distinct real roots. At calibration $A_v^{2}\!=\!0.36>4B_vV_w^{0}\!=\!4(0.55)(0.05)\!=\!0.11$. \emph{(R2)} $x_j^{\mathrm{FM}}(A_j)^{2}>2\beta^{2}V_w^{0}/\alpha$ over the range of $A_j$ considered, which delivers $\partial w_j^{\mathrm{FM}}/\partial A_j>0$ (\S B.5 below). At calibration $x_j^{\mathrm{FM}}\!=\!1$ and $2\beta^{2}V_w^{0}/\alpha\!=\!0.2$, so (R2) holds with slack; on the sectoral range $A_j\!\in\![1.8,2.2]$ used in Q5 it remains satisfied (smallest value $x_b^{\mathrm{FM}}\!=\!0.878$ gives $x^{2}\!=\!0.771>0.2$).
