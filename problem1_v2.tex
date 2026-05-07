@@ -24,7 +24,7 @@
 \titlespacing*{\subsection}{0pt}{6pt}{2pt}
 \titlespacing*{\paragraph}{0pt}{4pt}{0.6em}
 \captionsetup{aboveskip=3pt, belowskip=-6pt}
-\linespread{0.97}
+\linespread{1}
 \emergencystretch=2em
 \widowpenalty=10000
 \clubpenalty=10000
@@ -60,7 +60,7 @@ For the working-age (15--64) population: hours per employed worker $HE$ (the int
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{figure_panel.pdf}
-\caption{\small\textbf{Three-panel evidence.} (a) Hours per worker, \% deviation from US, 1970--2024 (OECD). (b) Effective labour wedge $\tau_h$, \% deviation from US, 1970--2007. (c) OECD labour-tax wedge vs hours per worker, 2023 cross-section ($n\!=\!19$); OLS line and $\pm 1\sigma_\text{resid}$ band. \emph{Source:} \texttt{research/build\_figure\_panel.py}.}
+\caption{\small\textbf{Three-panel evidence.} (a) Hours per worker, \% deviation from US, 1970--2024 (OECD). (b) Effective labour wedge $\tau_h$, \% deviation from US, 1970--2007. (c) OECD labour-tax wedge vs hours per worker, 2023 cross-section ($n\!=\!19$); OLS line and $\pm 1\sigma_\text{resid}$ band.}
 \label{fig:gapPanel}
 \end{figure}
 
@@ -128,7 +128,7 @@ provided $h^{\mathrm{firm}}>h^{\mathrm{soc}}$ (which holds at our baseline, $0.5
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{sim_cap.pdf}
-\caption{\small\textbf{Hours-cap simulation.} \textbf{(a)} Primitives $V_w, V_f, W$ over $h$ with bliss points marked; \textbf{(b)} surpluses along $h^{\mathrm{eq}}(\bar h)\!=\!\min\{\bar h,h^{\mathrm{firm}}\}$; \textbf{(c)} $\Delta W(\bar h)$ vs no-cap baseline --- green band is the welfare-improving region of \eqref{eq:capwelf}, red is overshoot. Maximum gain $\Delta W\!=\!0.020$ at $\bar h\!=\!h^{\mathrm{soc}}\!=\!0.40$. \emph{Source:} \texttt{research/sim\_mechanisms.py}.}
+\caption{\small\textbf{Hours-cap simulation.} \textbf{(a)} Primitives $V_w, V_f, W$ over $h$ with bliss points marked; \textbf{(b)} surpluses along $h^{\mathrm{eq}}(\bar h)\!=\!\min\{\bar h,h^{\mathrm{firm}}\}$; \textbf{(c)} $\Delta W(\bar h)$ vs no-cap baseline --- green band is the welfare-improving region of \eqref{eq:capwelf}, red is overshoot. Maximum gain $\Delta W\!=\!0.020$ at $\bar h\!=\!h^{\mathrm{soc}}\!=\!0.40$.}
 \label{fig:simcap}
 \end{figure}
 
@@ -172,7 +172,7 @@ Substituting $A_{\textsc{g}}, A_{\textsc{b}}$ into \eqref{eq:rtm-bargain} at $\e
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{sim_shocks.pdf}
-\caption{\small\textbf{Asymmetric pass-through under three regimes.} \textbf{(a)} Labour-demand shifts and equilibria: rigid bad-sector equilibrium sits on the new demand at the stuck pre-shock wage. \textbf{(b)} Hours response: good-sector hours rise under all regimes; bad-sector rigid is $36\%$ below free market. \textbf{(c)} Firm profit: good-sector profit rises under all regimes; bad-sector rigid is $60\%$ below free market. \emph{Source:} \texttt{research/sim\_models\_v2.py:make\_shocks}.}
+\caption{\small\textbf{Asymmetric pass-through under three regimes.} \textbf{(a)} Labour-demand shifts and equilibria: rigid bad-sector equilibrium sits on the new demand at the stuck pre-shock wage. \textbf{(b)} Hours response: good-sector hours rise under all regimes; bad-sector rigid is $36\%$ below free market. \textbf{(c)} Firm profit: good-sector profit rises under all regimes; bad-sector rigid is $60\%$ below free market.}
 \label{fig:simshocks}
 \end{figure}
 
@@ -197,7 +197,7 @@ $\lambda\!=\!0$ is equal-weight utilitarianism, $\lambda\!=\!1$ is Rawlsian. Fol
 \subsection{Welfare-optimum bargaining weight: closed form}
 Maximising $W^{\lambda}(\eta)$ along the bargained path of \eqref{eq:rtm-bargain} gives the welfare-optimum reduced-form variable $x^{*}\!\equiv\!A-w^{*}\!=\!\beta h^{*}$:
 \[
-x^{*}(\lambda)\;=\;\frac{0.3\,A\,(1+\lambda)}{0.6+1.6\,\lambda}\qquad\text{(at baseline; derivation in \texttt{sim\_models\_v2.py})}.
+x^{*}(\lambda)\;=\;\frac{0.3\,A\,(1+\lambda)}{0.6+1.6\,\lambda}\qquad\text{(at baseline)}.
 \]
 Substituting $x^{*}(\lambda)$ into the Nash-bargain quadratic recovers the \emph{welfare-optimum bargaining weight}:
 \[
@@ -220,7 +220,7 @@ Each country's institutions are at-optimum given its own fairness primitive ($\D
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{sim_q7_eta_lambda.pdf}
-\caption{\small \textbf{Q7 revealed-preference diagnostic.} \textbf{(a)} The $\eta^{*}(\lambda)$ welfare-optimum locus (black). Observed US and EU points sit on the locus at their revealed-preference $\lambda^{\rm rev}$ (Reading B). Vertical dashed segments show the deviation under common $\lambda\!=\!0.30$ (Reading A): both countries below the optimum, US far more so. \textbf{(b)} $W^{\lambda\!=\!0.30}(\eta)$: peak at $\eta^{*}\!=\!0.58$. US loss $-0.022$ (under-unionised by 0.43); EU loss $-0.001$ (essentially at-optimum). \emph{Source:} \texttt{sim\_models\_v2.py:make\_q7\_eta\_lambda}.}
+\caption{\small \textbf{Q7 revealed-preference diagnostic.} \textbf{(a)} The $\eta^{*}(\lambda)$ welfare-optimum locus (black). Observed US and EU points sit on the locus at their revealed-preference $\lambda^{\rm rev}$ (Reading B). Vertical dashed segments show the deviation under common $\lambda\!=\!0.30$ (Reading A): both countries below the optimum, US far more so. \textbf{(b)} $W^{\lambda\!=\!0.30}(\eta)$: peak at $\eta^{*}\!=\!0.58$. US loss $-0.022$ (under-unionised by 0.43); EU loss $-0.001$ (essentially at-optimum).}
 \label{fig:simq7etalambda}
 \end{figure}
 
