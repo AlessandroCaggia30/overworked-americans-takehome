@@ -87,12 +87,20 @@ def make_decomposition():
     # Macro-calibrated alpha (anchored to h_US)
     alpha_macro = (1 - tau_us) * (1 - h_us_obs) / h_us_obs  # = 1.32
 
-    # Micro-consistent alpha: eps^M = alpha/(alpha + 1-tau_us) = 0.30
-    target_eps = 0.30
-    alpha_micro = target_eps * (1 - tau_us) / (1 - target_eps)  # = 0.279
+    # Micro-consistent alpha: eps^H = alpha/[(1-tau_us)(1+alpha)] = 0.30
+    # Solving: alpha (1 - 0.30*(1-tau_us)) = 0.30*(1-tau_us)
+    target_eps_H = 0.30
+    alpha_micro = (target_eps_H * (1 - tau_us)
+                   / (1 - target_eps_H * (1 - tau_us)))  # = 0.2422
 
     def h_pres(tau, alpha):
         return (1 - tau) / (alpha + 1 - tau)
+
+    def eps_H(tau, alpha):
+        return alpha / ((1 - tau) * (1 + alpha))
+
+    def eps_M(tau, alpha):
+        return alpha / (alpha + 1 - tau)
 
     h_us_macro = h_pres(tau_us, alpha_macro)
     h_eu_macro = h_pres(tau_eu, alpha_macro)
@@ -103,10 +111,17 @@ def make_decomposition():
     log_gap_macro = np.log(h_eu_macro / h_us_macro)
     log_gap_micro = np.log(h_eu_micro / h_us_micro)
 
-    print("=== Q2 Macro-micro decomposition ===")
-    print(f"  alpha_macro = {alpha_macro:.4f}, eps^M(US) = {alpha_macro/(alpha_macro+1-tau_us):.3f}")
-    print(f"  alpha_micro = {alpha_micro:.4f}, eps^M(US) = {alpha_micro/(alpha_micro+1-tau_us):.3f}")
-    print(f"  h(US, alpha_micro) = {h_us_micro:.4f}, h(EU, alpha_micro) = {h_eu_micro:.4f}")
+    print("=== Q2 Macro-micro decomposition (Hicksian-target) ===")
+    print(f"  alpha_macro = {alpha_macro:.4f}")
+    print(f"    eps^H(US) = {eps_H(tau_us, alpha_macro):.3f}, "
+          f"eps^H(EU) = {eps_H(tau_eu, alpha_macro):.3f}")
+    print(f"    eps^M(US) = {eps_M(tau_us, alpha_macro):.3f}, "
+          f"eps^M(EU) = {eps_M(tau_eu, alpha_macro):.3f}")
+    print(f"  alpha_micro = {alpha_micro:.4f}")
+    print(f"    eps^H(US) = {eps_H(tau_us, alpha_micro):.3f}, "
+          f"eps^H(EU) = {eps_H(tau_eu, alpha_micro):.3f}")
+    print(f"  h(US, alpha_micro) = {h_us_micro:.4f}, "
+          f"h(EU, alpha_micro) = {h_eu_micro:.4f}")
     print(f"  Data log gap   = {log_gap_data:.4f} ({100*log_gap_data:.1f}%)")
     print(f"  Macro log gap  = {log_gap_macro:.4f} ({100*log_gap_macro:.1f}%)")
     print(f"  Micro log gap  = {log_gap_micro:.4f} ({100*log_gap_micro:.1f}%)")
@@ -153,7 +168,7 @@ def make_decomposition():
     ax.set_xticks(x)
     ax.set_xticklabels(bars, fontsize=8.5)
     ax.set_ylabel(r'$|\Delta \log h|$ (\%)')
-    ax.set_title(r'(b) Decomposition: tax channel $\approx 49\%$')
+    ax.set_title(r'(b) Decomposition: tax channel $\approx 42\%$')
     ax.axhline(0, color='black', lw=0.4)
     ax.set_ylim(0, 35)
 
@@ -1309,107 +1324,172 @@ def make_shocks(delta=0.2, eta_baseline=0.5, A_pre=2.0):
     print(f"    Rigid:       w={w_b_rg:.3f}, h={h_b_rg:.3f}, V_w={Vw_b_rg:.4f}, V_f={Vf_b_rg:.4f}")
     print()
 
-    # ---- Figure: 1x3 panels ----
-    fig = plt.figure(figsize=(13.2, 4.4))
-    gs = GridSpec(1, 3, wspace=0.34, left=0.06, right=0.98, top=0.88, bottom=0.13)
+    # ---- Figure: 1x3 panels (publication style) ----
+    fig = plt.figure(figsize=(13.6, 4.7))
+    gs = GridSpec(1, 3, wspace=0.30, left=0.05, right=0.985,
+                  top=0.84, bottom=0.13)
 
-    # Panel A: labour-demand curves with equilibria
+    # ============================================================
+    # Panel A: labour-demand shifts and equilibria
+    # ============================================================
     ax = fig.add_subplot(gs[0, 0])
     style_axes(ax)
-    ws = np.linspace(0.5, 1.8, 200)
-    hd_pre = (A_pre - ws) / BETA
+    ws = np.linspace(0.5, 1.8, 250)
+    hd_pre  = (A_pre  - ws) / BETA
     hd_good = (A_good - ws) / BETA
-    hd_bad = (A_bad - ws) / BETA
-    ax.plot(ws, hd_pre, color=C_NEUT, lw=1.4, ls='--',
-            label=fr'pre-shock $A={A_pre}$')
-    ax.plot(ws, hd_good, color=C_EU, lw=2,
-            label=fr'good $A={A_good}$')
-    ax.plot(ws, hd_bad, color=C_US, lw=2,
-            label=fr'bad $A={A_bad}$')
-    # pre-shock anchor
-    ax.scatter([w_pre], [h_pre], color=C_NEUT, s=70,
-               edgecolor='white', linewidth=0.7, zorder=5)
-    ax.annotate('pre', (w_pre, h_pre), xytext=(8, -2),
-                textcoords='offset points', fontsize=8, color='black')
-    # good sector
+    hd_bad  = (A_bad  - ws) / BETA
+
+    # Soft band between bad and good demand to visualise shock magnitude
+    ax.fill_between(ws, np.maximum(hd_bad, 0), np.maximum(hd_good, 0),
+                    alpha=0.06, color=C_NEUT, zorder=0)
+
+    # Stuck-wage vertical guide
+    ax.axvline(w_pre, color=C_NEUT, ls=':', lw=0.9, alpha=0.55, zorder=1)
+    ax.text(w_pre, 0.025, r'$w_{\rm pre}$', ha='center', fontsize=8,
+            color=C_NEUT)
+
+    ax.plot(ws, hd_good, color=C_EU,   lw=2.3, zorder=3,
+            label=fr'good  $A\!=\!{A_good}$')
+    ax.plot(ws, hd_pre,  color=C_NEUT, lw=1.5, ls=(0, (4, 2)), zorder=2,
+            label=fr'pre   $A\!=\!{A_pre}$')
+    ax.plot(ws, hd_bad,  color=C_US,   lw=2.3, zorder=3,
+            label=fr'bad   $A\!=\!{A_bad}$')
+
+    # Rigid-bad pull-down arrow (pre-shock anchor → rigid equilibrium)
+    ax.annotate('', xy=(w_pre, h_b_rg), xytext=(w_pre, h_pre),
+                arrowprops=dict(arrowstyle='-|>', color=C_US, lw=1.4,
+                                shrinkA=4, shrinkB=4, alpha=0.9), zorder=4)
+
+    # pre-shock anchor — star
+    ax.scatter([w_pre], [h_pre], color='black', s=130, marker='*',
+               edgecolor='white', linewidth=0.9, zorder=6)
+    ax.annotate('pre', (w_pre, h_pre), xytext=(7, 6),
+                textcoords='offset points', fontsize=8.2, color='black',
+                fontweight='bold')
+
+    # Good sector: open circle = FM, filled circle = union
     ax.scatter([w_g_nu], [h_g_nu], facecolor='white', edgecolor=C_EU,
-               linewidth=1.5, s=60, zorder=5)
-    ax.scatter([w_g_fl], [h_g_fl], color=C_EU, s=70,
-               edgecolor='white', linewidth=0.7, zorder=5)
-    ax.annotate('good\n(free mkt)', (w_g_nu, h_g_nu), xytext=(-50, -2),
-                textcoords='offset points', fontsize=7.5, color=C_EU)
-    ax.annotate('good\n(union)', (w_g_fl, h_g_fl), xytext=(8, -3),
-                textcoords='offset points', fontsize=7.5, color=C_EU)
-    # bad sector
+               linewidth=1.8, s=85, zorder=6)
+    ax.scatter([w_g_fl], [h_g_fl], color=C_EU, s=85,
+               edgecolor='white', linewidth=0.9, zorder=6)
+    ax.annotate('FM',    (w_g_nu, h_g_nu), xytext=(-22, 0),
+                textcoords='offset points', fontsize=8.2, color=C_EU,
+                ha='right', va='center', fontweight='bold')
+    ax.annotate('union', (w_g_fl, h_g_fl), xytext=(8, -1),
+                textcoords='offset points', fontsize=8.2, color=C_EU,
+                fontweight='bold')
+
+    # Bad sector: open circle = FM, filled circle = flex, square = rigid
     ax.scatter([w_b_nu], [h_b_nu], facecolor='white', edgecolor=C_US,
-               linewidth=1.5, s=60, zorder=5)
-    ax.scatter([w_b_fl], [h_b_fl], color=C_US, s=70,
-               edgecolor='white', linewidth=0.7, zorder=5)
-    ax.scatter([w_pre], [h_b_rg], color=C_US, s=70, marker='s',
-               edgecolor='white', linewidth=0.7, zorder=5)
-    ax.annotate('bad\n(free mkt)', (w_b_nu, h_b_nu), xytext=(-58, 0),
-                textcoords='offset points', fontsize=7.5, color=C_US)
-    ax.annotate('bad\n(flex)', (w_b_fl, h_b_fl), xytext=(-32, -8),
-                textcoords='offset points', fontsize=7.5, color=C_US)
-    ax.annotate('bad\n(rigid)', (w_pre, h_b_rg), xytext=(8, -16),
-                textcoords='offset points', fontsize=7.5, color=C_US)
+               linewidth=1.8, s=85, zorder=6)
+    ax.scatter([w_b_fl], [h_b_fl], color=C_US, s=85,
+               edgecolor='white', linewidth=0.9, zorder=6)
+    ax.scatter([w_pre], [h_b_rg], color=C_US, s=120, marker='s',
+               edgecolor='white', linewidth=0.9, zorder=6)
+    ax.annotate('FM',    (w_b_nu, h_b_nu), xytext=(-22, 0),
+                textcoords='offset points', fontsize=8.2, color=C_US,
+                ha='right', va='center', fontweight='bold')
+    ax.annotate('flex',  (w_b_fl, h_b_fl), xytext=(-30, -10),
+                textcoords='offset points', fontsize=8.2, color=C_US,
+                fontweight='bold')
+    ax.annotate('rigid', (w_pre, h_b_rg), xytext=(8, -1),
+                textcoords='offset points', fontsize=8.2, color=C_US,
+                fontweight='bold')
+
     ax.set_xlabel(r'Wage $w$')
     ax.set_ylabel(r'Hours $h$')
     ax.set_title('(a) Labour-demand shifts and equilibria')
-    ax.legend(loc='upper right', fontsize=8)
+    leg = ax.legend(loc='upper right', fontsize=8, handlelength=1.6,
+                    borderpad=0.5)
+    leg.get_frame().set_alpha(0.0)
     ax.set_xlim(0.55, 1.75)
-    ax.set_ylim(0, 0.65)
+    ax.set_ylim(0, 0.66)
 
-    regimes = ['Free market', 'Flexible union', 'Rigid union']
-    width = 0.35
+    # ============================================================
+    # Panels B and C: paired bars (good vs bad, by regime)
+    # ============================================================
+    regimes = ['Free\nmarket', 'Flexible\nunion', 'Rigid\nunion']
+    width = 0.36
     x = np.arange(3)
 
-    # Panel B: hours bar chart
+    def paired_bars(ax, vals_g, vals_b, ref_pre, ylabel, title,
+                    fmt='{:.3f}', ref_fmt='{:.3f}', ylim_factor=1.30):
+        style_axes(ax, gridx=False)
+
+        bars_g = ax.bar(x - width/2, vals_g, width,
+                        color=C_EU, edgecolor='white', linewidth=0.9,
+                        label='Good sector', zorder=2)
+        bars_b = ax.bar(x + width/2, vals_b, width,
+                        color=C_US, edgecolor='white', linewidth=0.9,
+                        label='Bad sector', zorder=2)
+        # Hatch + alpha on rigid regime to mark "stuck" regime visually
+        for bar in (bars_g[2], bars_b[2]):
+            bar.set_hatch('////')
+            bar.set_alpha(0.88)
+            bar.set_edgecolor('white')
+
+        # Pre-shock reference
+        ax.axhline(ref_pre, color=C_NEUT, ls='--', lw=1.0, alpha=0.75,
+                   zorder=1, label='pre-shock')
+
+        # Bar value labels
+        for i, (g, b) in enumerate(zip(vals_g, vals_b)):
+            ax.annotate(fmt.format(g), (i - width/2, g), xytext=(0, 3),
+                        textcoords='offset points', ha='center', fontsize=8,
+                        color=C_EU, fontweight='bold')
+            ax.annotate(fmt.format(b), (i + width/2, b), xytext=(0, 3),
+                        textcoords='offset points', ha='center', fontsize=8,
+                        color=C_US, fontweight='bold')
+
+        # Highlight the bad-rigid drop with a callout
+        pct = (vals_b[2] - vals_b[0]) / vals_b[0] * 100
+        ax.annotate(f'{pct:+.0f}% vs FM',
+                    (2 + width/2, vals_b[2]), xytext=(8, 30),
+                    textcoords='offset points', ha='center', fontsize=8.2,
+                    color=C_US, fontweight='bold',
+                    arrowprops=dict(arrowstyle='-', color=C_US, lw=0.8,
+                                    alpha=0.7),
+                    bbox=dict(boxstyle='round,pad=0.30', fc='#FFF1F1',
+                              ec=C_US, lw=0.9))
+
+        ax.set_xticks(x)
+        ax.set_xticklabels(regimes, fontsize=8.8)
+        ax.set_ylabel(ylabel)
+        ax.set_title(title)
+        leg = ax.legend(loc='upper left', fontsize=8, handlelength=1.4,
+                        borderpad=0.5)
+        leg.get_frame().set_alpha(0.0)
+        ax.set_ylim(0, max(vals_g) * ylim_factor)
+
+    # Panel B: hours
     ax = fig.add_subplot(gs[0, 1])
-    style_axes(ax, gridx=False)
-    h_g = [h_g_nu, h_g_fl, h_g_rg]
-    h_b = [h_b_nu, h_b_fl, h_b_rg]
-    ax.bar(x - width / 2, h_g, width, color=C_EU, label='Good sector',
-           edgecolor='white', linewidth=0.5)
-    ax.bar(x + width / 2, h_b, width, color=C_US, label='Bad sector',
-           edgecolor='white', linewidth=0.5)
-    ax.axhline(h_pre, color=C_NEUT, ls=':', lw=1, label='pre-shock $h$')
-    for i, (g, b) in enumerate(zip(h_g, h_b)):
-        ax.annotate(f'{g:.3f}', (i - width / 2, g), xytext=(0, 3),
-                    textcoords='offset points', ha='center', fontsize=8)
-        ax.annotate(f'{b:.3f}', (i + width / 2, b), xytext=(0, 3),
-                    textcoords='offset points', ha='center', fontsize=8)
-    ax.set_xticks(x)
-    ax.set_xticklabels(regimes, fontsize=8.5)
-    ax.set_ylabel(r'Equilibrium hours $h$')
-    ax.set_title(r'(b) Hours response to $\pm\delta$ shock')
-    ax.legend(loc='upper right', fontsize=8)
-    ax.set_ylim(0, 0.6)
+    paired_bars(ax,
+                [h_g_nu, h_g_fl, h_g_rg],
+                [h_b_nu, h_b_fl, h_b_rg],
+                h_pre,
+                ylabel=r'Equilibrium hours $h$',
+                title=r'(b) Hours: bad sector amplified by rigidity',
+                ylim_factor=1.32)
 
-    # Panel C: firm-profit bar chart
+    # Panel C: firm profit
     ax = fig.add_subplot(gs[0, 2])
-    style_axes(ax, gridx=False)
-    Vf_g = [Vf_g_nu, Vf_g_fl, Vf_g_rg]
-    Vf_b = [Vf_b_nu, Vf_b_fl, Vf_b_rg]
-    ax.bar(x - width / 2, Vf_g, width, color=C_EU, label='Good sector',
-           edgecolor='white', linewidth=0.5)
-    ax.bar(x + width / 2, Vf_b, width, color=C_US, label='Bad sector',
-           edgecolor='white', linewidth=0.5)
-    ax.axhline(Vf_pre, color=C_NEUT, ls=':', lw=1, label='pre-shock $V_f$')
-    for i, (g, b) in enumerate(zip(Vf_g, Vf_b)):
-        ax.annotate(f'{g:.3f}', (i - width / 2, g), xytext=(0, 3),
-                    textcoords='offset points', ha='center', fontsize=8)
-        ax.annotate(f'{b:.3f}', (i + width / 2, b), xytext=(0, 3),
-                    textcoords='offset points', ha='center', fontsize=8)
-    ax.set_xticks(x)
-    ax.set_xticklabels(regimes, fontsize=8.5)
-    ax.set_ylabel(r'Firm profit $V_f$')
-    ax.set_title('(c) Firm profit -- bad sector amplified by rigidity')
-    ax.legend(loc='upper right', fontsize=8)
-    ax.set_ylim(0, max(Vf_g) * 1.25)
+    paired_bars(ax,
+                [Vf_g_nu, Vf_g_fl, Vf_g_rg],
+                [Vf_b_nu, Vf_b_fl, Vf_b_rg],
+                Vf_pre,
+                ylabel=r'Firm profit $V_f$',
+                title=r'(c) Firm profit: $\sim\!60\%$ collapse in rigid bad sector',
+                ylim_factor=1.36)
 
-    plt.savefig(OUT_DIR / 'sim_shocks.pdf', bbox_inches='tight', pad_inches=0.05)
-    plt.savefig(OUT_DIR / 'sim_shocks.png', bbox_inches='tight', pad_inches=0.05, dpi=200)
+    # Suptitle synthesizing the headline
+    fig.suptitle(
+        r'Asymmetric pass-through:  good shocks $\to$ wage rents '
+        r'(hours fall, profit roughly preserved); '
+        r'bad shocks $\to$ amplified hours and profit collapse under wage rigidity',
+        fontsize=10.2, y=0.97, color='#1B1B1B')
+
+    plt.savefig(OUT_DIR / 'sim_shocks.pdf', bbox_inches='tight', pad_inches=0.06)
+    plt.savefig(OUT_DIR / 'sim_shocks.png', bbox_inches='tight', pad_inches=0.06, dpi=220)
     plt.close()
     print("  -> sim_shocks.pdf written.")
     print()
