@@ -219,7 +219,7 @@ Each country's institutions are at-optimum given its own fairness primitive ($\D
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{sim_q7_eta_lambda.pdf}
+\includegraphics[width=0.78\textwidth]{sim_q7_eta_lambda.pdf}
 \caption{\small \textbf{Q7 revealed-preference diagnostic.} \textbf{(a)} The $\eta^{*}(\lambda)$ welfare-optimum locus (black). Observed US and EU points sit on the locus at their revealed-preference $\lambda^{\rm rev}$ (Reading B). Vertical dashed segments show the deviation under common $\lambda\!=\!0.30$ (Reading A): both countries below the optimum, US far more so. \textbf{(b)} $W^{\lambda\!=\!0.30}(\eta)$: peak at $\eta^{*}\!=\!0.58$. US loss $-0.022$ (under-unionised by 0.43); EU loss $-0.001$ (essentially at-optimum).}
 \label{fig:simq7etalambda}
 \end{figure}
@@ -276,76 +276,32 @@ h^{\mathrm{eq}}(\bar h)=\min\{\bar h,\,h^{\mathrm{firm}}\},\qquad \mu=\max\{0,\,
 \]
 
 \subsection{Quadratic identities for the three surpluses}
-Any concave quadratic $g(h)$ with bliss point $h^{\dagger}$ and curvature $-\kappa$ satisfies
+Any concave quadratic with bliss $h^{\dagger}$ and curvature $-\kappa$ satisfies $g(h)-g(h^{\dagger})=-\tfrac{\kappa}{2}(h-h^{\dagger})^{2}$. Applied to $V_f$ (bliss $h^{\mathrm{firm}}$, curvature $\beta$) and $W$ (bliss $h^{\mathrm{soc}}$, curvature $\alpha+\beta$):
+\begin{align}
+\Delta V_f(\bar h) &= -\tfrac{\beta}{2}(h^{\mathrm{firm}}-\bar h)^{2}, \label{eq:dVf}\\
+\Delta W(\bar h) &= -\tfrac{\alpha+\beta}{2}\bigl[(h^{\mathrm{soc}}-\bar h)^{2}-(h^{\mathrm{soc}}-h^{\mathrm{firm}})^{2}\bigr]. \label{eq:dW}
+\end{align}
+$\Delta V_w$ is not centred at the worker's bliss; direct expansion and the factorisation $\bar h^{2}-(h^{\mathrm{firm}})^{2}=(\bar h-h^{\mathrm{firm}})(\bar h+h^{\mathrm{firm}})$ give
 \begin{equation}
-g(h)-g(h^{\dagger})=-\tfrac{\kappa}{2}(h-h^{\dagger})^{2}. \label{eq:quad-id}
+\Delta V_w(\bar h)=(\bar h-h^{\mathrm{firm}})\bigl[(1-\tau)w-\tfrac{\alpha}{2}(\bar h+h^{\mathrm{firm}})\bigr]. \label{eq:dVw}
 \end{equation}
-Apply \eqref{eq:quad-id} to $V_f$ (bliss $h^{\mathrm{firm}}$, curvature $\beta$) and to $W$ (bliss $h^{\mathrm{soc}}$, curvature $\alpha+\beta$):
-\begin{align}
-\Delta V_f(\bar h) &\equiv V_f(\bar h)-V_f(h^{\mathrm{firm}}) = -\tfrac{\beta}{2}\bigl(h^{\mathrm{firm}}-\bar h\bigr)^{2}\le 0, \label{eq:dVf}\\
-\Delta W(\bar h) &\equiv W(\bar h)-W(h^{\mathrm{firm}})
-   = \bigl[W(\bar h)-W(h^{\mathrm{soc}})\bigr] - \bigl[W(h^{\mathrm{firm}})-W(h^{\mathrm{soc}})\bigr] \nonumber\\
-   &= -\tfrac{\alpha+\beta}{2}\Bigl[(h^{\mathrm{soc}}-\bar h)^{2}-(h^{\mathrm{soc}}-h^{\mathrm{firm}})^{2}\Bigr]. \label{eq:dW}
-\end{align}
-For $\Delta V_w$ the reference point $h^{\mathrm{firm}}$ is \emph{not} the worker's bliss, so we expand directly:
-\begin{align}
-\Delta V_w(\bar h)
-&= V_w(\bar h)-V_w(h^{\mathrm{firm}}) \nonumber\\
-&= (1-\tau)w(\bar h-h^{\mathrm{firm}})-\tfrac{\alpha}{2}\bigl(\bar h^{2}-(h^{\mathrm{firm}})^{2}\bigr) \nonumber\\
-&= (\bar h-h^{\mathrm{firm}})\Bigl[(1-\tau)w-\tfrac{\alpha}{2}(\bar h+h^{\mathrm{firm}})\Bigr], \label{eq:dVw}
-\end{align}
-using the factorisation $\bar h^{2}-(h^{\mathrm{firm}})^{2}=(\bar h-h^{\mathrm{firm}})(\bar h+h^{\mathrm{firm}})$. \eqref{eq:dVf}, \eqref{eq:dW}, \eqref{eq:dVw} are precisely the three rows of the table in \S 3.3.
 
 \subsection{Welfare-improving band: derivation of \texorpdfstring{\eqref{eq:capwelf}}{Eq.\ (1)}}
-For $\bar h<h^{\mathrm{firm}}$, \eqref{eq:dW} gives
+For $\bar h<h^{\mathrm{firm}}$, \eqref{eq:dW} gives $\Delta W>0\iff |h^{\mathrm{soc}}-\bar h|<h^{\mathrm{firm}}-h^{\mathrm{soc}}\iff \bar h\in(2h^{\mathrm{soc}}-h^{\mathrm{firm}},\,h^{\mathrm{firm}})$, the welfare-improving band of \eqref{eq:capwelf}. Peak at $\bar h=h^{\mathrm{soc}}$:
 \[
-\Delta W(\bar h)>0 \;\Longleftrightarrow\; (h^{\mathrm{soc}}-\bar h)^{2}<(h^{\mathrm{soc}}-h^{\mathrm{firm}})^{2}
-\;\Longleftrightarrow\; |h^{\mathrm{soc}}-\bar h|<h^{\mathrm{firm}}-h^{\mathrm{soc}},
+\Delta W(h^{\mathrm{soc}})=\tfrac{\alpha+\beta}{2}(h^{\mathrm{firm}}-h^{\mathrm{soc}})^{2}=0.020.
 \]
-using $h^{\mathrm{firm}}>h^{\mathrm{soc}}$. Removing absolute values:
-\[
--(h^{\mathrm{firm}}-h^{\mathrm{soc}})<h^{\mathrm{soc}}-\bar h<h^{\mathrm{firm}}-h^{\mathrm{soc}}
-\;\Longleftrightarrow\;
-2h^{\mathrm{soc}}-h^{\mathrm{firm}}<\bar h<h^{\mathrm{firm}},
-\]
-which is \eqref{eq:capwelf}. Maximising \eqref{eq:dW} in $\bar h$ gives the peak $\bar h=h^{\mathrm{soc}}$ with gain
-\[
-\Delta W(h^{\mathrm{soc}})=\tfrac{\alpha+\beta}{2}\bigl(h^{\mathrm{firm}}-h^{\mathrm{soc}}\bigr)^{2}=\tfrac{4}{2}(0.10)^{2}=0.020.
-\]
-\textbf{Band collapse at $\alpha=\beta$.} Substituting the bliss-point formulas,
-\[
-2h^{\mathrm{soc}}-h^{\mathrm{firm}}=\frac{2(A-\tau w)}{\alpha+\beta}-\frac{A-w}{\beta}\xrightarrow{\alpha=\beta}\frac{A-\tau w}{\beta}-\frac{A-w}{\beta}=\frac{(1-\tau)w}{\beta}=h^{*}.
-\]
-At $\alpha=\beta$ the lower band-edge equals the worker's bliss $h^{*}$, so \eqref{eq:capwelf} simplifies to $\bar h\in(h^{*},h^{\mathrm{firm}})=(0.30,0.50)$.
+At $\alpha=\beta$, $2h^{\mathrm{soc}}-h^{\mathrm{firm}}=(1-\tau)w/\beta=h^{*}$, so the band simplifies to $(h^{*},h^{\mathrm{firm}})=(0.30,0.50)$.
 
 \subsection{Worker-surplus band and the two thresholds}\label{app:q4-worker-band}
-The sign of $\Delta V_w$ in row~1 of the \S 3.3 table comes from \eqref{eq:dVw}. For $\bar h<h^{\mathrm{firm}}$, the leading factor $(\bar h-h^{\mathrm{firm}})<0$, so $\Delta V_w(\bar h)>0$ iff the bracket is also negative:
-\[
-(1-\tau)w<\tfrac{\alpha}{2}(\bar h+h^{\mathrm{firm}})
-\;\Longleftrightarrow\;
-\bar h+h^{\mathrm{firm}}>\frac{2(1-\tau)w}{\alpha}=2h^{*}
-\;\Longleftrightarrow\;
-\bar h>2h^{*}-h^{\mathrm{firm}}.
-\]
-Combined with $\bar h<h^{\mathrm{firm}}$ (cap binding), the worker-surplus band is
+For $\bar h<h^{\mathrm{firm}}$ the leading factor in \eqref{eq:dVw} is negative, so $\Delta V_w>0$ iff the bracket is also negative, i.e.\ $\bar h>2h^{*}-h^{\mathrm{firm}}$. Combined with cap binding:
 \begin{equation}
-\Delta V_w(\bar h)>0\;\Longleftrightarrow\;\bar h\in\bigl(2h^{*}-h^{\mathrm{firm}},\,h^{\mathrm{firm}}\bigr).
+\Delta V_w(\bar h)>0\iff \bar h\in\bigl(2h^{*}-h^{\mathrm{firm}},\,h^{\mathrm{firm}}\bigr),
 \label{eq:cap-worker-band}
 \end{equation}
-The peak of $\Delta V_w$ is at the worker's bliss $\bar h=h^{*}$, with magnitude
-\[
-\Delta V_w(h^{*})=V_w(h^{*})-V_w(h^{\mathrm{firm}})=\tfrac{\alpha}{2}(h^{\mathrm{firm}}-h^{*})^{2}=\tfrac{2}{2}(0.20)^{2}=0.04
-\]
-at calibration. Outside the band ($\bar h<2h^{*}-h^{\mathrm{firm}}$), the cap is so tight that the worker is forced past her bliss far enough to be worse off than at $h^{\mathrm{firm}}$.
+with peak at the worker's bliss: $\Delta V_w(h^{*})=\tfrac{\alpha}{2}(h^{\mathrm{firm}}-h^{*})^{2}=0.04$.
 
-\textbf{The two thresholds reconciled.} \eqref{eq:capwelf} (joint-surplus band) and \eqref{eq:cap-worker-band} (worker-surplus band) have different lower edges:
-\[
-\underbrace{2h^{\mathrm{soc}}-h^{\mathrm{firm}}}_{\text{joint turns negative}}
-\;\ge\;
-\underbrace{2h^{*}-h^{\mathrm{firm}}}_{\text{worker turns negative}}
-\qquad(\text{since }h^{\mathrm{soc}}\ge h^{*}).
-\]
-Equality holds at the no-tax limit $\tau\!=\!0$ (where $h^{\mathrm{soc}}\!=\!h^{*}$ in this calibration); generically the joint threshold is strictly above the worker threshold. At baseline $(2h^{\mathrm{soc}}-h^{\mathrm{firm}},\,2h^{*}-h^{\mathrm{firm}})=(0.30,\,0.10)$, so for $\bar h\in(0.10,0.30)$ the cap is welfare-reducing on aggregate (firm losses dominate) but the worker individually still benefits. The \S 3.4 ``Reading'' restates this distinction.
+\textbf{The two thresholds.} The joint threshold $2h^{\mathrm{soc}}-h^{\mathrm{firm}}$ weakly exceeds the worker threshold $2h^{*}-h^{\mathrm{firm}}$ since $h^{\mathrm{soc}}\!\ge\!h^{*}$ (equality only at $\tau\!=\!0$). At baseline they are $(0.30,\,0.10)$: for $\bar h\!\in\!(0.10,0.30)$ the cap is welfare-reducing on aggregate (firm losses dominate) but the individual worker still gains.
 
 % =========================================================================
 \section{Formal derivation of the Q5 RTM bargain}\label{app:q5}
