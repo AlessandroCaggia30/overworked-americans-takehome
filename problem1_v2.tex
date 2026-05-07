@@ -16,7 +16,7 @@
 \captionsetup[table]{labelfont=small}
 \captionsetup[figure]{labelfont=small}
 
-\title{Take-Home Exam, Advanced Microeconomics --- v2\\[0.2em]\large Problem 1: Overworked Americans -- Q1, Q4, Q5, Q7}
+\title{Take-Home, Advanced Microeconomics (20296)\\[0.2em]\large Problem 1: Overworked Americans: Q1, Q4, Q5, Q7}
 \author{Alessandro Caggia (3178115), Stefano De Bianchi (3154360), Eduard Hartel (3378615), Francesco Mastidoro (3323853)}
 \date{May 2026}
 
@@ -61,14 +61,14 @@
 \label{fig:gapPanel}
 \end{figure}
 
-Three readings of Figure~\ref{fig:gapPanel}. \textbf{(i)} Hours fell in every focus country relative to the US since 1970 (DE/NL $\approx -25$ to $-30\%$; IT/ES $\approx -10$ to $-15\%$). \textbf{(ii)} The labour-wedge cross-country pattern has no clean structure: Italy's relative wedge drifts up, the UK's narrows, France stays roughly flat --- no obvious mirroring of the panel-(a) hours pattern. \textbf{(iii)} The 2023 cross-section is signed correctly but noisy: OLS slope $-9.9$\,hrs/pp, $R^2\!=\!0.16$, residual SD $\approx\!158$ hours, one third of the entire DE--US gap. Italy ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE, AT, FR) span $\approx\!200$ hours within a 6\,pp wedge band. Panel (c) thus motivates two questions: the true slope of the tax--hours relation (OLS-biased by $\tau$ endogeneity), and the wide residual scatter around it ($\approx\!158$ hours SD), into which Q4 and Q5 develop two institutional channels --- an hours cap and union bargaining --- as endogenous confounders.\footnote{Other candidates we do not model: cultural attitudes to work vs.\ leisure (Alesina, Glaeser \& Sacerdote 2005); home-production substitution (Rogerson 2008).}
+Three readings of Figure~\ref{fig:gapPanel}. \textbf{(i)} Hours fell in every focus country relative to the US since 1970 (DE/NL $\approx -25$ to $-30\%$; IT/ES $\approx -10$ to $-15\%$). \textbf{(ii)} The labour-wedge cross-country pattern has no clean structure: Italy's relative wedge drifts up, the UK's narrows, France stays roughly flat, no obvious mirroring of the panel-(a) hours pattern. \textbf{(iii)} The 2023 cross-section is signed correctly but noisy: OLS slope $-9.9$\,hrs/pp, $R^2\!=\!0.16$, residual SD $\approx\!158$ hours, one third of the entire DE--US gap. Italy ($\tau\!=\!45.1\%$) and Greece ($36.7\%$) work \emph{more} than France ($46.8\%$); the four highest-$\tau$ countries (BE, DE, AT, FR) span $\approx\!200$ hours within a 6\,pp wedge band. Panel (c) thus motivates two questions: the true slope of the tax--hours relation (OLS-biased by $\tau$ endogeneity), and the wide residual scatter around it ($\approx\!158$ hours SD), into which Q4 and Q5 develop two institutional channels, an hours cap and union bargaining, as endogenous confounders.\footnote{Other candidates we do not model: leisure complementarity / cultural attitudes to work (Alesina, Glaeser \& Sacerdote 2005), and home-production substitution.}
 
 % =========================================================================
 \section{Common framework for Q4 and Q5}
 % =========================================================================
 
 \subsection{Primitives}
-We adopt a quadratic-disutility worker, linear consumption, and a linear-quadratic firm-profit function --- the simplest closed-form specification that admits both worker- and firm-preferred hours and sign-determinate welfare conditions:
+We adopt a quadratic-disutility worker, linear consumption, and a linear-quadratic firm-profit function, the simplest closed-form specification that admits both worker- and firm-preferred hours and sign-determinate welfare conditions:
 \[
 V_w(h)=(1-\tau)wh-\tfrac{\alpha}{2}h^2,\;\; h^*=\frac{(1-\tau)w}{\alpha}; \qquad
 V_f(h)=Ah-\tfrac{\beta}{2}h^2-wh,\;\; h^{\mathrm{firm}}=\frac{A-w}{\beta}.
@@ -80,7 +80,7 @@ h^{\mathrm{soc}}(\tau,\alpha,A,\beta,w)  = \frac{A-\tau w}{\alpha+\beta}.
 The setup is shared by Q4 (regulation) and Q5 (unions). Wages are partial-equilibrium throughout.
 
 \subsection{Baseline calibration and the firm-power ordering}
-$A\!=\!2$, $w\!=\!1$, $\alpha\!=\!\beta\!=\!2$, $\tau\!=\!0.4$, $V_w^{0}\!=\!0.05$ gives $h^*\!=\!0.30$, $h^{\mathrm{soc}}\!=\!0.40$, $h^{\mathrm{firm}}\!=\!0.50$. \textbf{Justification of the parameter choices.} (i) $\tau\!=\!0.4$ is the population-weighted midpoint between US ($0.35$) and EU ($0.56$) labour-tax wedges (OECD \emph{Taxing Wages 2023}, Q1 panel (c)). (ii) The hours scale anchors $h^*\!=\!0.30$ to BLS-OECD hours-per-worker over awake-time at the US point ($\sim\!2{,}000$ work hours / $\sim\!6{,}500$ awake hours $\approx\!0.31$, in line with Prescott 2004). (iii) $\alpha\!=\!\beta$ is a symmetry assumption that makes the welfare-improving band of \eqref{eq:capwelf} collapse to the textbook expression $(h^*,h^{\mathrm{firm}})$, but \textbf{only the ordering $h^*\!<\!h^{\mathrm{soc}}\!<\!h^{\mathrm{firm}}$ is load-bearing} for what follows; the qualitative results are invariant in $\alpha,\beta$ separately, provided $A\!>\!w$, $\tau\!\in\!(0,1)$, and the sufficient condition $\alpha(A-w)>\beta(1-\tau)w$ holds (algebraically equivalent to the ordering; verified at calibration: $2\!=\!\alpha(A-w)>\beta(1-\tau)w\!=\!1.2$). (iv) $A\!=\!2,\,w\!=\!1$ are normalisations: the level of $A$ is identified only relative to $w$, and our results depend on the ratio $A/w$, not the absolute scale. (v) $V_w^{0}\!=\!0.05$ is the worker outside option used to pin the IR-binding wage. It is jointly determined with $w\!=\!1$: at the firm-power baseline IR binds, so $V_w(h^{\mathrm{firm}};w\!=\!1)\!=\!(1-\tau)w h^{\mathrm{firm}}-\tfrac{\alpha}{2}(h^{\mathrm{firm}})^{2}\!=\!0.05$ recovers $V_w^{0}$. The discriminant condition $A_v^{2}\!>\!4B_v V_w^{0}$ for a real larger root of \eqref{eq:rtm-quad} is verified in Appendix~\ref{app:q5}.
+$A\!=\!2$, $w\!=\!1$, $\alpha\!=\!\beta\!=\!2$, $\tau\!=\!0.4$, $V_w^{0}\!=\!0.05$ gives $h^*\!=\!0.30$, $h^{\mathrm{soc}}\!=\!0.40$, $h^{\mathrm{firm}}\!=\!0.50$. \textbf{Justification of the parameter choices.} (i) $\tau\!=\!0.4$ is the population-weighted midpoint between US ($0.35$) and EU ($0.56$) labour-tax wedges (OECD \emph{Taxing Wages 2023}, Q1 panel (c)). (ii) The hours scale anchors $h^*\!=\!0.30$ to BLS-OECD hours-per-worker over awake-time at the US point ($\sim\!2{,}000$ work hours / $\sim\!6{,}500$ awake hours $\approx\!0.31$, in line with standard macro-labour calibrations). (iii) $\alpha\!=\!\beta$ is a symmetry assumption that makes the welfare-improving band of \eqref{eq:capwelf} collapse to the textbook expression $(h^*,h^{\mathrm{firm}})$, but \textbf{only the ordering $h^*\!<\!h^{\mathrm{soc}}\!<\!h^{\mathrm{firm}}$ is load-bearing} for what follows; the qualitative results are invariant in $\alpha,\beta$ separately, provided $A\!>\!w$, $\tau\!\in\!(0,1)$, and the sufficient condition $\alpha(A-w)>\beta(1-\tau)w$ holds (algebraically equivalent to the ordering; verified at calibration: $2\!=\!\alpha(A-w)>\beta(1-\tau)w\!=\!1.2$). (iv) $A\!=\!2,\,w\!=\!1$ are normalisations: the level of $A$ is identified only relative to $w$, and our results depend on the ratio $A/w$, not the absolute scale. (v) $V_w^{0}\!=\!0.05$ is the worker outside option used to pin the IR-binding wage. It is jointly determined with $w\!=\!1$: at the firm-power baseline IR binds, so $V_w(h^{\mathrm{firm}};w\!=\!1)\!=\!(1-\tau)w h^{\mathrm{firm}}-\tfrac{\alpha}{2}(h^{\mathrm{firm}})^{2}\!=\!0.05$ recovers $V_w^{0}$. The discriminant condition $A_v^{2}\!>\!4B_v V_w^{0}$ for a real larger root of \eqref{eq:rtm-quad} is verified in Appendix~\ref{app:q5}.
 
 The ordering says that, when the firm has all the bargaining power, it overshoots the social optimum. We refer to this as the \emph{firm-power baseline} (the firm sets hours on its labour-demand curve at the wage that makes the worker indifferent between working and her outside option). With identical $\tau$ and identical preferences, the model predicts no US--EU hours gap under firm power \emph{or} under union bargaining: the gap must come from a country-specific institutional asymmetry, which Q4 (cap) and Q5 (union strength) supply.
 
@@ -88,10 +88,9 @@ The ordering says that, when the firm has all the bargaining power, it overshoot
 \section{Q4 -- Hours regulation: the optimality condition for a cap}
 % =========================================================================
 
-\begingroup\small\itshape\noindent\textbf{Question 4.} Derive the welfare effects of an hours cap on workers and firms; extend to heterogeneous workers.\endgroup
 
 \subsection{Modelling choice}
-A cap $\bar h$ is a quantity instrument that takes the firm's labour-demand response as given. \emph{What the trade-off captures.} Workers value leisure (low $h^*$); firms value output (high $h^{\mathrm{firm}}$); a binding cap forces hours from $h^{\mathrm{firm}}$ toward $\bar h$. Whether the redistribution is welfare-improving depends on whether $\bar h$ lands inside or outside the welfare-improving band defined by joint-surplus concavity: too tight a cap overshoots and destroys joint surplus. \emph{What this buys.} A closed-form welfare condition that depends only on the gap $h^{\mathrm{firm}}\!-\!h^{\mathrm{soc}}$. \emph{What it costs.} (a) Extensive margin shut down (Q1 footnote): no firm response on number of bodies hired. (b) Wages held at the firm-power IR-binding level (no adjustment of $w$ to absorb the cap). (c) Representative-worker setup (homogeneous preferences). The closest sufficient-statistics analogue is Lee--Saez (2012) on the minimum wage, but their welfare logic runs through extensive-margin rationing whereas a binding hours cap rations \emph{intensive}-margin only.
+A cap $\bar h$ is a quantity instrument that takes the firm's labour-demand response as given. \emph{What the trade-off captures.} Workers value leisure (low $h^*$); firms value output (high $h^{\mathrm{firm}}$); a binding cap forces hours from $h^{\mathrm{firm}}$ toward $\bar h$. Whether the redistribution is welfare-improving depends on whether $\bar h$ lands inside or outside the welfare-improving band defined by joint-surplus concavity: too tight a cap overshoots and destroys joint surplus. \emph{What this buys.} A closed-form welfare condition that depends only on the gap $h^{\mathrm{firm}}\!-\!h^{\mathrm{soc}}$. \emph{What it costs.} (a) Extensive margin shut down (Q1 footnote): no firm response on number of bodies hired. (b) Wages held at the firm-power IR-binding level (no adjustment of $w$ to absorb the cap). (c) Representative-worker setup (homogeneous preferences). The closest sufficient-statistics analogue is the minimum-wage literature, but its welfare logic runs through extensive-margin rationing whereas a binding hours cap rations \emph{intensive}-margin only.
 
 \subsection{Setup: firm-power baseline}
 At $w^*\!=\!1$ pinning the worker's IR at $V_w^0$, the firm picks $h^{\mathrm{firm}}\!=\!(A-w^*)/\beta\!=\!0.50$. Hours sit \emph{above} $h^{\mathrm{soc}}\!=\!0.40$, so the cap has something to correct. With cap $\bar h$ the constrained equilibrium is $h^{\mathrm{eq}}(\bar h)\!=\!\min\{\bar h,\,h^{\mathrm{firm}}\}$.
@@ -120,12 +119,12 @@ Full Lagrangian/FOC derivation of \eqref{eq:capwelf} is in Appendix~\ref{app:q4}
 \end{equation}
 provided $h^{\mathrm{firm}}>h^{\mathrm{soc}}$ (which holds at our baseline, $0.50\!>\!0.40$). The peak gain at $\bar h\!=\!h^{\mathrm{soc}}$ is $\tfrac{1}{2}(\alpha+\beta)(h^{\mathrm{firm}}-h^{\mathrm{soc}})^{2}\!=\!0.020$ at calibration. At $\alpha\!=\!\beta$ the band collapses to $\bar h\!\in\!(h^*,h^{\mathrm{firm}})\!=\!(0.30,0.50)$.
 
-\textbf{Reading.} A cap that pulls $h$ \emph{toward} the joint-surplus optimum is unambiguously welfare-improving (the green band of Figure~\ref{fig:simcap}c). Two thresholds matter as the cap tightens past $h^{\mathrm{soc}}$. Joint surplus turns negative once $\bar h\!<\!2h^{\mathrm{soc}}-h^{\mathrm{firm}}\!=\!h^{*}\!=\!0.30$ (firm losses begin to dominate worker gains). The worker individually keeps benefiting until the cap hits her bliss $h^{*}\!=\!0.30$; she only becomes worse off than no-cap once the cap tightens further to $\bar h\!<\!2h^{*}-h^{\mathrm{firm}}\!=\!0.10$ --- well below the joint-surplus threshold (Appendix~\ref{app:q4}).
+\textbf{Reading.} A cap that pulls $h$ \emph{toward} the joint-surplus optimum is unambiguously welfare-improving (the green band of Figure~\ref{fig:simcap}c). Two thresholds matter as the cap tightens past $h^{\mathrm{soc}}$. Joint surplus turns negative once $\bar h\!<\!2h^{\mathrm{soc}}-h^{\mathrm{firm}}\!=\!h^{*}\!=\!0.30$ (firm losses begin to dominate worker gains). The worker individually keeps benefiting until the cap hits her bliss $h^{*}\!=\!0.30$; she only becomes worse off than no-cap once the cap tightens further to $\bar h\!<\!2h^{*}-h^{\mathrm{firm}}\!=\!0.10$, well below the joint-surplus threshold (Appendix~\ref{app:q4}).
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=\textwidth]{sim_cap.pdf}
-\caption{\small\textbf{Hours-cap simulation.} \textbf{(a)} Primitives $V_w, V_f, W$ over $h$ with bliss points marked; \textbf{(b)} surpluses along $h^{\mathrm{eq}}(\bar h)\!=\!\min\{\bar h,h^{\mathrm{firm}}\}$; \textbf{(c)} $\Delta W(\bar h)$ vs no-cap baseline --- green band is the welfare-improving region of \eqref{eq:capwelf}, red is overshoot. Maximum gain $\Delta W\!=\!0.020$ at $\bar h\!=\!h^{\mathrm{soc}}\!=\!0.40$.}
+\caption{\small\textbf{Hours-cap simulation.} \textbf{(a)} Primitives $V_w, V_f, W$ over $h$ with bliss points marked; \textbf{(b)} surpluses along $h^{\mathrm{eq}}(\bar h)\!=\!\min\{\bar h,h^{\mathrm{firm}}\}$; \textbf{(c)} $\Delta W(\bar h)$ vs no-cap baseline, green band is the welfare-improving region of \eqref{eq:capwelf}, red is overshoot. Maximum gain $\Delta W\!=\!0.020$ at $\bar h\!=\!h^{\mathrm{soc}}\!=\!0.40$.}
 \label{fig:simcap}
 \end{figure}
 
@@ -135,13 +134,12 @@ provided $h^{\mathrm{firm}}>h^{\mathrm{soc}}$ (which holds at our baseline, $0.5
 \section{Q5 -- A single union as welfare-restorer in a two-sector economy}
 % =========================================================================
 
-\begingroup\small\itshape\noindent\textbf{Question 5.} Show how sectoral productivity shifts affect hours under competition vs.\ unions; what data would test the hypotheses?\endgroup
 
 \subsection{Modelling choice}
-\emph{What the trade-off captures.} The Walrasian benchmark rewards productivity through wages, so a sectoral shock is absorbed by reallocating hours; the union changes the channel of absorption (wages take more, hours take less) and, under downward wage rigidity, makes that channel asymmetric across positive and negative shocks. \emph{What this buys.} A single bargain primitive ($\eta$) delivers a continuous comparative static between the firm-power baseline ($\eta\!=\!0$) and the worker-power limit ($\eta\!\to\!1$), nesting the Q4 distortion and the Walrasian benchmark as endpoints. \emph{What it costs.} (a) A single encompassing union, following Calmfors--Driffill (1988): encompassing (national/centralised) unions internalise their macroeconomic effect, so their objective aligns with worker surplus rather than with subgroup rent extraction, letting us match the European centralised-bargaining institutional reality. (b) Right-to-manage instead of efficient bargaining --- the standard tractability convention for unionised wage-setting. (c) Informal labour and the public sector are outside the model.\footnote{An alternative model would have the union charge a share $s$ of worker income to finance itself; the union's revenue then scales with worker income, so its incentive maps directly onto worker surplus and the alignment result below is unchanged.}
+\emph{What the trade-off captures.} The Walrasian benchmark rewards productivity through wages, so a sectoral shock is absorbed by reallocating hours; the union changes the channel of absorption (wages take more, hours take less) and, under downward wage rigidity, makes that channel asymmetric across positive and negative shocks. \emph{What this buys.} A single bargain primitive ($\eta$) delivers a continuous comparative static between the firm-power baseline ($\eta\!=\!0$) and the worker-power limit ($\eta\!\to\!1$), nesting the Q4 distortion and the Walrasian benchmark as endpoints. \emph{What it costs.} (a) A single encompassing union, following Calmfors--Driffill (1988): encompassing (national/centralised) unions internalise their macroeconomic effect, so their objective aligns with worker surplus rather than with subgroup rent extraction, letting us match the European centralised-bargaining institutional reality. (b) Right-to-manage instead of efficient bargaining, the standard tractability convention for unionised wage-setting. (c) Informal labour and the public sector are outside the model.\footnote{An alternative model would have the union charge a share $s$ of worker income to finance itself; the union's revenue then scales with worker income, so its incentive maps directly onto worker surplus and the alignment result below is unchanged.}
 
 \subsection{Two-sector economy: competitive benchmark}
-Two sectors $j\!\in\!\{\textsc{g},\textsc{b}\}$ (good, bad) with productivities $A_{\textsc{g}}\!>\!A_{\textsc{b}}$, drawn from a mean-preserving sectoral shock around a symmetric pre-shock benchmark $A_{\rm pre}\!=\!2$ (we set $A_{\textsc{g}}\!=\!2.2$, $A_{\textsc{b}}\!=\!1.8$, a $\pm 10\%$ shock chosen as a conservative magnitude for developed-world cross-sectoral TFP dispersion; Hsieh--Klenow (2009) document substantially wider dispersion in developing economies, so $\pm 10\%$ sits below their headline range). Within each sector a representative worker--firm pair has the quadratic primitives of \S 3.
+Two sectors $j\!\in\!\{\textsc{g},\textsc{b}\}$ (good, bad) with productivities $A_{\textsc{g}}\!>\!A_{\textsc{b}}$, drawn from a mean-preserving sectoral shock around a symmetric pre-shock benchmark $A_{\rm pre}\!=\!2$ (we set $A_{\textsc{g}}\!=\!2.2$, $A_{\textsc{b}}\!=\!1.8$, a $\pm 10\%$ shock chosen as a conservative magnitude for developed-world cross-sectoral TFP dispersion (the developing-country literature documents substantially wider dispersion, so this magnitude sits below that range)). Within each sector a representative worker--firm pair has the quadratic primitives of \S 3.
 
 \textbf{Competitive (Walrasian) benchmark.} With perfect labour mobility across sectors, sector wages clear at the marginal value product: the firm's labour demand is $h_j^d(w)\!=\!(A_j-w)/\beta$, and the worker's IR pins $w_j^{\rm FM}$ such that hours equal $h^{\mathrm{firm}}_j(w_j^{\rm FM})$. The headline competitive comparative static is:
 \[
@@ -157,9 +155,9 @@ w_j(\eta;A_j)=\arg\max_w\, \bigl[V_w(w,h_j^d(w))-V_w^{\,0}\bigr]^{\eta}\; V_f(w,
 \end{equation}
 The first-order condition reduces to a quadratic in $x_j\!\equiv\!A_j\!-\!w_j$ (Appendix~\ref{app:q5}) with limits $h_j(0)\!=\!h^{\mathrm{firm}}_j$ and $h_j(1)\!<\!h^{*}(w_j(1))$; $\partial w_j/\partial\eta>0$, $\partial h_j/\partial\eta<0$ throughout.
 
-\textbf{Welfare-restorer.} Under the firm-power baseline $h^{\mathrm{firm}}_j\!>\!h^{\mathrm{soc}}_j\!>\!h_j^{*}$, so as $\eta$ rises the union pulls hours \emph{toward} the social optimum: joint surplus rises while $h_j(\eta)\!\in\!(h^{\mathrm{soc}}_j,h^{\mathrm{firm}}_j)$ and falls thereafter --- the overshoot logic of Q4. Worker surplus is monotone in $\eta$, so any planner with positive worker weight strictly prefers $\eta\!>\!0$.
+\textbf{Welfare-restorer.} Under the firm-power baseline $h^{\mathrm{firm}}_j\!>\!h^{\mathrm{soc}}_j\!>\!h_j^{*}$, so as $\eta$ rises the union pulls hours \emph{toward} the social optimum: joint surplus rises while $h_j(\eta)\!\in\!(h^{\mathrm{soc}}_j,h^{\mathrm{firm}}_j)$ and falls thereafter, the overshoot logic of Q4. Worker surplus is monotone in $\eta$, so any planner with positive worker weight strictly prefers $\eta\!>\!0$.
 
-\textbf{US vs.\ EU calibration.} OECD ICTWSS coverage maps US ($\sim\!12\%$) to $\eta^{\,US}\!\approx\!0.15$ and population-weighted EU coverage ($\sim\!60$--$70\%$ across DE/FR/IT/SE under \emph{erga omnes}) to $\eta^{\,EU}\!\approx\!0.5$. At these calibrated values we get $h^{\,US}\!\approx\!0.46$ at $\eta^{\,US}\!=\!0.15$ and EU mean hours $\tfrac{1}{2}(h_{\textsc{g}}\!+\!h_{\textsc{b}})\!\approx\!0.38$ at $\eta^{\,EU}\!=\!0.5$ (sectoral $h_{\textsc{g}}\!\approx\!0.42$, $h_{\textsc{b}}\!\approx\!0.33$), an EU--US gap of order $\approx\!0.08$ ($\approx\!19\%$ in logs) --- the right order of magnitude to absorb a substantial fraction of the gap documented in Q1.
+\textbf{US vs.\ EU calibration.} OECD ICTWSS coverage maps US ($\sim\!12\%$) to $\eta^{\,US}\!\approx\!0.15$ and population-weighted EU coverage ($\sim\!60$--$70\%$ across DE/FR/IT/SE under \emph{erga omnes}) to $\eta^{\,EU}\!\approx\!0.5$. At these calibrated values we get $h^{\,US}\!\approx\!0.46$ at $\eta^{\,US}\!=\!0.15$ and EU mean hours $\tfrac{1}{2}(h_{\textsc{g}}\!+\!h_{\textsc{b}})\!\approx\!0.38$ at $\eta^{\,EU}\!=\!0.5$ (sectoral $h_{\textsc{g}}\!\approx\!0.42$, $h_{\textsc{b}}\!\approx\!0.33$), an EU--US gap of order $\approx\!0.08$ ($\approx\!19\%$ in logs), the right order of magnitude to absorb a substantial fraction of the gap documented in Q1.
 
 \subsection{Sectoral shocks: union pass-through and asymmetry}
 Substituting $A_{\textsc{g}}, A_{\textsc{b}}$ into \eqref{eq:rtm-bargain} at $\eta\!=\!0.5$ (Figure~\ref{fig:simshocks}): $w_{\textsc{g}}^{\,U}\!=\!1.354,\,h_{\textsc{g}}^{\,U}\!=\!0.423$ and $w_{\textsc{b}}^{\,U}\!=\!1.132,\,h_{\textsc{b}}^{\,U}\!=\!0.334$. The good sector splits the productivity gain into wages ($\Delta w/w\!\approx\!+25\%$) and reduced hours ($\Delta h/h\!\approx\!-24\%$); joint surplus falls only $\approx\!5\%$ ($W_g^{\rm FM}\!=\!0.363\to W_g^{U}\!=\!0.344$), with the bulk of the redistribution being a wage-rent transfer rather than a deadweight loss.
@@ -180,10 +178,9 @@ Three falsifiable predictions: (a) hours decrease in union bargaining strength c
 \section{Q7 -- Welfare comparison: a revealed-preference reading}
 % =========================================================================
 
-\begingroup\small\itshape\noindent\textbf{Question 7.} Write a stylised two-system model and derive conditions under which the European system is welfare-enhancing relative to the US.\endgroup
 
 \subsection{Modelling choice}
-The Q4 cap and the Q5 union, in our specification, are both quantity instruments that pull hours from $h^{\mathrm{firm}}$ toward $h^{\mathrm{soc}}$.\footnote{We focus on hours throughout. The wage channel is implicit: the union's effect on $h$ operates through a bargained wage premium, and the Saez--Stantcheva $\lambda$ assigns welfare value to the firm-to-worker transfer that this premium effects. We do not separately analyse cross-country wage differences (Krueger--Summers 1988), which the prompt does not ask about and our partial-equilibrium calibration cannot speak to.} Whether a given configuration is welfare-enhancing depends on \emph{whose} welfare we are summing. The natural representation of the cross-country welfare disagreement is the Saez--Stantcheva (2016) generalised welfare weight: the planner attaches premium $\lambda\!\in\![0,1]$ to a worker dollar over a firm-owner dollar,
+The Q4 cap and the Q5 union, in our specification, are both quantity instruments that pull hours from $h^{\mathrm{firm}}$ toward $h^{\mathrm{soc}}$.\footnote{We focus on hours throughout. The wage channel is implicit: the union's effect on $h$ operates through a bargained wage premium, and the Saez--Stantcheva $\lambda$ assigns welfare value to the firm-to-worker transfer that this premium effects. We do not separately analyse cross-country wage differences, which the prompt does not ask about and our partial-equilibrium calibration cannot speak to.} Whether a given configuration is welfare-enhancing depends on \emph{whose} welfare we are summing. The natural representation of the cross-country welfare disagreement is the Saez--Stantcheva (2016) generalised welfare weight: the planner attaches premium $\lambda\!\in\![0,1]$ to a worker dollar over a firm-owner dollar,
 \[
 W^{\lambda}(\eta) = (1+\lambda)\,V_w(\eta) + (1-\lambda)\,V_f(\eta).
 \]
@@ -203,14 +200,14 @@ $\eta^{*}$ is monotonically increasing in $\lambda$, with $\eta^{*}(0)\!=\!0$ (f
 \subsection{Confronting data: observed unionisation in US and EU}
 We map the Nash-bargain weight $\eta$ to OECD bargaining-coverage data: $\hat\eta^{\,US}\!\approx\!0.15$ (coverage $\sim\!12\%$), $\hat\eta^{\,EU}\!\approx\!0.50$ (coverage $\sim\!60\%$ population-weighted across DE/FR/IT/SE).\footnote{The mapping is a coarse linear proxy: it overstates Nordic high-density regimes and understates French \emph{erga omnes} extension regimes, where coverage is high but bargaining power is weak.} These two observations admit two competing readings.
 
-\paragraph{Reading A --- common $\lambda$.} If both countries share the HSV-anchored $\lambda\!=\!0.30$, the welfare-optimum is $\eta^{*}(0.30)\!=\!0.58$, so the US ($\hat\eta\!=\!0.15$) is heavily under-unionised and the EU ($\hat\eta\!=\!0.50$) only mildly. The implied losses $W^{0.30}(\eta^{*})-W^{0.30}(\hat\eta)$ are $0.022$ for the US and $0.001$ for the EU --- the US leaves $\sim\!8\%$ of joint surplus on the table. We flag this reading but do not endorse it (see Reading B).
+\paragraph{Reading A, common $\lambda$.} If both countries share the Heathcote--Storesletten--Violante (2017) progressivity index $\tau_p\!\approx\!0.18$, which under log preferences maps to $\lambda\!\approx\!0.30$, the welfare-optimum is $\eta^{*}(0.30)\!=\!0.58$, so the US ($\hat\eta\!=\!0.15$) is heavily under-unionised and the EU ($\hat\eta\!=\!0.50$) only mildly. The implied losses $W^{0.30}(\eta^{*})-W^{0.30}(\hat\eta)$ are $0.022$ for the US and $0.001$ for the EU, the US leaves $\sim\!8\%$ of joint surplus on the table. We flag this reading but do not endorse it (see Reading B).
 
-\paragraph{Reading B --- country-specific $\lambda$ (preferred).} Inverting $\eta^{*}(\lambda)$ on observed coverage:
+\paragraph{Reading B, country-specific $\lambda$ (preferred).} Inverting $\eta^{*}(\lambda)$ on observed coverage:
 \[
 \hat\eta^{\,US}\!=\!0.15\;\Longrightarrow\;\lambda^{\,US,\rm rev}\!\approx\!0.05,\qquad
 \hat\eta^{\,EU}\!=\!0.50\;\Longrightarrow\;\lambda^{\,EU,\rm rev}\!\approx\!0.24.
 \]
-Each country's institutions are at-optimum given its own fairness primitive ($\Delta\lambda\!\approx\!0.19$); the union-channel hours drag is small in the US ($h^{\mathrm{firm}}\!\to\!0.45$, $-9\%$) and larger in the EU ($h^{\mathrm{firm}}\!\to\!0.38$, $-24\%$). \textbf{Verdict.} Neither country is welfare-better in absolute terms --- each implements its own optimum, and the EU--US hours gap reflects a fairness-belief gap rather than institutional misalignment, supplying the missing variable in Q1 panel (c). The data prefer this reading over A (Figure~\ref{fig:simq7etalambda}): Reading A would put all countries on the horizontal line $\eta\!=\!\eta^{*}(0.30)$, which the observed range (US 0.15, FR 0.98, SE 0.88, DE 0.52) clearly violates.\footnote{The cap channel (Q4) is orthogonal at our calibration: the union alone pulls $h$ below any sensible cap, so Q4 is a counterfactual backstop, not an active driver. Outside the labour-market block, dominant US--EU welfare differences run through non-labour channels (life expectancy, consumption levels --- Jones--Klenow 2016); our verdict is sign-determinate but quantitatively second-order.}
+Each country's institutions are at-optimum given its own fairness primitive ($\Delta\lambda\!\approx\!0.19$); the union-channel hours drag is small in the US ($h^{\mathrm{firm}}\!\to\!0.45$, $-9\%$) and larger in the EU ($h^{\mathrm{firm}}\!\to\!0.38$, $-24\%$). \textbf{Verdict.} Neither country is welfare-better in absolute terms, each implements its own optimum, and the EU--US hours gap reflects a fairness-belief gap rather than institutional misalignment, supplying the missing variable in Q1 panel (c). The data prefer this reading over A (Figure~\ref{fig:simq7etalambda}): Reading A would put all countries on the horizontal line $\eta\!=\!\eta^{*}(0.30)$, which the observed range (US 0.15, FR 0.98, SE 0.88, DE 0.52) clearly violates.\footnote{The cap channel (Q4) is orthogonal at our calibration: the union alone pulls $h$ below any sensible cap, so Q4 is a counterfactual backstop, not an active driver. Outside the labour-market block, dominant US--EU welfare differences run through non-labour channels (life expectancy, consumption levels); our verdict is sign-determinate but quantitatively second-order.}
 
 \begin{figure}[H]
 \centering
@@ -221,37 +218,28 @@ Each country's institutions are at-optimum given its own fairness primitive ($\D
 
 % =========================================================================
 \section*{References}
-% =========================================================================
 \begingroup
 \setlength{\parindent}{-1.2em}\setlength{\leftskip}{1.2em}
 \footnotesize
 
 Alesina, A., \& Angeletos, G.-M.\ (2005). Fairness and Redistribution. \emph{AER} 95(4), 960--980 [\textbf{Q7 country-specific $\lambda$}].
 
-Alesina, A., Glaeser, E., \& Sacerdote, B.\ (2005). Work and Leisure in the United States and Europe: Why So Different? \emph{NBER Macroeconomics Annual} 20, 1--64 [\textbf{Q1 cultural confounder}].
+Alesina, A., Glaeser, E., \& Sacerdote, B.\ (2005). Work and Leisure in the United States and Europe: Why So Different? \emph{NBER Macroeconomics Annual} 20, 1--64 [\textbf{Q1 cultural-attitudes alternative}].
 
-Bick, A., Br\"uggemann, B., \& Fuchs-Sch\"undeln, N.\ (2019). Hours Worked in Europe and the US: New Data, New Answers. \emph{Scandinavian Journal of Economics} 121(4), 1381--1416 [\textbf{Q1 decomposition}].
+Bick, A., Br\"uggemann, B., \& Fuchs-Sch\"undeln, N.\ (2019). Hours Worked in Europe and the US: New Data, New Answers. \emph{Scandinavian Journal of Economics} 121(4), 1381--1416 [\textbf{Q1 H/N decomposition}].
 
 Calmfors, L., \& Driffill, J.\ (1988). Bargaining Structure, Corporatism and Macroeconomic Performance. \emph{Economic Policy} 3(6), 13--61 [\textbf{Q5 encompassing-union foundation}].
 
 Estev\~ao, M., \& S\'a, F.\ (2008). The 35-Hour Workweek in France: Straightjacket or Welfare Improvement? \emph{Economic Policy} 23(55), 418--463 [\textbf{Q4 Aubry empirical anchor}].
 
-Hsieh, C.-T., \& Klenow, P.\ J.\ (2009). Misallocation and Manufacturing TFP in China and India. \emph{QJE} 124(4) [\textbf{Q5 TFP dispersion}].
-
-Lee, D., \& Saez, E.\ (2012). Optimal Minimum Wage Policy in Competitive Labor Markets. \emph{JPubE} 96(9-10) [\textbf{Q4 sufficient-statistics analogue}].
-
-Rogerson, R.\ (2008). Structural Transformation and the Deterioration of European Labor Market Outcomes. \emph{JPE} 116(2), 235--259 [\textbf{Q1 home-production confounder}].
-
-Heathcote, J., Storesletten, K., \& Violante, G.\ L.\ (2017). Optimal Tax Progressivity: An Analytical Framework. \emph{QJE} 132(4), 1693--1754 [\textbf{Q7 $\lambda\!=\!0.30$ anchor}].
-
-Jones, C.\ I., \& Klenow, P.\ J.\ (2016). Beyond GDP? Welfare across Countries and Time. \emph{AER} 106(9), 2426--2457 [\textbf{Q7 non-labour benchmark}].
+Heathcote, J., Storesletten, K., \& Violante, G.\ L.\ (2017). Optimal Tax Progressivity: An Analytical Framework. \emph{QJE} 132(4), 1693--1754 [\textbf{Q7 $\lambda\!=\!0.30$ calibration anchor}].
 
 Saez, E., \& Stantcheva, S.\ (2016). Generalized Social Marginal Welfare Weights for Optimal Tax Theory. \emph{AER} 106(1), 24--45 [\textbf{Q7 $\lambda$-weighted welfare}].
 
+\medskip
+\noindent\emph{Replication scripts in \texttt{research/}: \texttt{build\_figure\_panel.py} (Q1 figure); \texttt{sim\_models\_v2.py} (Q5 RTM and sectoral shocks); \texttt{sim\_mechanisms.py} (Q4 cap simulation).}
 \endgroup
 
-% =========================================================================
-\appendix
 \section{Formal derivation of the Q4 cap results}\label{app:q4}
 % =========================================================================
 
@@ -331,7 +319,7 @@ The free-market larger root is $x_j^{\mathrm{FM}}(A_j)=[A_v+\sqrt{A_v^{2}-4B_v V
 \[
 \partial h_j^{\mathrm{FM}}/\partial A_j>0,\qquad \partial w_j^{\mathrm{FM}}/\partial A_j>0
 \]
---- ``hours and wages follow productivity'' under perfect labour mobility.
+``Hours and wages follow productivity'' under perfect labour mobility.
 
 \subsection{Comparative statics in $\eta$ and the welfare-restorer claim}
 Implicit differentiation of \eqref{eq:rtm-quad}:
