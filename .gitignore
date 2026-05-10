@@ -1,8 +1,7 @@
-# LaTeX build artefacts (keep replication script .out files: research/*.out)
+# LaTeX build artefacts
 *.aux
 *.log
-problem1.out
-plan.out
+*.out
 *.toc
 *.fls
 *.fdb_latexmk
@@ -22,8 +21,9 @@ Thumbs.db
 .idea/
 *.swp
 
-# Uncompressed copy of large OECD CSV (keep .gz only)
-research/oecd_emp_long.csv
+# Python
+__pycache__/
+*.pyc
 
 # Tmp downloads
 *.tmp
